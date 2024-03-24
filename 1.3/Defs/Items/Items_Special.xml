@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <ThingDef ParentName="ResourceBase">
+    <defName>USH_PhilosophersStone</defName>
+    <label>philosopher's stone</label>
+    <description>Is your life gray and dim? Paint it gold and change your view in a snap of a finger!
+\nAn advanced device used for Glitterworld alchemy. It is capable of changing the atomic structure of objects, especially when it comes to steel and gold. It is extremely easy to use, but harder to craft. This device has caused a rampant riot of robberies ever since aristocrats used it to satisfy their royal preferences, while the poor found it an opportunity to improve their standard of living.</description>
+    <graphicData>
+      <texPath>Things/Item/Misc/PhilosophersStone</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <MarketValue>120</MarketValue>
+      <Mass>0.15</Mass>
+      <Flammability>0.7</Flammability>
+      <DeteriorationRate>1.0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+  
+  <ThingDef ParentName="ResourceBase">
+    <defName>USH_CrystalMechanites</defName>
+    <label>lustrous mechanites</label>
+    <description>Mechanites meant to manipulate physical objects. They are capable of welding, gluing, hammering and repairing most component-based mechanisms. Unlike medical mechanites, these cannot operate on organic matter and have a different idle behavior. When idle, they become crystalline.</description>
+    <graphicData>
+      <texPath>Things/Item/Misc/CrystalMechanites</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <stackLimit>25</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <MarketValue>300</MarketValue>
+      <Mass>0.3</Mass>
+      <Flammability>0</Flammability>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+  </ThingDef>
+  
+   <ThingDef ParentName="ResourceBase">
+    <defName>USH_GlitterChip</defName>
+    <label>glitterworld fragment</label>
+    <description>A device storing complex data about Glitterworld technology. It contains information, blueprints, and theories, making it a crucial element for engineers and craftsmen. Building with Glitterworld fragments is significantly easier due to the complexity of their stored data. With this device one can recreate various high-tech machines without the need to understand how the mechanisms actually work.</description>
+    <graphicData>
+      <texPath>Things/Item/Misc/GlitterChip</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Metal_Drop</soundInteract>
+    <soundDrop>Standard_Drop</soundDrop>
+    <stackLimit>75</stackLimit>
+    <healthAffectsPrice>false</healthAffectsPrice>
+    <statBases>
+      <MaxHitPoints>60</MaxHitPoints>
+      <MarketValue>280</MarketValue>
+      <Mass>0.8</Mass>
+      <Flammability>0.6</Flammability>
+      <DeteriorationRate>2.0</DeteriorationRate>
+    </statBases>
+    <intricate>true</intricate>
+    <thingCategories>
+      <li>Manufactured</li>
+    </thingCategories>
+    <tradeTags>
+      <li>ExoticMisc</li>
+    </tradeTags>
+    <thingSetMakerTags><li>RewardStandardHighFreq</li></thingSetMakerTags>
+    <allowedArchonexusCount>5</allowedArchonexusCount>
+  </ThingDef>
+</Defs>

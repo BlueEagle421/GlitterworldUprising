@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <USH_GU_ModName>Ushankas Glitterworld Uprising</USH_GU_ModName>
+
+  <USH_GU_SkinSettingExplanation>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.
+Note that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GU_SkinSettingExplanation>
+
+  <USH_GU_SkinSettingTooltip>If enabled the skin color will not get changed after operation.</USH_GU_SkinSettingTooltip>
+  <USH_GU_SkinSettingLabel>Disable skin replacments changing actual pawn's skin color</USH_GU_SkinSettingLabel>
+  
+  <USH_GU_NoPower>Can't analyze: No power</USH_GU_NoPower>
+  <USH_GU_Analyzing>Analyzing</USH_GU_Analyzing>
+  
+  <USH_GU_Ready>Ready for usage</USH_GU_Ready>
+  <USH_GU_WarmingUp>Warming up</USH_GU_WarmingUp>
+  
+  <USH_GU_Reconstructing>Reconstructing</USH_GU_Reconstructing>
+  <USH_GU_TimeLeft>time left</USH_GU_TimeLeft>
+  
+  <USH_GU_AnalyzerFoundNoFuel>Glitterworld-analyzer tried to produce, but found no stored components. Restarting progress.</USH_GU_AnalyzerFoundNoFuel>
+  
+  <USH_GU_Maintained>Maintained</USH_GU_Maintained>
+  <USH_GU_ResConducted>Research conducted</USH_GU_ResConducted>
+  <USH_GU_DetBuildables>Detected buildables</USH_GU_DetBuildables>
+  
+  <USH_GU_Repairing>Repairing</USH_GU_Repairing>
+  <USH_GU_Overheating>Overheating</USH_GU_Overheating>
+  <USH_GU_CoolingDown>Cooling down</USH_GU_CoolingDown>
+  
+
+  
+  <!--Special Gizmos-->
+  
+  <USH_GU_DesensitizeNow>Desensitize now</USH_GU_DesensitizeNow>
+  <USH_GU_DesensitizeDesc>Desensitize all connected patients. If no fuel or no patients are found, the machine won't do anything.</USH_GU_DesensitizeDesc>
+  <USH_GU_DesensitizeCost>Medicine needed for desensitization</USH_GU_DesensitizeCost>
+  
+  <USH_GU_OverclockLabel>Overclock</USH_GU_OverclockLabel>
+  <USH_GU_OverclockDesc>Quadruple repairing speed with the cost of higher power consumption and an overheat risk.</USH_GU_OverclockDesc>
+
+  <USH_GU_MaintainNowLabel>Maintain now</USH_GU_MaintainNowLabel>
+  <USH_GU_MaintainNowDesc>Send out mechanites to replace broken components in all machines in need. This process is automatically executed, but can be done now if needed.</USH_GU_MaintainNowDesc>
+  
+  <USH_GU_BuildForbiddenLabel>Build forbidden</USH_GU_BuildForbiddenLabel>
+  <USH_GU_BuildForbiddenDesc>If on, the machine will build frames that are forbidden. If off, it will ignore them.</USH_GU_BuildForbiddenDesc>
+
+  <!--Find Gizmos-->
+  
+  <USH_GU_FindRepairablesLabel>Find repairables</USH_GU_FindRepairablesLabel>
+  <USH_GU_FindRepairablesDesc>Find all objects in range that can be repaired by the machine.</USH_GU_FindRepairablesDesc>
+  
+  <USH_GU_FindBreakdownablesLabel>Find breakdownables</USH_GU_FindBreakdownablesLabel>
+  <USH_GU_FindBreakdownablesDesc>Find all objects in range that can break down.</USH_GU_FindBreakdownablesDesc>
+  
+  <USH_GU_FindBuildablesLabel>Find buildables</USH_GU_FindBuildablesLabel>
+  <USH_GU_FindBuildablesDesc>Find all objects in range that contain resources and can be built.</USH_GU_FindBuildablesDesc>
+
+</LanguageData>
