@@ -408,7 +408,7 @@ It also conducts a bit of passive research on its own. Note that it must be conn
     </graphicData>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <passability>Impassable</passability>
-	<tickerType>Normal</tickerType>
+	<tickerType>Rare</tickerType>
 	<rotatable>true</rotatable>
 	<defaultPlacingRot>South</defaultPlacingRot>
     <fillPercent>0.3</fillPercent>
@@ -424,8 +424,8 @@ It also conducts a bit of passive research on its own. Note that it must be conn
       <Mass>80</Mass>
 	  <Beauty>0</Beauty>
       <Flammability>0</Flammability>
-	  <USH_DaysPerGlitterProduction>6</USH_DaysPerGlitterProduction>
-	  <USH_PowerPerGlitterProduction>600</USH_PowerPerGlitterProduction>
+	  <USH_AnalyzerDaysPerProduction>6</USH_AnalyzerDaysPerProduction>
+	  <USH_AnalyzerPowerPerProduction>600</USH_AnalyzerPowerPerProduction>
     </statBases>
     <size>(1,1)</size>
 	<comps>
@@ -437,9 +437,9 @@ It also conducts a bit of passive research on its own. Note that it must be conn
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
 	  <li Class="GliterworldUprising.CompProperties_GlitterworldAnalyzer"> 
-		<thing>USH_GlitterChip</thing>
-		<fuelNeeded>3</fuelNeeded>
-		<energyPerDayMultiplier>1000</energyPerDayMultiplier>
+		<thingDef>USH_GlitterChip</thingDef>
+		<fuelConsumption>3</fuelConsumption>
+		<powerPerDayMultiplier>1000</powerPerDayMultiplier>
 	  </li>
 	  <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
@@ -518,8 +518,8 @@ It also conducts a bit of passive research on its own. Note that it must be conn
 	<comps>
       <li Class="CompProperties_Facility">
         <statOffsets>
-          <USH_DaysPerGlitterProduction>-0.45</USH_DaysPerGlitterProduction>
-		  <USH_PowerPerGlitterProduction>800</USH_PowerPerGlitterProduction>
+          <USH_AnalyzerDaysPerProduction>-0.45</USH_AnalyzerDaysPerProduction>
+		  <USH_AnalyzerPowerPerProduction>800</USH_AnalyzerPowerPerProduction>
         </statOffsets>
         <maxSimultaneous>4</maxSimultaneous>
       </li>
@@ -578,8 +578,8 @@ It also conducts a bit of passive research on its own. Note that it must be conn
 	<comps>
       <li Class="CompProperties_Facility">
         <statOffsets>
-          <USH_DaysPerGlitterProduction>-0.25</USH_DaysPerGlitterProduction>
-		  <USH_PowerPerGlitterProduction>450</USH_PowerPerGlitterProduction>
+          <USH_AnalyzerDaysPerProduction>-0.25</USH_AnalyzerDaysPerProduction>
+		  <USH_AnalyzerPowerPerProduction>450</USH_AnalyzerPowerPerProduction>
         </statOffsets>
         <maxSimultaneous>4</maxSimultaneous>
       </li>
@@ -597,7 +597,7 @@ It also conducts a bit of passive research on its own. Note that it must be conn
   </ThingDef>
   
   <StatDef>
-    <defName>USH_DaysPerGlitterProduction</defName>
+    <defName>USH_AnalyzerDaysPerProduction</defName>
     <label>days needed for production</label>
     <description>This value represents the amount of days required per one glitterworld fragment synthesis operation.</description>
     <category>Building</category>
@@ -609,7 +609,7 @@ It also conducts a bit of passive research on its own. Note that it must be conn
   </StatDef>
   
   <StatDef>
-    <defName>USH_PowerPerGlitterProduction</defName>
+    <defName>USH_AnalyzerPowerPerProduction</defName>
     <label>power per production</label>
     <description>This value represents the amount of power consumption added to glitterworld-analyzer's build-in electrical systems.</description>
     <category>Building</category>

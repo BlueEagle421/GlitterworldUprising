@@ -63,7 +63,7 @@
     <Compile Include="CompMountainRaiser.cs" />
     <Compile Include="CompMobileComforter.cs" />
     <Compile Include="HediffCompGlitterSkinReplacement.cs" />
-    <Compile Include="CompGlitterTechnologyAnalyzer.cs" />
+    <Compile Include="CompGlitterworldAnalyzer.cs" />
     <Compile Include="HediffWithCompsAddictionRemoval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

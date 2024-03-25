@@ -9,71 +9,100 @@ namespace GliterworldUprising
 {
     public class CompProperties_GlitterworldAnalyzer : CompProperties
     {
-        public ThingDef thing;
-        public float energyPerDayMultiplier;
-        public int fuelNeeded;
-        public CompProperties_GlitterworldAnalyzer() => this.compClass = typeof(CompGlitterworldAnalyzer);
+        public ThingDef thingDef;
+        public float powerPerDayMultiplier;
+        public int fuelConsumption;
+        public CompProperties_GlitterworldAnalyzer() => compClass = typeof(CompGlitterworldAnalyzer);
     }
 
     public class CompGlitterworldAnalyzer : ThingComp
     {
-        private CompPowerTrader powerComp;
-        private CompRefuelable refuelableComp;
-        private int nextProduceTick = -1, ticksPerProduction;
-        private List<IntVec3> adjCells;
-        private bool netHasPower;
+        private CompPowerTrader _powerTraderComp;
+        private CompRefuelable _refuelableComp;
+        private int _nextProduceTick;
+        private List<IntVec3> _adjCells;
+        private bool _isAnalyzing;
 
+        private AcceptanceReport _lastProductionReport;
 
-        public CompProperties_GlitterworldAnalyzer Props => (CompProperties_GlitterworldAnalyzer)this.props;
+        public CompProperties_GlitterworldAnalyzer Props => (CompProperties_GlitterworldAnalyzer)props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            Map map = this.parent.Map;
-            this.powerComp = this.parent.GetComp<CompPowerTrader>();
-            this.refuelableComp = this.parent.GetComp<CompRefuelable>();
-            this.adjCells = GenAdj.CellsAdjacent8Way((Thing)this.parent).ToList<IntVec3>();
-            this.CheckForPower(false, false);
 
+            _powerTraderComp = parent.GetComp<CompPowerTrader>();
+            _refuelableComp = parent.GetComp<CompRefuelable>();
+            _adjCells = GenAdj.CellsAdjacent8Way(parent).ToList();
         }
 
-        public override void PostDeSpawn(Map map) => this.nextProduceTick = -1;
-
-        public override void CompTick()
+        public override void Initialize(CompProperties props)
         {
-            base.CompTick();
+            base.Initialize(props);
 
-            ticksPerProduction = (int)this.parent.GetStatValue(StatDef.Named("USH_DaysPerGlitterProduction")) * 60000;
+            _isAnalyzing = true;
+            _nextProduceTick = -1;
+        }
+
+        public override void PostDeSpawn(Map map) => _nextProduceTick = -1;
+
+        public override void CompTickRare()
+        {
+            base.CompTickRare();
+
+            if (!_powerTraderComp.PowerOn)
+                return;
+
+            if (!_isAnalyzing)
+            {
+                TryProducePortion();
+                return;
+            }
 
             int ticksGame = Find.TickManager.TicksGame;
-            if (this.nextProduceTick == -1)
-                this.nextProduceTick = ticksGame + ticksPerProduction;
-            else if (ticksGame >= this.nextProduceTick)
-                this.CheckForPower(true, true);
-            if (!powerComp.PowerOn)
-                netHasPower = false;
-            if (!netHasPower)
+
+            if (_nextProduceTick == -1)
             {
-                this.nextProduceTick = ticksGame + ticksPerProduction;
-                this.CheckForPower(false, false);
+                _nextProduceTick = ticksGame + TicksPerProduction();
+                return;
+            }
+
+            if (ticksGame >= _nextProduceTick)
+            {
+                TryProducePortion();
+                _isAnalyzing = false;
+                _nextProduceTick = ticksGame + TicksPerProduction();
             }
         }
+
+        private int TicksPerProduction() => (int)parent.GetStatValue(StatDef.Named("USH_AnalyzerDaysPerProduction")) * 60000;
 
         public override string CompInspectStringExtra()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            if (this != null)
-            {
-                stringBuilder.Append((string)"USH_GU_PowerPerOperation".Translate() + ": " + this.parent.GetStatValue(StatDef.Named("USH_PowerPerGlitterProduction")).ToString() + " W");
-                stringBuilder.AppendLine();
 
-                if (netHasPower)
-                    stringBuilder.Append("The next " + this.Props.thing.label + " in " + ((float)Math.Round((nextProduceTick - Find.TickManager.TicksGame) / 60000f * 100f) / 100f).ToString() + " days");
-                else
-                    stringBuilder.Append((string)"USH_GU_NoPower".Translate());
-            }
+            if (!_powerTraderComp.PowerOn)
+                return string.Empty;
+
+            stringBuilder.AppendLine("USH_GU_PowerPerProduction".Translate(PowerPerProduction() + " W"));
+
+            if (_isAnalyzing)
+                stringBuilder.AppendLine("USH_GU_AnalyzerTimeLeft".Translate(Props.thingDef.label, DaysToProduce().ToString()));
+
+            if (!_isAnalyzing && !_lastProductionReport.Accepted)
+                stringBuilder.AppendLine("USH_GU_CantProduce".Translate(_lastProductionReport.Reason).Colorize(ColorLibrary.RedReadable));
+
             return stringBuilder.ToString().TrimEnd();
         }
+
+        private float PowerPerProduction() => parent.GetStatValue(StatDef.Named("USH_AnalyzerPowerPerProduction"));
+
+        private float DaysToProduce()
+        {
+            float ticksLeft = _nextProduceTick - Find.TickManager.TicksGame;
+            return (float)Math.Round(ticksLeft / 60000f * 100f) / 100f;
+        }
+
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
@@ -83,99 +112,97 @@ namespace GliterworldUprising
             {
                 Command_Action commandAction1 = new Command_Action();
                 commandAction1.defaultLabel = "DEBUG: Produce now";
-                commandAction1.action = (Action)(() => this.nextProduceTick = Find.TickManager.TicksGame);
+                commandAction1.action = () => _nextProduceTick = Find.TickManager.TicksGame;
                 Command_Action produce = commandAction1;
-                yield return (Gizmo)produce;
-                produce = (Command_Action)null;
-            }
-        }
-
-        private void CheckForPower(bool shouldProduce, bool shouldMessage)
-        {
-            this.powerComp = this.parent.GetComp<CompPowerTrader>();
-
-            float powerInTheNet = 0;
-            if (this.powerComp.PowerNet != null)
-            {
-                foreach (CompPowerBattery battery in this.powerComp.PowerNet.batteryComps)
-                {
-                    powerInTheNet += battery.StoredEnergy;
-                }
-            }
-            if (powerInTheNet >= this.parent.GetStatValue(StatDef.Named("USH_PowerPerGlitterProduction")))
-            {
-                netHasPower = true;
-                this.nextProduceTick = Find.TickManager.TicksGame + ticksPerProduction;
-                if (shouldProduce)
-                {
-                    TryProducePortion();
-                }
-            }
-            else
-            {
-                if (shouldMessage)
-                    Messages.Message((string)"USH_GU_AnalyzerFoundNoPower".Translate(), this.parent, MessageTypeDefOf.NeutralEvent, false);
-                netHasPower = false;
+                yield return produce;
+                produce = null;
             }
         }
 
         private void TryProducePortion()
         {
-            Map map = this.parent.Map;
-            if (this.powerComp.PowerOn && this.refuelableComp.Fuel >= this.Props.fuelNeeded)
-            {
-                //Draw fuel
-                this.refuelableComp.ConsumeFuel(3);
+            _lastProductionReport = ProductionReport();
 
-                //Draw energy from the net
-                float powerToDrain = this.parent.GetStatValue(StatDef.Named("USH_PowerPerGlitterProduction"));
-                foreach (CompPowerBattery battery in this.powerComp.PowerNet.batteryComps)
-                {
-                    if (powerToDrain >= battery.StoredEnergy)
-                    {
-                        powerToDrain -= battery.StoredEnergy;
-                        battery.DrawPower(battery.StoredEnergy);
-                    }
-                    else
-                    {
-                        battery.DrawPower(powerToDrain);
-                        break;
-                    }
-                }
+            if (!_lastProductionReport.Accepted)
+                return;
 
-                //Spawn the item
-                for (int index = 0; index < this.adjCells.Count; ++index)
-                {
-                    IntVec3 adjCell = this.adjCells[index];
-                    if (adjCell.Walkable(map))
-                    {
-                        Thing firstThing = adjCell.GetFirstThing(map, this.Props.thing);
-                        if (firstThing != null)
-                        {
-                            if (firstThing.stackCount + 1 <= firstThing.def.stackLimit)
-                            {
-                                firstThing.stackCount += 1;
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            Thing thing = ThingMaker.MakeThing(this.Props.thing);
-                            thing.stackCount = 1;
-                            if (GenPlace.TryPlaceThing(thing, adjCell, map, ThingPlaceMode.Near))
-                                break;
-                        }
-                    }
-                }
-            }
-            else
+            _refuelableComp.ConsumeFuel(3);
+
+            DrawPowerFromNet(PowerPerProduction(), _powerTraderComp.PowerNet);
+
+            SpawnThingAt(Props.thingDef, _adjCells, parent.Map);
+
+            _isAnalyzing = true;
+        }
+
+        private void DrawPowerFromNet(float power, PowerNet powerNet)
+        {
+            foreach (CompPowerBattery battery in powerNet.batteryComps)
             {
-                if (this.refuelableComp.Fuel < this.Props.fuelNeeded)
+                if (power >= battery.StoredEnergy)
                 {
-                    Messages.Message((string)"USH_GU_AnalyzerFoundNoFuel".Translate(), this.parent, MessageTypeDefOf.NeutralEvent, false);
+                    power -= battery.StoredEnergy;
+                    battery.DrawPower(battery.StoredEnergy);
+                }
+                else
+                {
+                    battery.DrawPower(power);
+                    break;
                 }
             }
         }
 
+        private void SpawnThingAt(ThingDef thingDef, List<IntVec3> cells, Map map)
+        {
+            for (int index = 0; index < cells.Count; ++index)
+            {
+                IntVec3 adjCell = cells[index];
+
+                if (!adjCell.Walkable(map))
+                    continue;
+
+                Thing firstThing = adjCell.GetFirstThing(map, thingDef);
+                if (firstThing != null)
+                {
+                    if (firstThing.stackCount + 1 <= firstThing.def.stackLimit)
+                    {
+                        firstThing.stackCount += 1;
+                        break;
+                    }
+                }
+                else
+                {
+                    Thing thing = ThingMaker.MakeThing(thingDef);
+                    thing.stackCount = 1;
+                    if (GenPlace.TryPlaceThing(thing, adjCell, map, ThingPlaceMode.Near))
+                        break;
+                }
+            }
+        }
+
+        private float PowerInNet(PowerNet powerNet)
+        {
+            float power = 0;
+
+            if (_powerTraderComp.PowerNet != null)
+                foreach (CompPowerBattery battery in _powerTraderComp.PowerNet.batteryComps)
+                    power += battery.StoredEnergy;
+
+            return power;
+        }
+
+        private AcceptanceReport ProductionReport()
+        {
+            if (_powerTraderComp != null && !_powerTraderComp.PowerOn)
+                return "NoPower".Translate();
+
+            if (_powerTraderComp != null && PowerInNet(_powerTraderComp.PowerNet) < PowerPerProduction())
+                return "Not enough power stored";
+
+            if (_refuelableComp != null && _refuelableComp.Fuel < Props.fuelConsumption)
+                return "NoFuel".Translate();
+
+            return true;
+        }
     }
 }

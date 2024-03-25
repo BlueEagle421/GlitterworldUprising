@@ -9,7 +9,10 @@ Note that if you enable it, it won't affect already installed implants. You woul
   <USH_GU_SkinSettingTooltip>If enabled the skin color will not get changed after operation.</USH_GU_SkinSettingTooltip>
   <USH_GU_SkinSettingLabel>Disable skin replacments changing actual pawn's skin color</USH_GU_SkinSettingLabel>
   
+  <USH_GU_PowerPerProduction>Stored power needed to produce: {0}</USH_GU_PowerPerProduction>
+  <USH_GU_AnalyzerTimeLeft>Analyzing {0} ends in: {1} days</USH_GU_AnalyzerTimeLeft>
   <USH_GU_NoPower>Can't analyze: No power</USH_GU_NoPower>
+  <USH_GU_CantProduce>Can't produce: {0}</USH_GU_CantProduce>
   <USH_GU_Analyzing>Analyzing</USH_GU_Analyzing>
   
   <USH_GU_Ready>Ready for usage</USH_GU_Ready>
@@ -18,6 +21,7 @@ Note that if you enable it, it won't affect already installed implants. You woul
   <USH_GU_Reconstructing>Reconstructing</USH_GU_Reconstructing>
   <USH_GU_TimeLeft>time left</USH_GU_TimeLeft>
   
+
   <USH_GU_AnalyzerFoundNoFuel>Glitterworld-analyzer tried to produce, but found no stored components. Restarting progress.</USH_GU_AnalyzerFoundNoFuel>
   
   <USH_GU_Maintained>Maintained</USH_GU_Maintained>
