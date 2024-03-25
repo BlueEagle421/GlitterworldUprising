@@ -436,11 +436,6 @@ It also conducts a bit of passive research on its own. Note that it must be conn
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-	  <li Class="GliterworldUprising.CompProperties_GlitterworldAnalyzer"> 
-		<thingDef>USH_GlitterChip</thingDef>
-		<fuelConsumption>3</fuelConsumption>
-		<powerPerDayMultiplier>1000</powerPerDayMultiplier>
-	  </li>
 	  <li Class="CompProperties_AffectedByFacilities">
         <linkableFacilities>
 		  <li>USH_LightGlitterSupporter</li>
@@ -459,6 +454,11 @@ It also conducts a bit of passive research on its own. Note that it must be conn
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
       </li>
+	  <li Class="GliterworldUprising.CompProperties_GlitterworldAnalyzer"> 
+		<thingDef>USH_GlitterChip</thingDef>
+		<fuelConsumption>3</fuelConsumption>
+		<powerPerDayMultiplier>1000</powerPerDayMultiplier>
+	  </li>
     </comps>
     <costList>
 	  <Steel>260</Steel>

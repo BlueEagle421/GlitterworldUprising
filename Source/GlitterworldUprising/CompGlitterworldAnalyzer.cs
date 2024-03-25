@@ -19,9 +19,9 @@ namespace GliterworldUprising
     {
         private CompPowerTrader _powerTraderComp;
         private CompRefuelable _refuelableComp;
-        private int _nextProduceTick;
+        private int _analyzingTicksPassed;
         private List<IntVec3> _adjCells;
-        private bool _isAnalyzing;
+        private bool _isTryingToProduce;
 
         private AcceptanceReport _lastProductionReport;
 
@@ -40,11 +40,17 @@ namespace GliterworldUprising
         {
             base.Initialize(props);
 
-            _isAnalyzing = true;
-            _nextProduceTick = -1;
+            _isTryingToProduce = false;
+            _analyzingTicksPassed = -1;
         }
 
-        public override void PostDeSpawn(Map map) => _nextProduceTick = -1;
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+
+            Scribe_Values.Look(ref _isTryingToProduce, "USH_IsTryingToProduce", false);
+            Scribe_Values.Look(ref _analyzingTicksPassed, "USH_NextProduceTick", -1);
+        }
 
         public override void CompTickRare()
         {
@@ -53,29 +59,22 @@ namespace GliterworldUprising
             if (!_powerTraderComp.PowerOn)
                 return;
 
-            if (!_isAnalyzing)
+            if (_isTryingToProduce)
             {
-                TryProducePortion();
+                TryToProduceThing();
                 return;
             }
 
-            int ticksGame = Find.TickManager.TicksGame;
+            _analyzingTicksPassed += 250;
 
-            if (_nextProduceTick == -1)
+            if (_analyzingTicksPassed >= TicksPerProduction())
             {
-                _nextProduceTick = ticksGame + TicksPerProduction();
-                return;
-            }
-
-            if (ticksGame >= _nextProduceTick)
-            {
-                TryProducePortion();
-                _isAnalyzing = false;
-                _nextProduceTick = ticksGame + TicksPerProduction();
+                _isTryingToProduce = true;
+                TryToProduceThing();
+                _analyzingTicksPassed = 0;
             }
         }
 
-        private int TicksPerProduction() => (int)parent.GetStatValue(StatDef.Named("USH_AnalyzerDaysPerProduction")) * 60000;
 
         public override string CompInspectStringExtra()
         {
@@ -86,20 +85,25 @@ namespace GliterworldUprising
 
             stringBuilder.AppendLine("USH_GU_PowerPerProduction".Translate(PowerPerProduction() + " W"));
 
-            if (_isAnalyzing)
+            if (!_isTryingToProduce)
                 stringBuilder.AppendLine("USH_GU_AnalyzerTimeLeft".Translate(Props.thingDef.label, DaysToProduce().ToString()));
 
-            if (!_isAnalyzing && !_lastProductionReport.Accepted)
+            if (_isTryingToProduce && !_lastProductionReport.Accepted)
                 stringBuilder.AppendLine("USH_GU_CantProduce".Translate(_lastProductionReport.Reason).Colorize(ColorLibrary.RedReadable));
 
             return stringBuilder.ToString().TrimEnd();
         }
 
+        private float DaysPerProduction() => parent.GetStatValue(StatDef.Named("USH_AnalyzerDaysPerProduction"));
         private float PowerPerProduction() => parent.GetStatValue(StatDef.Named("USH_AnalyzerPowerPerProduction"));
-
+        private int TicksPerProduction() => (int)DaysPerProduction() * 60000;
         private float DaysToProduce()
         {
-            float ticksLeft = _nextProduceTick - Find.TickManager.TicksGame;
+            float ticksLeft = TicksPerProduction() - _analyzingTicksPassed;
+
+            if (ticksLeft <= 0)
+                return 0;
+
             return (float)Math.Round(ticksLeft / 60000f * 100f) / 100f;
         }
 
@@ -108,32 +112,42 @@ namespace GliterworldUprising
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
                 yield return gizmo;
 
-            if (Prefs.DevMode)
+            if (DebugSettings.ShowDevGizmos)
             {
-                Command_Action commandAction1 = new Command_Action();
-                commandAction1.defaultLabel = "DEBUG: Produce now";
-                commandAction1.action = () => _nextProduceTick = Find.TickManager.TicksGame;
-                Command_Action produce = commandAction1;
-                yield return produce;
-                produce = null;
+                Command_Action commandAction = new Command_Action
+                {
+                    defaultLabel = "DEBUG: End analyzing now",
+                    action = () => _analyzingTicksPassed = TicksPerProduction()
+                };
+                yield return commandAction;
             }
         }
 
-        private void TryProducePortion()
+        private bool TryToProduceThing()
         {
             _lastProductionReport = ProductionReport();
 
             if (!_lastProductionReport.Accepted)
-                return;
+                return false;
 
+            ProduceThing();
+            return true;
+        }
+
+        private void ProduceThing()
+        {
             _refuelableComp.ConsumeFuel(3);
+
+            SpawnDistortionEffect();
 
             DrawPowerFromNet(PowerPerProduction(), _powerTraderComp.PowerNet);
 
             SpawnThingAt(Props.thingDef, _adjCells, parent.Map);
 
-            _isAnalyzing = true;
+            _isTryingToProduce = false;
         }
+
+        private void SpawnDistortionEffect() => FleckMaker.Static(parent.Position, parent.Map, FleckDefOf.PsycastAreaEffect, 1.5f);
 
         private void DrawPowerFromNet(float power, PowerNet powerNet)
         {
@@ -180,13 +194,23 @@ namespace GliterworldUprising
             }
         }
 
-        private float PowerInNet(PowerNet powerNet)
+        private bool EnoughPowerStoredInNet(PowerNet powerNet, float powerNeeded)
+        {
+            if (DebugSettings.unlimitedPower)
+                return true;
+
+            return PowerStoredInNet(powerNet) >= powerNeeded;
+        }
+
+        private float PowerStoredInNet(PowerNet powerNet)
         {
             float power = 0;
 
-            if (_powerTraderComp.PowerNet != null)
-                foreach (CompPowerBattery battery in _powerTraderComp.PowerNet.batteryComps)
-                    power += battery.StoredEnergy;
+            if (powerNet == null)
+                return 0;
+
+            foreach (CompPowerBattery battery in powerNet.batteryComps)
+                power += battery.StoredEnergy;
 
             return power;
         }
@@ -196,8 +220,8 @@ namespace GliterworldUprising
             if (_powerTraderComp != null && !_powerTraderComp.PowerOn)
                 return "NoPower".Translate();
 
-            if (_powerTraderComp != null && PowerInNet(_powerTraderComp.PowerNet) < PowerPerProduction())
-                return "Not enough power stored";
+            if (_powerTraderComp != null && !EnoughPowerStoredInNet(_powerTraderComp.PowerNet, PowerPerProduction()))
+                return "USH_GU_NoPowerStored".Translate();
 
             if (_refuelableComp != null && _refuelableComp.Fuel < Props.fuelConsumption)
                 return "NoFuel".Translate();

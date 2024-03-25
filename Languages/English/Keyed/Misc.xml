@@ -12,6 +12,7 @@ Note that if you enable it, it won't affect already installed implants. You woul
   <USH_GU_PowerPerProduction>Stored power needed to produce: {0}</USH_GU_PowerPerProduction>
   <USH_GU_AnalyzerTimeLeft>Analyzing {0} ends in: {1} days</USH_GU_AnalyzerTimeLeft>
   <USH_GU_NoPower>Can't analyze: No power</USH_GU_NoPower>
+  <USH_GU_NoPowerStored>Not enough power stored</USH_GU_NoPowerStored>
   <USH_GU_CantProduce>Can't produce: {0}</USH_GU_CantProduce>
   <USH_GU_Analyzing>Analyzing</USH_GU_Analyzing>
   
