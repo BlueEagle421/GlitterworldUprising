@@ -436,7 +436,7 @@ It also conducts a bit of passive research on its own. Note that it must be conn
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-	  <li Class="GliterworldUprising.CompProperties_GlitterTechnologyAnalyzer"> 
+	  <li Class="GliterworldUprising.CompProperties_GlitterworldAnalyzer"> 
 		<thing>USH_GlitterChip</thing>
 		<fuelNeeded>3</fuelNeeded>
 		<energyPerDayMultiplier>1000</energyPerDayMultiplier>

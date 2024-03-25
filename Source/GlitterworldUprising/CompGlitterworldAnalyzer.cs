@@ -7,15 +7,15 @@ using Verse;
 
 namespace GliterworldUprising
 {
-    public class CompProperties_GlitterTechnologyAnalyzer : CompProperties
+    public class CompProperties_GlitterworldAnalyzer : CompProperties
     {
         public ThingDef thing;
         public float energyPerDayMultiplier;
         public int fuelNeeded;
-        public CompProperties_GlitterTechnologyAnalyzer() => this.compClass = typeof(CompGlitterTechnologyAnalyzer);
+        public CompProperties_GlitterworldAnalyzer() => this.compClass = typeof(CompGlitterworldAnalyzer);
     }
 
-    public class CompGlitterTechnologyAnalyzer : ThingComp
+    public class CompGlitterworldAnalyzer : ThingComp
     {
         private CompPowerTrader powerComp;
         private CompRefuelable refuelableComp;
@@ -24,7 +24,7 @@ namespace GliterworldUprising
         private bool netHasPower;
 
 
-        public CompProperties_GlitterTechnologyAnalyzer Props => (CompProperties_GlitterTechnologyAnalyzer)this.props;
+        public CompProperties_GlitterworldAnalyzer Props => (CompProperties_GlitterworldAnalyzer)this.props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
