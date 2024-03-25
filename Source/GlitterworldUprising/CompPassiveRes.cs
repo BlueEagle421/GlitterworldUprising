@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
-using Verse;
-using RimWorld;
+﻿using RimWorld;
+using System;
 using System.Text;
-using Verse.AI;
-using Verse.Sound;
+using Verse;
 
 namespace GliterworldUprising
 {
+    public class CompProperties_PassiveRes : CompProperties
+    {
+        public bool isFacility;
+        public CompProperties_PassiveRes() => this.compClass = typeof(CompPassiveRes);
+    }
+
     [StaticConstructorOnStartup]
     public class CompPassiveRes : ThingComp
     {
@@ -36,15 +37,16 @@ namespace GliterworldUprising
             else if (ticksRareGame >= this.nextProduceRareTick)
             {
                 this.nextProduceRareTick = ticksRareGame + 10;
-                if(this.parent.GetComp<CompPowerTrader>() != null)
+                if (this.parent.GetComp<CompPowerTrader>() != null)
                 {
                     if (this.parent.GetComp<CompPowerTrader>().PowerOn)
                         ConductResearch(this.parent.GetStatValue(StatDef.Named("USH_PassiveResPerDay")) / 24);
-                } else
+                }
+                else
                     ConductResearch(this.parent.GetStatValue(StatDef.Named("USH_PassiveResPerDay")) / 24);
 
             }
-                
+
         }
 
         private void ConductResearch(float amount)
@@ -62,7 +64,7 @@ namespace GliterworldUprising
             }
             else
             {
-                
+
                 if (researchManager.currentProj == null)
                     return;
                 researchManager.ResearchPerformed(amount / 0.00825f, (Pawn)null);

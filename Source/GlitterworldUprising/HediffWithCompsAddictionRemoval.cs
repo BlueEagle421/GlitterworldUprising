@@ -1,13 +1,17 @@
 ﻿using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Verse;
 
 namespace GliterworldUprising
 {
-    public class HediffComp_USH_AddictionRemoval : HediffComp
+    public class HediffCompProperties_USH_AddictionRemoval : HediffCompProperties
+    {
+        public List<string> removalBlackList = new List<string>();
+
+        public HediffCompProperties_USH_AddictionRemoval() => this.compClass = typeof(HediffWithCompsAddictionRemoval);
+    }
+
+    public class HediffWithCompsAddictionRemoval : HediffComp
     {
 
         public HediffCompProperties_USH_AddictionRemoval Props => (HediffCompProperties_USH_AddictionRemoval)this.props;
@@ -15,7 +19,9 @@ namespace GliterworldUprising
         public override void CompPostMake()
         {
             base.CompPostMake();
-            foreach (Hediff hediff in this.parent.pawn.health.hediffSet.GetHediffs<Hediff>())
+            List<Hediff> allHediffs = new List<Hediff>();
+            this.parent.pawn.health.hediffSet.GetHediffs(ref allHediffs);
+            foreach (Hediff hediff in allHediffs)
             {
                 if (hediff.def.hediffClass == typeof(Hediff_Addiction))
                 {

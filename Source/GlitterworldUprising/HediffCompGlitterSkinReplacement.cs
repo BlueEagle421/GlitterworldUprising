@@ -1,27 +1,32 @@
-﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Verse;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using Verse;
 
 namespace GliterworldUprising
 {
-    public class HediffComp_GlitterSkinReplacement : HediffComp
+    public class HediffCompProperties_GlitterSkinReplacement : HediffCompProperties
+    {
+        public ColorInt skinColor;
+
+        public HediffCompProperties_GlitterSkinReplacement() => this.compClass = typeof(HediffCompGlitterSkinReplacement);
+    }
+
+    public class HediffCompGlitterSkinReplacement : HediffComp
     {
 
         private Color savedColor;
 
         public HediffCompProperties_GlitterSkinReplacement Props => (HediffCompProperties_GlitterSkinReplacement)this.props;
-       
+
         public override void CompPostMake()
         {
             base.CompPostMake();
 
             //Check for double hediffs
             Map map = this.parent.pawn.Map;
-            foreach (Hediff hediff in this.parent.pawn.health.hediffSet.GetHediffs<Hediff>())
+            List<Hediff> allHediffs = new List<Hediff>();
+            this.parent.pawn.health.hediffSet.GetHediffs(ref allHediffs);
+            foreach (Hediff hediff in allHediffs)
             {
                 if (hediff == this.parent)
                     continue;

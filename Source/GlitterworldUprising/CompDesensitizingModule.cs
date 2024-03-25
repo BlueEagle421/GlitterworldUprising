@@ -1,14 +1,34 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
-using Verse;
-using UnityEngine;
 using System.Text;
+using UnityEngine;
+using Verse;
 
 namespace GliterworldUprising
 {
+    public class CompProperties_DesensitizingModule : CompProperties
+    {
+        public ActivateGizmo activateGizmo;
+        public int fuelPerDesensitization;
+        public FleckDef fleck;
+        public ThingDef mote;
+        public int moteCount = 3;
+        public FloatRange moteOffsetRange = new FloatRange(0.2f, 0.4f);
+        public CompProperties_DesensitizingModule() => this.compClass = typeof(CompDesensitizingModule);
+    }
+
+    public class ActivateGizmo
+    {
+        public Texture2D tex;
+        public string texPath;
+        public string labelKey;
+        public string descKey;
+    }
+
+
     [StaticConstructorOnStartup]
-    public class Comp_DesensitizingModule : ThingComp
+    public class CompDesensitizingModule : ThingComp
     {
         Map map;
         private Command_Action activateAction;
@@ -30,11 +50,11 @@ namespace GliterworldUprising
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
-                yield return gizmo; 
-                
+                yield return gizmo;
+
             Command_Action activate = activateAction;
-                yield return (Gizmo)activate;
-                activate = (Command_Action)null;
+            yield return (Gizmo)activate;
+            activate = (Command_Action)null;
         }
 
         public void desensitizeAll()
@@ -47,7 +67,9 @@ namespace GliterworldUprising
                     {
                         if (thing is Pawn pawn)
                         {
-                            foreach (Hediff hediff in pawn.health.hediffSet.GetHediffs<Hediff>())
+                            List<Hediff> allHediffs = new List<Hediff>();
+                            pawn.health.hediffSet.GetHediffs(ref allHediffs);
+                            foreach (Hediff hediff in allHediffs)
                             {
                                 if (hediff.def.defName == "Anesthetic")
                                 {

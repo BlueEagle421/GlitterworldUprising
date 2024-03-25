@@ -1,11 +1,30 @@
 ﻿using RimWorld;
-using Verse;
-using UnityEngine;
-using Verse.Sound;
+using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
+using Verse;
+using Verse.Sound;
 
 namespace GliterworldUprising
 {
+    public class CompProperties_MountainRaiser : CompProperties
+    {
+        public float timeOffset;
+        public FleckDef fleck;
+        public ThingDef mote;
+        public int moteCount = 3;
+        public FloatRange moteOffsetRange = new FloatRange(0.2f, 0.4f);
+        public SoundDef raiseSound;
+        public List<GlitterThingToTurnInto> recipes = new List<GlitterThingToTurnInto>();
+
+        public CompProperties_MountainRaiser() => this.compClass = typeof(CompMountainRaiser);
+    }
+
+    public class GlitterThingToTurnInto
+    {
+        public ThingDef item, building;
+    }
+
     [StaticConstructorOnStartup]
     public class CompMountainRaiser : ThingComp
     {
@@ -24,7 +43,7 @@ namespace GliterworldUprising
         {
             base.CompTick();
             tickFromStart++;
-            if(tickFromStart >= this.Props.timeOffset)
+            if (tickFromStart >= this.Props.timeOffset)
             {
                 raiseTheWall(this.parent.Stuff);
             }
@@ -39,10 +58,10 @@ namespace GliterworldUprising
 
                     //Generate the wall
                     Thing building = ThingMaker.MakeThing(entry.building);
-                    GenPlace.TryPlaceThing(building, this.parent.Position, map,ThingPlaceMode.Direct);
+                    GenPlace.TryPlaceThing(building, this.parent.Position, map, ThingPlaceMode.Direct);
 
                     //Play the sound
-                    if(this.Props.raiseSound != null)
+                    if (this.Props.raiseSound != null)
                         this.Props.raiseSound.PlayOneShot((SoundInfo)new TargetInfo(this.parent.Position, this.map));
 
                     //Make particles

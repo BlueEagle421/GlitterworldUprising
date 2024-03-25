@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.4\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -53,31 +53,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlaceWorker_ShowAutoMaintainerRadius.cs" />
-    <Compile Include="CompProperties_PassiveRes.cs" />
     <Compile Include="CompPassiveRes.cs" />
-    <Compile Include="CompProperties_AutoMaintainer.cs" />
-    <Compile Include="Comp_AutoMaintainer.cs" />
-    <Compile Include="PlaceWorker_ShowAutoBuilderRadius.cs" />
-    <Compile Include="CompProperties_AutoBuilder.cs" />
-    <Compile Include="Comp_AutoBuilder.cs" />
-    <Compile Include="CompProperties_AutoRepairer.cs" />
-    <Compile Include="PlaceWorker_ShowAutoRepairerRadius.cs" />
-    <Compile Include="Comp_AutoRepairer.cs" />
+    <Compile Include="CompAutoMaintainer.cs" />
+    <Compile Include="CompAutoBuilder.cs" />
+    <Compile Include="CompAutoRepairer.cs" />
     <Compile Include="MaterialCreator.cs" />
-    <Compile Include="Comp_DesensitizingModule.cs" />
-    <Compile Include="CompProperties_DesensitizingModule.cs" />
+    <Compile Include="CompDesensitizingModule.cs" />
     <Compile Include="GUSettings.cs" />
     <Compile Include="CompMountainRaiser.cs" />
-    <Compile Include="CompProperties_MountainRaiser.cs" />
     <Compile Include="CompMobileComforter.cs" />
-    <Compile Include="HediffCompProperties_GlitterSkinReplacement.cs" />
-    <Compile Include="HediffComp_GlitterSkinReplacement.cs" />
-    <Compile Include="CompProperties_MobileComforter.cs" />
+    <Compile Include="HediffCompGlitterSkinReplacement.cs" />
     <Compile Include="CompGlitterTechnologyAnalyzer.cs" />
-    <Compile Include="CompProperties_GlitterTechnologyAnalyzer.cs" />
-    <Compile Include="HediffCompProperties_USH_AddictionRemoval.cs" />
-    <Compile Include="HediffWithComp_USH_AddictionRemoval.cs" />
+    <Compile Include="HediffWithCompsAddictionRemoval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,17 +1,37 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
-using RimWorld;
-using System.Text;
-using Verse.AI;
-using Verse.Sound;
 
 namespace GliterworldUprising
 {
-    [StaticConstructorOnStartup]
-    public class Comp_AutoMaintainer : ThingComp
+    public class PlaceWorker_ShowAutoMaintainerRadius : PlaceWorker
+    {
+        public override void DrawGhost(
+          ThingDef def,
+          IntVec3 center,
+          Rot4 rot,
+          Color ghostCol,
+          Thing thing = null)
+        {
+            CompProperties_AutoMaintainer compProperties = def.GetCompProperties<CompProperties_AutoMaintainer>();
+            if (compProperties == null)
+                return;
+            GenDraw.DrawRadiusRing(center, compProperties.radius);
+        }
+    }
+
+    public class CompProperties_AutoMaintainer : CompProperties
+    {
+        public float radius;
+        public int rareTickPerCheck, rareTicksPerMaintain;
+        public ThingDef moteDef;
+        public CompProperties_AutoMaintainer() => this.compClass = typeof(CompAutoMaintainer);
+    }
+
+    public class CompAutoMaintainer : ThingComp
     {
         Map map;
         private int rareTicksBeforeCheck, rareTicksBeforeMaintain, maintainedAlready;
@@ -49,7 +69,7 @@ namespace GliterworldUprising
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            Comp_AutoMaintainer compAutoMaintainer = this;
+            CompAutoMaintainer compAutoMaintainer = this;
 
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
                 yield return gizmo;
@@ -61,7 +81,7 @@ namespace GliterworldUprising
                 commandAction.defaultDesc = (string)"USH_GU_FindBreakdownablesDesc".Translate();
                 commandAction.icon = ContentFinder<Texture2D>.Get("UI/Gizmos/CollectData");
                 yield return (Gizmo)commandAction;
-                
+
                 Command_Action commandAction1 = new Command_Action();
                 commandAction1.action = (Action)(() => this.CollectAndMaintain());
                 commandAction1.defaultLabel = (string)"USH_GU_MaintainNowLabel".Translate();
@@ -101,7 +121,7 @@ namespace GliterworldUprising
                     brokenThings.Add(thing);
                 }
             }
-            if(brokenThings.Count > 0)
+            if (brokenThings.Count > 0)
             {
                 MaintainThings();
             }

@@ -1,16 +1,38 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
-using RimWorld;
-using System.Text;
-using Verse.AI;
 using Verse.Sound;
 
 namespace GliterworldUprising
 {
-    public class Comp_AutoBuilder : ThingComp
+    public class PlaceWorker_ShowAutoBuilderRadius : PlaceWorker
+    {
+        public override void DrawGhost(
+          ThingDef def,
+          IntVec3 center,
+          Rot4 rot,
+          Color ghostCol,
+          Thing thing = null)
+        {
+            CompProperties_AutoBuilder compProperties = def.GetCompProperties<CompProperties_AutoBuilder>();
+            if (compProperties == null)
+                return;
+            GenDraw.DrawRadiusRing(center, compProperties.radius);
+        }
+    }
+
+    public class CompProperties_AutoBuilder : CompProperties
+    {
+        public float radius;
+        public int workAmount, rareTicksBeforeCheck, rareTickPerCheck;
+        public ThingDef moteDef;
+        public CompProperties_AutoBuilder() => this.compClass = typeof(CompAutoBuilder);
+    }
+
+    public class CompAutoBuilder : ThingComp
     {
         Map map;
         private int rareTicksBeforeCheck = 0;
@@ -82,7 +104,7 @@ namespace GliterworldUprising
                         if (thing.def.IsFrame)
                         {
                             Frame frame = (Frame)thing;
-                            if(frame.MaterialsNeeded().Count == 0)
+                            if (frame.MaterialsNeeded().Count == 0)
                             {
                                 buildables.Add(thing);
                                 if (shouldFlashCells)
@@ -96,7 +118,7 @@ namespace GliterworldUprising
 
         private void buildThings()
         {
-            foreach(Thing thing in buildables)
+            foreach (Thing thing in buildables)
             {
                 Frame frame = (Frame)thing;
 
@@ -107,7 +129,7 @@ namespace GliterworldUprising
                 if ((double)frame.workDone >= (double)frame.WorkToBuild)
                 {
                     CompleteBuilding(frame);
-                    if(thing.Stuff != null)
+                    if (thing.Stuff != null)
                         thing.Stuff.stuffProps.soundImpactStuff.PlayOneShot((SoundInfo)new TargetInfo(frame.Position, map));
                     throwMote(thing);
                     goto label_1;

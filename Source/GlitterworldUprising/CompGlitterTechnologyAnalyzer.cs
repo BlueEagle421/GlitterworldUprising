@@ -1,13 +1,20 @@
 ﻿using RimWorld;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+using System.Text;
 using Verse;
 
 namespace GliterworldUprising
 {
-    [StaticConstructorOnStartup]
+    public class CompProperties_GlitterTechnologyAnalyzer : CompProperties
+    {
+        public ThingDef thing;
+        public float energyPerDayMultiplier;
+        public int fuelNeeded;
+        public CompProperties_GlitterTechnologyAnalyzer() => this.compClass = typeof(CompGlitterTechnologyAnalyzer);
+    }
+
     public class CompGlitterTechnologyAnalyzer : ThingComp
     {
         private CompPowerTrader powerComp;
@@ -35,9 +42,9 @@ namespace GliterworldUprising
         public override void CompTick()
         {
             base.CompTick();
-            
+
             ticksPerProduction = (int)this.parent.GetStatValue(StatDef.Named("USH_DaysPerGlitterProduction")) * 60000;
-            
+
             int ticksGame = Find.TickManager.TicksGame;
             if (this.nextProduceTick == -1)
                 this.nextProduceTick = ticksGame + ticksPerProduction;
@@ -71,7 +78,7 @@ namespace GliterworldUprising
         {
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
                 yield return gizmo;
-            
+
             if (Prefs.DevMode)
             {
                 Command_Action commandAction1 = new Command_Action();
@@ -88,7 +95,7 @@ namespace GliterworldUprising
             this.powerComp = this.parent.GetComp<CompPowerTrader>();
 
             float powerInTheNet = 0;
-            if(this.powerComp.PowerNet != null)
+            if (this.powerComp.PowerNet != null)
             {
                 foreach (CompPowerBattery battery in this.powerComp.PowerNet.batteryComps)
                 {
@@ -103,9 +110,10 @@ namespace GliterworldUprising
                 {
                     TryProducePortion();
                 }
-            } else
+            }
+            else
             {
-                if(shouldMessage)
+                if (shouldMessage)
                     Messages.Message((string)"USH_GU_AnalyzerFoundNoPower".Translate(), this.parent, MessageTypeDefOf.NeutralEvent, false);
                 netHasPower = false;
             }
@@ -127,7 +135,8 @@ namespace GliterworldUprising
                     {
                         powerToDrain -= battery.StoredEnergy;
                         battery.DrawPower(battery.StoredEnergy);
-                    } else
+                    }
+                    else
                     {
                         battery.DrawPower(powerToDrain);
                         break;
@@ -158,7 +167,8 @@ namespace GliterworldUprising
                         }
                     }
                 }
-            } else
+            }
+            else
             {
                 if (this.refuelableComp.Fuel < this.Props.fuelNeeded)
                 {

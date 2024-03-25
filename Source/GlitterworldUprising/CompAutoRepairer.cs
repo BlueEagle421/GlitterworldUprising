@@ -1,17 +1,37 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
-using RimWorld;
-using System.Text;
-using Verse.AI;
-using Verse.Sound;
 
 namespace GliterworldUprising
 {
-    [StaticConstructorOnStartup]
-    public class Comp_AutoRepairer : ThingComp
+    public class PlaceWorker_ShowAutoRepairerRadius : PlaceWorker
+    {
+        public override void DrawGhost(
+          ThingDef def,
+          IntVec3 center,
+          Rot4 rot,
+          Color ghostCol,
+          Thing thing = null)
+        {
+            CompProperties_AutoRepairer compProperties = def.GetCompProperties<CompProperties_AutoRepairer>();
+            if (compProperties == null)
+                return;
+            GenDraw.DrawRadiusRing(center, compProperties.radius);
+        }
+    }
+
+    public class CompProperties_AutoRepairer : CompProperties
+    {
+        public float radius;
+        public int repairAmount, rareTicksPerCheck, overclockPowerConsumption, defaultPowerConsumtion, ticksToOverheat;
+        public ThingDef moteDef;
+        public CompProperties_AutoRepairer() => this.compClass = typeof(CompAutoRepairer);
+    }
+
+    public class CompAutoRepairer : ThingComp
     {
         private static readonly Material repairerOverheatMat = MaterialPool.MatFrom("Things/Building/Misc/AutoRepairerOverheat");
         private static readonly Material repairerMat = MaterialPool.MatFrom("Things/Building/Misc/AutoRepairer");
@@ -59,15 +79,15 @@ namespace GliterworldUprising
             if (overclocked)
             {
                 this.parent.GetComp<CompPowerTrader>().powerOutputInt = -this.Props.overclockPowerConsumption;
-                if(this.parent.GetComp<CompPowerTrader>().PowerOn)
+                if (this.parent.GetComp<CompPowerTrader>().PowerOn)
                     overheating++;
-                else if(overheating > 0)
+                else if (overheating > 0)
                     overheating -= 0.5f;
             }
             else
             {
                 this.parent.GetComp<CompPowerTrader>().powerOutputInt = -this.Props.defaultPowerConsumtion;
-                if(overheating > 0)
+                if (overheating > 0)
                 {
                     overheating -= 0.5f;
                 }
@@ -81,10 +101,10 @@ namespace GliterworldUprising
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            Comp_AutoRepairer compAutoRepairer = this;
+            CompAutoRepairer compAutoRepairer = this;
 
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
-            yield return gizmo;
+                yield return gizmo;
             if (DesignatorUtility.FindAllowedDesignator<Designator_ZoneAddStockpile_Resources>() != null)
             {
                 Command_Action commandAction = new Command_Action();
@@ -112,16 +132,16 @@ namespace GliterworldUprising
         private void CollectDataForRepair(bool shouldFlashCells)
         {
             repairables.Clear();
-            foreach(IntVec3 cell in GenRadial.RadialCellsAround(this.parent.Position, this.Props.radius, true))
+            foreach (IntVec3 cell in GenRadial.RadialCellsAround(this.parent.Position, this.Props.radius, true))
             {
                 foreach (Thing thing in this.map.thingGrid.ThingsAt(cell))
                 {
-                    if(thing != null)
+                    if (thing != null)
                     {
-                        if(thing.def.IsBuildingArtificial)
+                        if (thing.def.IsBuildingArtificial)
                         {
                             repairables.Add(thing);
-                            if(shouldFlashCells)
+                            if (shouldFlashCells)
                                 map.debugDrawer.FlashCell(thing.Position, 1, null, 150);
                         }
                     }
@@ -167,7 +187,7 @@ namespace GliterworldUprising
         label_1:
             filterRepairables();
         }
-        
+
         private void repairItself()
         {
             if (this.parent != null)
@@ -213,7 +233,7 @@ namespace GliterworldUprising
                 {
                     if (filteredRepairables.Count > 0)
                     {
-                        stringBuilder.Append((string)"USH_GU_Repairing".Translate() +"...");
+                        stringBuilder.Append((string)"USH_GU_Repairing".Translate() + "...");
                         stringBuilder.AppendLine();
                     }
                     if (overheating > 0)
@@ -223,9 +243,10 @@ namespace GliterworldUprising
                         else
                             stringBuilder.Append((string)"USH_GU_CoolingDown".Translate() + ": " + (Math.Round((overheating / Props.ticksToOverheat) * 100f)).ToString() + "%");
                     }
-                } else if (overheating > 0)
+                }
+                else if (overheating > 0)
                     stringBuilder.Append((string)"USH_GU_CoolingDown".Translate() + ": " + (Math.Round((overheating / Props.ticksToOverheat) * 100f)).ToString() + "%");
-                
+
             }
 
             return stringBuilder.ToString().TrimEnd();

@@ -1,15 +1,23 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
 using System.Text;
-using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
-using UnityEngine;
 
 namespace GliterworldUprising
 {
-    [StaticConstructorOnStartup]
+    public class CompProperties_MobileComforter : CompProperties
+    {
+        public float joyGain;
+        public int doseOffset;
+        public SoundDef doseSound;
+        public FleckDef fleck;
+        public ThingDef mote;
+        public int moteCount = 3;
+        public FloatRange moteOffsetRange = new FloatRange(0.2f, 0.4f);
+        public CompProperties_MobileComforter() => this.compClass = typeof(CompMobileComforter);
+    }
+
     public class CompMobileComforter : ThingComp
     {
         Map map;
@@ -22,7 +30,7 @@ namespace GliterworldUprising
         {
             base.PostSpawnSetup(respawningAfterLoad);
             map = this.parent.Map;
-            
+
         }
 
         public override void CompTick()
@@ -46,7 +54,7 @@ namespace GliterworldUprising
 
             foreach (Thing thing in map.thingGrid.ThingsAt(this.parent.InteractionCell))
             {
-                if(thing is Pawn pawn)
+                if (thing is Pawn pawn)
                 {
                     tryToCheerUp(pawn);
                 }
@@ -56,10 +64,10 @@ namespace GliterworldUprising
 
         public void tryToCheerUp(Pawn cheeree)
         {
-            if(cheeree.CurJob.def.defName == "USH_UseMobileComforter" && isReady)
+            if (cheeree.CurJob.def.defName == "USH_UseMobileComforter" && isReady)
             {
                 //Make a sound
-                if(this.Props.doseSound != null)
+                if (this.Props.doseSound != null)
                     this.Props.doseSound.PlayOneShot((SoundInfo)new TargetInfo(this.parent.Position, this.map));
                 //Give joy
                 cheeree.needs.joy.GainJoy(this.Props.joyGain, cheeree.CurJob.def.joyKind);
