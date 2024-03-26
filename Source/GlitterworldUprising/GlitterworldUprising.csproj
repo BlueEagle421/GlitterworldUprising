@@ -60,7 +60,6 @@
     <Compile Include="CompDesensitizingModule.cs" />
     <Compile Include="GUSettings.cs" />
     <Compile Include="CompMountainRaiser.cs" />
-    <Compile Include="CompMobileComforter.cs" />
     <Compile Include="HediffCompGlitterSkinReplacement.cs" />
     <Compile Include="CompGlitterworldAnalyzer.cs" />
     <Compile Include="HediffWithCompsAddictionRemoval.cs" />

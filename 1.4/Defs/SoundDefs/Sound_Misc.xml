@@ -29,7 +29,7 @@
             <clipPath>Misc/Desensitize</clipPath>
           </li>
         </grains>      
-        <volumeRange>25</volumeRange>      
+        <volumeRange>15</volumeRange>      
         <pitchRange>0.9152174~1.042391</pitchRange>
       </li>
     </subSounds>

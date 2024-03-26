@@ -83,7 +83,7 @@
     <defName>USH_UseMobileComforter</defName>
     <driverClass>JobDriver_WatchBuilding</driverClass>
     <reportString>using mobile comforter.</reportString>
-    <joyDuration>500</joyDuration>
+    <joyDuration>1000</joyDuration>
     <joyMaxParticipants>1</joyMaxParticipants>
     <joyKind>Chemical</joyKind>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
@@ -344,7 +344,7 @@
         <ticksToActivate>60</ticksToActivate>
         <jobString>activate</jobString>
         <onCooldownString>cooling off</onCooldownString>
-        <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+        <activateTexPath>UI/Gizmos/Desensitize</activateTexPath>
         <targetingParameters>
           <canTargetBuildings>false</canTargetBuildings>
           <canTargetAnimals>false</canTargetAnimals>

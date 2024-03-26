@@ -42,6 +42,9 @@ namespace GliterworldUprising
             if (_refuelableComp.Fuel < Props.fuelConsumption)
                 return false;
 
+            if (PawnsInLinkedFacilities().Count == 0)
+                return false;
+
             return true;
         }
 
