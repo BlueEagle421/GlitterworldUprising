@@ -37,7 +37,7 @@
       <Mass>20</Mass>
       <Beauty>0</Beauty>
       <Flammability>0</Flammability>
-      <JoyGainFactor>8</JoyGainFactor>
+      <JoyGainFactor>3.5</JoyGainFactor>
     </statBases>
     <size>(1,1)</size>
     <placeWorkers>
