@@ -128,8 +128,7 @@
     <costStuffCount>4</costStuffCount>
     <size>(1,1)</size>
     <costList>
-      <Steel>20</Steel>
-      <Silver>10</Silver>
+      <Steel>5</Steel>
       <USH_PhilosophersStone>1</USH_PhilosophersStone>
     </costList>
     <thingCategories>

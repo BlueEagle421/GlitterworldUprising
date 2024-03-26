@@ -19,9 +19,7 @@ Note that if you enable it, it won't affect already installed implants. You woul
   <USH_GU_Ready>Ready for usage</USH_GU_Ready>
   <USH_GU_WarmingUp>Warming up</USH_GU_WarmingUp>
   
-  <USH_GU_Reconstructing>Reconstructing</USH_GU_Reconstructing>
-  <USH_GU_TimeLeft>time left</USH_GU_TimeLeft>
-  
+  <USH_GU_Reconstructing>Reconstructing ends in: {0} s</USH_GU_Reconstructing>
 
   <USH_GU_AnalyzerFoundNoFuel>Glitterworld-analyzer tried to produce, but found no stored components. Restarting progress.</USH_GU_AnalyzerFoundNoFuel>
   

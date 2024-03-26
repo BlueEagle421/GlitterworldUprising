@@ -1,6 +1,5 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
-using System.Text;
 using Verse;
 using Verse.Sound;
 
@@ -11,12 +10,12 @@ namespace GliterworldUprising
         public float ticksToPlace;
         public FleckDef fleckDef;
         public SoundDef soundDef;
-        public List<GlitterThingToTurnInto> recipes = new List<GlitterThingToTurnInto>();
+        public List<WallRecipe> recipes = new List<WallRecipe>();
 
         public CompProperties_MountainRaiser() => compClass = typeof(CompMountainRaiser);
     }
 
-    public class GlitterThingToTurnInto
+    public class WallRecipe
     {
         public ThingDef ingredient, product;
     }
@@ -40,47 +39,39 @@ namespace GliterworldUprising
             _ticksPassed = 0;
         }
 
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+            Scribe_Values.Look(ref _ticksPassed, "USH_TicksPassed", 0);
+        }
+
         public override void CompTick()
         {
             base.CompTick();
+
             _ticksPassed++;
             if (_ticksPassed >= Props.ticksToPlace)
-                raiseTheWall(parent.Stuff);
+                SpawnThing(parent.Stuff);
         }
 
-        public void raiseTheWall(ThingDef stuff)
+        public void SpawnThing(ThingDef ingredient)
         {
-            foreach (GlitterThingToTurnInto entry in Props.recipes)
-            {
-                if (entry.ingredient == stuff)
-                {
+            WallRecipe wallRecipe = Props.recipes.Find(x => x.ingredient == ingredient);
 
-                    //Generate the wall
-                    Thing building = ThingMaker.MakeThing(entry.product);
-                    GenPlace.TryPlaceThing(building, parent.Position, _currentMap, ThingPlaceMode.Direct);
+            Thing product = ThingMaker.MakeThing(wallRecipe.product);
+            GenPlace.TryPlaceThing(product, parent.Position, _currentMap, ThingPlaceMode.Direct);
 
-                    //Play the sound
-                    if (Props.soundDef != null)
-                        Props.soundDef.PlayOneShot((SoundInfo)new TargetInfo(parent.Position, _currentMap));
-
-                    //Make particles
-                    FleckMaker.Static(parent.Position, _currentMap, Props.fleckDef);
-
-                }
-            }
+            SpawnFleckEffect(parent.Position);
+            PlaySoundEffect();
         }
 
-        public override string CompInspectStringExtra()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            if (this != null)
-            {
-                stringBuilder.Append((string)"USH_GU_Reconstructing".Translate() + ": " + (Props.ticksToPlace - _ticksPassed).ToString() + " " + "USH_GU_TimeLeft".Translate());
-                stringBuilder.AppendLine();
-            }
+        private void SpawnFleckEffect(IntVec3 position) => FleckMaker.Static(position, _currentMap, Props.fleckDef);
 
-            return stringBuilder.ToString().TrimEnd();
-        }
+        private void PlaySoundEffect() => Props.soundDef.PlayOneShot(new TargetInfo(parent.Position, parent.Map, false));
+
+        public override string CompInspectStringExtra() => "USH_GU_Reconstructing".Translate(SecondsLeft());
+
+        private string SecondsLeft() => ((Props.ticksToPlace - _ticksPassed) / 60f).ToString("0.00");
     }
 
 }
