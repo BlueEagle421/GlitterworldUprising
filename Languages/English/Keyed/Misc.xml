@@ -39,7 +39,7 @@ Note that if you enable it, it won't affect already installed implants. You woul
   
   <USH_GU_DesensitizeNow>Desensitize now</USH_GU_DesensitizeNow>
   <USH_GU_DesensitizeDesc>Desensitize all connected patients. If no fuel or no patients are found, the machine won't do anything.</USH_GU_DesensitizeDesc>
-  <USH_GU_DesensitizeCost>Medicine needed for desensitization</USH_GU_DesensitizeCost>
+  <USH_GU_DesensitizeCost>Medicine needed for desensitization: {0}</USH_GU_DesensitizeCost>
   
   <USH_GU_OverclockLabel>Overclock</USH_GU_OverclockLabel>
   <USH_GU_OverclockDesc>Quadruple repairing speed with the cost of higher power consumption and an overheat risk.</USH_GU_OverclockDesc>

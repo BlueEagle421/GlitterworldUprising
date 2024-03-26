@@ -1,118 +1,93 @@
 ﻿using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace GliterworldUprising
 {
-    public class CompProperties_DesensitizingModule : CompProperties
+    public class CompProperties_DesensitizingModule : CompProperties_Activable
     {
-        public ActivateGizmo activateGizmo;
-        public int fuelPerDesensitization;
-        public FleckDef fleck;
-        public ThingDef mote;
-        public int moteCount = 3;
-        public FloatRange moteOffsetRange = new FloatRange(0.2f, 0.4f);
-        public CompProperties_DesensitizingModule() => this.compClass = typeof(CompDesensitizingModule);
+        public int fuelConsumption;
+        public HediffDef hediffDefToRemove;
+        public FleckDef fleckDef;
+        public SoundDef soundDef;
+
+        public CompProperties_DesensitizingModule() => compClass = typeof(CompDesensitizingModule);
     }
 
-    public class ActivateGizmo
+    public class CompDesensitizingModule : CompActivable
     {
-        public Texture2D tex;
-        public string texPath;
-        public string labelKey;
-        public string descKey;
-    }
+        Map _currentMap;
+        CompFacility _facilityComp;
+        CompRefuelable _refuelableComp;
 
-
-    [StaticConstructorOnStartup]
-    public class CompDesensitizingModule : ThingComp
-    {
-        Map map;
-        private Command_Action activateAction;
-
-        public CompProperties_DesensitizingModule Props => (CompProperties_DesensitizingModule)this.props;
+        public CompProperties_DesensitizingModule Props => (CompProperties_DesensitizingModule)props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            map = this.parent.Map;
-
-            activateAction = new Command_Action();
-            activateAction.defaultLabel = (string)Translator.Translate(this.Props.activateGizmo.labelKey);
-            activateAction.defaultDesc = (string)Translator.Translate(this.Props.activateGizmo.descKey);
-            activateAction.icon = this.Props.activateGizmo.tex;
-            activateAction.action = (Action)(() => this.desensitizeAll());
+            _currentMap = parent.Map;
+            _facilityComp = parent.GetComp<CompFacility>();
+            _refuelableComp = parent.GetComp<CompRefuelable>();
         }
 
-        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        public override void Activate()
         {
-            foreach (Gizmo gizmo in base.CompGetGizmosExtra())
-                yield return gizmo;
+            base.Activate();
 
-            Command_Action activate = activateAction;
-            yield return (Gizmo)activate;
-            activate = (Command_Action)null;
+            DesensitizePawns();
+        }
+        protected override bool TryUse()
+        {
+            if (_refuelableComp.Fuel < Props.fuelConsumption)
+                return false;
+
+            return true;
         }
 
-        public void desensitizeAll()
+        private void DesensitizePawns()
         {
-            if (this.parent.GetComp<CompRefuelable>().Fuel >= this.Props.fuelPerDesensitization && this.parent.GetComp<CompPowerTrader>().PowerOn)
+            foreach (Pawn pawn in PawnsInLinkedFacilities())
             {
-                foreach (Thing building in this.parent.GetComp<CompFacility>().LinkedBuildings)
-                {
-                    foreach (Thing thing in map.thingGrid.ThingsAt(building.Position))
-                    {
-                        if (thing is Pawn pawn)
-                        {
-                            List<Hediff> allHediffs = new List<Hediff>();
-                            pawn.health.hediffSet.GetHediffs(ref allHediffs);
-                            foreach (Hediff hediff in allHediffs)
-                            {
-                                if (hediff.def.defName == "Anesthetic")
-                                {
+                Hediff toRemove = pawn.health.hediffSet.GetFirstHediffOfDef(Props.hediffDefToRemove);
 
-                                    //Remove anesthetic hediff
-                                    pawn.health.RemoveHediff(hediff);
+                if (toRemove == null)
+                    continue;
 
-                                    //Spawn particles
-                                    if (this.Props.mote != null || this.Props.fleck != null)
-                                    {
-                                        Vector3 drawPos = this.parent.DrawPos;
-                                        for (int index = 0; index < this.Props.moteCount; ++index)
-                                        {
-                                            Vector2 vector2 = Rand.InsideUnitCircle * this.Props.moteOffsetRange.RandomInRange * (float)Rand.Sign;
-                                            Vector3 loc = new Vector3(drawPos.x + vector2.x, drawPos.y, drawPos.z + vector2.y);
-                                            if (this.Props.mote != null)
-                                                MoteMaker.MakeStaticMote(loc, this.map, this.Props.mote);
-                                            else
-                                                FleckMaker.Static(loc, this.map, this.Props.fleck);
-                                        }
-                                    }
+                pawn.health.RemoveHediff(toRemove);
+                _refuelableComp.ConsumeFuel(Props.fuelConsumption);
 
-                                    //Consume fuel
-                                    this.parent.GetComp<CompRefuelable>().ConsumeFuel(this.Props.fuelPerDesensitization);
-                                }
-                            }
-                        }
-                    }
-                }
+                PlaySoundEffect();
+
+                SpawnFleckEffect(pawn.Position);
+                SpawnFleckEffect(parent.Position);
             }
         }
 
+        private void SpawnFleckEffect(IntVec3 position) => FleckMaker.Static(position, _currentMap, Props.fleckDef);
 
-        public override string CompInspectStringExtra()
+        private void PlaySoundEffect() => Props.soundDef.PlayOneShot(new TargetInfo(parent.Position, parent.Map, false));
+
+        private List<Pawn> PawnsInLinkedFacilities()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            if (this != null)
-            {
-                stringBuilder.Append((string)"USH_GU_DesensitizeCost".Translate() + ": " + this.Props.fuelPerDesensitization.ToString());
-                stringBuilder.AppendLine();
-            }
+            List<Pawn> result = new List<Pawn>();
 
-            return stringBuilder.ToString().TrimEnd();
+            foreach (Thing building in _facilityComp.LinkedBuildings)
+                foreach (Thing thing in _currentMap.thingGrid.ThingsAt(building.Position))
+                    if (thing as Pawn != null)
+                        result.Add(thing as Pawn);
+
+            return result;
         }
+
+        public override AcceptanceReport CanActivate(Pawn activateBy = null)
+        {
+            if (_refuelableComp.Fuel < Props.fuelConsumption)
+                return "NoFuel".Translate();
+
+            return base.CanActivate(activateBy);
+        }
+
+        public override string CompInspectStringExtra() => "USH_GU_DesensitizeCost".Translate(Props.fuelConsumption);
     }
 }

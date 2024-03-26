@@ -57,7 +57,6 @@
     <Compile Include="CompAutoMaintainer.cs" />
     <Compile Include="CompAutoBuilder.cs" />
     <Compile Include="CompAutoRepairer.cs" />
-    <Compile Include="MaterialCreator.cs" />
     <Compile Include="CompDesensitizingModule.cs" />
     <Compile Include="GUSettings.cs" />
     <Compile Include="CompMountainRaiser.cs" />
