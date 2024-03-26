@@ -50,7 +50,7 @@
         <basePowerConsumption>210</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable" />
-	</comps>
+    </comps>
     <costList>
       <Steel>120</Steel>
       <Silver>65</Silver>
@@ -137,35 +137,33 @@
     </thingCategories>
     <comps>
       <li Class="GliterworldUprising.CompProperties_MountainRaiser">
-        <timeOffset>180</timeOffset>
-        <raiseSound>USH_WallRaise</raiseSound>
-        <fleck>USH_WallRaiseCloud</fleck>
-        <moteCount>6</moteCount>
-        <moteOffsetRange>0.25~0.75</moteOffsetRange>
+        <timeOffset>360</timeOffset>
+        <soundDef>USH_WallRaise</soundDef>
+        <fleckDef>USH_WallRaiseCloud</fleckDef>
         <recipes>
           <li>
-            <item>BlocksGranite</item>
-            <building>Granite</building>
+            <ingredient>BlocksGranite</ingredient>
+            <product>Granite</product>
           </li>
           <li>
-            <item>BlocksSandstone</item>
-            <building>Sandstone</building>
+            <ingredient>BlocksSandstone</ingredient>
+            <product>Sandstone</product>
           </li>
           <li>
-            <item>BlocksMarble</item>
-            <building>Marble</building>
+            <ingredient>BlocksMarble</ingredient>
+            <product>Marble</product>
           </li>
           <li>
-            <item>BlocksSlate</item>
-            <building>Slate</building>
+            <ingredient>BlocksSlate</ingredient>
+            <product>Slate</product>
           </li>
           <li>
-            <item>BlocksLimestone</item>
-            <building>Limestone</building>
+            <ingredient>BlocksLimestone</ingredient>
+            <product>Limestone</product>
           </li>
           <li>
-            <item>Jade</item>
-            <building>MineableJade</building>
+            <ingredient>Jade</ingredient>
+            <product>MineableJade</product>
           </li>
         </recipes>
       </li>

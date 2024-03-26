@@ -1,7 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
 using System.Text;
-using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -9,75 +8,63 @@ namespace GliterworldUprising
 {
     public class CompProperties_MountainRaiser : CompProperties
     {
-        public float timeOffset;
-        public FleckDef fleck;
-        public ThingDef mote;
-        public int moteCount = 3;
-        public FloatRange moteOffsetRange = new FloatRange(0.2f, 0.4f);
-        public SoundDef raiseSound;
+        public float ticksToPlace;
+        public FleckDef fleckDef;
+        public SoundDef soundDef;
         public List<GlitterThingToTurnInto> recipes = new List<GlitterThingToTurnInto>();
 
-        public CompProperties_MountainRaiser() => this.compClass = typeof(CompMountainRaiser);
+        public CompProperties_MountainRaiser() => compClass = typeof(CompMountainRaiser);
     }
 
     public class GlitterThingToTurnInto
     {
-        public ThingDef item, building;
+        public ThingDef ingredient, product;
     }
 
-    [StaticConstructorOnStartup]
     public class CompMountainRaiser : ThingComp
     {
-        Map map;
-        private int tickFromStart = -1;
+        Map _currentMap;
+        private int _ticksPassed;
 
-        public CompProperties_MountainRaiser Props => (CompProperties_MountainRaiser)this.props;
+        public CompProperties_MountainRaiser Props => (CompProperties_MountainRaiser)props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            map = this.parent.Map;
+            _currentMap = parent.Map;
+        }
+
+        public override void Initialize(CompProperties props)
+        {
+            base.Initialize(props);
+            _ticksPassed = 0;
         }
 
         public override void CompTick()
         {
             base.CompTick();
-            tickFromStart++;
-            if (tickFromStart >= this.Props.timeOffset)
-            {
-                raiseTheWall(this.parent.Stuff);
-            }
+            _ticksPassed++;
+            if (_ticksPassed >= Props.ticksToPlace)
+                raiseTheWall(parent.Stuff);
         }
 
         public void raiseTheWall(ThingDef stuff)
         {
             foreach (GlitterThingToTurnInto entry in Props.recipes)
             {
-                if (entry.item == stuff)
+                if (entry.ingredient == stuff)
                 {
 
                     //Generate the wall
-                    Thing building = ThingMaker.MakeThing(entry.building);
-                    GenPlace.TryPlaceThing(building, this.parent.Position, map, ThingPlaceMode.Direct);
+                    Thing building = ThingMaker.MakeThing(entry.product);
+                    GenPlace.TryPlaceThing(building, parent.Position, _currentMap, ThingPlaceMode.Direct);
 
                     //Play the sound
-                    if (this.Props.raiseSound != null)
-                        this.Props.raiseSound.PlayOneShot((SoundInfo)new TargetInfo(this.parent.Position, this.map));
+                    if (Props.soundDef != null)
+                        Props.soundDef.PlayOneShot((SoundInfo)new TargetInfo(parent.Position, _currentMap));
 
                     //Make particles
-                    if (this.Props.mote != null || this.Props.fleck != null)
-                    {
-                        Vector3 drawPos = this.parent.DrawPos;
-                        for (int index = 0; index < this.Props.moteCount; ++index)
-                        {
-                            Vector2 vector2 = Rand.InsideUnitCircle * this.Props.moteOffsetRange.RandomInRange * (float)Rand.Sign;
-                            Vector3 loc = new Vector3(drawPos.x + vector2.x, drawPos.y, drawPos.z + vector2.y);
-                            if (this.Props.mote != null)
-                                MoteMaker.MakeStaticMote(loc, this.map, this.Props.mote);
-                            else
-                                FleckMaker.Static(loc, this.map, this.Props.fleck);
-                        }
-                    }
+                    FleckMaker.Static(parent.Position, _currentMap, Props.fleckDef);
 
                 }
             }
@@ -88,7 +75,7 @@ namespace GliterworldUprising
             StringBuilder stringBuilder = new StringBuilder();
             if (this != null)
             {
-                stringBuilder.Append((string)"USH_GU_Reconstructing".Translate() + ": " + (this.Props.timeOffset - tickFromStart).ToString() + " " + "USH_GU_TimeLeft".Translate());
+                stringBuilder.Append((string)"USH_GU_Reconstructing".Translate() + ": " + (Props.ticksToPlace - _ticksPassed).ToString() + " " + "USH_GU_TimeLeft".Translate());
                 stringBuilder.AppendLine();
             }
 
