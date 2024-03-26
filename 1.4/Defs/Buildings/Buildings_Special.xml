@@ -37,7 +37,7 @@
       <Mass>20</Mass>
       <Beauty>0</Beauty>
       <Flammability>0</Flammability>
-      <JoyGainFactor>1.4</JoyGainFactor>
+      <JoyGainFactor>8</JoyGainFactor>
     </statBases>
     <size>(1,1)</size>
     <placeWorkers>
@@ -50,15 +50,7 @@
         <basePowerConsumption>210</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable" />
-      <li Class="GliterworldUprising.CompProperties_MobileComforter">
-        <joyGain>0.2</joyGain>
-        <doseOffset>850</doseOffset>
-        <doseSound></doseSound>
-        <fleck>USH_MobileComforterCloud</fleck>
-        <moteCount>4</moteCount>
-        <moteOffsetRange>0.20~0.75</moteOffsetRange>
-      </li>
-    </comps>
+	</comps>
     <costList>
       <Steel>120</Steel>
       <Silver>65</Silver>
@@ -76,7 +68,7 @@
   <JoyGiverDef>
     <defName>USH_UseMobileComforter</defName>
     <giverClass>JoyGiver_InteractBuildingInteractionCell</giverClass>
-    <baseChance>5</baseChance>
+    <baseChance>4</baseChance>
     <thingDefs>
       <li>USH_MobileComforter</li>
     </thingDefs>
@@ -91,25 +83,11 @@
     <defName>USH_UseMobileComforter</defName>
     <driverClass>JobDriver_WatchBuilding</driverClass>
     <reportString>using mobile comforter.</reportString>
-    <joyDuration>65</joyDuration>
+    <joyDuration>500</joyDuration>
     <joyMaxParticipants>1</joyMaxParticipants>
     <joyKind>Chemical</joyKind>
     <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
   </JobDef>
-
-  <FleckDef ParentName="FleckBase">
-    <defName>USH_MobileComforterCloud</defName>
-    <graphicData>
-      <texPath>Things/Mote/Smoke</texPath>
-      <color>(0.588, 0.721, 0.733)</color>
-      <drawSize>(2.5,2.5)</drawSize>
-    </graphicData>
-    <altitudeLayer>MoteOverhead</altitudeLayer>
-    <fadeInTime>0.15</fadeInTime>
-    <solidTime>3.1</solidTime>
-    <fadeOutTime>1.2</fadeOutTime>
-    <growthRate>0.025</growthRate>
-  </FleckDef>
 
   <!--Mountain raiser-->
 
