@@ -194,7 +194,7 @@
     <defName>USH_LocalComputor</defName>
     <label>local computor</label>
     <description>A machine meant to calculate and conduct simulations. After linking to a research bench, it automatically connects with a nearby terminal for immediate use. This makes it a perfect companion for busy researchers, who with its support, don’t need to use any additional computing devices during work.
-      It also conducts a bit of passive research on its own. Note that it must be connected to a research bench in order to work.</description>
+      \nIt also conducts a bit of passive research on its own. Note that it must be connected to a research bench in order to work.</description>
     <graphicData>
       <texPath>Things/Building/Misc/LocalComputor</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -244,11 +244,15 @@
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
       <li Class="GliterworldUprising.CompProperties_PassiveRes">
-        <isFacility>true</isFacility>
+        <ticksPerResearch>250</ticksPerResearch>
+        <researchAmount>0.25</researchAmount>
       </li>
     </comps>
     <designationCategory>Misc</designationCategory>
     <uiIconScale>1</uiIconScale>
+	<placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+    </placeWorkers>
     <researchPrerequisites>
       <li>USH_BaseEssentialsRes</li>
     </researchPrerequisites>
@@ -259,7 +263,7 @@
     <label>passive research points per day</label>
     <description>This value represents the amount of research conducted by the machine every day.</description>
     <category>Building</category>
-    <defaultBaseValue>1</defaultBaseValue>
+    <defaultBaseValue>60</defaultBaseValue>
     <minValue>1</minValue>
     <toStringStyle>FloatOne</toStringStyle>
     <showIfUndefined>false</showIfUndefined>
@@ -686,6 +690,7 @@
     <placeWorkers>
       <li>PlaceWorker_ShowFacilitiesConnections</li>
     </placeWorkers>
+	
     <uiIconScale>0.8</uiIconScale>
     <researchPrerequisites>
       <li>USH_SkilltrainerCreation</li>

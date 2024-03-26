@@ -1,88 +1,92 @@
 ﻿using RimWorld;
-using System;
-using System.Text;
 using Verse;
 
 namespace GliterworldUprising
 {
     public class CompProperties_PassiveRes : CompProperties
     {
-        public bool isFacility;
-        public CompProperties_PassiveRes() => this.compClass = typeof(CompPassiveRes);
+        public float ticksPerResearch;
+        public float researchAmount;
+        public CompProperties_PassiveRes() => compClass = typeof(CompPassiveRes);
     }
 
-    [StaticConstructorOnStartup]
     public class CompPassiveRes : ThingComp
     {
-        private int nextProduceRareTick = -1;
-        private float researchConducted;
-        Map map;
+        private int _ticksPassed;
+        private float _researchPerformed;
 
-        public CompProperties_PassiveRes Props => (CompProperties_PassiveRes)this.props;
+        private const float RES_MULTIPLIER = 0.00825f;
 
+        CompPowerTrader _powerTraderComp;
+        CompFacility _facilityComp;
+
+        public CompProperties_PassiveRes Props => (CompProperties_PassiveRes)props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            map = this.parent.Map;
+
+            _powerTraderComp = parent.GetComp<CompPowerTrader>();
+            _facilityComp = parent.GetComp<CompFacility>();
+        }
+
+        public override void Initialize(CompProperties props)
+        {
+            base.Initialize(props);
+
+            _ticksPassed = 0;
+            _researchPerformed = 0;
+        }
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+
+            Scribe_Values.Look(ref _ticksPassed, "USH_ResearchTicksPassed", 0);
+            Scribe_Values.Look(ref _researchPerformed, "USH_ResearchPerformed", 0);
         }
 
         public override void CompTickRare()
         {
             base.CompTickRare();
 
-            int ticksRareGame = Find.TickManager.TicksGame / 250;
-            if (this.nextProduceRareTick == -1)
-                this.nextProduceRareTick = ticksRareGame + 10;
-            else if (ticksRareGame >= this.nextProduceRareTick)
+            if (!ResearchRaport().Accepted)
+                return;
+
+            _ticksPassed += 250;
+
+            if (_ticksPassed >= Props.ticksPerResearch)
             {
-                this.nextProduceRareTick = ticksRareGame + 10;
-                if (this.parent.GetComp<CompPowerTrader>() != null)
-                {
-                    if (this.parent.GetComp<CompPowerTrader>().PowerOn)
-                        ConductResearch(this.parent.GetStatValue(StatDef.Named("USH_PassiveResPerDay")) / 24);
-                }
-                else
-                    ConductResearch(this.parent.GetStatValue(StatDef.Named("USH_PassiveResPerDay")) / 24);
-
+                ConductResearch(Props.researchAmount);
+                _ticksPassed = 0;
             }
-
         }
 
         private void ConductResearch(float amount)
         {
             ResearchManager researchManager = Find.ResearchManager;
-            if (this.Props.isFacility)
-            {
-                if (this.parent.GetComp<CompFacility>().LinkedBuildings.Count > 0)
-                {
-                    if (researchManager.currentProj == null)
-                        return;
-                    researchManager.ResearchPerformed(amount / 0.00825f, (Pawn)null);
-                    researchConducted += amount;
-                }
-            }
-            else
-            {
 
-                if (researchManager.currentProj == null)
-                    return;
-                researchManager.ResearchPerformed(amount / 0.00825f, (Pawn)null);
-                researchConducted += amount;
-            }
+            if (researchManager.currentProj == null)
+                return;
+
+            if (!ResearchRaport().Accepted)
+                return;
+
+            researchManager.ResearchPerformed(amount / RES_MULTIPLIER, null);
+            _researchPerformed += amount;
         }
 
-        public override string CompInspectStringExtra()
+        private AcceptanceReport ResearchRaport()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            if (this != null)
-            {
-                stringBuilder.Append((string)"USH_GU_ResConducted".Translate() + ": " + (Math.Round(researchConducted)).ToString());
-                stringBuilder.AppendLine();
-            }
+            if (_powerTraderComp != null && !_powerTraderComp.PowerOn)
+                return false;
 
-            return stringBuilder.ToString().TrimEnd();
+            if (_facilityComp != null && _facilityComp.LinkedBuildings.Count == 0)
+                return false;
+
+            return true;
         }
 
+        public override string CompInspectStringExtra() => "USH_GU_ResPerformed".Translate(_researchPerformed);
     }
 }

@@ -24,7 +24,7 @@ Note that if you enable it, it won't affect already installed implants. You woul
   <USH_GU_AnalyzerFoundNoFuel>Glitterworld-analyzer tried to produce, but found no stored components. Restarting progress.</USH_GU_AnalyzerFoundNoFuel>
   
   <USH_GU_Maintained>Maintained</USH_GU_Maintained>
-  <USH_GU_ResConducted>Research conducted</USH_GU_ResConducted>
+  <USH_GU_ResPerformed>Research performed: {0}</USH_GU_ResPerformed>
   <USH_GU_DetBuildables>Detected buildables</USH_GU_DetBuildables>
   
   <USH_GU_Repairing>Repairing</USH_GU_Repairing>
