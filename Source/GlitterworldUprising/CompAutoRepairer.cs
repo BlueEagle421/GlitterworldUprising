@@ -33,8 +33,6 @@ namespace GliterworldUprising
 
     public class CompAutoRepairer : ThingComp
     {
-        private static readonly Material repairerOverheatMat = MaterialPool.MatFrom("Things/Building/Misc/AutoRepairerOverheat");
-        private static readonly Material repairerMat = MaterialPool.MatFrom("Things/Building/Misc/AutoRepairer");
         Map map;
         private int repairsBeforeCheck = 0;
         private bool overclocked;
