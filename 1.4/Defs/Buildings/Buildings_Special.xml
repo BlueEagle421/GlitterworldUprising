@@ -59,7 +59,7 @@
       <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <designationCategory>Joy</designationCategory>
-    <uiIconScale>1</uiIconScale>
+    <uiIconScale>0.6</uiIconScale>
     <researchPrerequisites>
       <li>USH_BaseEssentialsRes</li>
     </researchPrerequisites>
@@ -137,7 +137,7 @@
     </thingCategories>
     <comps>
       <li Class="GliterworldUprising.CompProperties_MountainRaiser">
-        <timeOffset>360</timeOffset>
+        <ticksToPlace>360</ticksToPlace>
         <soundDef>USH_WallRaise</soundDef>
         <fleckDef>USH_WallRaiseCloud</fleckDef>
         <recipes>
