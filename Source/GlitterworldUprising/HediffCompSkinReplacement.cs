@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 
 namespace GliterworldUprising
@@ -7,7 +6,6 @@ namespace GliterworldUprising
     public class HediffCompProperties_SkinReplacement : HediffCompProperties
     {
         public ColorInt skinColor;
-        public List<HediffDef> hediffsConsideredSame = new List<HediffDef>();
 
         public HediffCompProperties_SkinReplacement() => compClass = typeof(HediffCompSkinReplacement);
     }
@@ -20,43 +18,23 @@ namespace GliterworldUprising
         {
             base.CompPostMake();
 
-            RemoveHediffDuplicates(parent.pawn, Props.hediffsConsideredSame);
-
             Color toSave = parent.pawn.story.SkinColor;
             SkinSaveComp.Instance.AddPawnSkinColor(parent.pawn, toSave);
 
             if (!LoadedModManager.GetMod<GUMod>().GetSettings<GUSettings>().shouldChangeColor)
-                ChangePawnColor(Props.skinColor.ToColor);
-        }
-
-        private void RemoveHediffDuplicates(Pawn pawn, List<HediffDef> duplicates)
-        {
-            List<Hediff> allHediffs = new List<Hediff>();
-            pawn.health.hediffSet.GetHediffs(ref allHediffs);
-            foreach (Hediff hediff in allHediffs)
-            {
-                if (hediff == parent)
-                    continue;
-
-                if (duplicates.Contains(hediff.def))
-                {
-                    GenSpawn.Spawn(hediff.def.spawnThingOnRemoved, pawn.Position, pawn.Map);
-                    pawn.health.RemoveHediff(hediff);
-                }
-            }
+                ChangePawnColor(parent.pawn, Props.skinColor.ToColor);
         }
 
         public override void CompPostPostRemoved()
         {
             base.CompPostPostRemoved();
 
-            ChangePawnColor(SkinSaveComp.Instance.GetPawnSkinColor(parent.pawn));
+            ChangePawnColor(parent.pawn, SkinSaveComp.Instance.GetPawnSkinColor(parent.pawn));
         }
-
-        private void ChangePawnColor(Color color)
+        private void ChangePawnColor(Pawn pawn, Color color)
         {
-            parent.pawn.story.skinColorOverride = color;
-            parent.pawn.Drawer.renderer.SetAllGraphicsDirty();
+            pawn.story.skinColorOverride = color;
+            pawn.Drawer.renderer.SetAllGraphicsDirty();
         }
     }
 }

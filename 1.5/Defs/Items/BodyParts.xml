@@ -86,6 +86,8 @@
     <comps>
       <li Class="GliterworldUprising.HediffCompProperties_SkinReplacement">
         <skinColor>(255, 235, 122)</skinColor>
+      </li>
+      <li Class="GliterworldUprising.HediffCompProperties_RemoveDuplicates">
         <hediffsConsideredSame>
           <li>USH_InstalledGoldenSkinReplacement</li>
           <li>USH_InstalledPlasteelSkinReplacement</li>
@@ -205,6 +207,8 @@
     <comps>
       <li Class="GliterworldUprising.HediffCompProperties_SkinReplacement">
         <skinColor>(147, 188, 189)</skinColor>
+      </li>
+      <li Class="GliterworldUprising.HediffCompProperties_RemoveDuplicates">
         <hediffsConsideredSame>
           <li>USH_InstalledGoldenSkinReplacement</li>
           <li>USH_InstalledPlasteelSkinReplacement</li>
@@ -304,6 +308,14 @@
         </statOffsets>
       </li>
     </stages>
+    <comps>
+      <li Class="GliterworldUprising.HediffCompProperties_RemoveDuplicates">
+        <hediffsConsideredSame>
+          <li>USH_InstalledGoldenTeethReplacement</li>
+          <li>USH_InstalledPlasteelTeethReplacement</li>
+        </hediffsConsideredSame>
+      </li>
+    </comps>
     <tags>
       <li>USH_GoldenTeethReplacementTag</li>
     </tags>
@@ -393,6 +405,14 @@
         </capMods>
       </li>
     </stages>
+    <comps>
+      <li Class="GliterworldUprising.HediffCompProperties_RemoveDuplicates">
+        <hediffsConsideredSame>
+          <li>USH_InstalledGoldenTeethReplacement</li>
+          <li>USH_InstalledPlasteelTeethReplacement</li>
+        </hediffsConsideredSame>
+      </li>
+    </comps>
     <tags>
       <li>USH_PlasteelTeethReplacementTag</li>
     </tags>
