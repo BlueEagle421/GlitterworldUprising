@@ -54,15 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompPassiveRes.cs" />
-    <Compile Include="CompAutoMaintainer.cs" />
-    <Compile Include="CompAutoBuilder.cs" />
-    <Compile Include="CompAutoRepairer.cs" />
     <Compile Include="CompDesensitizingModule.cs" />
     <Compile Include="GUSettings.cs" />
     <Compile Include="CompMountainRaiser.cs" />
     <Compile Include="HediffCompSkinReplacement.cs" />
     <Compile Include="CompGlitterworldAnalyzer.cs" />
-    <Compile Include="HediffWithCompsAddictionRemoval.cs" />
+    <Compile Include="HediffCompAddictionRemoval.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
