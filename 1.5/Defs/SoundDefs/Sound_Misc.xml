@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  
+  <SoundDef>
+    <defName>USH_ElectricSpark</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/ElectricSpark</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>15~20.43478</volumeRange>      
+        <pitchRange>0.9152174~1.042391</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>USH_Desensitize</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/Desensitize</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>15</volumeRange>      
+        <pitchRange>0.9152174~1.042391</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>USH_WallRaise</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>3</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/WallRaise</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>18~23</volumeRange>      
+        <pitchRange>0.9152174~1.042391</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+</Defs>

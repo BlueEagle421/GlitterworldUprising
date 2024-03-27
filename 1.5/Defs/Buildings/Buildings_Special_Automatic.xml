@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--<ThingDef Name="USH_AutoMoteBase" Abstract="True">
+    <thingClass>MoteThrown</thingClass>
+    <label>Mote</label>
+    <category>Mote</category>
+    <graphicData>
+      <graphicClass>Graphic_Mote</graphicClass>
+      <shaderType>Mote</shaderType>
+    </graphicData>
+    <altitudeLayer>MoteLow</altitudeLayer>
+    <tickerType>Normal</tickerType>
+    <useHitPoints>false</useHitPoints>
+    <isSaveable>false</isSaveable>
+    <rotatable>false</rotatable>
+	<mote>
+      <fadeInTime>0.6</fadeInTime>
+      <solidTime>1.1</solidTime>
+      <fadeOutTime>0.45</fadeOutTime>
+    </mote>
+  </ThingDef>
+
+
+   <ThingDef ParentName="BuildingBase">
+    <defName>USH_AutoRepairer</defName>
+    <label>auto-repairing station</label>
+    <description>A foundation for a large mechanite crystal filled with various conduits and circuits. Because of that electronic complexity, it is vulnerable to water and will short circuit in rain. Its job is to repair all nearby objects with controlled mechanite clumps. Its work speed can be quadrupled via overclocking, but it leads to significantly higher power consumption. Also, if it is allowed to fully overheat, the machine will explode, burning everything in its radius.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/AutoRepairer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(3,3)</drawSize>
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>false</allowFlip>
+	  <shadowData>
+        <volume>(0.9, 1.3, 0.5)</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsSecurity</li>
+    </thingCategories>
+	<tickerType>Rare</tickerType>
+	<defaultPlacingRot>South</defaultPlacingRot>
+    <fillPercent>0.55</fillPercent>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <WorkToBuild>800</WorkToBuild>
+      <Mass>36</Mass>
+	  <Beauty>0</Beauty>
+      <Flammability>0</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+	<placeWorkers>
+      <li>GliterworldUprising.PlaceWorker_ShowAutoRepairerRadius</li>
+    </placeWorkers>
+	<comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>true</shortCircuitInRain>
+        <basePowerConsumption>450</basePowerConsumption>
+      </li>
+	  <li Class="GliterworldUprising.CompProperties_AutoRepairer">
+        <radius>4.9</radius>
+		<repairAmount>25</repairAmount>
+		<rareTicksPerCheck>5</rareTicksPerCheck>
+		<overclockPowerConsumption>4200</overclockPowerConsumption>
+		<defaultPowerConsumtion>450</defaultPowerConsumtion>
+		<ticksToOverheat>40</ticksToOverheat>
+		<moteDef>USH_AutoRepairMote</moteDef>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+    </comps>
+    <costList>
+	  <Steel>40</Steel>
+	  <Silver>10</Silver>
+	  <Plasteel>10</Plasteel>
+	  <USH_CrystalMechanites>4</USH_CrystalMechanites>
+	  <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <designationCategory>Security</designationCategory>
+    <uiIconScale>0.55</uiIconScale>
+	<researchPrerequisites>
+      <li>USH_BuildingsAutoRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_AutoMoteBase">
+    <defName>USH_AutoRepairMote</defName>
+    <graphicData>
+      <texPath>Things/Motes/AutoRepairMote</texPath>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+  </ThingDef>
+  
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>USH_AutoBuilder</defName>
+    <label>mechanical builder</label>
+    <description>A sturdy machine with a crystalline tip. It builds everything nearby as long the targeted objects are filled with the required materials. On glitterworlds, much more advanced versions of mechanical builders were banned after terrorists and paramilitary groups used them to malicious ends, and so the technology was lost to time. But even this basic version was once used by common people to build houses and mansions with extremely low effort.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/AutoBuilder</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(3,3)</drawSize>
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>false</allowFlip>
+	  <shadowData>
+        <volume>(0.9, 1.3, 0.5)</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsProduction</li>
+    </thingCategories>
+	<tickerType>Rare</tickerType>
+	<defaultPlacingRot>South</defaultPlacingRot>
+    <fillPercent>0.6</fillPercent>
+    <statBases>
+      <MaxHitPoints>260</MaxHitPoints>
+      <WorkToBuild>1600</WorkToBuild>
+      <Mass>38</Mass>
+	  <Beauty>0</Beauty>
+      <Flammability>0</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+	<placeWorkers>
+      <li>GliterworldUprising.PlaceWorker_ShowAutoBuilderRadius</li>
+    </placeWorkers>
+	<comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>600</basePowerConsumption>
+      </li>
+	  <li Class="GliterworldUprising.CompProperties_AutoBuilder">
+        <radius>7.9</radius>
+		<workAmount>90</workAmount>
+		<rareTickPerCheck>3</rareTickPerCheck>
+		<moteDef>USH_AutoBuildMote</moteDef>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+    </comps>
+    <costList>
+	  <Steel>190</Steel>
+	  <Silver>140</Silver>
+	  <Plasteel>30</Plasteel>
+	  <USH_CrystalMechanites>3</USH_CrystalMechanites>
+	  <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <designationCategory>Production</designationCategory>
+    <uiIconScale>0.55</uiIconScale>
+	<researchPrerequisites>
+      <li>USH_BuildingsAutoRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_AutoMoteBase">
+    <defName>USH_AutoBuildMote</defName>
+    <graphicData>
+      <texPath>Things/Motes/AutoBuildMote</texPath>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+  </ThingDef>  
+  
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>USH_SmallMaintainer</defName>
+    <label>mechanical maintainer</label>
+    <description>A simple machine that repairs nearby mechanisms by direct component maintenance. It doesn’t replace them, it repairs, so no additional resources are needed after the maintainer is build. It once erased the need for mechanics, most electricians, and hardware specialists.
+It updates its database of deconstructable objects in range every six hours and maintains them every half an hour.</description>
+    <graphicData>
+      <texPath>Things/Building/Misc/MechanicalMaintainer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>(3,3)</drawSize>
+	  <drawRotated>false</drawRotated>
+	  <allowFlip>false</allowFlip>
+	  <shadowData>
+        <volume>(0.8, 1.3, 0.8)</volume>
+      </shadowData>
+    </graphicData>
+    <altitudeLayer>BuildingOnTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <minifiedDef>MinifiedThing</minifiedDef>
+	<thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+	<tickerType>Rare</tickerType>
+	<defaultPlacingRot>South</defaultPlacingRot>
+    <fillPercent>0.6</fillPercent>
+    <statBases>
+      <MaxHitPoints>310</MaxHitPoints>
+      <WorkToBuild>1200</WorkToBuild>
+      <Mass>42</Mass>
+	  <Beauty>0</Beauty>
+      <Flammability>0</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+	<placeWorkers>
+      <li>GliterworldUprising.PlaceWorker_ShowAutoMaintainerRadius</li>
+    </placeWorkers>
+	<comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+	  <li Class="GliterworldUprising.CompProperties_AutoMaintainer">
+        <radius>3.9</radius>
+		<rareTicksPerMaintain>5</rareTicksPerMaintain>
+		<rareTickPerCheck>60</rareTickPerCheck>
+		<moteDef>USH_AutoMaintainMote</moteDef>
+      </li>
+      <li Class="CompProperties_Flickable"/>
+    </comps>
+    <costList>
+	  <Steel>170</Steel>
+	  <Silver>120</Silver>
+	  <Plasteel>10</Plasteel>
+	  <USH_CrystalMechanites>1</USH_CrystalMechanites>
+	  <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <designationCategory>Misc</designationCategory>
+    <uiIconScale>0.55</uiIconScale>
+	<researchPrerequisites>
+      <li>USH_BuildingsAutoRes</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="USH_AutoMoteBase">
+    <defName>USH_AutoMaintainMote</defName>
+    <graphicData>
+      <texPath>Things/Motes/AutoMaintainMote</texPath>
+    </graphicData>
+    <altitudeLayer>MoteOverhead</altitudeLayer>
+  </ThingDef>-->
+  
+  
+</Defs>

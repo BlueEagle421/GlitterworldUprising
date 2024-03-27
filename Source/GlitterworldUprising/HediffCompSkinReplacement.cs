@@ -56,7 +56,7 @@ namespace GliterworldUprising
         private void ChangePawnColor(Color color)
         {
             parent.pawn.story.skinColorOverride = color;
-            parent.pawn.Drawer.renderer.graphics.SetAllGraphicsDirty();
+            parent.pawn.Drawer.renderer.SetAllGraphicsDirty();
         }
     }
 }

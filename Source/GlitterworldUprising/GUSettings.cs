@@ -38,7 +38,6 @@ namespace GliterworldUprising
     {
         public bool shouldChangeColor;
 
-
         public override void ExposeData()
         {
             base.ExposeData();

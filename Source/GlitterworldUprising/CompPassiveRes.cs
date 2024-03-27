@@ -15,8 +15,6 @@ namespace GliterworldUprising
         private int _ticksPassed;
         private float _researchPerformed;
 
-        private const float RES_MULTIPLIER = 0.00825f;
-
         CompPowerTrader _powerTraderComp;
         CompFacility _facilityComp;
 
@@ -66,13 +64,13 @@ namespace GliterworldUprising
         {
             ResearchManager researchManager = Find.ResearchManager;
 
-            if (researchManager.currentProj == null)
+            if (researchManager.GetProject() == null)
                 return;
 
             if (!ResearchRaport().Accepted)
                 return;
 
-            researchManager.ResearchPerformed(amount / RES_MULTIPLIER, null);
+            researchManager.ResearchPerformed(amount / ResearchManager.ResearchPointsPerWorkTick, null);
             _researchPerformed += amount;
         }
 

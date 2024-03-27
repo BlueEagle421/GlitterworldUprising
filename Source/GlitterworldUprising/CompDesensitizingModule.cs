@@ -5,7 +5,7 @@ using Verse.Sound;
 
 namespace GliterworldUprising
 {
-    public class CompProperties_DesensitizingModule : CompProperties_Activable
+    public class CompProperties_DesensitizingModule : CompProperties_Interactable
     {
         public int fuelConsumption;
         public HediffDef hediffDefToRemove;
@@ -15,7 +15,7 @@ namespace GliterworldUprising
         public CompProperties_DesensitizingModule() => compClass = typeof(CompDesensitizingModule);
     }
 
-    public class CompDesensitizingModule : CompActivable
+    public class CompDesensitizingModule : CompInteractable
     {
         Map _currentMap;
         CompFacility _facilityComp;
@@ -31,14 +31,18 @@ namespace GliterworldUprising
             _refuelableComp = parent.GetComp<CompRefuelable>();
         }
 
-        public override void Activate()
+        protected override void OnInteracted(Pawn caster)
         {
-            base.Activate();
+            base.OnInteracted(caster);
 
             DesensitizePawns();
         }
-        protected override bool TryUse()
+
+        protected override bool TryInteractTick()
         {
+            if (_facilityComp.LinkedBuildings.Count == 0)
+                return false;
+
             if (_refuelableComp.Fuel < Props.fuelConsumption)
                 return false;
 
@@ -83,12 +87,12 @@ namespace GliterworldUprising
             return result;
         }
 
-        public override AcceptanceReport CanActivate(Pawn activateBy = null)
+        public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
         {
             if (_refuelableComp.Fuel < Props.fuelConsumption)
                 return "NoFuel".Translate();
 
-            return base.CanActivate(activateBy);
+            return base.CanInteract(activateBy);
         }
 
         public override string CompInspectStringExtra() => "USH_GU_DesensitizeCost".Translate(Props.fuelConsumption);
