@@ -1,17 +1,48 @@
-﻿//inspired by https://gist.github.com/erdelf/84dce0c0a1f00b5836a9d729f845298a
+﻿using RimWorld;
+using RimWorld.Planet;
 using System.Collections.Generic;
-using Verse;
 using UnityEngine;
+using Verse;
 
 namespace GliterworldUprising
 {
+    public class SkinSaveComp : WorldComponent
+    {
+        List<Pawn> _pawns;
+        List<Color> _colors = new List<Color>();
+        private Dictionary<Pawn, Color> _pawnSkinColors = new Dictionary<Pawn, Color>();
+
+        public static SkinSaveComp Instance { get; private set; }
+
+        public SkinSaveComp(World world) : base(world) => Instance = this;
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Collections.Look(ref _pawnSkinColors, "USH_PawnSkinColors", LookMode.Reference, LookMode.Value, ref _pawns, ref _colors);
+        }
+
+        public void AddPawnSkinColor(Pawn pawn, Color color)
+        {
+            if (_pawnSkinColors.ContainsKey(pawn))
+                return;
+
+            _pawnSkinColors.Add(pawn, color);
+        }
+
+        public Color GetPawnSkinColor(Pawn pawn) => _pawnSkinColors.TryGetValue(pawn);
+    }
+
     public class GUSettings : ModSettings
     {
         public bool shouldChangeColor;
+
+
         public override void ExposeData()
         {
-            Scribe_Values.Look(ref shouldChangeColor, "shouldChangeColor");
             base.ExposeData();
+            Scribe_Values.Look(ref shouldChangeColor, "USH_ShouldChangeColor");
         }
     }
 
@@ -21,7 +52,7 @@ namespace GliterworldUprising
 
         public GUMod(ModContentPack content) : base(content)
         {
-            this.settings = GetSettings<GUSettings>();
+            settings = GetSettings<GUSettings>();
         }
         public override void DoSettingsWindowContents(Rect inRect)
         {
@@ -33,9 +64,6 @@ namespace GliterworldUprising
             base.DoSettingsWindowContents(inRect);
         }
 
-        public override string SettingsCategory()
-        {
-            return "USH_GU_ModName".Translate();
-        }
+        public override string SettingsCategory() => "Glitterworld Uprising";
     }
 }
