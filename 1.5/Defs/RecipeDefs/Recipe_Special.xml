@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-<RecipeDef>
+  <RecipeDef>
     <defName>USH_Make_AddictionRemover</defName>
     <label>make addiction remover</label>
     <description>Make an addiction remover.</description>
@@ -11,7 +11,7 @@
     <soundWorking>Recipe_Machining</soundWorking>
     <workAmount>7200</workAmount>
     <ingredients>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>Silver</li>
@@ -19,7 +19,7 @@
         </filter>
         <count>8</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>ComponentSpacer</li>
@@ -27,7 +27,7 @@
         </filter>
         <count>1</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>MedicineUltratech</li>
@@ -35,7 +35,7 @@
         </filter>
         <count>2</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>USH_GlitterChip</li>
@@ -46,10 +46,10 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-	    <li>Silver</li>
-	    <li>ComponentSpacer</li>
+        <li>Silver</li>
+        <li>ComponentSpacer</li>
         <li>MedicineUltratech</li>
-		<li>USH_GlitterChip</li>
+        <li>USH_GlitterChip</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -57,64 +57,11 @@
     </products>
     <skillRequirements>
       <Intellectual>6</Intellectual>
-	  <Crafting>8</Crafting>
+      <Crafting>8</Crafting>
     </skillRequirements>
     <workSkill>Crafting</workSkill>
-	<researchPrerequisite>USH_NeuromodifiersBasics</researchPrerequisite>
+    <researchPrerequisite>USH_NeuromodifiersBasics</researchPrerequisite>
   </RecipeDef>
-  
-  <!--<RecipeDef>
-    <defName>USH_Make_CrystalMechanites</defName>
-    <label>manufacture lustrous mechanites</label>
-    <description>Manufacture lustrous mechanites.</description>
-    <jobString>Manufacturing lustrous mechanites.</jobString>
-    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-    <effectWorking>Cook</effectWorking>
-    <soundWorking>Recipe_Machining</soundWorking>
-    <workAmount>2100</workAmount>
-    <ingredients>
-	  <li>
-        <filter>
-          <thingDefs>
-            <li>Plasteel</li>
-          </thingDefs>
-        </filter>
-        <count>5</count>
-      </li>
-	  <li>
-        <filter>
-          <thingDefs>
-            <li>Neutroamine</li>
-          </thingDefs>
-        </filter>
-        <count>6</count>
-      </li>
-	  <li>
-        <filter>
-          <thingDefs>
-            <li>USH_GlitterChip</li>
-          </thingDefs>
-        </filter>
-        <count>2</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-	    <li>Plasteel</li>
-        <li>Neutroamine</li>
-		<li>USH_GlitterChip</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <USH_CrystalMechanites>1</USH_CrystalMechanites>
-    </products>
-    <skillRequirements>
-      <Intellectual>6</Intellectual>
-	  <Crafting>8</Crafting>
-    </skillRequirements>
-    <workSkill>Crafting</workSkill>
-	<researchPrerequisite>USH_BuildingsAutoRes</researchPrerequisite>
-  </RecipeDef>-->
 
   <RecipeDef>
     <defName>USH_Make_PhilosophersStone_Bulk</defName>
@@ -126,7 +73,7 @@
     <soundWorking>Recipe_Machining</soundWorking>
     <workAmount>8000</workAmount>
     <ingredients>
-		<li>
+      <li>
         <filter>
           <thingDefs>
             <li>Steel</li>
@@ -134,7 +81,7 @@
         </filter>
         <count>20</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>Silver</li>
@@ -142,7 +89,7 @@
         </filter>
         <count>3</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>USH_GlitterChip</li>
@@ -153,9 +100,9 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-	    <li>Steel</li>
+        <li>Steel</li>
         <li>Silver</li>
-		<li>USH_GlitterChip</li>
+        <li>USH_GlitterChip</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -163,12 +110,12 @@
     </products>
     <skillRequirements>
       <Intellectual>6</Intellectual>
-	  <Crafting>8</Crafting>
+      <Crafting>8</Crafting>
     </skillRequirements>
     <workSkill>Crafting</workSkill>
-	<researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+    <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
   </RecipeDef>
-  
+
   <RecipeDef>
     <defName>USH_Make_PhilosophersStone_MoreBulk</defName>
     <label>make philosopher's stones x16</label>
@@ -179,7 +126,7 @@
     <soundWorking>Recipe_Machining</soundWorking>
     <workAmount>3200</workAmount>
     <ingredients>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>Silver</li>
@@ -187,7 +134,7 @@
         </filter>
         <count>12</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>Steel</li>
@@ -195,7 +142,7 @@
         </filter>
         <count>80</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>USH_GlitterChip</li>
@@ -206,9 +153,9 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-	    <li>Silver</li>
+        <li>Silver</li>
         <li>Steel</li>
-		<li>USH_GlitterChip</li>
+        <li>USH_GlitterChip</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -216,12 +163,12 @@
     </products>
     <skillRequirements>
       <Intellectual>6</Intellectual>
-	  <Crafting>8</Crafting>
+      <Crafting>8</Crafting>
     </skillRequirements>
     <workSkill>Crafting</workSkill>
-	<researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+    <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
   </RecipeDef>
-  
+
   <RecipeDef>
     <defName>USH_GlitterAlchemy</defName>
     <label>turn steel into gold</label>
@@ -232,7 +179,7 @@
     <soundWorking>Recipe_CookMeal</soundWorking>
     <workAmount>160</workAmount>
     <ingredients>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>Steel</li>
@@ -240,7 +187,7 @@
         </filter>
         <count>40</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>USH_PhilosophersStone</li>
@@ -259,12 +206,12 @@
       <Gold>4</Gold>
     </products>
     <skillRequirements>
-	  <Crafting>4</Crafting>
+      <Crafting>4</Crafting>
     </skillRequirements>
     <workSkill>Crafting</workSkill>
   </RecipeDef>
-  
-    <RecipeDef>
+
+  <RecipeDef>
     <defName>USH_GlitterAlchemy_Bulk</defName>
     <label>turn steel into gold in bulk</label>
     <description>Turn 128 steel into 16 gold using philosopher's stones.</description>
@@ -274,7 +221,7 @@
     <soundWorking>Recipe_CookMeal</soundWorking>
     <workAmount>640</workAmount>
     <ingredients>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>Steel</li>
@@ -282,7 +229,7 @@
         </filter>
         <count>128</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>USH_PhilosophersStone</li>
@@ -294,19 +241,19 @@
     <fixedIngredientFilter>
       <thingDefs>
         <li>Steel</li>
-		<li>USH_PhilosophersStone</li>
+        <li>USH_PhilosophersStone</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
       <Gold>16</Gold>
     </products>
     <skillRequirements>
-	  <Crafting>4</Crafting>
+      <Crafting>4</Crafting>
     </skillRequirements>
     <workSkill>Crafting</workSkill>
   </RecipeDef>
-  
-    <RecipeDef>
+
+  <RecipeDef>
     <defName>USH_Make_MedicineUltratech_Bulk</defName>
     <label>make glitterworld medicine x4</label>
     <description>Make glitterworld medicine x4.</description>
@@ -317,7 +264,7 @@
     <workAmount>6500</workAmount>
     <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
     <ingredients>
-		<li>
+      <li>
         <filter>
           <thingDefs>
             <li>MedicineIndustrial</li>
@@ -325,7 +272,7 @@
         </filter>
         <count>4</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>ComponentIndustrial</li>
@@ -333,7 +280,7 @@
         </filter>
         <count>1</count>
       </li>
-	  <li>
+      <li>
         <filter>
           <thingDefs>
             <li>USH_GlitterChip</li>
@@ -344,9 +291,9 @@
     </ingredients>
     <fixedIngredientFilter>
       <thingDefs>
-	    <li>MedicineIndustrial</li>
+        <li>MedicineIndustrial</li>
         <li>ComponentIndustrial</li>
-		<li>USH_GlitterChip</li>
+        <li>USH_GlitterChip</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -354,10 +301,10 @@
     </products>
     <skillRequirements>
       <Intellectual>6</Intellectual>
-	  <Crafting>4</Crafting>
+      <Crafting>4</Crafting>
     </skillRequirements>
     <workSkill>Intellectual</workSkill>
-	<researchPrerequisite>USH_NeuromodifiersBasics</researchPrerequisite>
+    <researchPrerequisite>USH_NeuromodifiersBasics</researchPrerequisite>
   </RecipeDef>
-  
+
 </Defs>

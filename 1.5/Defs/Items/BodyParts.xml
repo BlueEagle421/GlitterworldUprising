@@ -1,46 +1,46 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Defs> 
-  
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
   <ThingDef Name="USH_GlitterworldBodyPart" ParentName="BodyPartBase" Abstract="True">
-	    <techLevel>Ultra</techLevel>
-		<tradeTags>
-			<li>GlitterworldParts</li>
-		</tradeTags>
-		<thingCategories>
-			<li>BodyPartsUltra</li>
-		</thingCategories>
-		<graphicData>
-			<texPath>Things/Item/Misc/GlitterworldHealthItem</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>0.80</drawSize>
-		</graphicData>
-		<statBases>
-			<DeteriorationRate>0</DeteriorationRate>
-		</statBases>
-        <thingSetMakerTags>
-			<li>RewardStandardMidFreq</li>
-        </thingSetMakerTags>
-		<recipeMaker>
-			<recipeUsers>
-				<li>FabricationBench</li>
-			</recipeUsers>
-			<skillRequirements>
-				<Crafting>4</Crafting>
-				<Intellectual>6</Intellectual>
-			</skillRequirements>
-			<workAmount>40800</workAmount>
-			<unfinishedThingDef>USH_UnfinishedHealthItemGlitter</unfinishedThingDef>
-		</recipeMaker>
-	</ThingDef>
-	
-	<HediffDef Name="USH_AddedPartGlittery" ParentName="ImplantHediffBase" Abstract="True">
-      <defaultLabelColor>(244,210,131)</defaultLabelColor>
-      <addedPartProps>
-         <partEfficiency>1</partEfficiency>
-      </addedPartProps>
-   </HediffDef>
-   
-   <ThingDef ParentName="UnfinishedBase">
+    <techLevel>Ultra</techLevel>
+    <tradeTags>
+      <li>GlitterworldParts</li>
+    </tradeTags>
+    <thingCategories>
+      <li>BodyPartsUltra</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Misc/GlitterworldHealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+    </graphicData>
+    <statBases>
+      <DeteriorationRate>0</DeteriorationRate>
+    </statBases>
+    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+    <recipeMaker>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+        <Intellectual>6</Intellectual>
+      </skillRequirements>
+      <workAmount>40800</workAmount>
+      <unfinishedThingDef>USH_UnfinishedHealthItemGlitter</unfinishedThingDef>
+    </recipeMaker>
+  </ThingDef>
+
+  <HediffDef Name="USH_AddedPartGlittery" ParentName="ImplantHediffBase" Abstract="True">
+    <defaultLabelColor>(244,210,131)</defaultLabelColor>
+    <addedPartProps>
+      <partEfficiency>1</partEfficiency>
+    </addedPartProps>
+  </HediffDef>
+
+  <ThingDef ParentName="UnfinishedBase">
     <defName>USH_UnfinishedHealthItemGlitter</defName>
     <label>unfinished glitterworld replacement</label>
     <description>An glitterworld replacement.</description>
@@ -54,15 +54,17 @@
     </graphicData>
     <stuffCategories Inherit="false" />
   </ThingDef>
-  
+
   <!--Golden skin replacement-->
-  
+
   <HediffDef ParentName="ImplantHediffBase">
     <defName>USH_InstalledGoldenSkinReplacement</defName>
     <label>golden skin replacement</label>
     <labelNoun>a golden skin replacement</labelNoun>
     <description>An installed golden skin replacement.</description>
-    <descriptionHyperlinks><ThingDef>USH_GoldenSkinReplacement</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>USH_GoldenSkinReplacement</ThingDef>
+    </descriptionHyperlinks>
     <spawnThingOnRemoved>USH_GoldenSkinReplacement</spawnThingOnRemoved>
     <stages>
       <li>
@@ -77,36 +79,40 @@
           <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
           <ArmorRating_Heat>0.4</ArmorRating_Heat>
           <PawnBeauty>2</PawnBeauty>
-		  <SocialImpact>0.3</SocialImpact>
+          <SocialImpact>0.3</SocialImpact>
         </statOffsets>
       </li>
     </stages>
-	<comps>
-	  <li Class="GliterworldUprising.HediffCompProperties_SkinReplacement">
+    <comps>
+      <li Class="GliterworldUprising.HediffCompProperties_SkinReplacement">
         <skinColor>(255, 235, 122)</skinColor>
-		<hediffsConsideredSame>
+        <hediffsConsideredSame>
           <li>USH_InstalledGoldenSkinReplacement</li>
           <li>USH_InstalledPlasteelSkinReplacement</li>
         </hediffsConsideredSame>
       </li>
     </comps>
-    <tags><li>USH_GoldenSkinReplacementTag</li></tags>
+    <tags>
+      <li>USH_GoldenSkinReplacementTag</li>
+    </tags>
   </HediffDef>
 
   <ThingDef ParentName="USH_GlitterworldBodyPart">
     <defName>USH_GoldenSkinReplacement</defName>
     <label>golden skin replacement</label>
     <description>Is your skin full of imperfections? Is it indistinct and blends in with others? Obtain your dream body today with various skin replacements!
-\nFull body skin replacement made out of pure gold. It is an indicator of status and object of desire, especially among royalty.</description>
-    <descriptionHyperlinks><RecipeDef>USH_InstallGoldenSkinReplacement</RecipeDef></descriptionHyperlinks>
+      \nFull body skin replacement made out of pure gold. It is an indicator of status and object of desire, especially among royalty.</description>
+    <descriptionHyperlinks>
+      <RecipeDef>USH_InstallGoldenSkinReplacement</RecipeDef>
+    </descriptionHyperlinks>
     <costList>
       <Gold>18</Gold>
       <USH_GlitterChip>7</USH_GlitterChip>
     </costList>
-	<statBases>
-		<MarketValue>3100</MarketValue>
-		<Mass>0.1</Mass>
-	</statBases>
+    <statBases>
+      <MarketValue>3100</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
     <recipeMaker>
       <researchPrerequisite>USH_SkinRes</researchPrerequisite>
     </recipeMaker>
@@ -144,16 +150,18 @@
       <li>USH_GoldenSkinReplacementTag</li>
     </incompatibleWithHediffTags>
   </RecipeDef>
-  
+
   <RecipeDef ParentName="SurgeryRemoveImplantBase">
     <defName>USH_RemoveGoldenSkinReplacement</defName>
     <label>remove golden skin replacement</label>
     <description>Remove golden skin replacement.</description>
-    <descriptionHyperlinks><ThingDef>USH_GoldenSkinReplacement</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>USH_GoldenSkinReplacement</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Removing golden skin replacement.</jobString>
     <removesHediff>USH_InstalledGoldenSkinReplacement</removesHediff>
   </RecipeDef>
-  
+
   <ThoughtDef>
     <defName>USH_GoldenSkinThought</defName>
     <workerClass>ThoughtWorker_Hediff</workerClass>
@@ -167,15 +175,17 @@
       </li>
     </stages>
   </ThoughtDef>
-  
+
   <!--Plasteel skin replacement-->
-  
+
   <HediffDef ParentName="ImplantHediffBase">
     <defName>USH_InstalledPlasteelSkinReplacement</defName>
     <label>plasteel skin replacement</label>
     <labelNoun>a plasteel skin replacement</labelNoun>
     <description>An installed plasteel skin replacement.</description>
-    <descriptionHyperlinks><ThingDef>USH_PlasteelSkinReplacement</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>USH_PlasteelSkinReplacement</ThingDef>
+    </descriptionHyperlinks>
     <spawnThingOnRemoved>USH_PlasteelSkinReplacement</spawnThingOnRemoved>
     <stages>
       <li>
@@ -192,32 +202,36 @@
         </statOffsets>
       </li>
     </stages>
-	<comps>
-	  <li Class="GliterworldUprising.HediffCompProperties_SkinReplacement">
+    <comps>
+      <li Class="GliterworldUprising.HediffCompProperties_SkinReplacement">
         <skinColor>(147, 188, 189)</skinColor>
-		<hediffsConsideredSame>
+        <hediffsConsideredSame>
           <li>USH_InstalledGoldenSkinReplacement</li>
           <li>USH_InstalledPlasteelSkinReplacement</li>
         </hediffsConsideredSame>
       </li>
     </comps>
-    <tags><li>USH_PlasteelSkinReplacementTag</li></tags>
+    <tags>
+      <li>USH_PlasteelSkinReplacementTag</li>
+    </tags>
   </HediffDef>
 
   <ThingDef ParentName="USH_GlitterworldBodyPart">
     <defName>USH_PlasteelSkinReplacement</defName>
     <label>plasteel skin replacement</label>
     <description>Is your skin full of imperfections? Is it indistinct and blends in with others? Obtain your dream body today with various skin replacements!
-\nFull body skin replacement made out of plasteel. It is soft in touch, flexible, and extremely durable.</description>
-    <descriptionHyperlinks><RecipeDef>USH_InstallPlasteelSkinReplacement</RecipeDef></descriptionHyperlinks>
+      \nFull body skin replacement made out of plasteel. It is soft in touch, flexible, and extremely durable.</description>
+    <descriptionHyperlinks>
+      <RecipeDef>USH_InstallPlasteelSkinReplacement</RecipeDef>
+    </descriptionHyperlinks>
     <costList>
       <Plasteel>120</Plasteel>
       <USH_GlitterChip>10</USH_GlitterChip>
     </costList>
-	<statBases>
-		<MarketValue>3500</MarketValue>
-		<Mass>0.1</Mass>
-	</statBases>
+    <statBases>
+      <MarketValue>3500</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
     <recipeMaker>
       <researchPrerequisite>USH_SkinRes</researchPrerequisite>
     </recipeMaker>
@@ -255,58 +269,64 @@
       <li>USH_PlasteelSkinReplacementTag</li>
     </incompatibleWithHediffTags>
   </RecipeDef>
-  
+
   <RecipeDef ParentName="SurgeryRemoveImplantBase">
     <defName>USH_RemovePlasteelSkinReplacement</defName>
     <label>remove plasteel skin replacement</label>
     <description>Remove plasteel skin replacement.</description>
-    <descriptionHyperlinks><ThingDef>USH_PlasteelSkinReplacement</ThingDef></descriptionHyperlinks>
+    <descriptionHyperlinks>
+      <ThingDef>USH_PlasteelSkinReplacement</ThingDef>
+    </descriptionHyperlinks>
     <jobString>Removing plasteel skin replacement.</jobString>
     <removesHediff>USH_InstalledPlasteelSkinReplacement</removesHediff>
   </RecipeDef>
-  
+
   <!--Golden teeth replacement-->
-  
+
   <HediffDef ParentName="USH_AddedPartGlittery">
-      <defName>USH_InstalledGoldenTeethReplacement</defName>
-      <label>golden teeth replacement</label>
-	  <description>An installed golden teeth replacement.</description>
-      <descriptionHyperlinks><ThingDef>USH_GoldenTeethReplacement</ThingDef></descriptionHyperlinks>
-      <spawnThingOnRemoved>USH_GoldenTeethReplacement</spawnThingOnRemoved>
-      <stages>
-         <li>
-            <capMods>
-               <li>
-                  <capacity>Eating</capacity>
-                  <offset>0.1</offset>
-               </li>
-            </capMods>
-			<statOffsets>
-				<SocialImpact>0.1</SocialImpact>
-			</statOffsets>
-         </li>
-      </stages>
-	  <tags><li>USH_GoldenTeethReplacementTag</li></tags>
-   </HediffDef>
-   
-   <ThingDef ParentName="USH_GlitterworldBodyPart">
-		<defName>USH_GoldenTeethReplacement</defName>
-		<label>golden teeth replacement</label>
-		<description>A set of golden teeth appreciated by royals. Glitterworld technology makes the jaw painless and comfortable to use.</description>      
-		<statBases>
-			<MarketValue>600</MarketValue>
-			<Mass>0.1</Mass>
-		</statBases>
-		<costList>
-			<Gold>3</Gold>
-			<USH_GlitterChip>1</USH_GlitterChip>
-		</costList>
-		<recipeMaker>
-			<researchPrerequisite>USH_TeethRes</researchPrerequisite>
-		</recipeMaker>
-	</ThingDef>
-	
-   <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>USH_InstalledGoldenTeethReplacement</defName>
+    <label>golden teeth replacement</label>
+    <description>An installed golden teeth replacement.</description>
+    <descriptionHyperlinks>
+      <ThingDef>USH_GoldenTeethReplacement</ThingDef>
+    </descriptionHyperlinks>
+    <spawnThingOnRemoved>USH_GoldenTeethReplacement</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+          <SocialImpact>0.1</SocialImpact>
+        </statOffsets>
+      </li>
+    </stages>
+    <tags>
+      <li>USH_GoldenTeethReplacementTag</li>
+    </tags>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <defName>USH_GoldenTeethReplacement</defName>
+    <label>golden teeth replacement</label>
+    <description>A set of golden teeth appreciated by royals. Glitterworld technology makes the jaw painless and comfortable to use.</description>
+    <statBases>
+      <MarketValue>600</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <costList>
+      <Gold>3</Gold>
+      <USH_GlitterChip>1</USH_GlitterChip>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>USH_TeethRes</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>USH_InstallGoldenTeethReplacement</defName>
     <label>install golden teeth replacement</label>
     <description>Install a golden teeth replacement.</description>
@@ -338,7 +358,7 @@
       <li>USH_GoldenTeethReplacementTag</li>
     </incompatibleWithHediffTags>
   </RecipeDef>
-  
+
   <ThoughtDef>
     <defName>USH_GoldenTeethThought</defName>
     <workerClass>ThoughtWorker_Hediff</workerClass>
@@ -352,46 +372,50 @@
       </li>
     </stages>
   </ThoughtDef>
-  
+
   <!--Plasteel teeth replacement-->
-  
+
   <HediffDef ParentName="USH_AddedPartGlittery">
-      <defName>USH_InstalledPlasteelTeethReplacement</defName>
-      <label>plasteel teeth replacement</label>
-	  <description>An installed plasteel teeth replacement.</description>
-      <descriptionHyperlinks><ThingDef>USH_PlasteelTeethReplacement</ThingDef></descriptionHyperlinks>
-      <spawnThingOnRemoved>USH_PlasteelTeethReplacement</spawnThingOnRemoved>
-      <stages>
-         <li>
-            <capMods>
-               <li>
-                  <capacity>Eating</capacity>
-                  <offset>0.45</offset>
-               </li>
-            </capMods>
-         </li>
-      </stages>
-	  <tags><li>USH_PlasteelTeethReplacementTag</li></tags>
-   </HediffDef>
-   
-   <ThingDef ParentName="USH_GlitterworldBodyPart">
-		<defName>USH_PlasteelTeethReplacement</defName>
-		<label>plasteel teeth replacement</label>
-		<description>A set of plasteel teeth appreciated by royals. Glitterworld technology makes them painless and comfortable to use.</description>      
-		<statBases>
-			<MarketValue>900</MarketValue>
-			<Mass>0.1</Mass>
-		</statBases>
-		<costList>
-			<Plasteel>20</Plasteel>
-			<USH_GlitterChip>2</USH_GlitterChip>
-		</costList>
-		<recipeMaker>
-			<researchPrerequisite>USH_TeethRes</researchPrerequisite>
-		</recipeMaker>
-	</ThingDef>
-	
-   <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>USH_InstalledPlasteelTeethReplacement</defName>
+    <label>plasteel teeth replacement</label>
+    <description>An installed plasteel teeth replacement.</description>
+    <descriptionHyperlinks>
+      <ThingDef>USH_PlasteelTeethReplacement</ThingDef>
+    </descriptionHyperlinks>
+    <spawnThingOnRemoved>USH_PlasteelTeethReplacement</spawnThingOnRemoved>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Eating</capacity>
+            <offset>0.45</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+    <tags>
+      <li>USH_PlasteelTeethReplacementTag</li>
+    </tags>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <defName>USH_PlasteelTeethReplacement</defName>
+    <label>plasteel teeth replacement</label>
+    <description>A set of plasteel teeth appreciated by royals. Glitterworld technology makes them painless and comfortable to use.</description>
+    <statBases>
+      <MarketValue>900</MarketValue>
+      <Mass>0.1</Mass>
+    </statBases>
+    <costList>
+      <Plasteel>20</Plasteel>
+      <USH_GlitterChip>2</USH_GlitterChip>
+    </costList>
+    <recipeMaker>
+      <researchPrerequisite>USH_TeethRes</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
     <defName>USH_InstallPlasteelTeethReplacement</defName>
     <label>install plasteel teeth replacement</label>
     <description>Install a plasteel teeth replacement.</description>
@@ -423,5 +447,5 @@
       <li>USH_PlasteelTeethReplacementTag</li>
     </incompatibleWithHediffTags>
   </RecipeDef>
-  
+
 </Defs> 
