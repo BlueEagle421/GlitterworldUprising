@@ -38,7 +38,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>USH_GlitterChip</li>
+            <li>USH_GlitterworldFragment</li>
           </thingDefs>
         </filter>
         <count>3</count>
@@ -49,7 +49,7 @@
         <li>Silver</li>
         <li>ComponentSpacer</li>
         <li>MedicineUltratech</li>
-        <li>USH_GlitterChip</li>
+        <li>USH_GlitterworldFragment</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -60,7 +60,7 @@
       <Crafting>8</Crafting>
     </skillRequirements>
     <workSkill>Crafting</workSkill>
-    <researchPrerequisite>USH_NeuromodifiersBasics</researchPrerequisite>
+    <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
   </RecipeDef>
 
   <RecipeDef>
@@ -92,7 +92,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>USH_GlitterChip</li>
+            <li>USH_GlitterworldFragment</li>
           </thingDefs>
         </filter>
         <count>2</count>
@@ -102,7 +102,7 @@
       <thingDefs>
         <li>Steel</li>
         <li>Silver</li>
-        <li>USH_GlitterChip</li>
+        <li>USH_GlitterworldFragment</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -145,7 +145,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>USH_GlitterChip</li>
+            <li>USH_GlitterworldFragment</li>
           </thingDefs>
         </filter>
         <count>8</count>
@@ -155,7 +155,7 @@
       <thingDefs>
         <li>Silver</li>
         <li>Steel</li>
-        <li>USH_GlitterChip</li>
+        <li>USH_GlitterworldFragment</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -283,7 +283,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>USH_GlitterChip</li>
+            <li>USH_GlitterworldFragment</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -293,7 +293,7 @@
       <thingDefs>
         <li>MedicineIndustrial</li>
         <li>ComponentIndustrial</li>
-        <li>USH_GlitterChip</li>
+        <li>USH_GlitterworldFragment</li>
       </thingDefs>
     </fixedIngredientFilter>
     <products>
@@ -304,7 +304,7 @@
       <Crafting>4</Crafting>
     </skillRequirements>
     <workSkill>Intellectual</workSkill>
-    <researchPrerequisite>USH_NeuromodifiersBasics</researchPrerequisite>
+    <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
   </RecipeDef>
 
 </Defs>

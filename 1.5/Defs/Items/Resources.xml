@@ -24,7 +24,7 @@
   </ThingDef>
 
   <ThingDef ParentName="ResourceBase">
-    <defName>USH_GlitterChip</defName>
+    <defName>USH_GlitterworldFragment</defName>
     <label>glitterworld fragment</label>
     <description>A device storing complex data about Glitterworld technology. It contains information, blueprints, and theories, making it a crucial element for engineers and craftsmen. Building with Glitterworld fragments is significantly easier due to the complexity of their stored data. With this device one can recreate various high-tech machines without the need to understand how the mechanisms actually work.</description>
     <graphicData>

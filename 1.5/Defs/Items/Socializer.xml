@@ -30,7 +30,7 @@
       </outcomeDoers>
     </ingestible>
     <recipeMaker>
-      <researchPrerequisite>USH_NeuromodifiersBasics</researchPrerequisite>
+      <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
       <recipeUsers>
         <li>DrugLab</li>
       </recipeUsers>
@@ -42,7 +42,7 @@
     <costList>
       <MedicineUltratech>1</MedicineUltratech>
       <Neutroamine>4</Neutroamine>
-      <USH_GlitterChip>2</USH_GlitterChip>
+      <USH_GlitterworldFragment>2</USH_GlitterworldFragment>
     </costList>
     <comps>
       <li Class="CompProperties_Drug">

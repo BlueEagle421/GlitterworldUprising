@@ -55,7 +55,7 @@
       <Steel>120</Steel>
       <Silver>65</Silver>
       <Plasteel>10</Plasteel>
-      <USH_GlitterChip>2</USH_GlitterChip>
+      <USH_GlitterworldFragment>2</USH_GlitterworldFragment>
       <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <designationCategory>Joy</designationCategory>
@@ -224,7 +224,7 @@
       <Steel>100</Steel>
       <Silver>80</Silver>
       <Plasteel>5</Plasteel>
-      <USH_GlitterChip>3</USH_GlitterChip>
+      <USH_GlitterworldFragment>3</USH_GlitterworldFragment>
       <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <thingCategories>
@@ -308,7 +308,7 @@
       <Steel>60</Steel>
       <Silver>80</Silver>
       <ComponentSpacer>3</ComponentSpacer>
-      <USH_GlitterChip>7</USH_GlitterChip>
+      <USH_GlitterworldFragment>7</USH_GlitterworldFragment>
     </costList>
     <thingCategories>
       <li>BuildingsMisc</li>
@@ -359,7 +359,7 @@
     <designationCategory>Misc</designationCategory>
     <uiIconScale>1</uiIconScale>
     <researchPrerequisites>
-      <li>USH_NeuromodifiersBasics</li>
+      <li>USH_NeuromodifiersBasicsRes</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -380,7 +380,7 @@
   <!--GlitterTech-Analyzer-->
 
   <ThingDef ParentName="BuildingBase">
-    <defName>USH_GlitterTechAnalyzer</defName>
+    <defName>USH_GlitterworldAnalyzer</defName>
     <label>glitterworld-analyzer</label>
     <description>An advanced machine based on the same fundamental technology as the multi-analyzer, but with a completely different purpose. It first studies Glitterworld medicine in order to develop technology fragments, and then it can perfect itself with human-written algorithms. The process is very long and power consuming, but with the right inputs, the machine can be highly overclocked.
       \nIt requires three componenets to create a glitterworld fragment from them.</description>
@@ -439,7 +439,7 @@
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
       </li>
       <li Class="GliterworldUprising.CompProperties_GlitterworldAnalyzer">
-        <thingDef>USH_GlitterChip</thingDef>
+        <thingDef>USH_GlitterworldFragment</thingDef>
         <fuelConsumption>3</fuelConsumption>
         <powerPerDayMultiplier>1000</powerPerDayMultiplier>
       </li>
@@ -455,7 +455,7 @@
     <designationCategory>Production</designationCategory>
     <uiIconScale>0.55</uiIconScale>
     <researchPrerequisites>
-      <li>USH_GlitterAnalyzerRes</li>
+      <li>USH_GlitterworldAnalyzerRes</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -497,7 +497,7 @@
       <Steel>40</Steel>
       <Plasteel>10</Plasteel>
       <ComponentIndustrial>4</ComponentIndustrial>
-      <USH_GlitterChip>2</USH_GlitterChip>
+      <USH_GlitterworldFragment>2</USH_GlitterworldFragment>
     </costList>
     <comps>
       <li Class="CompProperties_Facility">
@@ -630,7 +630,7 @@
       <Steel>130</Steel>
       <Silver>90</Silver>
       <ComponentSpacer>3</ComponentSpacer>
-      <USH_GlitterChip>4</USH_GlitterChip>
+      <USH_GlitterworldFragment>4</USH_GlitterworldFragment>
     </costList>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <fillPercent>0.5</fillPercent>
@@ -691,7 +691,7 @@
 
     <uiIconScale>0.8</uiIconScale>
     <researchPrerequisites>
-      <li>USH_SkilltrainerCreation</li>
+      <li>USH_SkilltrainerCreationRes</li>
     </researchPrerequisites>
   </ThingDef>
 
@@ -711,92 +711,5 @@
     </requiredCapacities>
     <prioritizeSustains>true</prioritizeSustains>
   </WorkGiverDef>
-
-
-  <!--<ThingDef ParentName="BenchBase">
-    <defName>USH_GlitterBench</defName>
-    <label>skilltrainer assembly bench</label>
-    <description>Placeholder</description>
-    <thingClass>Building_WorkTable</thingClass>
-    <graphicData>
-      <texPath>Things/Building/Production/GlitterTable</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
-      <drawSize>(3.5,1.5)</drawSize>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
-    <castEdgeShadows>true</castEdgeShadows>
-    <staticSunShadowHeight>0.20</staticSunShadowHeight>
-    <costList>
-      <Steel>130</Steel>
-      <Silver>90</Silver>
-      <ComponentSpacer>2</ComponentSpacer>
-	  <USH_GlitterChip>4</USH_GlitterChip>
-    </costList>
-    <altitudeLayer>Building</altitudeLayer>
-    <fillPercent>0.5</fillPercent>
-    <useHitPoints>True</useHitPoints>
-    <statBases>
-      <WorkToBuild>3000</WorkToBuild>
-      <MaxHitPoints>180</MaxHitPoints>
-      <Flammability>1.0</Flammability>
-      <Cleanliness>-15</Cleanliness>
-      <WorkTableWorkSpeedFactor>1.5</WorkTableWorkSpeedFactor>
-    </statBases>
-    <size>(3,1)</size>
-    <designationCategory>Production</designationCategory>
-    <passability>PassThroughOnly</passability>
-    <pathCost>60</pathCost>
-    <hasInteractionCell>True</hasInteractionCell>
-    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
-    <surfaceType>Item</surfaceType>
-    <recipes>
-        <li>USH_Make_Neurotrainer_Shooting</li>
-	    <li>USH_Make_Neurotrainer_Melee</li>
-		<li>USH_Make_Neurotrainer_Construction</li>
-		<li>USH_Make_Neurotrainer_Mining</li>
-		<li>USH_Make_Neurotrainer_Cooking</li>
-		<li>USH_Make_Neurotrainer_Plants</li>
-		<li>USH_Make_Neurotrainer_Animals</li>
-		<li>USH_Make_Neurotrainer_Crafting</li>
-		<li>USH_Make_Neurotrainer_Artistic</li>
-		<li>USH_Make_Neurotrainer_Medicine</li>
-		<li>USH_Make_Neurotrainer_Social</li>
-		<li>USH_Make_Neurotrainer_Intellectual</li>
-    </recipes>
-    <inspectorTabs>
-      <li>ITab_Bills</li>
-    </inspectorTabs>
-    <building>
-      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
-    </building>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>350</basePowerConsumption>
-        <shortCircuitInRain>true</shortCircuitInRain>
-      </li>
-      <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_AffectedByFacilities">
-        <linkableFacilities>
-          <li>ToolCabinet</li>
-        </linkableFacilities>
-      </li>
-      <li Class="CompProperties_Breakdownable"/>
-    </comps>
-    <designationHotKey>Misc3</designationHotKey>
-    <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
-    <placeWorkers>
-      <li>PlaceWorker_ShowFacilitiesConnections</li>
-    </placeWorkers>
-    <researchPrerequisites>
-      <li>MicroelectronicsBasics</li>
-    </researchPrerequisites>
-  </ThingDef>-->
 
 </Defs>
