@@ -6,6 +6,9 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
+//this code is from an older version of the mod is is not a part of it anymore
+//it needs to be overhauled before being added again
+
 namespace GliterworldUprising
 {
     public class PlaceWorker_ShowAutoBuilderRadius : PlaceWorker
