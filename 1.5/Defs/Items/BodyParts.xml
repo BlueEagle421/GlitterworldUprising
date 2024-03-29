@@ -109,7 +109,7 @@
     </descriptionHyperlinks>
     <costList>
       <Gold>18</Gold>
-      <USH_GlitterworldFragment>7</USH_GlitterworldFragment>
+      <USH_GlitterChip>7</USH_GlitterChip>
     </costList>
     <statBases>
       <MarketValue>3100</MarketValue>
@@ -230,7 +230,7 @@
     </descriptionHyperlinks>
     <costList>
       <Plasteel>120</Plasteel>
-      <USH_GlitterworldFragment>10</USH_GlitterworldFragment>
+      <USH_GlitterChip>10</USH_GlitterChip>
     </costList>
     <statBases>
       <MarketValue>3500</MarketValue>
@@ -331,7 +331,7 @@
     </statBases>
     <costList>
       <Gold>3</Gold>
-      <USH_GlitterworldFragment>1</USH_GlitterworldFragment>
+      <USH_GlitterChip>1</USH_GlitterChip>
     </costList>
     <recipeMaker>
       <researchPrerequisite>USH_TeethRes</researchPrerequisite>
@@ -428,7 +428,7 @@
     </statBases>
     <costList>
       <Plasteel>20</Plasteel>
-      <USH_GlitterworldFragment>2</USH_GlitterworldFragment>
+      <USH_GlitterChip>2</USH_GlitterChip>
     </costList>
     <recipeMaker>
       <researchPrerequisite>USH_TeethRes</researchPrerequisite>

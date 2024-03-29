@@ -54,7 +54,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>USH_GlitterworldFragment</li>
+            <li>USH_GlitterChip</li>
           </thingDefs>
         </filter>
         <count>8</count>
@@ -65,7 +65,7 @@
         <li>Silver</li>
         <li>ComponentSpacer</li>
         <li>MedicineUltratech</li>
-        <li>USH_GlitterworldFragment</li>
+        <li>USH_GlitterChip</li>
       </thingDefs>
     </fixedIngredientFilter>
   </ThingDef>

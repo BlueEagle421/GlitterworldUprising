@@ -55,7 +55,7 @@
       <Steel>120</Steel>
       <Silver>65</Silver>
       <Plasteel>10</Plasteel>
-      <USH_GlitterworldFragment>2</USH_GlitterworldFragment>
+      <USH_GlitterChip>2</USH_GlitterChip>
       <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <designationCategory>Joy</designationCategory>
@@ -224,7 +224,7 @@
       <Steel>100</Steel>
       <Silver>80</Silver>
       <Plasteel>5</Plasteel>
-      <USH_GlitterworldFragment>3</USH_GlitterworldFragment>
+      <USH_GlitterChip>3</USH_GlitterChip>
       <ComponentSpacer>1</ComponentSpacer>
     </costList>
     <thingCategories>
@@ -308,7 +308,7 @@
       <Steel>60</Steel>
       <Silver>80</Silver>
       <ComponentSpacer>3</ComponentSpacer>
-      <USH_GlitterworldFragment>7</USH_GlitterworldFragment>
+      <USH_GlitterChip>7</USH_GlitterChip>
     </costList>
     <thingCategories>
       <li>BuildingsMisc</li>
@@ -380,7 +380,7 @@
   <!--GlitterTech-Analyzer-->
 
   <ThingDef ParentName="BuildingBase">
-    <defName>USH_GlitterworldAnalyzer</defName>
+    <defName>USH_GlitterTechAnalyzer</defName>
     <label>glitterworld-analyzer</label>
     <description>An advanced machine based on the same fundamental technology as the multi-analyzer, but with a completely different purpose. It first studies Glitterworld medicine in order to develop technology fragments, and then it can perfect itself with human-written algorithms. The process is very long and power consuming, but with the right inputs, the machine can be highly overclocked.
       \nIt requires three componenets to create a glitterworld fragment from them.</description>
@@ -439,7 +439,7 @@
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
       </li>
       <li Class="GliterworldUprising.CompProperties_GlitterworldAnalyzer">
-        <thingDef>USH_GlitterworldFragment</thingDef>
+        <thingDef>USH_GlitterChip</thingDef>
         <fuelConsumption>3</fuelConsumption>
         <powerPerDayMultiplier>1000</powerPerDayMultiplier>
       </li>
@@ -497,7 +497,7 @@
       <Steel>40</Steel>
       <Plasteel>10</Plasteel>
       <ComponentIndustrial>4</ComponentIndustrial>
-      <USH_GlitterworldFragment>2</USH_GlitterworldFragment>
+      <USH_GlitterChip>2</USH_GlitterChip>
     </costList>
     <comps>
       <li Class="CompProperties_Facility">
@@ -630,7 +630,7 @@
       <Steel>130</Steel>
       <Silver>90</Silver>
       <ComponentSpacer>3</ComponentSpacer>
-      <USH_GlitterworldFragment>4</USH_GlitterworldFragment>
+      <USH_GlitterChip>4</USH_GlitterChip>
     </costList>
     <altitudeLayer>BuildingOnTop</altitudeLayer>
     <fillPercent>0.5</fillPercent>

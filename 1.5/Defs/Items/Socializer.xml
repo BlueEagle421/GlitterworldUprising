@@ -42,7 +42,7 @@
     <costList>
       <MedicineUltratech>1</MedicineUltratech>
       <Neutroamine>4</Neutroamine>
-      <USH_GlitterworldFragment>2</USH_GlitterworldFragment>
+      <USH_GlitterChip>2</USH_GlitterChip>
     </costList>
     <comps>
       <li Class="CompProperties_Drug">
