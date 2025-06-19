@@ -48,7 +48,7 @@ namespace GlitterworldUprising
         {
             base.CompTickRare();
 
-            if (!ResearchRaport().Accepted)
+            if (!ResearchReport().Accepted)
                 return;
 
             _ticksPassed += 250;
@@ -67,14 +67,14 @@ namespace GlitterworldUprising
             if (researchManager.GetProject() == null)
                 return;
 
-            if (!ResearchRaport().Accepted)
+            if (!ResearchReport().Accepted)
                 return;
 
             researchManager.ResearchPerformed(amount / ResearchManager.ResearchPointsPerWorkTick, null);
             _researchPerformed += amount;
         }
 
-        private AcceptanceReport ResearchRaport()
+        private AcceptanceReport ResearchReport()
         {
             if (_powerTraderComp != null && !_powerTraderComp.PowerOn)
                 return false;

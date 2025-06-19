@@ -190,7 +190,7 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>USH_LocalComputor</defName>
-    <label>local computor</label>
+    <label>research probe</label>
     <description>A machine meant to calculate and conduct simulations. After linking to a research bench, it automatically connects with a nearby terminal for immediate use. This makes it a perfect companion for busy researchers, who with its support, don’t need to use any additional computing devices during work.
       \nIt also conducts a bit of passive research on its own. Note that it must be connected to a research bench in order to work.</description>
     <graphicData>
@@ -382,7 +382,7 @@
     <defName>USH_GlitterTechAnalyzer</defName>
     <label>glitterworld-analyzer</label>
     <description>An advanced machine based on the same fundamental technology as the multi-analyzer, but with a completely different purpose. It first studies Glitterworld medicine in order to develop technology fragments, and then it can perfect itself with human-written algorithms. The process is very long and power consuming, but with the right inputs, the machine can be highly overclocked.
-      \nIt requires three componenets to create a glitterworld fragment from them.</description>
+      \nIt requires three components to create a glitterworld fragment from them.</description>
     <graphicData>
       <texPath>Things/Building/Misc/GlitterTech-Analyzer</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
