@@ -133,7 +133,6 @@
 	<minifiedDef>MinifiedThing</minifiedDef>
 	<rotatable>false</rotatable>
 	<defaultPlacingRot>South</defaultPlacingRot>
-	<placingDraggableDimensions>1</placingDraggableDimensions>
 	<tickerType>Normal</tickerType>
     <fillPercent>0.3</fillPercent>
 	<castEdgeShadows>false</castEdgeShadows>

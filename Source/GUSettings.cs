@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
-namespace GliterworldUprising
+namespace GlitterworldUprising
 {
     public class SkinSaveComp : WorldComponent
     {

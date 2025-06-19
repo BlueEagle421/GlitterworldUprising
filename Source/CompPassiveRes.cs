@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace GliterworldUprising
+namespace GlitterworldUprising
 {
     public class CompProperties_PassiveRes : CompProperties
     {

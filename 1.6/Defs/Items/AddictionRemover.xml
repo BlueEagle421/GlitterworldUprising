@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="DrugBase">
+    <defName>USH_AddictionRemover</defName>
+    <label>addiction remover</label>
+    <description>Have you been partying too hard lately? Are your hands shaking in need of another dose of your favorite drug? Reset your natural limit right now with handy addiction remover!
+      \nAn advanced device originally designed and manufactured by Glitterworld mega corporations. It modifies the reward system back to its default state, providing the user with a feeling of a 'fresh start'. The technological basis and process alone is beyond anyone’s grasp, but with Glitterworld fragments, a pair of talented hands should be able to reproduce the item.</description>
+    <graphicData>
+      <texPath>Things/Item/Misc/AddictionRemover</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>4200</WorkToMake>
+      <MarketValue>312</MarketValue>
+      <Mass>0.08</Mass>
+      <DeteriorationRate>2</DeteriorationRate>
+      <Flammability>1.0</Flammability>
+      <Beauty>-4</Beauty>
+    </statBases>
+    <techLevel>Ultra</techLevel>
+    <ingestible>
+      <foodType>Processed</foodType>
+      <baseIngestTicks>800</baseIngestTicks>
+      <chairSearchRadius>0</chairSearchRadius>
+      <nurseable>true</nurseable>
+      <drugCategory>Medical</drugCategory>
+      <ingestSound>Ingest_Inject</ingestSound>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <ingestCommandString>Use {0}</ingestCommandString>
+      <ingestReportString>Using {0}.</ingestReportString>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_AddictionRemoverHediff</hediffDef>
+          <severity>0.40</severity>
+          <doToGeneratedPawnIfAddicted>true</doToGeneratedPawnIfAddicted>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>105</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>USH_AddictionRemoverHediff</defName>
+    <label>addiction removal</label>
+    <labelNoun>an addiction removal</labelNoun>
+    <description>Side effects of using addiction remover.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(0.572, 0.678, 0.686)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <initialSeverity>0.1</initialSeverity>
+    <maxSeverity>0.8</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.5</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+      <li Class="GliterworldUprising.HediffCompProperties_AddictionRemoval">
+        <hediffDefBlackList>
+          <!--AddictionDefNames-->
+          <li>LuciferiumAddiction</li>
+        </hediffDefBlackList>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>side effects</label>
+        <restFallFactor>2.2</restFallFactor>
+        <vomitMtbDays>0.5</vomitMtbDays>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.30</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

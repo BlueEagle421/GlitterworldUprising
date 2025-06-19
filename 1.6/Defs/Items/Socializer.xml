@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>USH_Socializer</defName>
+    <label>socializer</label>
+    <description>Feeling anxious? Be the person you always wanted!
+      \nPills that serve to slightly inhibit the part of the brain responsible for reason, and highly energize the part responsible for social contact. It opens the user up socially, and makes them more empathetic. It is said to be like a mixture of Ecstasy and amphetamine, but is actually proven to be psychologically and biochemically healthy, and legally manufactured as a medical drug.</description>
+    <techLevel>Ultra</techLevel>
+    <graphicData>
+      <texPath>Things/Item/Drugs/Socializer</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.85</drawSize>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>1600</WorkToMake>
+      <MarketValue>12</MarketValue>
+      <Mass>0.05</Mass>
+      <DeteriorationRate>6</DeteriorationRate>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_SocializerHigh</hediffDef>
+          <severity>1</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+        <Intellectual>6</Intellectual>
+      </skillRequirements>
+    </recipeMaker>
+    <costList>
+      <MedicineUltratech>1</MedicineUltratech>
+      <Neutroamine>4</Neutroamine>
+      <USH_GlitterChip>2</USH_GlitterChip>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>105</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>USH_SocializerHigh</defName>
+    <label>antidepressant</label>
+    <description>Antidepressant in the bloodstream. Increases neurotransmitter activity in the brain, generating a mild euphoric effect.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.25</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active</label>
+        <opinionOfOthersFactor>1.2</opinionOfOthersFactor>
+        <socialFightChanceFactor>0.2</socialFightChanceFactor>
+        <vomitMtbDays>4</vomitMtbDays>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.1</offset>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>0.4</offset>
+          </li>
+          <li>
+            <capacity>Hearing</capacity>
+            <offset>0.3</offset>
+          </li>
+          <li>
+            <capacity>BloodPumping</capacity>
+            <offset>0.1</offset>
+          </li>
+        </capMods>
+        <statOffsets>
+          <SocialImpact>0.35</SocialImpact>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>USH_SocializerThought</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>USH_SocializerHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>i can't stop talking</label>
+        <description>My mind is foggy but I feel confident.</description>
+        <baseMoodEffect>2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

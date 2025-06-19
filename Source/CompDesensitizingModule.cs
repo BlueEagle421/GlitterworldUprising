@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Verse;
 using Verse.Sound;
 
-namespace GliterworldUprising
+namespace GlitterworldUprising
 {
     public class CompProperties_DesensitizingModule : CompProperties_Interactable
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Verse;
 
-namespace GliterworldUprising
+namespace GlitterworldUprising
 {
     public class CompProperties_GlitterworldAnalyzer : CompProperties
     {

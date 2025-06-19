@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
 
-namespace GliterworldUprising
+namespace GlitterworldUprising
 {
     public class HediffCompProperties_SkinReplacement : HediffCompProperties
     {
