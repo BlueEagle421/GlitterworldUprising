@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_GlitterTechAnalyzer</defName>
+        <label>glitterworld-analyzer</label>
+        <description>An advanced machine based on the same fundamental technology as the multi-analyzer, but with a completely different purpose. It first studies Glitterworld medicine in order to develop technology fragments, and then it can perfect itself with human-written algorithms. The process is very long and power consuming, but with the right inputs, the machine can be highly overclocked.\nIt requires three components to create a glitterworld fragment from them.</description>
+        <graphicData>
+            <texPath>Things/Building/Misc/GlitterTech-Analyzer</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(4,4)</drawSize>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+        </graphicData>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <tickerType>Rare</tickerType>
+        <rotatable>true</rotatable>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <fillPercent>0.3</fillPercent>
+        <castEdgeShadows>false</castEdgeShadows>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsProduction</li>
+        </thingCategories>
+        <staticSunShadowHeight>1</staticSunShadowHeight>
+        <statBases>
+            <MaxHitPoints>310</MaxHitPoints>
+            <WorkToBuild>26000</WorkToBuild>
+            <Mass>80</Mass>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+            <USH_AnalyzerDaysPerProduction>6</USH_AnalyzerDaysPerProduction>
+            <USH_AnalyzerPowerPerProduction>600</USH_AnalyzerPowerPerProduction>
+        </statBases>
+        <size>(1,1)</size>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>true</shortCircuitInRain>
+                <basePowerConsumption>460</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Breakdownable" />
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                    <li>USH_LightGlitterSupporter</li>
+                    <li>USH_DarkGlitterSupporter</li>
+                </linkableFacilities>
+            </li>
+            <li Class="CompProperties_Refuelable">
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+                <initialConfigurableTargetFuelLevel>3</initialConfigurableTargetFuelLevel>
+                <fuelCapacity>12</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+            <li Class="GlitterworldUprising.CompProperties_GlitterworldAnalyzer">
+                <thingDef>USH_GlitterChip</thingDef>
+                <fuelConsumption>3</fuelConsumption>
+                <powerPerDayMultiplier>1000</powerPerDayMultiplier>
+            </li>
+        </comps>
+        <costList>
+            <Steel>260</Steel>
+            <Silver>80</Silver>
+            <Plasteel>30</Plasteel>
+            <MedicineUltratech>18</MedicineUltratech>
+            <ComponentIndustrial>4</ComponentIndustrial>
+            <ComponentSpacer>9</ComponentSpacer>
+        </costList>
+        <designationCategory>Production</designationCategory>
+        <uiIconScale>0.55</uiIconScale>
+        <researchPrerequisites>
+            <li>USH_GlitterworldAnalyzerRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <!--Dark supporter-->
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_DarkGlitterSupporter</defName>
+        <label>dark supporter</label>
+        <description>An advanced version of the light supporter. It comes in different variations since each is responsible for different fields of mathematics. It slightly speeds up research, but also increases the power cost dramatically. Four dark supporters can link to one analyzer.</description>
+        <graphicData>
+            <texPath>Things/Building/Misc/GlitterBooster</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+            <drawSize>(1,1)</drawSize>
+            <shadowData>
+                <volume>(0.65, 1, 0.65)</volume>
+            </shadowData>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <rotatable>false</rotatable>
+        <castEdgeShadows>false</castEdgeShadows>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <fillPercent>0.3</fillPercent>
+        <statBases>
+            <MaxHitPoints>120</MaxHitPoints>
+            <WorkToBuild>4000</WorkToBuild>
+            <Mass>12</Mass>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+        </statBases>
+        <size>(1,1)</size>
+        <costList>
+            <Steel>40</Steel>
+            <Plasteel>10</Plasteel>
+            <ComponentIndustrial>4</ComponentIndustrial>
+            <USH_GlitterChip>2</USH_GlitterChip>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Facility">
+                <statOffsets>
+                    <USH_AnalyzerDaysPerProduction>-0.45</USH_AnalyzerDaysPerProduction>
+                    <USH_AnalyzerPowerPerProduction>800</USH_AnalyzerPowerPerProduction>
+                </statOffsets>
+                <maxSimultaneous>4</maxSimultaneous>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>110</basePowerConsumption>
+                <shortCircuitInRain>true</shortCircuitInRain>
+            </li>
+        </comps>
+        <designationCategory>Misc</designationCategory>
+        <uiIconScale>1</uiIconScale>
+        <researchPrerequisites>
+            <li>USH_DarkSupporterRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <!--Light supporter-->
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_LightGlitterSupporter</defName>
+        <label>light supporter</label>
+        <description>A computing device that links to the Glitterworld-analyzer. It comes in different variations since each is responsible for different fields of mathematics. It slightly speeds up research, but also increases the power cost dramatically. Four light supporters can link to one analyzer.</description>
+        <graphicData>
+            <texPath>Things/Building/Misc/LightGlitterBooster</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+            <drawSize>(1,1)</drawSize>
+            <shadowData>
+                <volume>(0.65, 1, 0.65)</volume>
+            </shadowData>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <rotatable>false</rotatable>
+        <castEdgeShadows>false</castEdgeShadows>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <fillPercent>0.3</fillPercent>
+        <statBases>
+            <MaxHitPoints>120</MaxHitPoints>
+            <WorkToBuild>3800</WorkToBuild>
+            <Mass>12</Mass>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+        </statBases>
+        <size>(1,1)</size>
+        <costList>
+            <Steel>40</Steel>
+            <Plasteel>10</Plasteel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Facility">
+                <statOffsets>
+                    <USH_AnalyzerDaysPerProduction>-0.25</USH_AnalyzerDaysPerProduction>
+                    <USH_AnalyzerPowerPerProduction>450</USH_AnalyzerPowerPerProduction>
+                </statOffsets>
+                <maxSimultaneous>4</maxSimultaneous>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>80</basePowerConsumption>
+                <shortCircuitInRain>true</shortCircuitInRain>
+            </li>
+        </comps>
+        <designationCategory>Misc</designationCategory>
+        <uiIconScale>1</uiIconScale>
+        <researchPrerequisites>
+            <li>USH_LightSupporterRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <StatDef>
+        <defName>USH_AnalyzerDaysPerProduction</defName>
+        <label>days needed for production</label>
+        <description>This value represents the amount of days required per one glitterworld fragment
+            synthesis operation.</description>
+        <category>Building</category>
+        <defaultBaseValue>1</defaultBaseValue>
+        <minValue>1</minValue>
+        <toStringStyle>FloatOne</toStringStyle>
+        <showIfUndefined>false</showIfUndefined>
+        <displayPriorityInCategory>3000</displayPriorityInCategory>
+    </StatDef>
+
+    <StatDef>
+        <defName>USH_AnalyzerPowerPerProduction</defName>
+        <label>power per production</label>
+        <description>This value represents the amount of power consumption added to
+            glitterworld-analyzer's build-in electrical systems.</description>
+        <category>Building</category>
+        <defaultBaseValue>1000</defaultBaseValue>
+        <minValue>1000</minValue>
+        <toStringStyle>Integer</toStringStyle>
+        <showIfUndefined>false</showIfUndefined>
+        <displayPriorityInCategory>3000</displayPriorityInCategory>
+    </StatDef>
+
+</Defs>

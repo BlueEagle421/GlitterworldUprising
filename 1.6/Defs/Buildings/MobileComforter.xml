@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_MobileComforter</defName>
+        <label>mobile comforter</label>
+        <description>Are you feeling down lately? What for? Brighten up your day and never wander in sadness again!\nA 'dopamine dispenser' that consists of a rounded hormone container and a top tier injector. The user must simply insert their hand under the designated spot and wait for a telltale lifting kick after a painless sting. The electrical stimulation encourages the brain to produce a balanced mixture of dopamine, serotonin and endorphins. It works as an effective recreation object that can fit into any corridor, and it is a nice companion for social gatherings.</description>
+        <graphicData>
+            <texPath>Things/Building/Misc/MobileComforter</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2.5,2.5)</drawSize>
+        </graphicData>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <pathCost>60</pathCost>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsJoy</li>
+        </thingCategories>
+        <building>
+            <joyKind>Chemical</joyKind>
+        </building>
+        <tickerType>Normal</tickerType>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <rotatable>true</rotatable>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <fillPercent>0.3</fillPercent>
+        <staticSunShadowHeight>0.15</staticSunShadowHeight>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,1)</interactionCellOffset>
+        <statBases>
+            <MaxHitPoints>160</MaxHitPoints>
+            <WorkToBuild>2300</WorkToBuild>
+            <Mass>20</Mass>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+            <JoyGainFactor>3.5</JoyGainFactor>
+        </statBases>
+        <size>(1,1)</size>
+        <placeWorkers>
+            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>false</shortCircuitInRain>
+                <basePowerConsumption>210</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable" />
+        </comps>
+        <costList>
+            <Steel>120</Steel>
+            <Silver>65</Silver>
+            <Plasteel>10</Plasteel>
+            <USH_GlitterChip>2</USH_GlitterChip>
+            <ComponentSpacer>1</ComponentSpacer>
+        </costList>
+        <designationCategory>Joy</designationCategory>
+        <uiIconScale>0.6</uiIconScale>
+        <researchPrerequisites>
+            <li>USH_BaseEssentialsRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <JoyGiverDef>
+        <defName>USH_UseMobileComforter</defName>
+        <giverClass>JoyGiver_InteractBuildingInteractionCell</giverClass>
+        <baseChance>4</baseChance>
+        <thingDefs>
+            <li>USH_MobileComforter</li>
+        </thingDefs>
+        <jobDef>USH_UseMobileComforter</jobDef>
+        <joyKind>Chemical</joyKind>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </JoyGiverDef>
+
+    <JobDef>
+        <defName>USH_UseMobileComforter</defName>
+        <driverClass>JobDriver_WatchBuilding</driverClass>
+        <reportString>using mobile comforter.</reportString>
+        <joyDuration>1000</joyDuration>
+        <joyMaxParticipants>1</joyMaxParticipants>
+        <joyKind>Chemical</joyKind>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+</Defs>
