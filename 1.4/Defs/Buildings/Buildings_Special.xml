@@ -134,7 +134,7 @@
       <li>BuildingsMisc</li>
     </thingCategories>
     <comps>
-      <li Class="GliterworldUprising.CompProperties_MountainRaiser">
+      <li Class="GlitterworldUprising.CompProperties_MountainRaiser">
         <ticksToPlace>360</ticksToPlace>
         <soundDef>USH_WallRaise</soundDef>
         <fleckDef>USH_WallRaiseCloud</fleckDef>
@@ -242,7 +242,7 @@
         <basePowerConsumption>180</basePowerConsumption>
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
-      <li Class="GliterworldUprising.CompProperties_PassiveRes">
+      <li Class="GlitterworldUprising.CompProperties_PassiveRes">
         <ticksPerResearch>250</ticksPerResearch>
         <researchAmount>0.25</researchAmount>
       </li>
@@ -334,7 +334,7 @@
         <shortCircuitInRain>false</shortCircuitInRain>
         <basePowerConsumption>160</basePowerConsumption>
       </li>
-      <li Class="GliterworldUprising.CompProperties_DesensitizingModule">
+      <li Class="GlitterworldUprising.CompProperties_DesensitizingModule">
         <fuelConsumption>2</fuelConsumption>
         <hediffDefToRemove>Anesthetic</hediffDefToRemove>
         <fleckDef>USH_DesensitizingCloud</fleckDef>
@@ -439,7 +439,7 @@
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
       </li>
-      <li Class="GliterworldUprising.CompProperties_GlitterworldAnalyzer">
+      <li Class="GlitterworldUprising.CompProperties_GlitterworldAnalyzer">
         <thingDef>USH_GlitterChip</thingDef>
         <fuelConsumption>3</fuelConsumption>
         <powerPerDayMultiplier>1000</powerPerDayMultiplier>

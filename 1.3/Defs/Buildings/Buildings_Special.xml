@@ -50,7 +50,7 @@
         <basePowerConsumption>210</basePowerConsumption>
       </li>
       <li Class="CompProperties_Flickable"/>
-	  <li Class="GliterworldUprising.CompProperties_MobileComforter">
+	  <li Class="GlitterworldUprising.CompProperties_MobileComforter">
         <joyGain>0.2</joyGain>
 		<doseOffset>850</doseOffset>
         <doseSound></doseSound>
@@ -157,7 +157,7 @@
       <li>BuildingsMisc</li>
     </thingCategories>
 	<comps>
-	  <li Class="GliterworldUprising.CompProperties_MountainRaiser">
+	  <li Class="GlitterworldUprising.CompProperties_MountainRaiser">
 	    <timeOffset>180</timeOffset>
 		<raiseSound>USH_WallRaise</raiseSound>
 	    <fleck>USH_WallRaiseCloud</fleck>
@@ -267,7 +267,7 @@ It also conducts a bit of passive research on its own. Note that it must be conn
         <basePowerConsumption>180</basePowerConsumption>
         <shortCircuitInRain>false</shortCircuitInRain>
       </li>
-	  <li Class="GliterworldUprising.CompProperties_PassiveRes">
+	  <li Class="GlitterworldUprising.CompProperties_PassiveRes">
         <isFacility>true</isFacility>
       </li>
     </comps>
@@ -339,7 +339,7 @@ It also conducts a bit of passive research on its own. Note that it must be conn
         <maxSimultaneous>3</maxSimultaneous>
         <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
       </li>
-	  <li Class="GliterworldUprising.CompProperties_DesensitizingModule">
+	  <li Class="GlitterworldUprising.CompProperties_DesensitizingModule">
 	    <fuelPerDesensitization>2</fuelPerDesensitization>
 		<fleck>USH_DesensitizingCloud</fleck>
         <moteCount>4</moteCount>
@@ -435,7 +435,7 @@ It also conducts a bit of passive research on its own. Note that it must be conn
       </li>
       <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Breakdownable"/>
-	  <li Class="GliterworldUprising.CompProperties_GlitterTechnologyAnalyzer"> 
+	  <li Class="GlitterworldUprising.CompProperties_GlitterTechnologyAnalyzer"> 
 		<thing>USH_GlitterChip</thing>
 		<fuelNeeded>3</fuelNeeded>
 		<energyPerDayMultiplier>1000</energyPerDayMultiplier>

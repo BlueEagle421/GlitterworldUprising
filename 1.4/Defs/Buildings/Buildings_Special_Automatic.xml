@@ -55,7 +55,7 @@
     </statBases>
     <size>(1,1)</size>
 	<placeWorkers>
-      <li>GliterworldUprising.PlaceWorker_ShowAutoRepairerRadius</li>
+      <li>GlitterworldUprising.PlaceWorker_ShowAutoRepairerRadius</li>
     </placeWorkers>
 	<comps>
       <li Class="CompProperties_Power">
@@ -63,7 +63,7 @@
         <shortCircuitInRain>true</shortCircuitInRain>
         <basePowerConsumption>450</basePowerConsumption>
       </li>
-	  <li Class="GliterworldUprising.CompProperties_AutoRepairer">
+	  <li Class="GlitterworldUprising.CompProperties_AutoRepairer">
         <radius>4.9</radius>
 		<repairAmount>25</repairAmount>
 		<rareTicksPerCheck>5</rareTicksPerCheck>
@@ -130,7 +130,7 @@
     </statBases>
     <size>(1,1)</size>
 	<placeWorkers>
-      <li>GliterworldUprising.PlaceWorker_ShowAutoBuilderRadius</li>
+      <li>GlitterworldUprising.PlaceWorker_ShowAutoBuilderRadius</li>
     </placeWorkers>
 	<comps>
       <li Class="CompProperties_Power">
@@ -138,7 +138,7 @@
         <shortCircuitInRain>false</shortCircuitInRain>
         <basePowerConsumption>600</basePowerConsumption>
       </li>
-	  <li Class="GliterworldUprising.CompProperties_AutoBuilder">
+	  <li Class="GlitterworldUprising.CompProperties_AutoBuilder">
         <radius>7.9</radius>
 		<workAmount>90</workAmount>
 		<rareTickPerCheck>3</rareTickPerCheck>
@@ -203,7 +203,7 @@ It updates its database of deconstructable objects in range every six hours and 
     </statBases>
     <size>(1,1)</size>
 	<placeWorkers>
-      <li>GliterworldUprising.PlaceWorker_ShowAutoMaintainerRadius</li>
+      <li>GlitterworldUprising.PlaceWorker_ShowAutoMaintainerRadius</li>
     </placeWorkers>
 	<comps>
       <li Class="CompProperties_Power">
@@ -211,7 +211,7 @@ It updates its database of deconstructable objects in range every six hours and 
         <shortCircuitInRain>false</shortCircuitInRain>
         <basePowerConsumption>100</basePowerConsumption>
       </li>
-	  <li Class="GliterworldUprising.CompProperties_AutoMaintainer">
+	  <li Class="GlitterworldUprising.CompProperties_AutoMaintainer">
         <radius>3.9</radius>
 		<rareTicksPerMaintain>5</rareTicksPerMaintain>
 		<rareTickPerCheck>60</rareTickPerCheck>

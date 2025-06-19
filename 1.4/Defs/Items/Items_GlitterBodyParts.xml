@@ -82,7 +82,7 @@
       </li>
     </stages>
 	<comps>
-	  <li Class="GliterworldUprising.HediffCompProperties_SkinReplacement">
+	  <li Class="GlitterworldUprising.HediffCompProperties_SkinReplacement">
         <skinColor>(255, 235, 122)</skinColor>
 		<hediffsConsideredSame>
           <li>USH_InstalledGoldenSkinReplacement</li>
@@ -193,7 +193,7 @@
       </li>
     </stages>
 	<comps>
-	  <li Class="GliterworldUprising.HediffCompProperties_SkinReplacement">
+	  <li Class="GlitterworldUprising.HediffCompProperties_SkinReplacement">
         <skinColor>(147, 188, 189)</skinColor>
 		<hediffsConsideredSame>
           <li>USH_InstalledGoldenSkinReplacement</li>

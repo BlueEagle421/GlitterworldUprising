@@ -82,7 +82,7 @@
       </li>
     </stages>
 	<comps>
-	  <li Class="GliterworldUprising.HediffCompProperties_GlitterSkinReplacement">
+	  <li Class="GlitterworldUprising.HediffCompProperties_GlitterSkinReplacement">
         <skinColor>(255, 235, 122)</skinColor>
       </li>
     </comps>
@@ -189,7 +189,7 @@
       </li>
     </stages>
 	<comps>
-	  <li Class="GliterworldUprising.HediffCompProperties_GlitterSkinReplacement">
+	  <li Class="GlitterworldUprising.HediffCompProperties_GlitterSkinReplacement">
         <skinColor>(147, 188, 189)</skinColor>
       </li>
     </comps>

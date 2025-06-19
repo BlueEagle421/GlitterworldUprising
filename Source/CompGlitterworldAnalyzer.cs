@@ -112,15 +112,14 @@ namespace GlitterworldUprising
             foreach (Gizmo gizmo in base.CompGetGizmosExtra())
                 yield return gizmo;
 
-            if (DebugSettings.ShowDevGizmos)
+            if (!DebugSettings.ShowDevGizmos)
+                yield break;
+
+            yield return new Command_Action
             {
-                Command_Action commandAction = new Command_Action
-                {
-                    defaultLabel = "DEBUG: End analyzing now",
-                    action = () => _analyzingTicksPassed = TicksPerProduction()
-                };
-                yield return commandAction;
-            }
+                defaultLabel = "DEBUG: End analyzing now",
+                action = () => _analyzingTicksPassed = TicksPerProduction()
+            };
         }
 
         private bool TryToProduceThing()

@@ -61,7 +61,7 @@
         <severityPerDay>-1.5</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
-	  <li Class="GliterworldUprising.HediffCompProperties_AddictionRemoval">
+	  <li Class="GlitterworldUprising.HediffCompProperties_AddictionRemoval">
         <hediffDefBlackList>
 			<!--AddictionDefNames-->
 			<li>LuciferiumAddiction</li>

@@ -21,7 +21,7 @@ namespace GlitterworldUprising
         CompFacility _facilityComp;
         CompRefuelable _refuelableComp;
 
-        public CompProperties_DesensitizingModule Props => (CompProperties_DesensitizingModule)props;
+        public CompProperties_DesensitizingModule ModuleProps => (CompProperties_DesensitizingModule)props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -43,7 +43,7 @@ namespace GlitterworldUprising
             if (_facilityComp.LinkedBuildings.Count == 0)
                 return false;
 
-            if (_refuelableComp.Fuel < Props.fuelConsumption)
+            if (_refuelableComp.Fuel < ModuleProps.fuelConsumption)
                 return false;
 
             if (PawnsInLinkedFacilities().Count == 0)
@@ -56,13 +56,13 @@ namespace GlitterworldUprising
         {
             foreach (Pawn pawn in PawnsInLinkedFacilities())
             {
-                Hediff toRemove = pawn.health.hediffSet.GetFirstHediffOfDef(Props.hediffDefToRemove);
+                Hediff toRemove = pawn.health.hediffSet.GetFirstHediffOfDef(ModuleProps.hediffDefToRemove);
 
                 if (toRemove == null)
                     continue;
 
                 pawn.health.RemoveHediff(toRemove);
-                _refuelableComp.ConsumeFuel(Props.fuelConsumption);
+                _refuelableComp.ConsumeFuel(ModuleProps.fuelConsumption);
 
                 PlaySoundEffect();
 
@@ -71,9 +71,9 @@ namespace GlitterworldUprising
             }
         }
 
-        private void SpawnFleckEffect(IntVec3 position) => FleckMaker.Static(position, _currentMap, Props.fleckDef);
+        private void SpawnFleckEffect(IntVec3 position) => FleckMaker.Static(position, _currentMap, ModuleProps.fleckDef);
 
-        private void PlaySoundEffect() => Props.soundDef.PlayOneShot(new TargetInfo(parent.Position, parent.Map, false));
+        private void PlaySoundEffect() => ModuleProps.soundDef.PlayOneShot(new TargetInfo(parent.Position, parent.Map, false));
 
         private List<Pawn> PawnsInLinkedFacilities()
         {
@@ -89,12 +89,12 @@ namespace GlitterworldUprising
 
         public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
         {
-            if (_refuelableComp.Fuel < Props.fuelConsumption)
+            if (_refuelableComp.Fuel < ModuleProps.fuelConsumption)
                 return "NoFuel".Translate();
 
             return base.CanInteract(activateBy);
         }
 
-        public override string CompInspectStringExtra() => "USH_GU_DesensitizeCost".Translate(Props.fuelConsumption);
+        public override string CompInspectStringExtra() => "USH_GU_DesensitizeCost".Translate(ModuleProps.fuelConsumption);
     }
 }
