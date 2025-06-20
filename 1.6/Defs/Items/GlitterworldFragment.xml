@@ -3,15 +3,15 @@
 
     <ThingDef ParentName="ResourceBase">
         <defName>USH_GlitterChip</defName>
-        <label>glitterworld fragment</label>
-        <description>A device storing complex data about Glitterworld technology. It contains information, blueprints, and theories, making it a crucial element for engineers and craftsmen. Building with Glitterworld fragments is significantly easier due to the complexity of their stored data. With this device one can recreate various high-tech machines without the need to understand how the mechanisms actually work.</description>
+        <label>glittercore</label>
+        <description>An ultratech device storing complex data and nutrient based mechanites. It contains information, blueprints, and theories, making it a crucial element for engineers and craftsmen. With this device one can recreate various high-tech machines without the need to understand how the mechanisms actually work.</description>
         <graphicData>
             <texPath>Things/Item/Misc/GlitterChip</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <soundInteract>Metal_Drop</soundInteract>
         <soundDrop>Standard_Drop</soundDrop>
-        <stackLimit>75</stackLimit>
+        <stackLimit>50</stackLimit>
         <healthAffectsPrice>false</healthAffectsPrice>
         <statBases>
             <MaxHitPoints>60</MaxHitPoints>
@@ -30,6 +30,7 @@
         <thingSetMakerTags>
             <li>RewardStandardHighFreq</li>
         </thingSetMakerTags>
+        <tradeability>Sellable</tradeability>
         <allowedArchonexusCount>5</allowedArchonexusCount>
     </ThingDef>
 

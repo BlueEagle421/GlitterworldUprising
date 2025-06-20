@@ -1,38 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <ThingDef ParentName="BuildingBase">
+    <ThingDef ParentName="BenchBase">
         <defName>USH_GlitterTechAnalyzer</defName>
-        <label>glitterworld-analyzer</label>
+        <label>glittertech fabricator</label>
         <description>An advanced machine based on the same fundamental technology as the multi-analyzer, but with a completely different purpose. It first studies Glitterworld medicine in order to develop technology fragments, and then it can perfect itself with human-written algorithms. The process is very long and power consuming, but with the right inputs, the machine can be highly overclocked.\nIt requires three components to create a glitterworld fragment from them.</description>
+        <thingClass>GlitterworldUprising.Building_GlittertechAnalyzer</thingClass>
         <graphicData>
             <texPath>Things/Building/Misc/GlitterTech-Analyzer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
-            <drawSize>(4,4)</drawSize>
+            <drawSize>(5,5)</drawSize>
             <drawRotated>false</drawRotated>
             <allowFlip>false</allowFlip>
+            <shadowData>
+                <volume>(0.6, 0.8, 0.6)</volume>
+            </shadowData>
         </graphicData>
+        <castEdgeShadows>true</castEdgeShadows>
+        <rotatable>false</rotatable>
+        <costList>
+            <Steel>260</Steel>
+            <Silver>80</Silver>
+            <Plasteel>30</Plasteel>
+            <MedicineUltratech>18</MedicineUltratech>
+            <ComponentIndustrial>4</ComponentIndustrial>
+            <ComponentSpacer>9</ComponentSpacer>
+        </costList>
+        <drawerType>MapMeshAndRealTime</drawerType>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
-        <tickerType>Rare</tickerType>
-        <rotatable>true</rotatable>
-        <defaultPlacingRot>South</defaultPlacingRot>
-        <fillPercent>0.3</fillPercent>
-        <castEdgeShadows>false</castEdgeShadows>
-        <minifiedDef>MinifiedThing</minifiedDef>
-        <thingCategories>
-            <li>BuildingsProduction</li>
-        </thingCategories>
-        <staticSunShadowHeight>1</staticSunShadowHeight>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <tickerType>Normal</tickerType>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
         <statBases>
             <MaxHitPoints>310</MaxHitPoints>
             <WorkToBuild>26000</WorkToBuild>
             <Mass>80</Mass>
             <Beauty>0</Beauty>
             <Flammability>0</Flammability>
-            <USH_AnalyzerDaysPerProduction>6</USH_AnalyzerDaysPerProduction>
-            <USH_AnalyzerPowerPerProduction>600</USH_AnalyzerPowerPerProduction>
         </statBases>
         <size>(1,1)</size>
+        <designationCategory>Production</designationCategory>
+        <uiOrder>2100</uiOrder>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <surfaceType>Item</surfaceType>
+        <recipes>
+            <li>ButcherCorpseFlesh</li>
+            <li>Make_Kibble</li>
+            <li>USH_AssembleGlittercore</li>
+        </recipes>
+        <inspectorTabs>
+            <li>ITab_Bills</li>
+            <li>GlitterworldUprising.ITab_GlittertechNutritionStorage</li>
+        </inspectorTabs>
+        <building>
+            <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+            <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+            <ai_chillDestination>false</ai_chillDestination>
+            <buildingTags>
+                <li>Production</li>
+            </buildingTags>
+            <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+            <haulToContainerDuration>120</haulToContainerDuration>
+            <fixedStorageSettings>
+                <filter>
+                    <categories>
+                        <li>Foods</li>
+                    </categories>
+                    <specialFiltersToDisallow>
+                        <li>AllowPlantFood</li>
+                    </specialFiltersToDisallow>
+                    <disallowedThingDefs>
+                        <li>Hay</li>
+                    </disallowedThingDefs>
+                </filter>
+            </fixedStorageSettings>
+            <defaultStorageSettings>
+                <filter>
+                    <categories>
+                        <li>Foods</li>
+                    </categories>
+                    <disallowedCategories>
+                        <li>EggsFertilized</li>
+                    </disallowedCategories>
+                    <disallowedThingDefs>
+                        <li>InsectJelly</li>
+                        <li>MealLavish</li>
+                        <li>MealLavish_Veg</li>
+                        <li>MealLavish_Meat</li>
+                        <li>Chocolate</li>
+                        <li MayRequire="Ludeon.RimWorld.Biotech">HemogenPack</li>
+                    </disallowedThingDefs>
+                </filter>
+            </defaultStorageSettings>
+        </building>
         <comps>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
@@ -47,38 +110,49 @@
                     <li>USH_DarkGlitterSupporter</li>
                 </linkableFacilities>
             </li>
-            <li Class="CompProperties_Refuelable">
-                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-                <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-                <initialConfigurableTargetFuelLevel>3</initialConfigurableTargetFuelLevel>
-                <fuelCapacity>12</fuelCapacity>
-                <fuelFilter>
-                    <thingDefs>
-                        <li>ComponentIndustrial</li>
-                    </thingDefs>
-                </fuelFilter>
-                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-            </li>
-            <li Class="GlitterworldUprising.CompProperties_GlitterworldAnalyzer">
-                <thingDef>USH_GlitterChip</thingDef>
-                <fuelConsumption>3</fuelConsumption>
-                <powerPerDayMultiplier>1000</powerPerDayMultiplier>
-            </li>
         </comps>
-        <costList>
-            <Steel>260</Steel>
-            <Silver>80</Silver>
-            <Plasteel>30</Plasteel>
-            <MedicineUltratech>18</MedicineUltratech>
-            <ComponentIndustrial>4</ComponentIndustrial>
-            <ComponentSpacer>9</ComponentSpacer>
-        </costList>
-        <designationCategory>Production</designationCategory>
-        <uiIconScale>0.55</uiIconScale>
+        <designationHotKey>Misc3</designationHotKey>
+        <uiIconScale>0.45</uiIconScale>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
         <researchPrerequisites>
             <li>USH_GlitterworldAnalyzerRes</li>
         </researchPrerequisites>
     </ThingDef>
+
+    <!-- <ThingDef ParentName="BuildingBase">
+        <thingClass>GlitterworldUprising.Building_GlittertechAnalyzer</thingClass>
+        <staticSunShadowHeight>1</staticSunShadowHeight>
+
+
+
+        <inspectorTabs>
+            <li>ITab_Bills</li>
+        </inspectorTabs>
+
+        <designationCategory>Production</designationCategory>
+
+
+    </ThingDef> -->
+
+    <WorkGiverDef>
+        <defName>USH_DoBillsGlittertechFabricator</defName>
+        <label>make things at glittertech fabricator</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>Smithing</workType>
+        <priorityInType>250</priorityInType>
+        <fixedBillGiverDefs>
+            <li>USH_GlitterTechAnalyzer</li>
+        </fixedBillGiverDefs>
+        <verb>work at</verb>
+        <gerund>working at</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
 
     <!--Dark supporter-->
 

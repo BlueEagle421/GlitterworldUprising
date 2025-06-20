@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <RecipeDef Name="USH_BaseGlitterAnalyzerRecipe" Abstract="True">
+        <jobString>Assembling glittertech.</jobString>
+        <!-- <soundWorking>MechGestatorCycle_Initiating</soundWorking> -->
+        <workAmount>3600</workAmount>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>18000</formingTicks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>2600</powerNeeded>
+                <fuelNeeded>10</fuelNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+        <defName>USH_AssembleGlittercore</defName>
+        <label>assemble glittercore</label>
+        <description>Assemble a glittercore.</description>
+        <researchPrerequisite>USH_GlitterworldAnalyzerRes</researchPrerequisite>
+
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>3</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>5</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>0.1</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_GlitterChip>1</USH_GlitterChip>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GlitterChip</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+</Defs>

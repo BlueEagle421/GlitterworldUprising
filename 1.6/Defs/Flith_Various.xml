@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BaseFilth">
+        <defName>USH_GlitterSlime</defName>
+        <label>nutrient slime</label>
+        <statBases>
+            <Beauty>-25</Beauty>
+            <Cleanliness>-5</Cleanliness>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Filth/Spatter</texPath>
+            <color>(130, 142, 120, 170)</color>
+        </graphicData>
+        <filth>
+            <disappearsInDays>35~40</disappearsInDays>
+            <rainWashes>true</rainWashes>
+            <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+            <canFilthAttach>true</canFilthAttach>
+            <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
+        </filth>
+    </ThingDef>
+
+</Defs>
