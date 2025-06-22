@@ -131,24 +131,34 @@ namespace GlitterworldUprising
         {
             base.DrawAt(drawLoc, flip);
 
-            if (activeBill != null && activeBill.State != FormingState.Gathering)
-            {
-                Vector3 loc = drawLoc;
-                loc.y += 0.018292684f;
-                loc.z += Mathf.PingPong(Find.TickManager.TicksGame * 0.0005f, 0.08f) + 0.7f;
+            DrawFormingThing(drawLoc);
 
-                if (TryGetMechFormingGraphic(out Graphic graphic))
-                {
-                    Material transparentMat = MaterialPool.MatFrom(ActiveBill.recipe.products[0].thingDef.graphicData.texPath, ShaderDatabase.Transparent);
-                    transparentMat.color = new Color(1f, 1f, 1f, 0.5f);
+            DrawBar(drawLoc);
+        }
 
-                    Mesh mesh = graphic.MeshAt(Rot4.North);
-                    Quaternion quat = graphic.QuatFromRot(Rot4.North);
+        private void DrawFormingThing(Vector3 drawLoc)
+        {
+            if (activeBill == null || activeBill.State == FormingState.Gathering)
+                return;
 
-                    Graphics.DrawMesh(mesh, loc, quat, transparentMat, 0);
-                }
-            }
+            if (!TryGetMechFormingGraphic(out Graphic graphic))
+                return;
 
+            Vector3 loc = drawLoc;
+            loc.y += 0.018292684f;
+            loc.z += Mathf.PingPong(Find.TickManager.TicksGame * 0.0005f, 0.08f) + 0.7f;
+
+            Material transparentMat = MaterialPool.MatFrom(ActiveBill.recipe.products[0].thingDef.graphicData.texPath, ShaderDatabase.Transparent);
+            transparentMat.color = new Color(1f, 1f, 1f, 0.5f);
+
+            Mesh mesh = graphic.MeshAt(Rot4.North);
+            Quaternion quat = graphic.QuatFromRot(Rot4.North);
+
+            Graphics.DrawMesh(mesh, loc, quat, transparentMat, 0);
+        }
+
+        private void DrawBar(Vector3 drawLoc)
+        {
             GenDraw.FillableBarRequest barDrawData = BarDrawData;
             barDrawData.center = drawLoc;
             barDrawData.fillPercent = CurrentBillFormingPercent;
