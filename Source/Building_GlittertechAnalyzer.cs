@@ -9,16 +9,6 @@ using System.Linq;
 
 namespace GlitterworldUprising
 {
-
-    public class ITab_GlittertechNutritionStorage : ITab_Storage
-    {
-        public ITab_GlittertechNutritionStorage()
-        {
-            labelKey = "Nutrition";
-        }
-
-    }
-
     [StaticConstructorOnStartup]
     public class Building_GlittertechAnalyzer : Building_WorkTableAutonomous
     {
