@@ -89,8 +89,9 @@ namespace GlitterworldUprising
             if (GlitterBill == null)
                 return sb.ToString().TrimEnd();
 
+            sb.AppendLine($"Power needed for {string.Join(",", GlitterBill.recipe.products)}: {GlitterBill.GlittertechExt.powerNeeded} W");
 
-            sb.Append(string.Format("{0}: {1}", "Total time left", Mathf.CeilToInt((GlitterBill.recipe.gestationCycles - GlitterBill.GestationCyclesCompleted) * GlitterBill.recipe.formingTicks + GlitterBill.formingTicks * 1f).ToStringTicksToPeriod()));
+            sb.AppendLine(string.Format("{0}: {1}", "Total time left", GetTotalTimeForActiveBill().ToStringTicksToPeriod()));
 
             return sb.ToString().TrimEnd();
         }
@@ -167,6 +168,14 @@ namespace GlitterworldUprising
                     defaultLabel = "DEV: Complete all cycles"
                 };
             }
+        }
+
+        private int GetTotalTimeForActiveBill()
+        {
+            float wholeCycleTicks = (GlitterBill.recipe.gestationCycles - GlitterBill.GestationCyclesCompleted) * GlitterBill.recipe.formingTicks;
+            float currentCycleTicks = GlitterBill.formingTicks;
+
+            return Mathf.CeilToInt(wholeCycleTicks + currentCycleTicks);
         }
 
         public bool HasStoredPower(float powerNeeded)
