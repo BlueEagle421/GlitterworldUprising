@@ -41,17 +41,6 @@ namespace GlitterworldUprising
 
         public bool PoweredOn => PowerTrader.PowerOn;
 
-
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-        }
-
-        public void Notify_SettingsChanged()
-        {
-
-        }
-
         public override void Notify_StartForming(Pawn billDoer)
         {
             DrawPowerFromNet(GlitterBill.GlittertechExt.powerNeeded);
@@ -59,19 +48,16 @@ namespace GlitterworldUprising
             SoundDefOf.MechGestatorCycle_Started.PlayOneShot(this);
         }
 
-
         public override void Notify_FormingCompleted()
         {
             innerContainer.ClearAndDestroyContents(DestroyMode.Vanish);
             SoundDefOf.MechGestatorBill_Completed.PlayOneShot(this);
         }
 
-
         public override void Notify_HauledTo(Pawn hauler, Thing thing, int count)
         {
             SoundDefOf.Standard_Drop.PlayOneShot(this);
         }
-
 
         protected override void Tick()
         {
@@ -80,7 +66,6 @@ namespace GlitterworldUprising
             if (activeBill != null && PoweredOn)
                 activeBill.BillTick();
         }
-
 
         protected override string GetInspectStringExtra()
         {
@@ -110,7 +95,7 @@ namespace GlitterworldUprising
             if (activeBill == null || activeBill.State == FormingState.Gathering)
                 return;
 
-            if (!TryGetMechFormingGraphic(out Graphic graphic))
+            if (!TryGetFormingGraphic(out Graphic graphic))
                 return;
 
             Vector3 loc = drawLoc;
@@ -138,7 +123,7 @@ namespace GlitterworldUprising
         }
 
 
-        private bool TryGetMechFormingGraphic(out Graphic graphic)
+        private bool TryGetFormingGraphic(out Graphic graphic)
         {
             graphic = null;
 
