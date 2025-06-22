@@ -81,6 +81,11 @@ namespace GlitterworldUprising
             }
         }
 
+        public void Notify_SettingsChanged()
+        {
+
+        }
+
         public override void Notify_StartForming(Pawn billDoer)
         {
             DrawPowerFromNet(GlitterBill.GlittertechExt.powerNeeded);
@@ -274,11 +279,6 @@ namespace GlitterworldUprising
         {
             base.ExposeData();
             Scribe_Deep.Look(ref _storageSettings, "_storageSettings", this);
-        }
-
-        public void Notify_SettingsChanged()
-        {
-            throw new NotImplementedException();
         }
     }
 }
