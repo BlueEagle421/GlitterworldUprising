@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <EffecterDef>
+        <defName>USH_ElectricForming</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
+                <soundDef>EmpDisabled</soundDef>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>BlastEMP</fleckDef>
+                <scale>0.6~1</scale>
+                <spawnLocType>RandomCellOnTarget</spawnLocType>
+                <burstCount>1~3</burstCount>
+                <chancePerTick>0.052</chancePerTick>
+                <positionRadius>0.5</positionRadius>
+                <rotation>-180~180</rotation>
+                <attachToSpawnThing>true</attachToSpawnThing>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>ElectricalSpark</fleckDef>
+                <scale>0.6~1.2</scale>
+                <spawnLocType>RandomCellOnTarget</spawnLocType>
+                <burstCount>1~3</burstCount>
+                <chancePerTick>0.052</chancePerTick>
+                <positionRadius>0.5</positionRadius>
+                <rotation>-180~180</rotation>
+                <attachToSpawnThing>true</attachToSpawnThing>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>ArcLargeEMP_B</fleckDef>
+                <scale>1.5~2</scale>
+                <spawnLocType>RandomCellOnTarget</spawnLocType>
+                <burstCount>1~2</burstCount>
+                <chancePerTick>0.01</chancePerTick>
+                <positionRadius>0.75</positionRadius>
+                <rotation>-180~180</rotation>
+                <attachToSpawnThing>true</attachToSpawnThing>
+            </li>
+        </children>
+    </EffecterDef>
+
+</Defs>
