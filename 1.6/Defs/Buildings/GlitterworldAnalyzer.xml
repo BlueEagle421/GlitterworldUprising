@@ -80,6 +80,7 @@
         </comps>
         <designationHotKey>Misc3</designationHotKey>
         <uiIconScale>0.45</uiIconScale>
+        <uiIconOffset>(0, 0.2)</uiIconOffset>
         <placeWorkers>
             <li>PlaceWorker_ShowFacilitiesConnections</li>
             <li>PlaceWorker_PreventInteractionSpotOverlap</li>
