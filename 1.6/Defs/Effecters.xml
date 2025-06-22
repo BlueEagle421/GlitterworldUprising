@@ -44,4 +44,32 @@
         </children>
     </EffecterDef>
 
+    <EffecterDef>
+        <defName>USH_ElectricResearchProbe</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>BlastEMP</fleckDef>
+                <scale>0.6~1</scale>
+                <spawnLocType>RandomCellOnTarget</spawnLocType>
+                <burstCount>1~1</burstCount>
+                <chancePerTick>0.052</chancePerTick>
+                <positionRadius>0.25</positionRadius>
+                <rotation>-180~180</rotation>
+                <attachToSpawnThing>true</attachToSpawnThing>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>ElectricalSpark</fleckDef>
+                <scale>0.6~1</scale>
+                <spawnLocType>RandomCellOnTarget</spawnLocType>
+                <burstCount>1~2</burstCount>
+                <chancePerTick>0.052</chancePerTick>
+                <positionRadius>0.25</positionRadius>
+                <rotation>-180~180</rotation>
+                <attachToSpawnThing>true</attachToSpawnThing>
+            </li>
+        </children>
+    </EffecterDef>
+
 </Defs>
