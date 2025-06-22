@@ -169,13 +169,6 @@ namespace GlitterworldUprising
             return true;
         }
 
-        public override void Notify_IterationCompleted(Pawn billDoer, List<Thing> ingredients)
-        {
-            FilthMaker.TryMakeFilth(Analyzer.InteractionCell, Analyzer.Map, USH_DefOf.USH_GlitterSlime, new IntRange(3, 6).RandomInRange, FilthSourceFlags.None, true);
-            base.Notify_IterationCompleted(billDoer, ingredients);
-        }
-
-
         public override void AppendInspectionData(StringBuilder sb)
         {
             if (State != FormingState.Forming && State != FormingState.Preparing)

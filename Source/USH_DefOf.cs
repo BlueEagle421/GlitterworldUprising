@@ -11,7 +11,6 @@ namespace GlitterworldUprising
             DefOfHelper.EnsureInitializedInCtor(typeof(USH_DefOf));
         }
 
-        public static ThingDef USH_GlitterSlime;
         public static EffecterDef USH_ElectricForming;
     }
 
