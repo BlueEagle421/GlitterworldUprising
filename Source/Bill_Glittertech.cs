@@ -137,6 +137,7 @@ namespace GlitterworldUprising
         {
             if (suspended || state != FormingState.Forming)
                 return;
+
             formingTicks -= 1f;
 
             if (formingTicks > 0f)
@@ -157,12 +158,6 @@ namespace GlitterworldUprising
         {
             if (!base.PawnAllowedToStartAnew(p))
                 return false;
-
-            if (!Analyzer.HasNutrition(GlittertechExt.fuelNeeded))
-            {
-                JobFailReason.Is("NoFuel".Translate(), null);
-                return false;
-            }
 
             if (!Analyzer.HasStoredPower(GlittertechExt.powerNeeded))
             {
@@ -198,7 +193,6 @@ namespace GlitterworldUprising
 
             if (Scribe.mode == LoadSaveMode.PostLoadInit)
                 GlittertechExt = recipe.GetModExtension<ModExtension_UseGlittertechBill>();
-
         }
     }
 }

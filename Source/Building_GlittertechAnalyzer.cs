@@ -19,7 +19,7 @@ namespace GlitterworldUprising
     }
 
     [StaticConstructorOnStartup]
-    public class Building_GlittertechAnalyzer : Building_WorkTableAutonomous, IStoreSettingsParent, IThingHolder
+    public class Building_GlittertechAnalyzer : Building_WorkTableAutonomous
     {
 
         public Bill_Glittertech GlitterBill => ActiveBill as Bill_Glittertech;
@@ -39,46 +39,12 @@ namespace GlitterworldUprising
             }
         }
 
-        private CompRefuelable refuelable;
-        public CompRefuelable Refuelable
-        {
-            get
-            {
-                if (refuelable == null)
-                    refuelable = this.TryGetComp<CompRefuelable>();
-
-                return refuelable;
-            }
-        }
-
         public bool PoweredOn => PowerTrader.PowerOn;
 
-        private StorageSettings _storageSettings;
-        public StorageSettings GetStoreSettings() => _storageSettings;
-        public StorageSettings GetParentStoreSettings() => def.building?.defaultStorageSettings;
-
-        private ThingOwner _nutritionContainer;
-        private float _liquifiedNutrition;
-        private static readonly List<Thing> tmpItems = new List<Thing>();
-
-        public bool StorageTabVisible => true;
-
-        public Building_GlittertechAnalyzer()
-        {
-            _nutritionContainer = new ThingOwner<Thing>(this);
-        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            if (_storageSettings == null)
-            {
-                _storageSettings = new StorageSettings(this);
-                if (def.building?.defaultStorageSettings != null)
-                {
-                    _storageSettings.CopyFrom(def.building.defaultStorageSettings);
-                }
-            }
         }
 
         public void Notify_SettingsChanged()
@@ -89,7 +55,6 @@ namespace GlitterworldUprising
         public override void Notify_StartForming(Pawn billDoer)
         {
             DrawPowerFromNet(GlitterBill.GlittertechExt.powerNeeded);
-            refuelable.ConsumeFuel(GlitterBill.GlittertechExt.fuelNeeded);
 
             SoundDefOf.MechGestatorCycle_Started.PlayOneShot(this);
         }
@@ -104,8 +69,7 @@ namespace GlitterworldUprising
 
         public override void Notify_HauledTo(Pawn hauler, Thing thing, int count)
         {
-            SoundDefOf.MechGestator_MaterialInserted.PlayOneShot(this);
-            LiquifyNutrition();
+            SoundDefOf.Standard_Drop.PlayOneShot(this);
         }
 
 
@@ -120,12 +84,11 @@ namespace GlitterworldUprising
 
         protected override string GetInspectStringExtra()
         {
-            if (GlitterBill == null)
-                return null;
-
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLineIfNotEmpty().Append("Nutrition".Translate()).Append(": ").Append(_liquifiedNutrition.ToStringByStyle(ToStringStyle.FloatMaxOne, ToStringNumberSense.Absolute)).Append(" / ").Append(5f);
+            if (GlitterBill == null)
+                return sb.ToString().TrimEnd();
+
 
             sb.Append(string.Format("{0}: {1}", "Total time left", Mathf.CeilToInt((GlitterBill.recipe.gestationCycles - GlitterBill.GestationCyclesCompleted) * GlitterBill.recipe.formingTicks + GlitterBill.formingTicks * 1f).ToStringTicksToPeriod()));
 
@@ -206,43 +169,12 @@ namespace GlitterworldUprising
             }
         }
 
-        private void LiquifyNutrition()
-        {
-            tmpItems.AddRange(_nutritionContainer);
-            foreach (Thing thing in tmpItems)
-            {
-                float num = thing.GetStatValue(StatDefOf.Nutrition, true, -1) * (float)thing.stackCount;
-                if (num > 0f && !(thing is Pawn))
-                {
-                    _liquifiedNutrition = Mathf.Min(5f, _liquifiedNutrition + num);
-                    thing.Destroy(DestroyMode.Vanish);
-                }
-            }
-            tmpItems.Clear();
-        }
-
-        public float RequiredNutritionRemaining
-        {
-            get
-            {
-                return Mathf.Max(5f - _liquifiedNutrition, 0f);
-            }
-        }
-
-        public bool HasNutrition(float nutrition)
-        {
-            if (_liquifiedNutrition < nutrition)
-                return false;
-
-            return true;
-        }
-
         public bool HasStoredPower(float powerNeeded)
         {
             if (DebugSettings.unlimitedPower)
                 return true;
 
-            return PowerStoredInNet(_powerTrader.PowerNet) >= powerNeeded;
+            return PowerStoredInNet(PowerTrader.PowerNet) >= powerNeeded;
         }
 
         private float PowerStoredInNet(PowerNet powerNet)
@@ -260,7 +192,7 @@ namespace GlitterworldUprising
 
         private void DrawPowerFromNet(float powerToDraw)
         {
-            foreach (CompPowerBattery battery in _powerTrader.PowerNet.batteryComps)
+            foreach (CompPowerBattery battery in PowerTrader.PowerNet.batteryComps)
             {
                 if (powerToDraw >= battery.StoredEnergy)
                 {
@@ -273,13 +205,6 @@ namespace GlitterworldUprising
                     break;
                 }
             }
-        }
-
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Deep.Look(ref _storageSettings, "_storageSettings", this);
-            Scribe_Values.Look(ref _liquifiedNutrition, "_liquifiedNutrition", 0);
         }
     }
 }

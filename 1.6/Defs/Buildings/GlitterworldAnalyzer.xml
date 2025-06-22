@@ -53,7 +53,6 @@
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>
-            <li>GlitterworldUprising.ITab_GlittertechNutritionStorage</li>
         </inspectorTabs>
         <building>
             <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
@@ -63,38 +62,6 @@
                 <li>Production</li>
             </buildingTags>
             <destroySound>BuildingDestroyed_Metal_Big</destroySound>
-            <haulToContainerDuration>120</haulToContainerDuration>
-            <fixedStorageSettings>
-                <filter>
-                    <categories>
-                        <li>Foods</li>
-                    </categories>
-                    <specialFiltersToDisallow>
-                        <li>AllowPlantFood</li>
-                    </specialFiltersToDisallow>
-                    <disallowedThingDefs>
-                        <li>Hay</li>
-                    </disallowedThingDefs>
-                </filter>
-            </fixedStorageSettings>
-            <defaultStorageSettings>
-                <filter>
-                    <categories>
-                        <li>Foods</li>
-                    </categories>
-                    <disallowedCategories>
-                        <li>EggsFertilized</li>
-                    </disallowedCategories>
-                    <disallowedThingDefs>
-                        <li>InsectJelly</li>
-                        <li>MealLavish</li>
-                        <li>MealLavish_Veg</li>
-                        <li>MealLavish_Meat</li>
-                        <li>Chocolate</li>
-                        <li MayRequire="Ludeon.RimWorld.Biotech">HemogenPack</li>
-                    </disallowedThingDefs>
-                </filter>
-            </defaultStorageSettings>
         </building>
         <comps>
             <li Class="CompProperties_Power">
