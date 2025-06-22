@@ -182,18 +182,23 @@ namespace GlitterworldUprising
 
         public override void AppendInspectionData(StringBuilder sb)
         {
-            if (State == FormingState.Forming || State == FormingState.Preparing)
-            {
-                sb.AppendLine("CurrentGestationCycle".Translate() + ": " + ((int)(formingTicks * 1f)).ToStringTicksToPeriod(true, false, true, true, false));
-                sb.AppendLine("RemainingGestationCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
-            }
+            if (State != FormingState.Forming && State != FormingState.Preparing)
+                return;
+
+            sb.AppendLine("CurrentGestationCycle".Translate() + ": " + ((int)(formingTicks * 1f)).ToStringTicksToPeriod(true, false, true, true, false));
+            sb.AppendLine("RemainingGestationCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
+
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look<Pawn>(ref boundPawn, "boundPawn", false);
-            Scribe_Values.Look<int>(ref gestationCycles, "gestationCycles", 0, false);
+            Scribe_References.Look(ref boundPawn, "boundPawn", false);
+            Scribe_Values.Look(ref gestationCycles, "gestationCycles", 0, false);
+
+            if (Scribe.mode == LoadSaveMode.PostLoadInit)
+                GlittertechExt = recipe.GetModExtension<ModExtension_UseGlittertechBill>();
+
         }
     }
 }

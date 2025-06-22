@@ -27,15 +27,15 @@ namespace GlitterworldUprising
         private static readonly Material FormingCycleBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.98f, 0.46f, 0f), false);
         private static readonly Material FormingCycleUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0f, 0f, 0f, 0f), false);
 
-        private CompPowerTrader power;
-        public CompPowerTrader Power
+        private CompPowerTrader _powerTrader;
+        public CompPowerTrader PowerTrader
         {
             get
             {
-                if (power == null)
-                    power = this.TryGetComp<CompPowerTrader>();
+                if (_powerTrader == null)
+                    _powerTrader = this.TryGetComp<CompPowerTrader>();
 
-                return power;
+                return _powerTrader;
             }
         }
 
@@ -51,7 +51,7 @@ namespace GlitterworldUprising
             }
         }
 
-        public bool PoweredOn => Power.PowerOn;
+        public bool PoweredOn => PowerTrader.PowerOn;
 
         private StorageSettings _storageSettings;
         public StorageSettings GetStoreSettings() => _storageSettings;
@@ -242,7 +242,7 @@ namespace GlitterworldUprising
             if (DebugSettings.unlimitedPower)
                 return true;
 
-            return PowerStoredInNet(power.PowerNet) >= powerNeeded;
+            return PowerStoredInNet(_powerTrader.PowerNet) >= powerNeeded;
         }
 
         private float PowerStoredInNet(PowerNet powerNet)
@@ -260,7 +260,7 @@ namespace GlitterworldUprising
 
         private void DrawPowerFromNet(float powerToDraw)
         {
-            foreach (CompPowerBattery battery in power.PowerNet.batteryComps)
+            foreach (CompPowerBattery battery in _powerTrader.PowerNet.batteryComps)
             {
                 if (powerToDraw >= battery.StoredEnergy)
                 {
@@ -279,6 +279,7 @@ namespace GlitterworldUprising
         {
             base.ExposeData();
             Scribe_Deep.Look(ref _storageSettings, "_storageSettings", this);
+            Scribe_Values.Look(ref _liquifiedNutrition, "_liquifiedNutrition", 0);
         }
     }
 }
