@@ -5,6 +5,7 @@ using Verse;
 using Verse.Sound;
 using RimWorld;
 using System.Text;
+using System.Linq;
 
 namespace GlitterworldUprising
 {
@@ -74,9 +75,11 @@ namespace GlitterworldUprising
             if (GlitterBill == null)
                 return sb.ToString().TrimEnd();
 
-            sb.AppendLine($"Power needed for {string.Join(",", GlitterBill.recipe.products)}: {GlitterBill.GlittertechExt.powerNeeded} W");
+            if (GlitterBill.State == FormingState.Gathering)
+                sb.AppendLine($"Stored power needed to start forming {string.Join(",", GlitterBill.recipe.products.Select(x => x.thingDef.label))}: {GlitterBill.GlittertechExt.powerNeeded} W");
 
-            sb.AppendLine(string.Format("{0}: {1}", "Total time left", GetTotalTimeForActiveBill().ToStringTicksToPeriod()));
+            if (GlitterBill.State != FormingState.Gathering && GlitterBill.State != FormingState.Formed)
+                sb.AppendLine(string.Format("{0}: {1}", "Total time left", GetTotalTimeForActiveBill().ToStringTicksToPeriod()));
 
             return sb.ToString().TrimEnd();
         }
