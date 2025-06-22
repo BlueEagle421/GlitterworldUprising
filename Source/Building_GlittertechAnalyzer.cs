@@ -17,7 +17,7 @@ namespace GlitterworldUprising
 
         private static readonly Material FormingCycleBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.98f, 0.46f, 0f), false);
         private static readonly Material FormingCycleUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0f, 0f, 0f, 0f), false);
-
+        public bool PoweredOn => PowerTrader.PowerOn;
         private CompPowerTrader _powerTrader;
         public CompPowerTrader PowerTrader
         {
@@ -30,11 +30,28 @@ namespace GlitterworldUprising
             }
         }
 
-        public bool PoweredOn => PowerTrader.PowerOn;
+        private EffecterHandler _electricEffecterHandler;
+
+        public override void PostMake()
+        {
+            base.PostMake();
+            _electricEffecterHandler = new EffecterHandler(this, USH_DefOf.USH_ElectricForming);
+        }
+
+        public override void PostMapInit()
+        {
+            base.PostMapInit();
+            _electricEffecterHandler = new EffecterHandler(this, USH_DefOf.USH_ElectricForming);
+        }
 
         public override void Notify_StartForming(Pawn billDoer)
         {
+            base.Notify_StartForming(billDoer);
+
             DrawPowerFromNet(GlitterBill.GlittertechExt.powerNeeded);
+
+            if (Spawned && Map != null)
+                _electricEffecterHandler.StartMaintaining(360, GlitterBill.GlittertechExt.analyzerOffsetY);
 
             SoundDefOf.MechGestatorCycle_Started.PlayOneShot(this);
         }
@@ -56,6 +73,8 @@ namespace GlitterworldUprising
 
             if (activeBill != null && PoweredOn)
                 activeBill.BillTick();
+
+            _electricEffecterHandler.Tick();
         }
 
         protected override string GetInspectStringExtra()
@@ -93,7 +112,7 @@ namespace GlitterworldUprising
 
             Vector3 loc = drawLoc;
             loc.y += 0.018292684f;
-            loc.z += Mathf.PingPong(Find.TickManager.TicksGame * 0.0005f, 0.08f) + 0.7f;
+            loc.z += Mathf.PingPong(Find.TickManager.TicksGame * 0.0005f, 0.08f) + GlitterBill.GlittertechExt.analyzerOffsetY;
 
             Material transparentMat = MaterialPool.MatFrom(ActiveBill.recipe.products[0].thingDef.graphicData.texPath, ShaderDatabase.Transparent);
             transparentMat.color = new Color(1f, 1f, 1f, 0.5f);

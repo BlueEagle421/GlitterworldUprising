@@ -12,6 +12,7 @@ namespace GlitterworldUprising
         }
 
         public static ThingDef USH_GlitterSlime;
+        public static EffecterDef USH_ElectricForming;
     }
 
 }

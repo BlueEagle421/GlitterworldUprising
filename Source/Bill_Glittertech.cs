@@ -11,6 +11,7 @@ namespace GlitterworldUprising
     {
         public int powerNeeded;
         public int fuelNeeded;
+        public float analyzerOffsetY = 0.7f;
     }
 
     public class Dialog_GlittertechBillConfig : Dialog_BillConfig
