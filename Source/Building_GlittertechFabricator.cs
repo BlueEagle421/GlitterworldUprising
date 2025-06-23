@@ -29,7 +29,35 @@ namespace GlitterworldUprising
             }
         }
 
+        private bool _recacheGraphic = true;
+        private Graphic _cachedGraphic;
+
+        public Graphic FormingGraphic
+        {
+            get
+            {
+                if (_cachedGraphic == null || _recacheGraphic)
+                {
+                    if (ActiveBill?.recipe?.products[0] == null)
+                        return null;
+
+                    _cachedGraphic = ActiveBill.recipe.products[0].thingDef.graphic;
+
+                    if (_cachedGraphic is Graphic_StackCount graphic_StackCount)
+                        _cachedGraphic = graphic_StackCount.SubGraphicForStackCount(ActiveBill.recipe.products[0].count, ActiveBill.recipe.products[0].thingDef);
+
+                    _cachedGraphic = _cachedGraphic.GetCopy(_cachedGraphic.drawSize * 0.6f, null);
+                }
+
+                return _cachedGraphic;
+            }
+        }
+
         private EffecterHandler _electricEffecterHandler;
+
+        private const float FADE_DURATION_TICKS = 300f;
+        private float _fadeTicks = FADE_DURATION_TICKS;
+        private bool _lastPoweredOn = true;
 
         public override void PostMake()
         {
@@ -56,6 +84,8 @@ namespace GlitterworldUprising
                 _electricEffecterHandler.StartMaintaining(360, GlitterBill.GlittertechExt.analyzerOffsetY);
 
             SoundDefOf.MechGestatorCycle_Started.PlayOneShot(this);
+
+            _recacheGraphic = true;
         }
 
         public override void Notify_FormingCompleted()
@@ -69,12 +99,19 @@ namespace GlitterworldUprising
             thing.def.soundDrop.PlayOneShot(this);
         }
 
+
         protected override void Tick()
         {
             base.Tick();
 
             if (activeBill != null && PoweredOn)
                 activeBill.BillTick();
+
+            if (PoweredOn != _lastPoweredOn)
+                _fadeTicks = 0f;
+
+            _fadeTicks = Mathf.Min(_fadeTicks + 1f, FADE_DURATION_TICKS);
+            _lastPoweredOn = PoweredOn;
 
             _electricEffecterHandler.Tick();
         }
@@ -114,18 +151,26 @@ namespace GlitterworldUprising
             if (activeBill == null || activeBill.State == FormingState.Gathering)
                 return;
 
-            if (!TryGetFormingGraphic(out Graphic graphic))
+            if (FormingGraphic == null)
                 return;
 
             Vector3 loc = drawLoc;
             loc.y += 0.018292684f;
-            loc.z += Mathf.PingPong(Find.TickManager.TicksGame * 0.0005f, 0.08f) + GlitterBill.GlittertechExt.analyzerOffsetY;
 
-            Material transparentMat = MaterialPool.MatFrom(graphic.path, ShaderDatabase.Transparent);
-            transparentMat.color = new Color(1f, 1f, 1f, 0.5f);
+            loc.z += GlitterBill.GlittertechExt.analyzerOffsetY;
+            loc.z += Mathf.PingPong(Find.TickManager.TicksGame * 0.0005f, 0.08f); ;
 
-            Mesh mesh = graphic.MeshAt(Rot4.North);
-            Quaternion quat = graphic.QuatFromRot(Rot4.North);
+            float t = _fadeTicks / FADE_DURATION_TICKS;
+
+            float alpha = _lastPoweredOn
+                ? Mathf.Lerp(0f, 1f, t)
+                : Mathf.Lerp(1f, 0f, t);
+
+            Material transparentMat = MaterialPool.MatFrom(FormingGraphic.path, ShaderDatabase.Transparent);
+            transparentMat.color = new Color(1f, 1f, 1f, alpha);
+
+            Mesh mesh = FormingGraphic.MeshAt(Rot4.North);
+            Quaternion quat = FormingGraphic.QuatFromRot(Rot4.North);
 
             Graphics.DrawMesh(mesh, loc, quat, transparentMat, 0);
         }
@@ -139,24 +184,6 @@ namespace GlitterworldUprising
             barDrawData.unfilledMat = FormingCycleUnfilledMat;
             barDrawData.rotation = Rotation;
             GenDraw.DrawFillableBar(barDrawData);
-        }
-
-
-        private bool TryGetFormingGraphic(out Graphic graphic)
-        {
-            graphic = null;
-
-            if (ActiveBill.recipe.products[0] == null)
-                return false;
-
-            graphic = ActiveBill.recipe.products[0].thingDef.graphic;
-
-            if (graphic is Graphic_StackCount graphic_StackCount)
-                graphic = graphic_StackCount.SubGraphicForStackCount(ActiveBill.recipe.products[0].count, ActiveBill.recipe.products[0].thingDef);
-
-            graphic = graphic.GetCopy(graphic.drawSize * 0.6f, null);
-
-            return true;
         }
 
 
