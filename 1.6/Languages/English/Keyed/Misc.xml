@@ -20,8 +20,8 @@
 
   <USH_GU_DesensitizeCost>Medicine needed for desensitization: {0}</USH_GU_DesensitizeCost>
 
-  <USH_GU_CurrentGestationCycle>Current forming cycle</USH_GU_CurrentGestationCycle>
-  <USH_GU_RemainingGestationCycles>Forming cycles remaining</USH_GU_RemainingGestationCycles>
-  <USH_GU_GestationCycles>Forming cycles</USH_GU_GestationCycles>
+  <USH_GU_CurrentFormingCycle>Current forming cycle</USH_GU_CurrentFormingCycle>
+  <USH_GU_RemainingFormingCycles>Forming cycles remaining</USH_GU_RemainingFormingCycles>
+  <USH_GU_FormingCycles>Forming cycles</USH_GU_FormingCycles>
 
 </LanguageData>
