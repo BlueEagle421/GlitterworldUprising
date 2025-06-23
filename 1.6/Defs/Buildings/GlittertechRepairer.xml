@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BenchBase">
+        <defName>USH_GlittertechRepairer</defName>
+        <label>glittertech repairer</label>
+        <description>.</description>
+        <thingClass>GlitterworldUprising.Building_GlittertechFabricator</thingClass>
+        <graphicData>
+            <texPath>Things/Building/Misc/GlittertechRepairer</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,3)</drawSize>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+            <shadowData>
+                <volume>(0.6, 0.8, 0.6)</volume>
+            </shadowData>
+        </graphicData>
+        <castEdgeShadows>true</castEdgeShadows>
+        <rotatable>false</rotatable>
+        <costList>
+            <Steel>260</Steel>
+            <Silver>120</Silver>
+            <Plasteel>60</Plasteel>
+            <Neutroamine>40</Neutroamine>
+            <USH_Glittercore>5</USH_Glittercore>
+        </costList>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>310</MaxHitPoints>
+            <WorkToBuild>30000</WorkToBuild>
+            <Mass>80</Mass>
+            <Beauty>0</Beauty>
+            <!-- <Flammability>0</Flammability> -->
+        </statBases>
+        <size>(1,1)</size>
+        <designationCategory>Security</designationCategory>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <uiOrder>2100</uiOrder>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <surfaceType>Item</surfaceType>
+
+        <building>
+            <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+            <ai_chillDestination>false</ai_chillDestination>
+            <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+        </building>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>true</shortCircuitInRain>
+                <basePowerConsumption>600</basePowerConsumption>
+                <idlePowerDraw>50</idlePowerDraw>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="GlitterworldUprising.CompProperties_GlittertechRepairer" />
+        </comps>
+        <designationHotKey>Misc3</designationHotKey>
+        <uiIconScale>0.45</uiIconScale>
+        <uiIconOffset>(0, 0.2)</uiIconOffset>
+        <researchPrerequisites>
+            <li>USH_GlitterworldAnalyzerRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>
