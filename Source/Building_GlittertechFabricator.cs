@@ -180,7 +180,7 @@ namespace GlitterworldUprising
 
         private int GetTotalTimeForActiveBill()
         {
-            float wholeCycleTicks = (GlitterBill.recipe.gestationCycles - GlitterBill.GestationCyclesCompleted) * GlitterBill.recipe.formingTicks;
+            float wholeCycleTicks = (GlitterBill.recipe.gestationCycles - GlitterBill.GestationCyclesCompleted - 1) * GlitterBill.recipe.formingTicks;
             float currentCycleTicks = GlitterBill.formingTicks;
 
             return Mathf.CeilToInt(wholeCycleTicks + currentCycleTicks);
