@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_ResearchProbe</defName>
         <label>research probe</label>
-        <description>A machine meant to calculate and conduct simulations. After linking to a research bench, it automatically connects with a nearby terminal for immediate use. This makes it a perfect companion for busy researchers, who with its support, don’t need to use any additional computing devices during work.\nIt also conducts a bit of passive research on its own. Note that it must be connected to a research bench in order to work.</description>
+        <description>A machine meant to calculate and conduct complex simulations often used by glitterworld research facilities.\n\nIt conducts passive research on its own.\n\nNote that it must be connected to a research bench in order to work.</description>
         <graphicData>
             <texPath>Things/Building/Misc/LocalComputor</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -66,6 +66,7 @@
         <researchPrerequisites>
             <li>USH_BaseEssentialsRes</li>
         </researchPrerequisites>
+        <uiIconScale>0.8</uiIconScale>
     </ThingDef>
 
     <StatDef>
