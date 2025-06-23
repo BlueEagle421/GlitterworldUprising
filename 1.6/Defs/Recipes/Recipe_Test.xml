@@ -3,7 +3,7 @@
 
     <RecipeDef Name="USH_BaseGlitterAnalyzerRecipe" Abstract="True">
         <jobString>Assembling glittertech.</jobString>
-        <!-- <soundWorking>MechGestatorCycle_Initiating</soundWorking> -->
+        <soundWorking>MoisturePump_Ambience</soundWorking>
         <workAmount>1800</workAmount>
         <gestationCycles>5</gestationCycles>
         <formingTicks>18000</formingTicks>
