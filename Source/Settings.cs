@@ -36,28 +36,28 @@ namespace GlitterworldUprising
 
     public class GUSettings : ModSettings
     {
-        public bool shouldChangeColor;
+        public bool ShouldChangeColor;
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Values.Look(ref shouldChangeColor, "USH_ShouldChangeColor");
+            Scribe_Values.Look(ref ShouldChangeColor, "USH_ShouldChangeColor");
         }
     }
 
     public class GUMod : Mod
     {
-        GUSettings settings;
+        private readonly GUSettings _settings;
 
         public GUMod(ModContentPack content) : base(content)
         {
-            settings = GetSettings<GUSettings>();
+            _settings = GetSettings<GUSettings>();
         }
         public override void DoSettingsWindowContents(Rect inRect)
         {
             Listing_Standard listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
-            listingStandard.CheckboxLabeled("USH_GU_SkinSettingLabel".Translate(), ref settings.shouldChangeColor, "USH_GU_SkinSettingTooltip".Translate());
+            listingStandard.CheckboxLabeled("USH_GU_SkinSettingLabel".Translate(), ref _settings.ShouldChangeColor, "USH_GU_SkinSettingTooltip".Translate());
             listingStandard.Label("USH_GU_SkinSettingExplanation".Translate());
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);

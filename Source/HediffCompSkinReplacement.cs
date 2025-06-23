@@ -21,7 +21,7 @@ namespace GlitterworldUprising
             Color toSave = parent.pawn.story.SkinColor;
             SkinSaveComp.Instance.AddPawnSkinColor(parent.pawn, toSave);
 
-            if (!LoadedModManager.GetMod<GUMod>().GetSettings<GUSettings>().shouldChangeColor)
+            if (!LoadedModManager.GetMod<GUMod>().GetSettings<GUSettings>().ShouldChangeColor)
                 ChangePawnColor(parent.pawn, Props.skinColor.ToColor);
         }
 
