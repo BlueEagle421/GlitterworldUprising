@@ -157,7 +157,7 @@ namespace GlitterworldUprising
 
         public override bool PawnAllowedToStartAnew(Pawn p)
         {
-            if (!Analyzer.HasStoredPower(GlittertechExt.powerNeeded))
+            if (State == FormingState.Gathering && !Analyzer.HasStoredPower(GlittertechExt.powerNeeded))
             {
                 JobFailReason.Is("NoPower".Translate(), null);
                 return false;
