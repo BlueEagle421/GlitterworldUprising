@@ -12,6 +12,7 @@ namespace GlitterworldUprising
         }
 
         public static EffecterDef USH_ElectricForming;
+        public static EffecterDef USH_ElectricResearchProbe;
     }
 
 }

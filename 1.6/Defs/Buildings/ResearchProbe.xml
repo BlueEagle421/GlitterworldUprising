@@ -21,7 +21,7 @@
         <rotatable>false</rotatable>
         <defaultPlacingRot>South</defaultPlacingRot>
         <fillPercent>0.3</fillPercent>
-        <tickerType>Rare</tickerType>
+        <tickerType>Normal</tickerType>
         <statBases>
             <MaxHitPoints>180</MaxHitPoints>
             <WorkToBuild>3400</WorkToBuild>

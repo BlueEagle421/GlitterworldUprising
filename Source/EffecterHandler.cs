@@ -14,6 +14,8 @@ public class EffecterHandler
         _def = effecterDef;
     }
 
+    public void StartMaintaining() => StartMaintaining(_def.maintainTicks);
+
     public void StartMaintaining(int forTicks, float yOffset = 0f)
     {
         if (_effecter == null && _source.Spawned && _source.Map != null)

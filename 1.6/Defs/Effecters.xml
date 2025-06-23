@@ -46,6 +46,7 @@
 
     <EffecterDef>
         <defName>USH_ElectricResearchProbe</defName>
+        <maintainTicks>20</maintainTicks>
         <children>
             <li>
                 <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>

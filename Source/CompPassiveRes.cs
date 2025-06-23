@@ -20,12 +20,16 @@ namespace GlitterworldUprising
 
         public CompProperties_PassiveRes Props => (CompProperties_PassiveRes)props;
 
+        private EffecterHandler electricEffecterHandler;
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
 
             _powerTraderComp = parent.GetComp<CompPowerTrader>();
             _facilityComp = parent.GetComp<CompFacility>();
+
+            electricEffecterHandler = new EffecterHandler(parent, USH_DefOf.USH_ElectricResearchProbe);
         }
 
         public override void Initialize(CompProperties props)
@@ -44,9 +48,19 @@ namespace GlitterworldUprising
             Scribe_Values.Look(ref _researchPerformed, "USH_ResearchPerformed", 0);
         }
 
-        public override void CompTickRare()
+        public override void CompTick()
         {
-            base.CompTickRare();
+            base.CompTick();
+
+            ResearchTickRare();
+
+            electricEffecterHandler.Tick();
+        }
+
+        private void ResearchTickRare()
+        {
+            if (!parent.IsHashIntervalTick(250))
+                return;
 
             if (!ResearchReport().Accepted)
                 return;
@@ -72,6 +86,8 @@ namespace GlitterworldUprising
 
             researchManager.ResearchPerformed(amount / ResearchManager.ResearchPointsPerWorkTick, null);
             _researchPerformed += amount;
+
+            electricEffecterHandler.StartMaintaining();
         }
 
         private AcceptanceReport ResearchReport()
@@ -85,6 +101,6 @@ namespace GlitterworldUprising
             return true;
         }
 
-        public override string CompInspectStringExtra() => "USH_GU_ResPerformed".Translate(_researchPerformed);
+        public override string CompInspectStringExtra() => "USH_GU_ResPerformed".Translate(_researchPerformed.ToString());
     }
 }
