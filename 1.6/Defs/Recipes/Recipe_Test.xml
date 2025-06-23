@@ -116,4 +116,54 @@
         </descriptionHyperlinks>
     </RecipeDef>
 
+    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+        <defName>USH_Make_PhilosophersStone_Bulk</defName>
+        <label>assemble philosopher's stones x4</label>
+        <description>Assemble philosopher's stones x4.</description>
+        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Silver</li>
+                    </thingDefs>
+                </filter>
+                <count>3</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_GlitterChip</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>Silver</li>
+                <li>USH_GlitterChip</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+
+
+        <products>
+            <USH_PhilosophersStone>4</USH_PhilosophersStone>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GlitterChip</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
 </Defs>

@@ -49,6 +49,7 @@
         <recipes>
             <li>USH_AssembleGlittercore</li>
             <li>USH_AssembleMedicineUltratech_Bulk</li>
+            <li>USH_Make_PhilosophersStone_Bulk</li>
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>
