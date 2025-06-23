@@ -66,7 +66,7 @@
         <uiIconScale>0.45</uiIconScale>
         <uiIconOffset>(0, 0.2)</uiIconOffset>
         <researchPrerequisites>
-            <li>USH_GlitterworldAnalyzerRes</li>
+            <li>USH_GlittertechFabrication</li>
         </researchPrerequisites>
     </ThingDef>
 

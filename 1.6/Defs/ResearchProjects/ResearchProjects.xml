@@ -18,9 +18,9 @@
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_GlitterworldAnalyzerRes</defName>
-        <label>Glitterworld-analyzer</label>
-        <description>Build glitterworld-analyzer and produce glitterworld fragments.</description>
+        <defName>USH_GlittertechFabrication</defName>
+        <label>Glittertech fabrication</label>
+        <description>Build glittertech fabricator and unlock forming glittercores.</description>
         <baseCost>3000</baseCost>
         <prerequisites>
             <li>MultiAnalyzer</li>
@@ -30,24 +30,24 @@
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_LightSupporterRes</defName>
-        <label>Light supporters</label>
-        <description>Build light supporters and link them to glitterworld-analyzer.</description>
-        <baseCost>1800</baseCost>
+        <defName>USH_LightGlitterpanelsRes</defName>
+        <label>Light glitterpanels</label>
+        <description>Build light glitterpanels and link them to the glittertech fabricator.</description>
+        <baseCost>2800</baseCost>
         <prerequisites>
-            <li>USH_GlitterworldAnalyzerRes</li>
+            <li>USH_GlittertechFabrication</li>
         </prerequisites>
         <researchViewX>1.00</researchViewX>
         <researchViewY>1.35</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_DarkSupporterRes</defName>
-        <label>Dark supporters</label>
-        <description>Build dark supporters and link them to glitterworld-analyzer.</description>
-        <baseCost>2600</baseCost>
+        <defName>USH_DarkGlitterpanelsRes</defName>
+        <label>Dark glitterpanels</label>
+        <description>Build dark glitterpanels and link them to the glittertech fabricator</description>
+        <baseCost>3600</baseCost>
         <prerequisites>
-            <li>USH_GlitterworldAnalyzerRes</li>
+            <li>USH_GlittertechFabrication</li>
         </prerequisites>
         <researchViewX>1</researchViewX>
         <researchViewY>2.80</researchViewY>
@@ -59,7 +59,7 @@
         <description>Build mobile comforter and local computor.</description>
         <baseCost>2000</baseCost>
         <prerequisites>
-            <li>USH_GlitterworldAnalyzerRes</li>
+            <li>USH_GlittertechFabrication</li>
         </prerequisites>
         <researchViewX>1</researchViewX>
         <researchViewY>2.10</researchViewY>

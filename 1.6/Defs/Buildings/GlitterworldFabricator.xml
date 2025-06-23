@@ -7,7 +7,7 @@
         <description>An advanced workstation filled with medicine-based mechanites capable of recreating glitterworld technology. While the advanced processors can handle most of the procedure by themselves, occasional human supervision is still necessary to manually guide the internal computer. Only then the machine can finish a recipe.\n\nIt requires a significant amount of power stored in batteries to initiate the long process of recipe formation.</description>
         <thingClass>GlitterworldUprising.Building_GlittertechFabricator</thingClass>
         <graphicData>
-            <texPath>Things/Building/Misc/GlitterTech-Analyzer</texPath>
+            <texPath>Things/Building/Misc/GlittertechFabricator</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(5,5)</drawSize>
             <drawRotated>false</drawRotated>
@@ -79,8 +79,8 @@
             <li Class="CompProperties_Breakdownable" />
             <li Class="CompProperties_AffectedByFacilities">
                 <linkableFacilities>
-                    <li>USH_LightGlitterSupporter</li>
-                    <li>USH_DarkGlitterSupporter</li>
+                    <li>USH_LightGlitterpanel</li>
+                    <li>USH_DarkGlitterpanel</li>
                 </linkableFacilities>
             </li>
         </comps>
@@ -92,7 +92,7 @@
             <li>PlaceWorker_PreventInteractionSpotOverlap</li>
         </placeWorkers>
         <researchPrerequisites>
-            <li>USH_GlitterworldAnalyzerRes</li>
+            <li>USH_GlittertechFabrication</li>
         </researchPrerequisites>
     </ThingDef>
 
@@ -116,9 +116,9 @@
     <!--Dark supporter-->
 
     <ThingDef ParentName="BuildingBase">
-        <defName>USH_DarkGlitterSupporter</defName>
-        <label>dark supporter</label>
-        <description>An advanced version of the light supporter. It comes in different variations since each is responsible for different fields of mathematics. It slightly speeds up research, but also increases the power cost dramatically. Four dark supporters can link to one analyzer.</description>
+        <defName>USH_DarkGlitterpanel</defName>
+        <label>dark glitterpanel</label>
+        <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration and stored power needed to start the process.\n\nIt's more powerful then it's light counterpart.</description>
         <graphicData>
             <texPath>Things/Building/Misc/GlitterBooster</texPath>
             <graphicClass>Graphic_Random</graphicClass>
@@ -170,16 +170,16 @@
         <designationCategory>Misc</designationCategory>
         <uiIconScale>1</uiIconScale>
         <researchPrerequisites>
-            <li>USH_DarkSupporterRes</li>
+            <li>USH_DarkGlitterpanelsRes</li>
         </researchPrerequisites>
     </ThingDef>
 
     <!--Light supporter-->
 
     <ThingDef ParentName="BuildingBase">
-        <defName>USH_LightGlitterSupporter</defName>
+        <defName>USH_LightGlitterpanel</defName>
         <label>light supporter</label>
-        <description>A computing device that links to the Glitterworld-analyzer. It comes in different variations since each is responsible for different fields of mathematics. It slightly speeds up research, but also increases the power cost dramatically. Four light supporters can link to one analyzer.</description>
+        <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration, stored power needed to start the process and overall work speed by increasing the machine responsiveness.\n\nIt's less powerful then it's dark counterpart.</description>
         <graphicData>
             <texPath>Things/Building/Misc/LightGlitterBooster</texPath>
             <graphicClass>Graphic_Random</graphicClass>
@@ -231,7 +231,7 @@
         <designationCategory>Misc</designationCategory>
         <uiIconScale>1</uiIconScale>
         <researchPrerequisites>
-            <li>USH_LightSupporterRes</li>
+            <li>USH_LightGlitterpanelsRes</li>
         </researchPrerequisites>
     </ThingDef>
 

@@ -16,8 +16,7 @@ namespace GlitterworldUprising
         }
     }
 
-    [HarmonyPatch(typeof(BillUtility), nameof(BillUtility.MakeNewBill),
-        new Type[] { typeof(RecipeDef), typeof(Precept_ThingStyle) })]
+    [HarmonyPatch(typeof(BillUtility), nameof(BillUtility.MakeNewBill), new Type[] { typeof(RecipeDef), typeof(Precept_ThingStyle) })]
     public static class BillUtility_MakeNewBill_Patch
     {
         [HarmonyPrefix]

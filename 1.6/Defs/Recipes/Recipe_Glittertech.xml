@@ -23,7 +23,7 @@
         <defName>USH_FormGlittercore</defName>
         <label>form glittercore</label>
         <description>Form a glittercore.</description>
-        <researchPrerequisite>USH_GlitterworldAnalyzerRes</researchPrerequisite>
+        <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
 
         <ingredients Inherit="false">
             <li>
