@@ -9,7 +9,7 @@ using System.Text;
 namespace GlitterworldUprising
 {
     [StaticConstructorOnStartup]
-    public class Building_GlittertechAnalyzer : Building_WorkTableAutonomous
+    public class Building_GlittertechFabricator : Building_WorkTableAutonomous
     {
 
         public Bill_Glittertech GlitterBill => ActiveBill as Bill_Glittertech;

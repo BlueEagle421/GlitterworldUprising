@@ -30,7 +30,7 @@ namespace GlitterworldUprising
 
             base.DoIngredientConfigPane(x, ref y2, width, height - formingInfoHeight);
 
-            if (!(bill.billStack.billGiver is Building_GlittertechAnalyzer analyzer) || analyzer.ActiveBill != bill)
+            if (!(bill.billStack.billGiver is Building_GlittertechFabricator analyzer) || analyzer.ActiveBill != bill)
                 return;
 
             Rect rect = new Rect(x, y2, width, 9999f);
@@ -57,7 +57,7 @@ namespace GlitterworldUprising
         private int gestationCycles;
         public Pawn BoundPawn => boundPawn;
         public int GestationCyclesCompleted => gestationCycles;
-        public Building_GlittertechAnalyzer Analyzer => (Building_GlittertechAnalyzer)billStack.billGiver;
+        public Building_GlittertechFabricator Fabricator => (Building_GlittertechFabricator)billStack.billGiver;
         public ModExtension_UseGlittertechBill GlittertechExt;
 
         protected override Color BaseColor
@@ -148,7 +148,7 @@ namespace GlitterworldUprising
             if (gestationCycles >= recipe.gestationCycles)
             {
                 state = FormingState.Formed;
-                Analyzer.Notify_FormingCompleted();
+                Fabricator.Notify_FormingCompleted();
                 return;
             }
             formingTicks = recipe.formingTicks;
@@ -157,7 +157,7 @@ namespace GlitterworldUprising
 
         public override bool PawnAllowedToStartAnew(Pawn p)
         {
-            if (State == FormingState.Gathering && !Analyzer.HasStoredPower(GlittertechExt.powerNeeded))
+            if (State == FormingState.Gathering && !Fabricator.HasStoredPower(GlittertechExt.powerNeeded))
             {
                 JobFailReason.Is("USH_GU_NoPowerStored".Translate(), null);
                 return false;

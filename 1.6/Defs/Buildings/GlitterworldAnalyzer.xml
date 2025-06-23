@@ -2,10 +2,10 @@
 <Defs>
 
     <ThingDef ParentName="BenchBase">
-        <defName>USH_GlitterTechAnalyzer</defName>
+        <defName>USH_GlittertechFabricator</defName>
         <label>glittertech fabricator</label>
         <description>An advanced machine based on the same fundamental technology as the multi-analyzer, but with a completely different purpose. It first studies Glitterworld medicine in order to develop technology fragments, and then it can perfect itself with human-written algorithms. The process is very long and power consuming, but with the right inputs, the machine can be highly overclocked.\nIt requires three components to create a glitterworld fragment from them.</description>
-        <thingClass>GlitterworldUprising.Building_GlittertechAnalyzer</thingClass>
+        <thingClass>GlitterworldUprising.Building_GlittertechFabricator</thingClass>
         <graphicData>
             <texPath>Things/Building/Misc/GlitterTech-Analyzer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
@@ -91,7 +91,7 @@
     </ThingDef>
 
     <!-- <ThingDef ParentName="BuildingBase">
-        <thingClass>GlitterworldUprising.Building_GlittertechAnalyzer</thingClass>
+        <thingClass>GlitterworldUprising.Building_GlittertechFabricator</thingClass>
         <staticSunShadowHeight>1</staticSunShadowHeight>
 
 
@@ -112,7 +112,7 @@
         <workType>Smithing</workType>
         <priorityInType>250</priorityInType>
         <fixedBillGiverDefs>
-            <li>USH_GlitterTechAnalyzer</li>
+            <li>USH_GlittertechFabricator</li>
         </fixedBillGiverDefs>
         <verb>work at</verb>
         <gerund>working at</gerund>
