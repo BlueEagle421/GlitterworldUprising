@@ -2,7 +2,7 @@
 <Defs>
 
     <RecipeDef Name="USH_BaseGlitterAnalyzerRecipe" Abstract="True">
-        <jobString>Assembling glittertech.</jobString>
+        <jobString>Forming glittertech.</jobString>
         <soundWorking>MoisturePump_Ambience</soundWorking>
         <workAmount>1800</workAmount>
         <gestationCycles>5</gestationCycles>
@@ -20,9 +20,9 @@
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
-        <defName>USH_AssembleGlittercore</defName>
-        <label>assemble glittercore</label>
-        <description>Assemble a glittercore.</description>
+        <defName>USH_FormGlittercore</defName>
+        <label>form glittercore</label>
+        <description>Form a glittercore.</description>
         <researchPrerequisite>USH_GlitterworldAnalyzerRes</researchPrerequisite>
 
         <ingredients Inherit="false">
@@ -60,9 +60,9 @@
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
-        <defName>USH_AssembleMedicineUltratech_Bulk</defName>
-        <label>assemble glitterworld medicine x4</label>
-        <description>Assemble glitterworld medicine.</description>
+        <defName>USH_FormMedicineUltratech_Bulk</defName>
+        <label>form glitterworld medicine x4</label>
+        <description>Form glitterworld medicine.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
 
         <formingTicks>27000</formingTicks>
@@ -118,8 +118,8 @@
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
         <defName>USH_Make_PhilosophersStone_Bulk</defName>
-        <label>assemble philosopher's stones x4</label>
-        <description>Assemble philosopher's stones x4.</description>
+        <label>form philosopher's stones x4</label>
+        <description>Form philosopher's stones x4.</description>
         <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
 
         <ingredients Inherit="false">
