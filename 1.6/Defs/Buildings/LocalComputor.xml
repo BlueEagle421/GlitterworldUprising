@@ -2,7 +2,7 @@
 <Defs>
 
     <ThingDef ParentName="BuildingBase">
-        <defName>USH_LocalComputor</defName>
+        <defName>USH_ResearchProbe</defName>
         <label>research probe</label>
         <description>A machine meant to calculate and conduct simulations. After linking to a research bench, it automatically connects with a nearby terminal for immediate use. This makes it a perfect companion for busy researchers, who with its support, don’t need to use any additional computing devices during work.\nIt also conducts a bit of passive research on its own. Note that it must be connected to a research bench in order to work.</description>
         <graphicData>
@@ -35,7 +35,7 @@
             <Steel>100</Steel>
             <Silver>80</Silver>
             <Plasteel>5</Plasteel>
-            <USH_GlitterChip>3</USH_GlitterChip>
+            <USH_Glittercore>3</USH_Glittercore>
             <ComponentSpacer>1</ComponentSpacer>
         </costList>
         <thingCategories>
@@ -44,7 +44,7 @@
         <comps>
             <li Class="CompProperties_Facility">
                 <statOffsets>
-                    <ResearchSpeedFactor>0.09</ResearchSpeedFactor>
+                    <ResearchSpeedFactor>0.04</ResearchSpeedFactor>
                 </statOffsets>
                 <maxSimultaneous>6</maxSimultaneous>
             </li>

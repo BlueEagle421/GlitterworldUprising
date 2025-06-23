@@ -2,7 +2,7 @@
 <Defs>
 
     <ThingDef ParentName="ResourceBase">
-        <defName>USH_GlitterChip</defName>
+        <defName>USH_Glittercore</defName>
         <label>glittercore</label>
         <description>An ultratech device storing complex data and nutrient based mechanites. It contains information, blueprints, and theories, making it a crucial element for engineers and craftsmen. With this device one can recreate various high-tech machines without the need to understand how the mechanisms actually work.</description>
         <graphicData>

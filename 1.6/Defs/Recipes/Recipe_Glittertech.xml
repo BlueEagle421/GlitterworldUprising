@@ -52,10 +52,10 @@
             </li>
         </ingredients>
         <products>
-            <USH_GlitterChip>1</USH_GlitterChip>
+            <USH_Glittercore>1</USH_Glittercore>
         </products>
         <descriptionHyperlinks>
-            <ThingDef>USH_GlitterChip</ThingDef>
+            <ThingDef>USH_Glittercore</ThingDef>
         </descriptionHyperlinks>
     </RecipeDef>
 
@@ -92,7 +92,7 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>USH_GlitterChip</li>
+                        <li>USH_Glittercore</li>
                     </thingDefs>
                 </filter>
                 <count>1</count>
@@ -103,7 +103,7 @@
             <thingDefs>
                 <li>MedicineIndustrial</li>
                 <li>ComponentIndustrial</li>
-                <li>USH_GlitterChip</li>
+                <li>USH_Glittercore</li>
             </thingDefs>
         </fixedIngredientFilter>
 
@@ -117,7 +117,7 @@
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
-        <defName>USH_Make_PhilosophersStone_Bulk</defName>
+        <defName>USH_FormPhilosophersStone_Bulk</defName>
         <label>form philosopher's stones x4</label>
         <description>Form philosopher's stones x4.</description>
         <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
@@ -142,7 +142,7 @@
             <li>
                 <filter>
                     <thingDefs>
-                        <li>USH_GlitterChip</li>
+                        <li>USH_Glittercore</li>
                     </thingDefs>
                 </filter>
                 <count>2</count>
@@ -153,7 +153,7 @@
             <thingDefs>
                 <li>Steel</li>
                 <li>Silver</li>
-                <li>USH_GlitterChip</li>
+                <li>USH_Glittercore</li>
             </thingDefs>
         </fixedIngredientFilter>
 
@@ -162,7 +162,7 @@
             <USH_PhilosophersStone>4</USH_PhilosophersStone>
         </products>
         <descriptionHyperlinks>
-            <ThingDef>USH_GlitterChip</ThingDef>
+            <ThingDef>USH_Glittercore</ThingDef>
         </descriptionHyperlinks>
     </RecipeDef>
 

@@ -24,7 +24,7 @@
             <Steel>130</Steel>
             <Silver>90</Silver>
             <ComponentSpacer>3</ComponentSpacer>
-            <USH_GlitterChip>4</USH_GlitterChip>
+            <USH_Glittercore>4</USH_Glittercore>
         </costList>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
         <fillPercent>0.5</fillPercent>

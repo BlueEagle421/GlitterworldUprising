@@ -38,7 +38,7 @@
             <Steel>60</Steel>
             <Silver>80</Silver>
             <ComponentSpacer>3</ComponentSpacer>
-            <USH_GlitterChip>7</USH_GlitterChip>
+            <USH_Glittercore>7</USH_Glittercore>
         </costList>
         <thingCategories>
             <li>BuildingsMisc</li>

@@ -47,9 +47,9 @@
         <pathCost>50</pathCost>
         <surfaceType>Item</surfaceType>
         <recipes>
-            <li>USH_AssembleGlittercore</li>
-            <li>USH_AssembleMedicineUltratech_Bulk</li>
-            <li>USH_Make_PhilosophersStone_Bulk</li>
+            <li>USH_FormGlittercore</li>
+            <li>USH_FormMedicineUltratech_Bulk</li>
+            <li>USH_FormPhilosophersStone_Bulk</li>
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>
@@ -89,21 +89,6 @@
             <li>USH_GlitterworldAnalyzerRes</li>
         </researchPrerequisites>
     </ThingDef>
-
-    <!-- <ThingDef ParentName="BuildingBase">
-        <thingClass>GlitterworldUprising.Building_GlittertechFabricator</thingClass>
-        <staticSunShadowHeight>1</staticSunShadowHeight>
-
-
-
-        <inspectorTabs>
-            <li>ITab_Bills</li>
-        </inspectorTabs>
-
-        <designationCategory>Production</designationCategory>
-
-
-    </ThingDef> -->
 
     <WorkGiverDef>
         <defName>USH_DoBillsGlittertechFabricator</defName>
@@ -160,7 +145,7 @@
             <Steel>40</Steel>
             <Plasteel>10</Plasteel>
             <ComponentIndustrial>4</ComponentIndustrial>
-            <USH_GlitterChip>2</USH_GlitterChip>
+            <USH_Glittercore>2</USH_Glittercore>
         </costList>
         <comps>
             <li Class="CompProperties_Facility">

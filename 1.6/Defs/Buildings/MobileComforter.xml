@@ -52,7 +52,7 @@
             <Steel>120</Steel>
             <Silver>65</Silver>
             <Plasteel>10</Plasteel>
-            <USH_GlitterChip>2</USH_GlitterChip>
+            <USH_Glittercore>2</USH_Glittercore>
             <ComponentSpacer>1</ComponentSpacer>
         </costList>
         <designationCategory>Joy</designationCategory>
