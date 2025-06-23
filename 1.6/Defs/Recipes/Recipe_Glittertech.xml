@@ -118,8 +118,8 @@
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
         <defName>USH_FormPhilosophersStone_Bulk</defName>
-        <label>form philosopher's stones x4</label>
-        <description>Form philosopher's stones x4.</description>
+        <label>form philosopher's stones x6</label>
+        <description>Form philosopher's stones x6.</description>
         <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
 
         <ingredients Inherit="false">
@@ -167,7 +167,7 @@
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
         <defName>USH_TurnSteelToGold</defName>
-        <label>turn steel into gold</label>
+        <label>turn steel into gold x4</label>
         <description>Turn 64 steel into 4 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
@@ -212,7 +212,7 @@
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
         <defName>USH_TurnSteelToGoldBulk</defName>
-        <label>turn steel into gold x4</label>
+        <label>turn steel into gold x16</label>
         <description>Turn 256 steel into 16 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
