@@ -64,7 +64,7 @@ namespace GlitterworldUprising
 
         public override void Notify_HauledTo(Pawn hauler, Thing thing, int count)
         {
-            SoundDefOf.Standard_Drop.PlayOneShot(this);
+            thing.def.soundDrop.PlayOneShot(this);
         }
 
         protected override void Tick()
