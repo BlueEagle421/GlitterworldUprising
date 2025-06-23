@@ -13,6 +13,10 @@
             </li>
         </modExtensions>
         <workSkill>Intellectual</workSkill>
+        <skillRequirements>
+            <Intellectual>6</Intellectual>
+            <Crafting>4</Crafting>
+        </skillRequirements>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
@@ -61,7 +65,7 @@
         <description>Assemble glitterworld medicine.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
 
-        <formingTicks>54000</formingTicks>
+        <formingTicks>27000</formingTicks>
         <modExtensions Inherit="false">
             <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
                 <powerNeeded>5200</powerNeeded>
@@ -106,11 +110,6 @@
         <products>
             <MedicineUltratech>4</MedicineUltratech>
         </products>
-
-        <skillRequirements>
-            <Intellectual>6</Intellectual>
-            <Crafting>4</Crafting>
-        </skillRequirements>
 
         <descriptionHyperlinks>
             <ThingDef>MedicineUltratech</ThingDef>
