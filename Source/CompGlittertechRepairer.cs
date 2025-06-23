@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -69,6 +70,18 @@ namespace GlitterworldUprising
 
         private int _repairTickCounter;
 
+        private CompPowerTrader _powerTrader;
+        public CompPowerTrader PowerTrader
+        {
+            get
+            {
+                if (_powerTrader == null)
+                    _powerTrader = parent.TryGetComp<CompPowerTrader>();
+
+                return _powerTrader;
+            }
+        }
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
@@ -110,6 +123,12 @@ namespace GlitterworldUprising
 
         private void RepairTick()
         {
+            if (!PowerTrader.PowerOn)
+            {
+
+                return;
+            }
+
             _repairTickCounter++;
 
             if (_repairTickCounter < Props.repairInterval)
@@ -130,6 +149,7 @@ namespace GlitterworldUprising
         {
             _toRepair.Remove(_currentlyRepairing);
             _currentlyRepairing = null;
+            _repairEffecter.Cleanup();
             _repairEffecter = null;
             StartRepairing();
         }
