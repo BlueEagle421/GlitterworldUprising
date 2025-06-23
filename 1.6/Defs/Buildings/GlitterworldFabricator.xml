@@ -4,7 +4,7 @@
     <ThingDef ParentName="BenchBase">
         <defName>USH_GlittertechFabricator</defName>
         <label>glittertech fabricator</label>
-        <description>An advanced machine based on the same fundamental technology as the multi-analyzer, but with a completely different purpose. It first studies Glitterworld medicine in order to develop technology fragments, and then it can perfect itself with human-written algorithms. The process is very long and power consuming, but with the right inputs, the machine can be highly overclocked.\nIt requires three components to create a glitterworld fragment from them.</description>
+        <description>An advanced workstation filled with medicine-based mechanites capable of recreating glitterworld technology. While the advanced processors can handle most of the procedure by themselves, occasional human supervision is still necessary to manually guide the internal computer. Only then the machine can finish a recipe.\n\nIt requires a significant amount of power stored in batteries to initiate the long process of recipe formation.</description>
         <thingClass>GlitterworldUprising.Building_GlittertechFabricator</thingClass>
         <graphicData>
             <texPath>Things/Building/Misc/GlitterTech-Analyzer</texPath>
@@ -39,6 +39,10 @@
             <Mass>80</Mass>
             <Beauty>0</Beauty>
             <Flammability>0</Flammability>
+
+            <USH_GlittertechDuration>1</USH_GlittertechDuration>
+            <USH_GlittertechPowerStored>1</USH_GlittertechPowerStored>
+            <WorkTableWorkSpeedFactor>1</WorkTableWorkSpeedFactor>
         </statBases>
         <size>(1,1)</size>
         <designationCategory>Production</designationCategory>
@@ -152,8 +156,8 @@
         <comps>
             <li Class="CompProperties_Facility">
                 <statOffsets>
-                    <USH_AnalyzerDaysPerProduction>-0.45</USH_AnalyzerDaysPerProduction>
-                    <USH_AnalyzerPowerPerProduction>800</USH_AnalyzerPowerPerProduction>
+                    <USH_GlittertechDuration>-0.08</USH_GlittertechDuration>
+                    <USH_GlittertechPowerStored>-0.1</USH_GlittertechPowerStored>
                 </statOffsets>
                 <maxSimultaneous>4</maxSimultaneous>
             </li>
@@ -207,13 +211,14 @@
         <costList>
             <Steel>40</Steel>
             <Plasteel>10</Plasteel>
-            <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentSpacer>1</ComponentSpacer>
         </costList>
         <comps>
             <li Class="CompProperties_Facility">
                 <statOffsets>
-                    <USH_AnalyzerDaysPerProduction>-0.25</USH_AnalyzerDaysPerProduction>
-                    <USH_AnalyzerPowerPerProduction>450</USH_AnalyzerPowerPerProduction>
+                    <USH_GlittertechDuration>-0.02</USH_GlittertechDuration>
+                    <USH_GlittertechPowerStored>-0.05</USH_GlittertechPowerStored>
+                    <WorkTableWorkSpeedFactor>0.1</WorkTableWorkSpeedFactor>
                 </statOffsets>
                 <maxSimultaneous>4</maxSimultaneous>
             </li>
@@ -231,27 +236,27 @@
     </ThingDef>
 
     <StatDef>
-        <defName>USH_AnalyzerDaysPerProduction</defName>
-        <label>days needed for production</label>
-        <description>This value represents the amount of days required per one glitterworld fragment
-            synthesis operation.</description>
+        <defName>USH_GlittertechPowerStored</defName>
+        <label>power need multiplier</label>
+        <description>This value represents the multiplier of stored power needed to start forming recipes.</description>
         <category>Building</category>
         <defaultBaseValue>1</defaultBaseValue>
-        <minValue>1</minValue>
-        <toStringStyle>FloatOne</toStringStyle>
+        <minValue>0</minValue>
+        <maxValue>1</maxValue>
+        <toStringStyle>PercentZero</toStringStyle>
         <showIfUndefined>false</showIfUndefined>
         <displayPriorityInCategory>3000</displayPriorityInCategory>
     </StatDef>
 
     <StatDef>
-        <defName>USH_AnalyzerPowerPerProduction</defName>
-        <label>power per production</label>
-        <description>This value represents the amount of power consumption added to
-            glitterworld-analyzer's build-in electrical systems.</description>
+        <defName>USH_GlittertechDuration</defName>
+        <label>forming duration</label>
+        <description>This value represents the multiplier of forming recipes duration.</description>
         <category>Building</category>
-        <defaultBaseValue>1000</defaultBaseValue>
-        <minValue>1000</minValue>
-        <toStringStyle>Integer</toStringStyle>
+        <defaultBaseValue>1</defaultBaseValue>
+        <minValue>0</minValue>
+        <maxValue>1</maxValue>
+        <toStringStyle>PercentZero</toStringStyle>
         <showIfUndefined>false</showIfUndefined>
         <displayPriorityInCategory>3000</displayPriorityInCategory>
     </StatDef>

@@ -133,13 +133,18 @@ namespace GlitterworldUprising
             formingTicks = 0f;
         }
 
+        public float FormingSpeedMultiplier()
+        {
+            return 1f / Fabricator.GetStatValue(USH_DefOf.USH_GlittertechDuration);
+        }
+
 
         public override void BillTick()
         {
             if (suspended || state != FormingState.Forming)
                 return;
 
-            formingTicks -= 1f;
+            formingTicks -= 1f * FormingSpeedMultiplier();
 
             if (formingTicks > 0f)
                 return;
@@ -171,7 +176,7 @@ namespace GlitterworldUprising
             if (State != FormingState.Forming && State != FormingState.Preparing)
                 return;
 
-            sb.AppendLine("USH_GU_CurrentFormingCycle".Translate() + ": " + ((int)(formingTicks * 1f)).ToStringTicksToPeriod(true, false, true, true, false));
+            sb.AppendLine("USH_GU_CurrentFormingCycle".Translate() + ": " + ((int)(formingTicks / FormingSpeedMultiplier())).ToStringTicksToPeriod(true, false, true, true, false));
             sb.AppendLine("USH_GU_RemainingFormingCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
 
         }

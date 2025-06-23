@@ -183,13 +183,16 @@ namespace GlitterworldUprising
             float wholeCycleTicks = (GlitterBill.recipe.gestationCycles - GlitterBill.GestationCyclesCompleted - 1) * GlitterBill.recipe.formingTicks;
             float currentCycleTicks = GlitterBill.formingTicks;
 
-            return Mathf.CeilToInt(wholeCycleTicks + currentCycleTicks);
+            return Mathf.CeilToInt((wholeCycleTicks + currentCycleTicks) / GlitterBill.FormingSpeedMultiplier());
         }
 
-        public bool HasStoredPower(float powerNeeded)
+        public bool HasStoredPower(float powerNeeded, bool considerStats = true)
         {
             if (DebugSettings.unlimitedPower)
                 return true;
+
+            if (considerStats)
+                powerNeeded *= this.GetStatValue(USH_DefOf.USH_GlittertechPowerStored);
 
             return PowerStoredInNet(PowerTrader.PowerNet) >= powerNeeded;
         }
