@@ -2,15 +2,15 @@
 <Defs>
 
     <ThingDef ParentName="BuildingBase">
-        <defName>USH_DesensitizingModule</defName>
-        <label>desensitizing module</label>
-        <description>A pump that connects to patients wirelessly and when activated, shoots out medical mechanite clumps. Specialized nanobots clean designated bodies completely of any anesthetic drugs, leaving the users feeling fresh and ready to stand on their feet. It makes recovering from operations almost instantaneous, but still painless. Required material comes from Glitterworld medicine, which needs to be fed regularly into the machine. It can be connected to up to three hospital beds.</description>
+        <defName>USH_NeuroclearConsole</defName>
+        <label>Neuroclear console</label>
+        <description>A glittertech device designed to store and manage medical nanobots. These nanobots are capable of clearing residue anesthetics from designated patients after surgery, making recovery almost instantaneous, but still painless.\n\nThe nanobots require glitterworld medicine as a material source.\n\nThe device can be connected to up to three hospital beds.</description>
         <descriptionHyperlinks>
             <HediffDef>Anesthetic</HediffDef>
             <ThingDef>HospitalBed</ThingDef>
         </descriptionHyperlinks>
         <graphicData>
-            <texPath>Things/Building/Misc/DesensitizingModule</texPath>
+            <texPath>Things/Building/Misc/NeuroclearConsole</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <damageData>
                 <cornerTL>Damage/Corner</cornerTL>
@@ -20,6 +20,7 @@
             </damageData>
             <drawRotated>false</drawRotated>
             <allowFlip>false</allowFlip>
+            <drawSize>(2,2)</drawSize>
         </graphicData>
         <tickerType>Normal</tickerType>
         <altitudeLayer>Building</altitudeLayer>
@@ -62,9 +63,9 @@
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
                 <shortCircuitInRain>false</shortCircuitInRain>
-                <basePowerConsumption>160</basePowerConsumption>
+                <basePowerConsumption>30</basePowerConsumption>
             </li>
-            <li Class="GlitterworldUprising.CompProperties_DesensitizingModule">
+            <li Class="GlitterworldUprising.CompProperties_NeuroclearConsole">
                 <fuelConsumption>2</fuelConsumption>
                 <hediffDefToRemove>Anesthetic</hediffDefToRemove>
                 <fleckDef>USH_DesensitizingCloud</fleckDef>
@@ -87,7 +88,7 @@
             <li>PlaceWorker_ShowFacilitiesConnections</li>
         </placeWorkers>
         <designationCategory>Misc</designationCategory>
-        <uiIconScale>1</uiIconScale>
+        <uiIconScale>0.8</uiIconScale>
         <researchPrerequisites>
             <li>USH_NeuromodifiersBasicsRes</li>
         </researchPrerequisites>

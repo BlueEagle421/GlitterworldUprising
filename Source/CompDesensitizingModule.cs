@@ -5,23 +5,23 @@ using Verse.Sound;
 
 namespace GlitterworldUprising
 {
-    public class CompProperties_DesensitizingModule : CompProperties_Interactable
+    public class CompProperties_NeuroclearConsole : CompProperties_Interactable
     {
         public int fuelConsumption;
         public HediffDef hediffDefToRemove;
         public FleckDef fleckDef;
         public SoundDef soundDef;
 
-        public CompProperties_DesensitizingModule() => compClass = typeof(CompDesensitizingModule);
+        public CompProperties_NeuroclearConsole() => compClass = typeof(CompNeuroclearConsole);
     }
 
-    public class CompDesensitizingModule : CompInteractable
+    public class CompNeuroclearConsole : CompInteractable
     {
         Map _currentMap;
         CompFacility _facilityComp;
         CompRefuelable _refuelableComp;
 
-        public CompProperties_DesensitizingModule ModuleProps => (CompProperties_DesensitizingModule)props;
+        public CompProperties_NeuroclearConsole ModuleProps => (CompProperties_NeuroclearConsole)props;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
