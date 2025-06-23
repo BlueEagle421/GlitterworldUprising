@@ -46,6 +46,9 @@ namespace GlitterworldUprising
 
         public override void Notify_StartForming(Pawn billDoer)
         {
+            if (!HasStoredPower(GlitterBill.GlittertechExt.powerNeeded))
+                return;
+
             base.Notify_StartForming(billDoer);
 
             DrawPowerFromNet(GlitterBill.GlittertechExt.powerNeeded);
