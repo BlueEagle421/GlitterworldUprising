@@ -47,9 +47,8 @@
         <pathCost>50</pathCost>
         <surfaceType>Item</surfaceType>
         <recipes>
-            <li>ButcherCorpseFlesh</li>
-            <li>Make_Kibble</li>
             <li>USH_AssembleGlittercore</li>
+            <li>USH_AssembleMedicineUltratech_Bulk</li>
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>

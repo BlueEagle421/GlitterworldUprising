@@ -10,9 +10,9 @@
         <modExtensions>
             <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
                 <powerNeeded>2600</powerNeeded>
-                <fuelNeeded>10</fuelNeeded>
             </li>
         </modExtensions>
+        <workSkill>Intellectual</workSkill>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
@@ -52,6 +52,68 @@
         </products>
         <descriptionHyperlinks>
             <ThingDef>USH_GlitterChip</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+        <defName>USH_AssembleMedicineUltratech_Bulk</defName>
+        <label>assemble glitterworld medicine x4</label>
+        <description>Assemble glitterworld medicine.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+
+        <formingTicks>54000</formingTicks>
+        <modExtensions Inherit="false">
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>5200</powerNeeded>
+            </li>
+        </modExtensions>
+
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>4</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_GlitterChip</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>MedicineIndustrial</li>
+                <li>ComponentIndustrial</li>
+                <li>USH_GlitterChip</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+
+        <products>
+            <MedicineUltratech>4</MedicineUltratech>
+        </products>
+
+        <skillRequirements>
+            <Intellectual>6</Intellectual>
+            <Crafting>4</Crafting>
+        </skillRequirements>
+
+        <descriptionHyperlinks>
+            <ThingDef>MedicineUltratech</ThingDef>
         </descriptionHyperlinks>
     </RecipeDef>
 

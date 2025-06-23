@@ -253,7 +253,7 @@
     <workSkill>Crafting</workSkill>
   </RecipeDef>
 
-  <RecipeDef>
+  <!-- <RecipeDef>
     <defName>USH_Make_MedicineUltratech_Bulk</defName>
     <label>make glitterworld medicine x4</label>
     <description>Make glitterworld medicine x4.</description>
@@ -263,48 +263,8 @@
     <soundWorking>Recipe_CookMeal</soundWorking>
     <workAmount>6500</workAmount>
     <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-    <ingredients>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>MedicineIndustrial</li>
-          </thingDefs>
-        </filter>
-        <count>4</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>ComponentIndustrial</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-      <li>
-        <filter>
-          <thingDefs>
-            <li>USH_GlitterChip</li>
-          </thingDefs>
-        </filter>
-        <count>1</count>
-      </li>
-    </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>MedicineIndustrial</li>
-        <li>ComponentIndustrial</li>
-        <li>USH_GlitterChip</li>
-      </thingDefs>
-    </fixedIngredientFilter>
-    <products>
-      <MedicineUltratech>4</MedicineUltratech>
-    </products>
-    <skillRequirements>
-      <Intellectual>6</Intellectual>
-      <Crafting>4</Crafting>
-    </skillRequirements>
-    <workSkill>Intellectual</workSkill>
+
     <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-  </RecipeDef>
+  </RecipeDef> -->
 
 </Defs>
