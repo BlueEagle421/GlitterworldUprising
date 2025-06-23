@@ -4,11 +4,11 @@ using Verse;
 namespace GlitterworldUprising
 {
     [DefOf]
-    public static class USH_DefOf
+    public static class USHDefOf
     {
-        static USH_DefOf()
+        static USHDefOf()
         {
-            DefOfHelper.EnsureInitializedInCtor(typeof(USH_DefOf));
+            DefOfHelper.EnsureInitializedInCtor(typeof(USHDefOf));
         }
 
         public static EffecterDef USH_ElectricForming;

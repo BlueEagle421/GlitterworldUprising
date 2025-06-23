@@ -34,13 +34,13 @@ namespace GlitterworldUprising
         public override void PostMake()
         {
             base.PostMake();
-            _electricEffecterHandler = new EffecterHandler(this, USH_DefOf.USH_ElectricForming);
+            _electricEffecterHandler = new EffecterHandler(this, USHDefOf.USH_ElectricForming);
         }
 
         public override void PostMapInit()
         {
             base.PostMapInit();
-            _electricEffecterHandler = new EffecterHandler(this, USH_DefOf.USH_ElectricForming);
+            _electricEffecterHandler = new EffecterHandler(this, USHDefOf.USH_ElectricForming);
         }
 
         public override void Notify_StartForming(Pawn billDoer)
@@ -192,7 +192,7 @@ namespace GlitterworldUprising
                 return true;
 
             if (considerStats)
-                powerNeeded *= this.GetStatValue(USH_DefOf.USH_GlittertechPowerStored);
+                powerNeeded *= this.GetStatValue(USHDefOf.USH_GlittertechPowerStored);
 
             return PowerStoredInNet(PowerTrader.PowerNet) >= powerNeeded;
         }

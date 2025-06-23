@@ -29,7 +29,7 @@ namespace GlitterworldUprising
             _powerTraderComp = parent.GetComp<CompPowerTrader>();
             _facilityComp = parent.GetComp<CompFacility>();
 
-            electricEffecterHandler = new EffecterHandler(parent, USH_DefOf.USH_ElectricResearchProbe);
+            electricEffecterHandler = new EffecterHandler(parent, USHDefOf.USH_ElectricResearchProbe);
         }
 
         public override void Initialize(CompProperties props)
