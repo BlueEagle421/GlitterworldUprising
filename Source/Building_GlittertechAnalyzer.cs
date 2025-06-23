@@ -85,7 +85,12 @@ namespace GlitterworldUprising
                 return sb.ToString().TrimEnd();
 
             if (GlitterBill.State == FormingState.Gathering)
-                sb.AppendLine($"Stored power needed to start forming {string.Join(",", GlitterBill.recipe.products.Select(x => x.thingDef.label))}: {GlitterBill.GlittertechExt.powerNeeded} W");
+            {
+                if (HasStoredPower(GlitterBill.GlittertechExt.powerNeeded))
+                    sb.AppendLine($"Will draw {GlitterBill.GlittertechExt.powerNeeded} W stored power from net".Colorize(Color.cyan));
+                else
+                    sb.AppendLine($"Needs {GlitterBill.GlittertechExt.powerNeeded} W power stored to start forming".Colorize(Color.red));
+            }
 
             if (GlitterBill.State != FormingState.Gathering && GlitterBill.State != FormingState.Formed)
                 sb.AppendLine(string.Format("{0}: {1}", "Total time left", GetTotalTimeForActiveBill().ToStringTicksToPeriod()));
