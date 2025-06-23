@@ -159,7 +159,7 @@ namespace GlitterworldUprising
         {
             if (State == FormingState.Gathering && !Analyzer.HasStoredPower(GlittertechExt.powerNeeded))
             {
-                JobFailReason.Is("NoPower".Translate(), null);
+                JobFailReason.Is("USH_GU_NoPowerStored".Translate(), null);
                 return false;
             }
 
@@ -171,8 +171,8 @@ namespace GlitterworldUprising
             if (State != FormingState.Forming && State != FormingState.Preparing)
                 return;
 
-            sb.AppendLine("CurrentGestationCycle".Translate() + ": " + ((int)(formingTicks * 1f)).ToStringTicksToPeriod(true, false, true, true, false));
-            sb.AppendLine("RemainingGestationCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
+            sb.AppendLine("USH_GU_CurrentFormingCycle".Translate() + ": " + ((int)(formingTicks * 1f)).ToStringTicksToPeriod(true, false, true, true, false));
+            sb.AppendLine("USH_GU_RemainingFormingCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
 
         }
 
