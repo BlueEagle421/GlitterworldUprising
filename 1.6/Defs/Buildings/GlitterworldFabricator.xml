@@ -50,6 +50,8 @@
             <li>USH_FormGlittercore</li>
             <li>USH_FormMedicineUltratech_Bulk</li>
             <li>USH_FormPhilosophersStone_Bulk</li>
+            <li>USH_TurnSteelToGold</li>
+            <li>USH_TurnSteelToGoldBulk</li>
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>

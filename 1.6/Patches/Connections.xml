@@ -19,16 +19,6 @@
 		<xpath>/Defs/ThingDef[defName="FabricationBench"]/recipes</xpath>
 		<value>
 			<li>USH_Make_AddictionRemover</li>
-			<li>USH_GlitterAlchemy</li>
-			<li>USH_GlitterAlchemy_Bulk</li>
-		</value>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/ThingDef[defName="CraftingSpot"]/recipes</xpath>
-		<value>
-			<li>USH_GlitterAlchemy</li>
-			<li>USH_GlitterAlchemy_Bulk</li>
 		</value>
 	</Operation>
 

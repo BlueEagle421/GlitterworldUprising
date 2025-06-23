@@ -145,7 +145,7 @@
                         <li>USH_Glittercore</li>
                     </thingDefs>
                 </filter>
-                <count>2</count>
+                <count>1</count>
             </li>
         </ingredients>
 
@@ -157,12 +157,103 @@
             </thingDefs>
         </fixedIngredientFilter>
 
-
         <products>
-            <USH_PhilosophersStone>4</USH_PhilosophersStone>
+            <USH_PhilosophersStone>6</USH_PhilosophersStone>
         </products>
         <descriptionHyperlinks>
-            <ThingDef>USH_Glittercore</ThingDef>
+            <ThingDef>USH_PhilosophersStone</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+        <defName>USH_TurnSteelToGold</defName>
+        <label>turn steel into gold</label>
+        <description>Turn 64 steel into 4 gold using philosopher's stone.</description>
+        <jobString>Turning steel into gold.</jobString>
+        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+
+        <workAmount>180</workAmount>
+        <gestationCycles>1</gestationCycles>
+        <formingTicks>30000</formingTicks>
+
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>64</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>USH_PhilosophersStone</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+
+        <products>
+            <Gold>4</Gold>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Gold</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+        <defName>USH_TurnSteelToGoldBulk</defName>
+        <label>turn steel into gold x4</label>
+        <description>Turn 256 steel into 16 gold using philosopher's stone.</description>
+        <jobString>Turning steel into gold.</jobString>
+        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+
+        <workAmount>180</workAmount>
+        <gestationCycles>4</gestationCycles>
+        <formingTicks>30000</formingTicks>
+
+        <ingredients Inherit="false">
+
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>256</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>4</count>
+            </li>
+
+        </ingredients>
+
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Steel</li>
+                <li>USH_PhilosophersStone</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+
+        <products>
+            <Gold>16</Gold>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Gold</ThingDef>
         </descriptionHyperlinks>
     </RecipeDef>
 
