@@ -5,7 +5,6 @@ using Verse;
 using Verse.Sound;
 using RimWorld;
 using System.Text;
-using System.Linq;
 
 namespace GlitterworldUprising
 {
@@ -122,7 +121,7 @@ namespace GlitterworldUprising
             loc.y += 0.018292684f;
             loc.z += Mathf.PingPong(Find.TickManager.TicksGame * 0.0005f, 0.08f) + GlitterBill.GlittertechExt.analyzerOffsetY;
 
-            Material transparentMat = MaterialPool.MatFrom(ActiveBill.recipe.products[0].thingDef.graphicData.texPath, ShaderDatabase.Transparent);
+            Material transparentMat = MaterialPool.MatFrom(graphic.path, ShaderDatabase.Transparent);
             transparentMat.color = new Color(1f, 1f, 1f, 0.5f);
 
             Mesh mesh = graphic.MeshAt(Rot4.North);
@@ -151,6 +150,10 @@ namespace GlitterworldUprising
                 return false;
 
             graphic = ActiveBill.recipe.products[0].thingDef.graphic;
+
+            if (graphic is Graphic_StackCount graphic_StackCount)
+                graphic = graphic_StackCount.SubGraphicForStackCount(ActiveBill.recipe.products[0].count, ActiveBill.recipe.products[0].thingDef);
+
             graphic = graphic.GetCopy(graphic.drawSize * 0.6f, null);
 
             return true;
