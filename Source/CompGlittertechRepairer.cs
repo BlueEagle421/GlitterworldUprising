@@ -52,6 +52,7 @@ namespace GlitterworldUprising
     public class CompProperties_GlittertechRepairer : CompProperties
     {
         public float repairRadius = 10;
+        public float repairInterval = 10;
 
         public CompProperties_GlittertechRepairer() => compClass = typeof(CompGlittertechRepairer);
     }
@@ -66,7 +67,7 @@ namespace GlitterworldUprising
         private Thing _currentlyRepairing;
         private Effecter _repairEffecter;
 
-        private int _tickCounter;
+        private int _repairTickCounter;
 
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
@@ -104,24 +105,33 @@ namespace GlitterworldUprising
 
             _repairEffecter?.EffectTick(new TargetInfo(_currentlyRepairing), new TargetInfo(parent));
 
-            _tickCounter++;
-            if (_tickCounter < 10)
+            RepairTick();
+        }
+
+        private void RepairTick()
+        {
+            _repairTickCounter++;
+
+            if (_repairTickCounter < Props.repairInterval)
                 return;
 
             if (_currentlyRepairing == null)
                 return;
 
-            _tickCounter = 0;
+            _repairTickCounter = 0;
 
             _currentlyRepairing.HitPoints = Mathf.Min(_currentlyRepairing.MaxHitPoints, _currentlyRepairing.HitPoints + 1);
 
             if (_currentlyRepairing.HitPoints == _currentlyRepairing.MaxHitPoints)
-            {
-                _toRepair.Remove(_currentlyRepairing);
-                _currentlyRepairing = null;
-                _repairEffecter = null;
-                StartRepairing();
-            }
+                RepairFinished();
+        }
+
+        private void RepairFinished()
+        {
+            _toRepair.Remove(_currentlyRepairing);
+            _currentlyRepairing = null;
+            _repairEffecter = null;
+            StartRepairing();
         }
 
         private void StartRepairing()
@@ -141,13 +151,12 @@ namespace GlitterworldUprising
 
         public override string CompInspectStringExtra()
         {
-            return string.Join(",", _toRepair);
+            if (_currentlyRepairing == null)
+                return null;
+
+            return $"Repairing: {_currentlyRepairing.Label}";
         }
-
     }
-
-
-
 }
 
 
