@@ -157,16 +157,13 @@ namespace GlitterworldUprising
 
         public override bool PawnAllowedToStartAnew(Pawn p)
         {
-            if (!base.PawnAllowedToStartAnew(p))
-                return false;
-
             if (!Analyzer.HasStoredPower(GlittertechExt.powerNeeded))
             {
                 JobFailReason.Is("NoPower".Translate(), null);
                 return false;
             }
 
-            return true;
+            return base.PawnAllowedToStartAnew(p);
         }
 
         public override void AppendInspectionData(StringBuilder sb)
