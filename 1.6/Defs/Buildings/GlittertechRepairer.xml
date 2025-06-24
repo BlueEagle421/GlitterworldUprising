@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <ThingDef ParentName="BenchBase">
+    <ThingDef ParentName="BuildingBase">
         <defName>USH_GlittertechRepairer</defName>
         <label>glittertech repairer</label>
         <description>.</description>
@@ -26,6 +26,9 @@
             <Neutroamine>40</Neutroamine>
             <USH_Glittercore>5</USH_Glittercore>
         </costList>
+        <canOverlapZones>false</canOverlapZones>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
         <drawerType>MapMeshAndRealTime</drawerType>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
         <fillPercent>0.5</fillPercent>
@@ -36,7 +39,6 @@
             <WorkToBuild>30000</WorkToBuild>
             <Mass>80</Mass>
             <Beauty>0</Beauty>
-            <!-- <Flammability>0</Flammability> -->
         </statBases>
         <size>(1,1)</size>
         <designationCategory>Security</designationCategory>
@@ -47,7 +49,6 @@
         <passability>PassThroughOnly</passability>
         <pathCost>50</pathCost>
         <surfaceType>Item</surfaceType>
-
         <building>
             <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
             <ai_chillDestination>false</ai_chillDestination>
@@ -71,7 +72,6 @@
                 <glowRadius>4</glowRadius>
                 <glowColor>(255, 255, 255, 0)</glowColor>
             </li>
-
         </comps>
         <designationHotKey>Misc3</designationHotKey>
         <uiIconScale>0.45</uiIconScale>
