@@ -10,6 +10,7 @@
             <texPath>Things/Building/Misc/GlittertechRepairer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(3,3)</drawSize>
+            <drawOffset>(0, 0, 0.1)</drawOffset>
             <drawRotated>false</drawRotated>
             <allowFlip>false</allowFlip>
             <shadowData>
