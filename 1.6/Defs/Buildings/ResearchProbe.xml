@@ -6,7 +6,7 @@
         <label>research probe</label>
         <description>A machine meant to calculate and conduct complex simulations often used by glitterworld research facilities.\n\nIt conducts passive research on its own.\n\nNote that it must be connected to a research bench in order to work.</description>
         <graphicData>
-            <texPath>Things/Building/Misc/ResearchProbe</texPath>
+            <texPath>Things/Building/ResearchProbe</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(2,2)</drawSize>
             <shadowData>

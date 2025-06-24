@@ -7,7 +7,7 @@
         <description>An advanced workstation filled with medicine-based mechanites capable of recreating glitterworld technology. While the advanced processors can handle most of the procedure by themselves, occasional human supervision is still necessary to manually guide the internal computer. Only then the machine can finish a recipe.\n\nIt requires a significant amount of power stored in batteries to initiate the long process of recipe formation.</description>
         <thingClass>GlitterworldUprising.Building_GlittertechFabricator</thingClass>
         <graphicData>
-            <texPath>Things/Building/Misc/GlittertechFabricator</texPath>
+            <texPath>Things/Building/GlittertechFabricator</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(5,5)</drawSize>
             <drawRotated>false</drawRotated>
@@ -120,7 +120,7 @@
         <label>dark glitterpanel</label>
         <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration and stored power needed to start the process.\n\nIt's more powerful then it's light counterpart.</description>
         <graphicData>
-            <texPath>Things/Building/Misc/DarkGlitterpanel</texPath>
+            <texPath>Things/Building/DarkGlitterpanel</texPath>
             <graphicClass>Graphic_Random</graphicClass>
             <drawSize>(1,1)</drawSize>
             <shadowData>
@@ -181,7 +181,7 @@
         <label>light glitterpanel</label>
         <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration, stored power needed to start the process and overall work speed by increasing the machine responsiveness.\n\nIt's less powerful then it's dark counterpart.</description>
         <graphicData>
-            <texPath>Things/Building/Misc/LightGlitterpanel</texPath>
+            <texPath>Things/Building/LightGlitterpanel</texPath>
             <graphicClass>Graphic_Random</graphicClass>
             <drawSize>(1,1)</drawSize>
             <shadowData>

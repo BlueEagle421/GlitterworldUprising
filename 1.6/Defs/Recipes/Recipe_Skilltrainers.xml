@@ -9,7 +9,7 @@
       <Flammability>0.5</Flammability>
     </statBases>
     <graphicData>
-      <texPath>Things/Item/Misc/UnfinishedSkilltrainer</texPath>
+      <texPath>Things/Item/UnfinishedSkilltrainer</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <stuffCategories Inherit="false" />

@@ -6,7 +6,7 @@
         <label>mountain raiser</label>
         <description>A housing for a matter assembler that takes crushed hunks of rock and turns them into a solid wall. The user must simply fill the device with the chosen stone type and watch the magic happen. It was widely used in mass Glitterworld architecture, since it makes laying foundations and creating artificial landscapes both cheap and efficient.</description>
         <graphicData>
-            <texPath>Things/Building/Misc/MountainRaiser/MountainRaiser</texPath>
+            <texPath>Things/Building/MountainRaiser/MountainRaiser</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <shaderType>CutoutComplex</shaderType>
             <drawSize>(1,1)</drawSize>

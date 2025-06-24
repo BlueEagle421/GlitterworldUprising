@@ -8,7 +8,7 @@
       \nPills that serve to slightly inhibit the part of the brain responsible for reason, and highly energize the part responsible for social contact. It opens the user up socially, and makes them more empathetic. It is said to be like a mixture of Ecstasy and amphetamine, but is actually proven to be psychologically and biochemically healthy, and legally manufactured as a medical drug.</description>
     <techLevel>Ultra</techLevel>
     <graphicData>
-      <texPath>Things/Item/Drugs/Socializer</texPath>
+      <texPath>Things/Item/Socializer</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
       <drawSize>0.85</drawSize>
     </graphicData>

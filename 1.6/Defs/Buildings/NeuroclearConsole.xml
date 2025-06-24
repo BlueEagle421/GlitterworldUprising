@@ -10,7 +10,7 @@
             <ThingDef>HospitalBed</ThingDef>
         </descriptionHyperlinks>
         <graphicData>
-            <texPath>Things/Building/Misc/NeuroclearConsole</texPath>
+            <texPath>Things/Building/NeuroclearConsole</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <damageData>
                 <cornerTL>Damage/Corner</cornerTL>

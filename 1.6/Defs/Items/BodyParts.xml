@@ -10,7 +10,7 @@
       <li>BodyPartsUltra</li>
     </thingCategories>
     <graphicData>
-      <texPath>Things/Item/Misc/GlitterworldHealthItem</texPath>
+      <texPath>Things/Item/GlitterworldHealthItem</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>0.80</drawSize>
     </graphicData>
@@ -48,7 +48,7 @@
       <Flammability>0.5</Flammability>
     </statBases>
     <graphicData>
-      <texPath>Things/Item/Misc/GlitterworldHealthItem</texPath>
+      <texPath>Things/Item/GlitterworldHealthItem</texPath>
       <graphicClass>Graphic_Single</graphicClass>
       <color>(170,205,213)</color>
     </graphicData>

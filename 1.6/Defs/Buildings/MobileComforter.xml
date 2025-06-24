@@ -6,7 +6,7 @@
         <label>mobile comforter</label>
         <description>Are you feeling down lately? What for? Brighten up your day and never wander in sadness again!\nA 'dopamine dispenser' that consists of a rounded hormone container and a top tier injector. The user must simply insert their hand under the designated spot and wait for a telltale lifting kick after a painless sting. The electrical stimulation encourages the brain to produce a balanced mixture of dopamine, serotonin and endorphins. It works as an effective recreation object that can fit into any corridor, and it is a nice companion for social gatherings.</description>
         <graphicData>
-            <texPath>Things/Building/Misc/MobileComforter</texPath>
+            <texPath>Things/Building/MobileComforter/MobileComforter</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(2.5,2.5)</drawSize>
         </graphicData>

@@ -7,7 +7,7 @@
         <description>.</description>
         <thingClass>GlitterworldUprising.Building_GlittertechFabricator</thingClass>
         <graphicData>
-            <texPath>Things/Building/Misc/GlittertechRepairer</texPath>
+            <texPath>Things/Building/GlittertechRepairer/GlittertechRepairer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(3,3)</drawSize>
             <drawOffset>(0, 0, 0.1)</drawOffset>
@@ -64,7 +64,7 @@
 
             <li Class="GlitterworldUprising.CompProperties_GlittertechRepairer">
                 <repairRadius>8.9</repairRadius>
-                <activeOverlayPath>Things/Building/Misc/GlittertechRepairerActive</activeOverlayPath>
+                <activeOverlayPath>Things/Building/GlittertechRepairer/GlittertechRepairerActive</activeOverlayPath>
             </li>
 
             <li Class="CompProperties_Glower">
