@@ -14,7 +14,7 @@
             <drawRotated>false</drawRotated>
             <allowFlip>false</allowFlip>
             <shadowData>
-                <volume>(0.6, 0.8, 0.6)</volume>
+                <volume>(0.7, 0.8, 0.7)</volume>
             </shadowData>
         </graphicData>
         <castEdgeShadows>true</castEdgeShadows>
