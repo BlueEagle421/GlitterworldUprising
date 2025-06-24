@@ -55,6 +55,8 @@ namespace GlitterworldUprising
 
         private EffecterHandler _electricEffecterHandler;
 
+        private const float Y_OFFSET = .018292684f;
+        private const float FORMING_ALPHA_MULTIPLIER = .5f;
         private const float FADE_DURATION_TICKS = 300f;
         private float _fadeTicks = FADE_DURATION_TICKS;
         private bool _lastPoweredOn = true;
@@ -155,7 +157,7 @@ namespace GlitterworldUprising
                 return;
 
             Vector3 loc = drawLoc;
-            loc.y += 0.018292684f;
+            loc.y += Y_OFFSET;
 
             loc.z += GlitterBill.GlittertechExt.analyzerOffsetY;
             loc.z += Mathf.PingPong(Find.TickManager.TicksGame * 0.0005f, 0.08f); ;
@@ -167,7 +169,7 @@ namespace GlitterworldUprising
                 : Mathf.Lerp(1f, 0f, t);
 
             Material transparentMat = MaterialPool.MatFrom(FormingGraphic.path, ShaderDatabase.Transparent);
-            transparentMat.color = new Color(1f, 1f, 1f, alpha);
+            transparentMat.color = new Color(1f, 1f, 1f, alpha * FORMING_ALPHA_MULTIPLIER);
 
             Mesh mesh = FormingGraphic.MeshAt(Rot4.North);
             Quaternion quat = FormingGraphic.QuatFromRot(Rot4.North);

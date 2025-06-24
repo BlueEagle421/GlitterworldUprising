@@ -73,6 +73,18 @@ namespace GlitterworldUprising
         private Effecter _repairEffecter;
         private int _repairTickCounter;
 
+        private const float Y_OFFSET = .018292684f;
+
+        private Color _startColor;
+        private Color _targetColor;
+        private int _colorTransitionTicks;
+        private int _colorTicksElapsed;
+
+        private bool _isFading;
+        private const float FADE_DURATION_TICKS = 60f;
+        private float _fadeTicks = FADE_DURATION_TICKS;
+        private bool _lastIsRepairing = true;
+
         private CompPowerTrader _powerTrader;
         public CompPowerTrader PowerTrader
         {
@@ -96,16 +108,6 @@ namespace GlitterworldUprising
                 return _glower;
             }
         }
-
-        private Color _startColor;
-        private Color _targetColor;
-        private int _colorTransitionTicks;
-        private int _colorTicksElapsed;
-
-        private bool _isFading;
-        private const float FADE_DURATION_TICKS = 60f;
-        private float _fadeTicks = FADE_DURATION_TICKS;
-        private bool _lastIsRepairing = true;
 
         public override void PostExposeData()
         {
@@ -281,7 +283,7 @@ namespace GlitterworldUprising
         private void DrawPulse(Vector3 drawLoc)
         {
             Vector3 loc = drawLoc;
-            loc.y += 0.018292684f;
+            loc.y += Y_OFFSET;
 
             float t = _fadeTicks / FADE_DURATION_TICKS;
 
