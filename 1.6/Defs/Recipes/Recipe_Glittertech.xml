@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <RecipeDef Name="USH_BaseGlitterAnalyzerRecipe" Abstract="True">
+    <RecipeDef Name="USH_BaseGlittertechForming" Abstract="True">
         <jobString>Forming glittertech.</jobString>
         <soundWorking>MoisturePump_Ambience</soundWorking>
         <workAmount>1800</workAmount>
@@ -19,7 +19,7 @@
         </skillRequirements>
     </RecipeDef>
 
-    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormGlittercore</defName>
         <label>form glittercore</label>
         <description>Form a glittercore.</description>
@@ -59,7 +59,7 @@
         </descriptionHyperlinks>
     </RecipeDef>
 
-    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormMedicineUltratech_Bulk</defName>
         <label>form glitterworld medicine x4</label>
         <description>Form glitterworld medicine.</description>
@@ -116,7 +116,7 @@
         </descriptionHyperlinks>
     </RecipeDef>
 
-    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormPhilosophersStone_Bulk</defName>
         <label>form philosopher's stones x6</label>
         <description>Form philosopher's stones x6.</description>
@@ -165,7 +165,7 @@
         </descriptionHyperlinks>
     </RecipeDef>
 
-    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_TurnSteelToGold</defName>
         <label>turn steel into gold x4</label>
         <description>Turn 64 steel into 4 gold using philosopher's stone.</description>
@@ -210,7 +210,7 @@
         </descriptionHyperlinks>
     </RecipeDef>
 
-    <RecipeDef ParentName="USH_BaseGlitterAnalyzerRecipe">
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_TurnSteelToGoldBulk</defName>
         <label>turn steel into gold x16</label>
         <description>Turn 256 steel into 16 gold using philosopher's stone.</description>
