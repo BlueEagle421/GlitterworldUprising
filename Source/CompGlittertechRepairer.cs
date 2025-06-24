@@ -163,11 +163,25 @@ namespace GlitterworldUprising
 
             _repairEffecter?.EffectTick(new TargetInfo(_currentlyRepairing), new TargetInfo(parent));
 
+            PowerOutputTick();
+
             OverlayFadeTick();
 
             ColorTransitionTick();
 
             RepairTick();
+        }
+
+        private void PowerOutputTick()
+        {
+            if (!parent.IsHashIntervalTick(60))
+                return;
+
+            var props = PowerTrader.Props;
+
+            float toSet = IsRepairing ? props.PowerConsumption : props.idlePowerDraw;
+
+            PowerTrader.PowerOutput = -toSet;
         }
 
         private void OverlayFadeTick()
