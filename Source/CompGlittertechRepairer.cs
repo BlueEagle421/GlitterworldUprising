@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 
 namespace GlitterworldUprising
 {
@@ -54,6 +56,7 @@ namespace GlitterworldUprising
     {
         public float repairRadius = 8.9f;
         public float repairInterval = 10;
+        public string activeOverlayPath;
 
         public CompProperties_GlittertechRepairer() => compClass = typeof(CompGlittertechRepairer);
     }
@@ -61,13 +64,13 @@ namespace GlitterworldUprising
 
     public class CompGlittertechRepairer : ThingComp
     {
-        private readonly HashSet<Thing> _toRepair = new HashSet<Thing>();
+        private HashSet<Thing> _toRepair = new HashSet<Thing>();
         public CompProperties_GlittertechRepairer Props => (CompProperties_GlittertechRepairer)props;
         private MapComponent_RepairManager _manager => parent.Map.GetComponent<MapComponent_RepairManager>();
 
+        private bool IsRepairing => _currentlyRepairing != null && PowerTrader.PowerOn;
         private Thing _currentlyRepairing;
         private Effecter _repairEffecter;
-
         private int _repairTickCounter;
 
         private CompPowerTrader _powerTrader;
@@ -82,11 +85,53 @@ namespace GlitterworldUprising
             }
         }
 
+        private CompGlower _glower;
+        public CompGlower Glower
+        {
+            get
+            {
+                if (_glower == null)
+                    _glower = parent.TryGetComp<CompGlower>();
+
+                return _glower;
+            }
+        }
+
+        private Color _startColor;
+        private Color _targetColor;
+        private int _colorTransitionTicks;
+        private int _colorTicksElapsed;
+
+        private bool _isFading;
+        private const float FADE_DURATION_TICKS = 60f;
+        private float _fadeTicks = FADE_DURATION_TICKS;
+        private bool _lastIsRepairing = true;
+
+        public override void PostExposeData()
+        {
+            base.PostExposeData();
+
+            Scribe_References.Look(ref _currentlyRepairing, "_currentlyRepairing");
+
+            Scribe_Values.Look(ref _repairTickCounter, "_repairTickCounter");
+            Scribe_Values.Look(ref _startColor, "_startColor");
+            Scribe_Values.Look(ref _targetColor, "_targetColor");
+            Scribe_Values.Look(ref _colorTransitionTicks, "_transitionTicks");
+            Scribe_Values.Look(ref _colorTicksElapsed, "_ticksElapsed");
+            Scribe_Values.Look(ref _isFading, "_isFading");
+            Scribe_Values.Look(ref _lastIsRepairing, "_lastIsRepairing");
+
+            Scribe_Collections.Look(ref _toRepair, "_toRepair", LookMode.Reference);
+        }
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
             _manager.Register(this);
+
             RebuildAll();
+            RepairStopped();
+            TryToStartRepairing();
         }
 
         public override void PostDestroy(DestroyMode mode, Map previousMap)
@@ -97,7 +142,6 @@ namespace GlitterworldUprising
 
         private void RebuildAll()
         {
-            _toRepair.Clear();
             _toRepair.AddRange(parent.Map.listerBuildingsRepairable.RepairableBuildings(parent.Faction));
         }
 
@@ -108,8 +152,7 @@ namespace GlitterworldUprising
                 if (b.Position.InHorDistOf(parent.Position, radius))
                     _toRepair.Add(b);
 
-
-            StartRepairing();
+            TryToStartRepairing();
         }
 
         public override void CompTick()
@@ -118,7 +161,34 @@ namespace GlitterworldUprising
 
             _repairEffecter?.EffectTick(new TargetInfo(_currentlyRepairing), new TargetInfo(parent));
 
+            OverlayFadeTick();
+
+            ColorTransitionTick();
+
             RepairTick();
+        }
+
+        private void OverlayFadeTick()
+        {
+            if (IsRepairing != _lastIsRepairing)
+                _fadeTicks = 0f;
+
+            _fadeTicks = Mathf.Min(_fadeTicks + 1f, FADE_DURATION_TICKS);
+            _lastIsRepairing = IsRepairing;
+        }
+
+        private void ColorTransitionTick()
+        {
+            if (!_isFading)
+                return;
+
+            _colorTicksElapsed++;
+            float t = Mathf.Clamp01((float)_colorTicksElapsed / _colorTransitionTicks);
+            Color currentColor = Color.Lerp(_startColor, _targetColor, t);
+            SetGlowerColor(currentColor);
+
+            if (_colorTicksElapsed >= _colorTransitionTicks)
+                _isFading = false;
         }
 
         private void RepairTick()
@@ -147,10 +217,8 @@ namespace GlitterworldUprising
 
         private void RepairStopped()
         {
-            if (_repairEffecter == null)
-                return;
-
-            _repairEffecter.Cleanup();
+            SetGlowerColorSmooth(Color.clear);
+            _repairEffecter?.Cleanup();
             _repairEffecter = null;
         }
 
@@ -158,18 +226,31 @@ namespace GlitterworldUprising
         {
             _toRepair.Remove(_currentlyRepairing);
             _currentlyRepairing = null;
-            _repairEffecter.Cleanup();
-            _repairEffecter = null;
+
+            RepairStopped();
+
+            TryToStartRepairing();
+        }
+
+        private bool TryToStartRepairing()
+        {
+            if (!PowerTrader.PowerOn)
+                return false;
+
+            if (_toRepair.Count == 0)
+                return false;
+
+            if (_currentlyRepairing != null)
+                return false;
+
             StartRepairing();
+
+            return true;
         }
 
         private void StartRepairing()
         {
-            if (_toRepair.Count == 0)
-                return;
-
-            if (_currentlyRepairing != null)
-                return;
+            SetGlowerColorSmooth(Color.white);
 
             _currentlyRepairing = _toRepair.RandomElement();
 
@@ -180,14 +261,61 @@ namespace GlitterworldUprising
 
         public override string CompInspectStringExtra()
         {
-            if (_currentlyRepairing == null)
-                return null;
+            StringBuilder sb = new StringBuilder();
 
-            return $"Repairing: {_currentlyRepairing.Label}";
+            if (_currentlyRepairing != null)
+                sb.AppendLine($"Repairing: {_currentlyRepairing.Label}");
+
+            sb.AppendLine(string.Join("\n", _toRepair));
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+            base.DrawAt(drawLoc, flip);
+
+            DrawPulse(drawLoc);
+        }
+
+        private void DrawPulse(Vector3 drawLoc)
+        {
+            Vector3 loc = drawLoc;
+            loc.y += 0.018292684f;
+
+            float t = _fadeTicks / FADE_DURATION_TICKS;
+
+            float alphaMultiplier = _lastIsRepairing
+                ? Mathf.Lerp(0f, 1f, t)
+                : Mathf.Lerp(1f, 0f, t);
+
+            Material transparentMat = MaterialPool.MatFrom(Props.activeOverlayPath, ShaderDatabase.Transparent);
+            transparentMat.color = new Color(1f, 1f, 1f, alphaMultiplier * Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.02f, 1f)));
+
+            Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
+            Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
+
+            Graphics.DrawMesh(mesh, loc, quat, transparentMat, 0);
+        }
+
+        public void StartColorFade(Color from, Color to, int durationTicks)
+        {
+            _startColor = from;
+            _targetColor = to;
+            _colorTransitionTicks = durationTicks;
+            _colorTicksElapsed = 0;
+            _isFading = true;
+        }
+
+
+        private void SetGlowerColorSmooth(Color color, int durationTicks = 30)
+        {
+            StartColorFade(Glower.GlowColor.ToColor, color, durationTicks);
+        }
+
+        private void SetGlowerColor(Color color)
+        {
+            Glower.GlowColor = ColorInt.FromHdrColor(color);
         }
     }
 }
-
-
-
-
