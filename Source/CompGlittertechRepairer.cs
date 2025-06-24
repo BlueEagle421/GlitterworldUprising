@@ -297,6 +297,7 @@ namespace GlitterworldUprising
         private void DrawPulse(Vector3 drawLoc)
         {
             Vector3 loc = drawLoc;
+            loc += parent.def.graphicData.drawOffset;
             loc.y += Y_OFFSET;
 
             float t = _fadeTicks / FADE_DURATION_TICKS;
