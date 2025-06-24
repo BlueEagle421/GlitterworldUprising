@@ -73,4 +73,48 @@
         </children>
     </EffecterDef>
 
+    <EffecterDef>
+        <defName>USH_GlittertechRepair</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_Sustainer</subEffecterClass>
+                <soundDef>Interact_Repair</soundDef>
+                <ticksBeforeSustainerStart>35</ticksBeforeSustainerStart>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>SparkFlash</fleckDef>
+                <spawnLocType>BetweenTouchingCells</spawnLocType>
+                <positionLerpFactor>0.49</positionLerpFactor>
+                <chancePerTick>0.2</chancePerTick>
+                <scale>2.5~3.5</scale>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <moteDef>Mote_SparkThrown</moteDef>
+                <spawnLocType>BetweenTouchingCells</spawnLocType>
+                <positionLerpFactor>0.49</positionLerpFactor>
+                <chancePerTick>0.2</chancePerTick>
+                <scale>0.24~0.34</scale>
+                <airTime>0.08~0.16</airTime>
+                <rotationRate>-240~240</rotationRate>
+                <speed>7.2~24</speed>
+                <angle>-45~45</angle>
+                <positionRadius>0.02</positionRadius>
+                <color>(0.81,0.894,1)</color>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerChance</subEffecterClass>
+                <fleckDef>ElectricalSpark</fleckDef>
+                <scale>0.6~1</scale>
+                <spawnLocType>BetweenTouchingCells</spawnLocType>
+                <burstCount>1~2</burstCount>
+                <chancePerTick>0.026</chancePerTick>
+                <positionRadius>0.65</positionRadius>
+                <rotation>-180~180</rotation>
+                <attachToSpawnThing>true</attachToSpawnThing>
+            </li>
+        </children>
+    </EffecterDef>
+
 </Defs>

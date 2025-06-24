@@ -173,7 +173,7 @@ namespace GlitterworldUprising
 
             _currentlyRepairing = _toRepair.RandomElement();
 
-            _repairEffecter = _currentlyRepairing.def.repairEffect.Spawn();
+            _repairEffecter = USHDefOf.USH_GlittertechRepair.Spawn();
 
             _repairEffecter.Trigger(new TargetInfo(_currentlyRepairing), new TargetInfo(parent), -1);
         }
