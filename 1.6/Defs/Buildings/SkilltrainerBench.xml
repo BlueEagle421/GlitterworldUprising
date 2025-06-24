@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <ThingDef ParentName="BenchBase">
+    <!-- <ThingDef ParentName="BenchBase">
         <defName>USH_SkilltrainerBench</defName>
         <label>skilltrainer assembly terminal</label>
         <description>An advanced display used by qualified scientists in the process of creating a skilltrainer. It allows for accurate placement of mechanites and the assigning of them to the correct neuron clusters. The terminal itself is pleasurable to use and prepared for long work sessions.</description>
@@ -104,6 +104,6 @@
             <li>Manipulation</li>
         </requiredCapacities>
         <prioritizeSustains>true</prioritizeSustains>
-    </WorkGiverDef>
+    </WorkGiverDef> -->
 
 </Defs>
