@@ -62,12 +62,10 @@
                 <idlePowerDraw>30</idlePowerDraw>
             </li>
             <li Class="CompProperties_Flickable" />
-
             <li Class="GlitterworldUprising.CompProperties_GlittertechRepairer">
                 <repairRadius>8.9</repairRadius>
                 <activeOverlayPath>Things/Building/GlittertechRepairer/GlittertechRepairerActive</activeOverlayPath>
             </li>
-
             <li Class="CompProperties_Glower">
                 <glowRadius>4</glowRadius>
                 <glowColor>(255, 255, 255, 0)</glowColor>

@@ -282,8 +282,6 @@ namespace GlitterworldUprising
             if (_currentlyRepairing != null)
                 sb.AppendLine($"Repairing: {_currentlyRepairing.Label}");
 
-            sb.AppendLine(string.Join("\n", _toRepair));
-
             return sb.ToString().TrimEnd();
         }
 
