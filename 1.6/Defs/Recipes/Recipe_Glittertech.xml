@@ -99,14 +99,6 @@
             </li>
         </ingredients>
 
-        <fixedIngredientFilter>
-            <thingDefs>
-                <li>MedicineIndustrial</li>
-                <li>ComponentIndustrial</li>
-                <li>USH_Glittercore</li>
-            </thingDefs>
-        </fixedIngredientFilter>
-
         <products>
             <MedicineUltratech>4</MedicineUltratech>
         </products>
@@ -149,14 +141,6 @@
             </li>
         </ingredients>
 
-        <fixedIngredientFilter>
-            <thingDefs>
-                <li>Steel</li>
-                <li>Silver</li>
-                <li>USH_Glittercore</li>
-            </thingDefs>
-        </fixedIngredientFilter>
-
         <products>
             <USH_PhilosophersStone>6</USH_PhilosophersStone>
         </products>
@@ -194,13 +178,6 @@
                 <count>1</count>
             </li>
         </ingredients>
-
-        <fixedIngredientFilter>
-            <thingDefs>
-                <li>Steel</li>
-                <li>USH_PhilosophersStone</li>
-            </thingDefs>
-        </fixedIngredientFilter>
 
         <products>
             <Gold>4</Gold>
@@ -242,18 +219,54 @@
 
         </ingredients>
 
-        <fixedIngredientFilter>
-            <thingDefs>
-                <li>Steel</li>
-                <li>USH_PhilosophersStone</li>
-            </thingDefs>
-        </fixedIngredientFilter>
-
         <products>
             <Gold>16</Gold>
         </products>
         <descriptionHyperlinks>
             <ThingDef>Gold</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormShimmertalk</defName>
+        <label>form shimmertalk</label>
+        <description>Form shimmertalk.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <workAmount>180</workAmount>
+        <gestationCycles>2</gestationCycles>
+        <formingTicks>5000</formingTicks>
+        <ingredients Inherit="false">
+
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineUltratech</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>12</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_Shimmertalk>16</USH_Shimmertalk>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_Shimmertalk</ThingDef>
         </descriptionHyperlinks>
     </RecipeDef>
 

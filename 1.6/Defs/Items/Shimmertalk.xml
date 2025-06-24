@@ -2,13 +2,13 @@
 <Defs>
 
   <ThingDef ParentName="MakeableDrugPillBase">
-    <defName>USH_Socializer</defName>
-    <label>socializer</label>
+    <defName>USH_Shimmertalk</defName>
+    <label>shimmertalk</label>
     <description>Feeling anxious? Be the person you always wanted!
       \nPills that serve to slightly inhibit the part of the brain responsible for reason, and highly energize the part responsible for social contact. It opens the user up socially, and makes them more empathetic. It is said to be like a mixture of Ecstasy and amphetamine, but is actually proven to be psychologically and biochemically healthy, and legally manufactured as a medical drug.</description>
     <techLevel>Ultra</techLevel>
     <graphicData>
-      <texPath>Things/Item/Socializer</texPath>
+      <texPath>Things/Item/Shimmertalk</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
       <drawSize>0.85</drawSize>
     </graphicData>
@@ -24,7 +24,7 @@
       <drugCategory>Medical</drugCategory>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
-          <hediffDef>USH_SocializerHigh</hediffDef>
+          <hediffDef>USH_ShimmertalkHigh</hediffDef>
           <severity>1</severity>
         </li>
       </outcomeDoers>
@@ -52,9 +52,9 @@
   </ThingDef>
 
   <HediffDef>
-    <defName>USH_SocializerHigh</defName>
-    <label>antidepressant</label>
-    <description>Antidepressant in the bloodstream. Increases neurotransmitter activity in the brain, generating a mild euphoric effect.</description>
+    <defName>USH_ShimmertalkHigh</defName>
+    <label>shimmertalk</label>
+    <description>Shimmertalk chemicals in the bloodstream. Increases neurotransmitter activity in the brain, greatly improving social skills.</description>
     <hediffClass>Hediff_High</hediffClass>
     <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
     <scenarioCanAdd>true</scenarioCanAdd>
@@ -71,7 +71,6 @@
         <label>active</label>
         <opinionOfOthersFactor>1.2</opinionOfOthersFactor>
         <socialFightChanceFactor>0.2</socialFightChanceFactor>
-        <vomitMtbDays>4</vomitMtbDays>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
@@ -91,23 +90,24 @@
           </li>
         </capMods>
         <statOffsets>
-          <SocialImpact>0.35</SocialImpact>
-          <TradePriceImprovement>0.15</TradePriceImprovement>
+          <SocialImpact>0.25</SocialImpact>
+          <TradePriceImprovement>0.2</TradePriceImprovement>
+          <NegotiationAbility>0.35</NegotiationAbility>
         </statOffsets>
       </li>
     </stages>
   </HediffDef>
 
   <ThoughtDef>
-    <defName>USH_SocializerThought</defName>
+    <defName>USH_ShimmertalkThought</defName>
     <workerClass>ThoughtWorker_Hediff</workerClass>
-    <hediff>USH_SocializerHigh</hediff>
+    <hediff>USH_ShimmertalkHigh</hediff>
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>i can't stop talking</label>
-        <description>My mind is foggy but I feel confident.</description>
-        <baseMoodEffect>2</baseMoodEffect>
+        <label>High on shimmertalk</label>
+        <description>I never felt so confident in my life.</description>
+        <baseMoodEffect>4</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>
