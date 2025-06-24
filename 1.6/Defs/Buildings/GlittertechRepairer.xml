@@ -60,11 +60,16 @@
                 <idlePowerDraw>50</idlePowerDraw>
             </li>
             <li Class="CompProperties_Flickable" />
-            <li Class="GlitterworldUprising.CompProperties_GlittertechRepairer" />
+
+            <li Class="GlitterworldUprising.CompProperties_GlittertechRepairer">
+                <repairRadius>8.9</repairRadius>
+            </li>
+
         </comps>
         <designationHotKey>Misc3</designationHotKey>
         <uiIconScale>0.45</uiIconScale>
         <uiIconOffset>(0, 0.2)</uiIconOffset>
+        <specialDisplayRadius>8.9</specialDisplayRadius>
         <researchPrerequisites>
             <li>USH_GlittertechFabrication</li>
         </researchPrerequisites>

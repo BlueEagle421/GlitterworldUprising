@@ -52,7 +52,7 @@ namespace GlitterworldUprising
 
     public class CompProperties_GlittertechRepairer : CompProperties
     {
-        public float repairRadius = 10;
+        public float repairRadius = 8.9f;
         public float repairInterval = 10;
 
         public CompProperties_GlittertechRepairer() => compClass = typeof(CompGlittertechRepairer);
