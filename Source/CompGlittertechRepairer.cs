@@ -125,7 +125,7 @@ namespace GlitterworldUprising
         {
             if (!PowerTrader.PowerOn)
             {
-
+                RepairStopped();
                 return;
             }
 
@@ -143,6 +143,15 @@ namespace GlitterworldUprising
 
             if (_currentlyRepairing.HitPoints == _currentlyRepairing.MaxHitPoints)
                 RepairFinished();
+        }
+
+        private void RepairStopped()
+        {
+            if (_repairEffecter == null)
+                return;
+
+            _repairEffecter.Cleanup();
+            _repairEffecter = null;
         }
 
         private void RepairFinished()
