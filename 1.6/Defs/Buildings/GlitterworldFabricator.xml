@@ -120,7 +120,7 @@
         <label>dark glitterpanel</label>
         <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration and stored power needed to start the process.\n\nIt's more powerful then it's light counterpart.</description>
         <graphicData>
-            <texPath>Things/Building/Misc/GlitterBooster</texPath>
+            <texPath>Things/Building/Misc/DarkGlitterpanel</texPath>
             <graphicClass>Graphic_Random</graphicClass>
             <drawSize>(1,1)</drawSize>
             <shadowData>
@@ -178,10 +178,10 @@
 
     <ThingDef ParentName="BuildingBase">
         <defName>USH_LightGlitterpanel</defName>
-        <label>light supporter</label>
+        <label>light glitterpanel</label>
         <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration, stored power needed to start the process and overall work speed by increasing the machine responsiveness.\n\nIt's less powerful then it's dark counterpart.</description>
         <graphicData>
-            <texPath>Things/Building/Misc/LightGlitterBooster</texPath>
+            <texPath>Things/Building/Misc/LightGlitterpanel</texPath>
             <graphicClass>Graphic_Random</graphicClass>
             <drawSize>(1,1)</drawSize>
             <shadowData>
