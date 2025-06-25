@@ -151,13 +151,13 @@
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_TurnSteelToGold</defName>
-        <label>turn steel into gold x4</label>
-        <description>Turn 64 steel into 4 gold using philosopher's stone.</description>
+        <label>turn steel into gold x16</label>
+        <description>Turn 64 steel into 16 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
 
         <workAmount>180</workAmount>
-        <gestationCycles>1</gestationCycles>
+        <gestationCycles>4</gestationCycles>
         <formingTicks>30000</formingTicks>
 
         <ingredients Inherit="false">
@@ -180,7 +180,7 @@
         </ingredients>
 
         <products>
-            <Gold>4</Gold>
+            <Gold>16</Gold>
         </products>
         <descriptionHyperlinks>
             <ThingDef>Gold</ThingDef>
@@ -189,13 +189,13 @@
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_TurnSteelToGoldBulk</defName>
-        <label>turn steel into gold x16</label>
-        <description>Turn 256 steel into 16 gold using philosopher's stone.</description>
+        <label>turn steel into gold x64</label>
+        <description>Turn 256 steel into 64 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
 
         <workAmount>180</workAmount>
-        <gestationCycles>4</gestationCycles>
+        <gestationCycles>16</gestationCycles>
         <formingTicks>30000</formingTicks>
 
         <ingredients Inherit="false">
@@ -220,7 +220,7 @@
         </ingredients>
 
         <products>
-            <Gold>16</Gold>
+            <Gold>64</Gold>
         </products>
         <descriptionHyperlinks>
             <ThingDef>Gold</ThingDef>
@@ -263,7 +263,7 @@
             </li>
         </ingredients>
         <products>
-            <USH_Shimmertalk>16</USH_Shimmertalk>
+            <USH_Shimmertalk>1</USH_Shimmertalk>
         </products>
         <descriptionHyperlinks>
             <ThingDef>USH_Shimmertalk</ThingDef>
