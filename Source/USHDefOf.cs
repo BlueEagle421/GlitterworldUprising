@@ -16,6 +16,7 @@ namespace GlitterworldUprising
         public static EffecterDef USH_GlittertechRepair;
         public static StatDef USH_GlittertechPowerStored;
         public static StatDef USH_GlittertechDuration;
+        public static ThingDef USH_PowerStored;
     }
 
 }
