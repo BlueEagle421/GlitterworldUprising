@@ -150,6 +150,120 @@
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormPlasteel</defName>
+        <label>form plasteel x12</label>
+        <description>Form plasteel x12.</description>
+        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>36</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chemfuel</li>
+                    </thingDefs>
+                </filter>
+                <count>24</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>18</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+
+        <products>
+            <Plasteel>12</Plasteel>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Plasteel</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormPlasteelBulk</defName>
+        <label>form plasteel x48</label>
+        <description>Form plasteel x48.</description>
+        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>144</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chemfuel</li>
+                    </thingDefs>
+                </filter>
+                <count>96</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>72</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+        </ingredients>
+
+        <products>
+            <Plasteel>48</Plasteel>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Plasteel</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_TurnSteelToGold</defName>
         <label>turn steel into gold x16</label>
         <description>Turn 64 steel into 16 gold using philosopher's stone.</description>
@@ -347,5 +461,6 @@
             <ThingDef>USH_Shimmertalk</ThingDef>
         </descriptionHyperlinks>
     </RecipeDef>
+
 
 </Defs>
