@@ -228,6 +228,84 @@
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_TurnGoldToJade</defName>
+        <label>turn gold into jade x16</label>
+        <description>Turn 8 gold into 16 jade using philosopher's stone.</description>
+        <jobString>Turning gold into jade.</jobString>
+        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+
+        <workAmount>180</workAmount>
+        <gestationCycles>4</gestationCycles>
+        <formingTicks>30000</formingTicks>
+
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+
+        <products>
+            <Jade>16</Jade>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Jade</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_TurnGoldToJadeBulk</defName>
+        <label>turn gold into jade x64</label>
+        <description>Turn 32 gold into 64 jade using philosopher's stone.</description>
+        <jobString>Turning gold into jade.</jobString>
+        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+
+        <workAmount>180</workAmount>
+        <gestationCycles>16</gestationCycles>
+        <formingTicks>30000</formingTicks>
+
+        <ingredients Inherit="false">
+
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>32</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>4</count>
+            </li>
+
+        </ingredients>
+
+        <products>
+            <Jade>64</Jade>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Jade</ThingDef>
+        </descriptionHyperlinks>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormShimmertalk</defName>
         <label>form shimmertalk</label>
         <description>Form shimmertalk.</description>

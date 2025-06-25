@@ -56,6 +56,8 @@
             <li>USH_FormPhilosophersStone_Bulk</li>
             <li>USH_TurnSteelToGold</li>
             <li>USH_TurnSteelToGoldBulk</li>
+            <li>USH_TurnGoldToJade</li>
+            <li>USH_TurnGoldToJadeBulk</li>
             <li>USH_FormShimmertalk</li>
         </recipes>
         <inspectorTabs>
