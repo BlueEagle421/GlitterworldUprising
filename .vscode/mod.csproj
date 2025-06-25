@@ -27,7 +27,7 @@
 
 	<ItemGroup>
 		<!-- Mod -->
-		<Compile Include="../Source/*" />
+		<Compile Include="../Source/**/*.cs" />
 
 		<!-- Rimworld -->
 		<Reference Include="$(RimWorldPath)/*.dll">
