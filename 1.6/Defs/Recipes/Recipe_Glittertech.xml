@@ -7,11 +7,6 @@
         <workAmount>1800</workAmount>
         <gestationCycles>5</gestationCycles>
         <formingTicks>18000</formingTicks>
-        <modExtensions>
-            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
-                <powerNeeded>2600</powerNeeded>
-            </li>
-        </modExtensions>
         <workSkill>Intellectual</workSkill>
         <skillRequirements>
             <Intellectual>6</Intellectual>
@@ -50,14 +45,6 @@
                 </filter>
                 <count>0.1</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>2800</count>
-            </li>
         </ingredients>
         <products>
             <USH_Glittercore>1</USH_Glittercore>
@@ -65,6 +52,11 @@
         <descriptionHyperlinks>
             <ThingDef>USH_Glittercore</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>2800</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -72,13 +64,7 @@
         <label>form glitterworld medicine x4</label>
         <description>Form glitterworld medicine.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-
         <formingTicks>27000</formingTicks>
-        <modExtensions Inherit="false">
-            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
-                <powerNeeded>5200</powerNeeded>
-            </li>
-        </modExtensions>
 
         <ingredients Inherit="false">
             <li>
@@ -105,14 +91,6 @@
                 </filter>
                 <count>1</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>800</count>
-            </li>
         </ingredients>
 
         <products>
@@ -122,6 +100,12 @@
         <descriptionHyperlinks>
             <ThingDef>MedicineUltratech</ThingDef>
         </descriptionHyperlinks>
+
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>800</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -155,14 +139,6 @@
                 </filter>
                 <count>1</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>1200</count>
-            </li>
         </ingredients>
 
         <products>
@@ -171,6 +147,11 @@
         <descriptionHyperlinks>
             <ThingDef>USH_PhilosophersStone</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>1200</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -220,14 +201,6 @@
                 </filter>
                 <count>2</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>1000</count>
-            </li>
         </ingredients>
 
         <products>
@@ -236,6 +209,11 @@
         <descriptionHyperlinks>
             <ThingDef>Plasteel</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>1000</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -285,14 +263,6 @@
                 </filter>
                 <count>8</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>4000</count>
-            </li>
         </ingredients>
 
         <products>
@@ -301,6 +271,11 @@
         <descriptionHyperlinks>
             <ThingDef>Plasteel</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>4000</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -331,14 +306,6 @@
                 </filter>
                 <count>1</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>600</count>
-            </li>
         </ingredients>
 
         <products>
@@ -347,6 +314,11 @@
         <descriptionHyperlinks>
             <ThingDef>Gold</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>600</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -378,14 +350,6 @@
                 </filter>
                 <count>4</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>2400</count>
-            </li>
 
         </ingredients>
 
@@ -395,6 +359,11 @@
         <descriptionHyperlinks>
             <ThingDef>Gold</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>2400</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -425,14 +394,6 @@
                 </filter>
                 <count>1</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>400</count>
-            </li>
         </ingredients>
 
         <products>
@@ -441,6 +402,11 @@
         <descriptionHyperlinks>
             <ThingDef>Jade</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>400</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -472,14 +438,6 @@
                 </filter>
                 <count>4</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>1600</count>
-            </li>
 
         </ingredients>
 
@@ -489,6 +447,11 @@
         <descriptionHyperlinks>
             <ThingDef>Jade</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>1600</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
@@ -525,14 +488,6 @@
                 </filter>
                 <count>1</count>
             </li>
-            <li>
-                <filter>
-                    <thingDefs>
-                        <li>USH_PowerStored</li>
-                    </thingDefs>
-                </filter>
-                <count>1400</count>
-            </li>
         </ingredients>
         <products>
             <USH_Shimmertalk>1</USH_Shimmertalk>
@@ -540,6 +495,11 @@
         <descriptionHyperlinks>
             <ThingDef>USH_Shimmertalk</ThingDef>
         </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>1400</powerNeeded>
+            </li>
+        </modExtensions>
     </RecipeDef>
 
 
