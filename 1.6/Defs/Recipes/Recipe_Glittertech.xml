@@ -50,6 +50,14 @@
                 </filter>
                 <count>0.1</count>
             </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>2800</count>
+            </li>
         </ingredients>
         <products>
             <USH_Glittercore>1</USH_Glittercore>
@@ -97,6 +105,14 @@
                 </filter>
                 <count>1</count>
             </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>800</count>
+            </li>
         </ingredients>
 
         <products>
@@ -138,6 +154,14 @@
                     </thingDefs>
                 </filter>
                 <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>1200</count>
             </li>
         </ingredients>
 
@@ -196,6 +220,14 @@
                 </filter>
                 <count>2</count>
             </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>1000</count>
+            </li>
         </ingredients>
 
         <products>
@@ -253,6 +285,14 @@
                 </filter>
                 <count>8</count>
             </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>4000</count>
+            </li>
         </ingredients>
 
         <products>
@@ -290,6 +330,14 @@
                     </thingDefs>
                 </filter>
                 <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>600</count>
             </li>
         </ingredients>
 
@@ -330,6 +378,14 @@
                 </filter>
                 <count>4</count>
             </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>2400</count>
+            </li>
 
         </ingredients>
 
@@ -369,6 +425,14 @@
                 </filter>
                 <count>1</count>
             </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>400</count>
+            </li>
         </ingredients>
 
         <products>
@@ -407,6 +471,14 @@
                     </thingDefs>
                 </filter>
                 <count>4</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>1600</count>
             </li>
 
         </ingredients>
@@ -452,6 +524,14 @@
                     </thingDefs>
                 </filter>
                 <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PowerStored</li>
+                    </thingDefs>
+                </filter>
+                <count>1400</count>
             </li>
         </ingredients>
         <products>
