@@ -10,7 +10,6 @@
         <workSkill>Intellectual</workSkill>
         <skillRequirements>
             <Intellectual>6</Intellectual>
-            <Crafting>4</Crafting>
         </skillRequirements>
     </RecipeDef>
 
