@@ -1,18 +1,12 @@
 using UnityEngine;
 using Verse;
 
-public class EffecterHandler
+public class EffecterHandler(Thing source, EffecterDef effecterDef)
 {
-    private Thing _source;
+    private readonly Thing _source = source;
     private Effecter _effecter;
     private int _ticksLeft;
-    private EffecterDef _def;
-
-    public EffecterHandler(Thing source, EffecterDef effecterDef)
-    {
-        _source = source;
-        _def = effecterDef;
-    }
+    private readonly EffecterDef _def = effecterDef;
 
     public void StartMaintaining() => StartMaintaining(_def.maintainTicks);
 
