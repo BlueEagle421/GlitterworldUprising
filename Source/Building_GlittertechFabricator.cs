@@ -5,6 +5,7 @@ using Verse;
 using Verse.Sound;
 using RimWorld;
 using System.Text;
+using System.Linq;
 
 namespace GlitterworldUprising
 {
@@ -119,16 +120,36 @@ namespace GlitterworldUprising
 
         protected override string GetInspectStringExtra()
         {
-            StringBuilder sb = new();
+            var sb = new StringBuilder();
 
-            if (billStack.FirstShouldDoNow is Bill_Glittertech firstBillGlittertech and not null)
-                if (HasStoredPower(firstBillGlittertech.GlittertechExt.powerNeeded))
-                    sb.AppendLine($"Will draw {firstBillGlittertech.GlittertechExt.powerNeeded} W stored power from net".Colorize(Color.cyan));
-                else
-                    sb.AppendLine($"Needs {GlitterBill.GlittertechExt.powerNeeded} W power stored to start forming".Colorize(Color.red));
+            if (billStack.FirstShouldDoNow is Bill_Glittertech firstBill and not null
+                && firstBill.GlittertechExt is { powerNeeded: var powerNeeded }
+                && firstBill.recipe.products.FirstOrDefault()?.thingDef.label is string productLabel)
+            {
+                bool hasStoredPower = HasStoredPower(powerNeeded);
 
-            if (GlitterBill != null && GlitterBill.State != FormingState.Gathering && GlitterBill.State != FormingState.Formed)
-                sb.AppendLine(string.Format("{0}: {1}", "Total time left", GetTotalTimeForActiveBill().ToStringTicksToPeriod()));
+                string key = hasStoredPower
+                    ? "USH_GU_WillDraw"
+                    : "USH_GU_NoPowerStored";
+
+                var args = hasStoredPower
+                    ? new object[] { powerNeeded, productLabel }
+                    : [productLabel, powerNeeded];
+
+                var color = hasStoredPower
+                    ? Color.cyan
+                    : Color.red;
+
+#pragma warning disable CS0618 // Type or member is obsolete
+                sb.AppendLine(key.Translate(args).Colorize(color));
+#pragma warning restore CS0618 // Type or member is obsolete
+            }
+
+            if (GlitterBill?.State is FormingState.Gathering)
+            {
+                var totalPeriod = GetTotalTimeForActiveBill().ToStringTicksToPeriod();
+                sb.AppendLine("USH_GU_FormTimeTotal".Translate(totalPeriod));
+            }
 
             return sb.ToString().TrimEnd();
         }

@@ -164,7 +164,7 @@ namespace GlitterworldUprising
         {
             if (State == FormingState.Gathering && !Fabricator.HasStoredPower(GlittertechExt.powerNeeded))
             {
-                JobFailReason.Is("USH_GU_NoPowerStored".Translate(), null);
+                JobFailReason.Is("USH_GU_NoPowerStoredShort".Translate(GlittertechExt.powerNeeded), null);
                 return false;
             }
 
