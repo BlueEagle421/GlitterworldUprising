@@ -7,7 +7,7 @@ using Verse;
 
 namespace GlitterworldUprising
 {
-    [HarmonyPatch(typeof(BillUtility), nameof(BillUtility.MakeNewBill), new Type[] { typeof(RecipeDef), typeof(Precept_ThingStyle) })]
+    [HarmonyPatch(typeof(BillUtility), nameof(BillUtility.MakeNewBill), [typeof(RecipeDef), typeof(Precept_ThingStyle)])]
     public static class BillUtility_MakeNewBill_Patch
     {
         [HarmonyPrefix]

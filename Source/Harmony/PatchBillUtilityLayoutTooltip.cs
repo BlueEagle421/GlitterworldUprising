@@ -8,12 +8,7 @@ namespace GlitterworldUprising
 {
     [HarmonyPatch(typeof(BillUtility))]
     [HarmonyPatch("LayoutTooltip")]
-    [HarmonyPatch(new[] {
-        typeof(RecipeDef),
-        typeof(BodyPartRecord),
-        typeof(Pawn),
-        typeof(bool)
-    })]
+    [HarmonyPatch([typeof(RecipeDef), typeof(BodyPartRecord), typeof(Pawn), typeof(bool)])]
     static class Patch_BillUtility_LayoutTooltip
     {
         private static ModExtension_UseGlittertechBill _cachedExt;
