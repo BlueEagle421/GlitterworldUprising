@@ -121,18 +121,13 @@ namespace GlitterworldUprising
         {
             StringBuilder sb = new();
 
-            if (GlitterBill == null)
-                return sb.ToString().TrimEnd();
-
-            if (GlitterBill.State == FormingState.Gathering)
-            {
-                if (HasStoredPower(GlitterBill.GlittertechExt.powerNeeded))
-                    sb.AppendLine($"Will draw {GlitterBill.GlittertechExt.powerNeeded} W stored power from net".Colorize(Color.cyan));
+            if (billStack.FirstShouldDoNow is Bill_Glittertech firstBillGlittertech and not null)
+                if (HasStoredPower(firstBillGlittertech.GlittertechExt.powerNeeded))
+                    sb.AppendLine($"Will draw {firstBillGlittertech.GlittertechExt.powerNeeded} W stored power from net".Colorize(Color.cyan));
                 else
                     sb.AppendLine($"Needs {GlitterBill.GlittertechExt.powerNeeded} W power stored to start forming".Colorize(Color.red));
-            }
 
-            if (GlitterBill.State != FormingState.Gathering && GlitterBill.State != FormingState.Formed)
+            if (GlitterBill != null && GlitterBill.State != FormingState.Gathering && GlitterBill.State != FormingState.Formed)
                 sb.AppendLine(string.Format("{0}: {1}", "Total time left", GetTotalTimeForActiveBill().ToStringTicksToPeriod()));
 
             return sb.ToString().TrimEnd();
