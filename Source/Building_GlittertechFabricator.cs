@@ -124,7 +124,8 @@ namespace GlitterworldUprising
 
             if (billStack.FirstShouldDoNow is Bill_Glittertech firstBill and not null
                 && firstBill.GlittertechExt is { powerNeeded: var powerNeeded }
-                && firstBill.recipe.products.FirstOrDefault()?.thingDef.label is string productLabel)
+                && firstBill.recipe.products.FirstOrDefault()?.thingDef.label is string productLabel
+                && firstBill.State == FormingState.Gathering)
             {
                 bool hasStoredPower = HasStoredPower(powerNeeded);
 
@@ -145,7 +146,7 @@ namespace GlitterworldUprising
 #pragma warning restore CS0618 // Type or member is obsolete
             }
 
-            if (GlitterBill?.State is FormingState.Gathering)
+            if (GlitterBill is not null && GlitterBill.State is not (FormingState.Gathering or FormingState.Formed))
             {
                 var totalPeriod = GetTotalTimeForActiveBill().ToStringTicksToPeriod();
                 sb.AppendLine("USH_GU_FormTimeTotal".Translate(totalPeriod));
