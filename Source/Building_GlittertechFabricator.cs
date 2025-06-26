@@ -238,20 +238,7 @@ namespace GlitterworldUprising
             if (considerStats)
                 powerNeeded *= this.GetStatValue(USHDefOf.USH_GlittertechPowerStored);
 
-            return PowerStoredInNet(PowerTrader.PowerNet) >= powerNeeded;
-        }
-
-        private float PowerStoredInNet(PowerNet powerNet)
-        {
-            float power = 0;
-
-            if (powerNet == null)
-                return 0;
-
-            foreach (CompPowerBattery battery in powerNet.batteryComps)
-                power += battery.StoredEnergy;
-
-            return power;
+            return PowerTrader.PowerNet.CurrentStoredEnergy() >= powerNeeded;
         }
 
         private void DrawPowerFromNet(float powerToDraw)
