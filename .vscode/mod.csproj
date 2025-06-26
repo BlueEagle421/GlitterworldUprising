@@ -13,6 +13,8 @@
 		<!-- Do not generate pdb file -->
 		<DebugType>none</DebugType>
 
+		<LangVersion>latest</LangVersion>
+
 		<DebugSymbols>false</DebugSymbols>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 
