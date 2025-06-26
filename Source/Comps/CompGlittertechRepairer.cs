@@ -7,13 +7,11 @@ using Verse.Noise;
 
 namespace GlitterworldUprising
 {
-    public class MapComponent_RepairManager : MapComponent
+    public class MapComponent_RepairManager(Map map) : MapComponent(map)
     {
-        private readonly List<CompGlittertechRepairer> repairers = new List<CompGlittertechRepairer>();
-        private readonly HashSet<Building> dirtyBuildings = new HashSet<Building>();
+        private readonly List<CompGlittertechRepairer> repairers = [];
+        private readonly HashSet<Building> dirtyBuildings = [];
         private int _tickCounter = 0;
-
-        public MapComponent_RepairManager(Map map) : base(map) { }
 
         public override void FinalizeInit()
         {
@@ -64,7 +62,7 @@ namespace GlitterworldUprising
 
     public class CompGlittertechRepairer : ThingComp
     {
-        private HashSet<Thing> _toRepair = new HashSet<Thing>();
+        private HashSet<Thing> _toRepair = [];
         public CompProperties_GlittertechRepairer Props => (CompProperties_GlittertechRepairer)props;
         private MapComponent_RepairManager _manager => parent.Map.GetComponent<MapComponent_RepairManager>();
 
@@ -90,8 +88,7 @@ namespace GlitterworldUprising
         {
             get
             {
-                if (_powerTrader == null)
-                    _powerTrader = parent.TryGetComp<CompPowerTrader>();
+                _powerTrader ??= parent.TryGetComp<CompPowerTrader>();
 
                 return _powerTrader;
             }
@@ -102,8 +99,7 @@ namespace GlitterworldUprising
         {
             get
             {
-                if (_glower == null)
-                    _glower = parent.TryGetComp<CompGlower>();
+                _glower ??= parent.TryGetComp<CompGlower>();
 
                 return _glower;
             }
@@ -277,7 +273,7 @@ namespace GlitterworldUprising
 
         public override string CompInspectStringExtra()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             if (_currentlyRepairing != null)
                 sb.AppendLine($"Repairing: {_currentlyRepairing.Label}");

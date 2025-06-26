@@ -5,7 +5,7 @@ namespace GlitterworldUprising
 {
     public class HediffCompProperties_RemoveDuplicates : HediffCompProperties
     {
-        public List<HediffDef> hediffsConsideredSame = new List<HediffDef>();
+        public List<HediffDef> hediffsConsideredSame = [];
 
         public HediffCompProperties_RemoveDuplicates() => compClass = typeof(HediffCompRemoveDuplicates);
     }
@@ -23,7 +23,7 @@ namespace GlitterworldUprising
 
         private void RemoveHediffDuplicates(Pawn pawn, List<HediffDef> duplicates)
         {
-            List<Hediff> allHediffs = new List<Hediff>();
+            List<Hediff> allHediffs = [];
             pawn.health.hediffSet.GetHediffs(ref allHediffs);
             foreach (Hediff hediff in allHediffs)
             {

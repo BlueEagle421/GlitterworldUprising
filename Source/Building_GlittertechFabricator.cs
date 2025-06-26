@@ -22,8 +22,7 @@ namespace GlitterworldUprising
         {
             get
             {
-                if (_powerTrader == null)
-                    _powerTrader = this.TryGetComp<CompPowerTrader>();
+                _powerTrader ??= this.TryGetComp<CompPowerTrader>();
 
                 return _powerTrader;
             }
@@ -120,7 +119,7 @@ namespace GlitterworldUprising
 
         protected override string GetInspectStringExtra()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             if (GlitterBill == null)
                 return sb.ToString().TrimEnd();

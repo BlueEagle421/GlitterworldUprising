@@ -6,7 +6,7 @@ namespace GlitterworldUprising
 {
     public class HediffCompProperties_AddictionRemoval : HediffCompProperties
     {
-        public List<HediffDef> hediffDefBlackList = new List<HediffDef>();
+        public List<HediffDef> hediffDefBlackList = [];
 
         public HediffCompProperties_AddictionRemoval() => compClass = typeof(HediffCompAddictionRemoval);
     }
@@ -23,7 +23,7 @@ namespace GlitterworldUprising
 
         private void RemoveAddictions()
         {
-            List<Hediff> allHediffs = new List<Hediff>();
+            List<Hediff> allHediffs = [];
             parent.pawn.health.hediffSet.GetHediffs(ref allHediffs);
 
             foreach (Hediff hediff in allHediffs)

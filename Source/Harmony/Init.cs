@@ -10,7 +10,7 @@ namespace GlitterworldUprising
     {
         static Start()
         {
-            Harmony harmony = new Harmony("GlitterworldUprising");
+            Harmony harmony = new("GlitterworldUprising");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
             Log.Message("The almighty power of Harmony has been initialized by the humble mod creator BlueEagle421".Colorize(Color.cyan));

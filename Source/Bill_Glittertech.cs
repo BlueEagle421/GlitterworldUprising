@@ -33,12 +33,12 @@ namespace GlitterworldUprising
             if (!(bill.billStack.billGiver is Building_GlittertechFabricator analyzer) || analyzer.ActiveBill != bill)
                 return;
 
-            Rect rect = new Rect(x, y2, width, 9999f);
+            Rect rect = new(x, y2, width, 9999f);
 
-            Listing_Standard listing_Standard = new Listing_Standard();
+            Listing_Standard listing_Standard = new();
             listing_Standard.Begin(rect);
 
-            StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new();
             listing_Standard.Label("FormerIngredients".Translate() + ":");
             analyzer.ActiveBill.AppendCurrentIngredientCount(stringBuilder);
             listing_Standard.Label(stringBuilder.ToString());

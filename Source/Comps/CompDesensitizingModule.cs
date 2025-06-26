@@ -77,7 +77,7 @@ namespace GlitterworldUprising
 
         private List<Pawn> PawnsInLinkedFacilities()
         {
-            List<Pawn> result = new List<Pawn>();
+            List<Pawn> result = [];
 
             foreach (Thing building in _facilityComp.LinkedBuildings)
                 foreach (Thing thing in _currentMap.thingGrid.ThingsAt(building.Position))

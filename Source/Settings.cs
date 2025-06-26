@@ -9,8 +9,8 @@ namespace GlitterworldUprising
     public class SkinSaveComp : WorldComponent
     {
         List<Pawn> _pawns;
-        List<Color> _colors = new List<Color>();
-        private Dictionary<Pawn, Color> _pawnSkinColors = new Dictionary<Pawn, Color>();
+        List<Color> _colors = [];
+        private Dictionary<Pawn, Color> _pawnSkinColors = [];
 
         public static SkinSaveComp Instance { get; private set; }
 
@@ -55,7 +55,7 @@ namespace GlitterworldUprising
         }
         public override void DoSettingsWindowContents(Rect inRect)
         {
-            Listing_Standard listingStandard = new Listing_Standard();
+            Listing_Standard listingStandard = new();
             listingStandard.Begin(inRect);
             listingStandard.CheckboxLabeled("USH_GU_SkinSettingLabel".Translate(), ref _settings.ShouldChangeColor, "USH_GU_SkinSettingTooltip".Translate());
             listingStandard.Label("USH_GU_SkinSettingExplanation".Translate());

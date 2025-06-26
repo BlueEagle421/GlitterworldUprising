@@ -47,8 +47,7 @@ namespace GlitterworldUprising
         {
             get
             {
-                if (_cachedPowerTexArg == null)
-                    _cachedPowerTexArg = Gen.YieldSingle(USHDefOf.USH_PowerStored.ToTextureAndColor());
+                _cachedPowerTexArg ??= Gen.YieldSingle(USHDefOf.USH_PowerStored.ToTextureAndColor());
 
                 return _cachedPowerTexArg;
             }
@@ -71,8 +70,7 @@ namespace GlitterworldUprising
         {
             get
             {
-                if (_cachedTooltip == null)
-                    _cachedTooltip = AccessTools.Field(typeof(BillUtility), "recipeTooltipLayout").GetValue(null) as RecipeTooltipLayout;
+                _cachedTooltip ??= AccessTools.Field(typeof(BillUtility), "recipeTooltipLayout").GetValue(null) as RecipeTooltipLayout;
 
                 return _cachedTooltip;
             }

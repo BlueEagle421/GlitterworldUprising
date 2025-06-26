@@ -10,7 +10,7 @@ namespace GlitterworldUprising
         public float ticksToPlace;
         public FleckDef fleckDef;
         public SoundDef soundDef;
-        public List<WallRecipe> recipes = new List<WallRecipe>();
+        public List<WallRecipe> recipes = [];
 
         public CompProperties_MountainRaiser() => compClass = typeof(CompMountainRaiser);
     }
