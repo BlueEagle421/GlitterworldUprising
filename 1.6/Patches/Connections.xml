@@ -15,11 +15,4 @@
 		</value>
 	</Operation>
 
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/ThingDef[defName="FabricationBench"]/recipes</xpath>
-		<value>
-			<li>USH_Make_AddictionRemover</li>
-		</value>
-	</Operation>
-
 </Patch>

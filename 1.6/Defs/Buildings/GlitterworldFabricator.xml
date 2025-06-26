@@ -52,15 +52,19 @@
         <surfaceType>Item</surfaceType>
         <recipes>
             <li>USH_FormGlittercore</li>
+
             <li>USH_FormMedicineUltratech_Bulk</li>
             <li>USH_FormPhilosophersStone_Bulk</li>
+
             <li>USH_FormPlasteel</li>
             <li>USH_FormPlasteelBulk</li>
             <li>USH_TurnSteelToGold</li>
             <li>USH_TurnSteelToGoldBulk</li>
             <li>USH_TurnGoldToJade</li>
             <li>USH_TurnGoldToJadeBulk</li>
+
             <li>USH_FormShimmertalk</li>
+            <li>USH_FormAddictionRemover</li>
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>

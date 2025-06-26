@@ -501,5 +501,60 @@
         </modExtensions>
     </RecipeDef>
 
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormAddictionRemover</defName>
+        <label>form addiction remover</label>
+        <description>Form addiction remover.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <workAmount>180</workAmount>
+        <gestationCycles>4</gestationCycles>
+        <formingTicks>5000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineUltratech</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Silver</li>
+                    </thingDefs>
+                </filter>
+                <count>60</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_AddictionRemover>1</USH_AddictionRemover>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_AddictionRemover</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="GlitterworldUprising.ModExtension_UseGlittertechBill">
+                <powerNeeded>2600</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
 
 </Defs>
