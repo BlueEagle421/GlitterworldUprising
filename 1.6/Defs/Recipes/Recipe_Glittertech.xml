@@ -111,7 +111,7 @@
         <defName>USH_FormPhilosophersStone_Bulk</defName>
         <label>form philosopher's stones x6</label>
         <description>Form philosopher's stones x6.</description>
-        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
         <ingredients Inherit="false">
             <li>
@@ -157,7 +157,7 @@
         <defName>USH_FormPlasteel</defName>
         <label>form plasteel x12</label>
         <description>Form plasteel x12.</description>
-        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
         <ingredients Inherit="false">
             <li>
@@ -219,7 +219,7 @@
         <defName>USH_FormPlasteelBulk</defName>
         <label>form plasteel x48</label>
         <description>Form plasteel x48.</description>
-        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
         <ingredients Inherit="false">
             <li>
@@ -282,7 +282,7 @@
         <label>turn steel into gold x16</label>
         <description>Turn 64 steel into 16 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
-        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
         <workAmount>180</workAmount>
         <gestationCycles>4</gestationCycles>
@@ -325,7 +325,7 @@
         <label>turn steel into gold x64</label>
         <description>Turn 256 steel into 64 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
-        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
         <workAmount>180</workAmount>
         <gestationCycles>16</gestationCycles>
@@ -370,7 +370,7 @@
         <label>turn gold into jade x16</label>
         <description>Turn 8 gold into 16 jade using philosopher's stone.</description>
         <jobString>Turning gold into jade.</jobString>
-        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
         <workAmount>180</workAmount>
         <gestationCycles>4</gestationCycles>
@@ -413,7 +413,7 @@
         <label>turn gold into jade x64</label>
         <description>Turn 32 gold into 64 jade using philosopher's stone.</description>
         <jobString>Turning gold into jade.</jobString>
-        <researchPrerequisite>USH_GlitterworldAlchemyRes</researchPrerequisite>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
         <workAmount>180</workAmount>
         <gestationCycles>16</gestationCycles>

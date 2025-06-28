@@ -64,7 +64,7 @@
             <li>PlaceWorker_ShowFacilitiesConnections</li>
         </placeWorkers>
         <researchPrerequisites>
-            <li>USH_BaseEssentialsRes</li>
+            <li>USH_GlittertechUtilitiesRes</li>
         </researchPrerequisites>
         <uiIconScale>0.8</uiIconScale>
     </ThingDef>

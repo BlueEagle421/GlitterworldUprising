@@ -4,8 +4,8 @@
     <ResearchTabDef>
         <defName>USH_GlittertechExpansion</defName>
         <label>Glittertech Expansion</label>
-        <generalTitle>Glitterworld research projects</generalTitle>
-        <generalDescription>Study Glitterworld science and recreate the most advanced technologies known to humankind.</generalDescription>
+        <generalTitle>Glittertech research projects</generalTitle>
+        <generalDescription>Study glitterworld science and recreate the most advanced technologies known to humankind.</generalDescription>
     </ResearchTabDef>
 
     <ResearchProjectDef Name="GUProjectBase" Abstract="True">
@@ -54,9 +54,9 @@
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_BaseEssentialsRes</defName>
-        <label>Glitterworld essentials</label>
-        <description>Build mobile comforter and local computor.</description>
+        <defName>USH_GlittertechUtilitiesRes</defName>
+        <label>Glittertech utilities</label>
+        <description>Build advanced and useful glittertech utilities.</description>
         <baseCost>2000</baseCost>
         <prerequisites>
             <li>USH_GlittertechFabrication</li>
@@ -66,12 +66,12 @@
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_GlitterworldAlchemyRes</defName>
+        <defName>USH_GlittertechAlchemyRes</defName>
         <label>Glitterworld alchemy</label>
         <description>Learn how to change atomic structure of objecs.</description>
         <baseCost>2500</baseCost>
         <prerequisites>
-            <li>USH_BaseEssentialsRes</li>
+            <li>USH_GlittertechUtilitiesRes</li>
         </prerequisites>
         <researchViewX>2.00</researchViewX>
         <researchViewY>1.70</researchViewY>
@@ -83,7 +83,7 @@
         <description>Understand the basics of medical-mechanites behaviour and construct desensitizing module.</description>
         <baseCost>3000</baseCost>
         <prerequisites>
-            <li>USH_BaseEssentialsRes</li>
+            <li>USH_GlittertechUtilitiesRes</li>
         </prerequisites>
         <researchViewX>2.00</researchViewX>
         <researchViewY>2.40</researchViewY>
@@ -95,7 +95,7 @@
         <description>Build skilltrainer assembly terminal.</description>
         <baseCost>6000</baseCost>
         <prerequisites>
-            <li>USH_GlitterworldAlchemyRes</li>
+            <li>USH_GlittertechAlchemyRes</li>
             <li>USH_NeuromodifiersBasicsRes</li>
         </prerequisites>
         <researchViewX>3.00</researchViewX>

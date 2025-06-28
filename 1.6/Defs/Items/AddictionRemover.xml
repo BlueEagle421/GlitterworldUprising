@@ -5,7 +5,7 @@
     <defName>USH_AddictionRemover</defName>
     <label>addiction remover</label>
     <description>Have you been partying too hard lately? Are your hands shaking in need of another dose of your favorite drug? Reset your natural limit right now with handy addiction remover!
-      \nAn advanced device originally designed and manufactured by Glitterworld mega corporations. It modifies the reward system back to its default state, providing the user with a feeling of a 'fresh start'. The technological basis and process alone is beyond anyone’s grasp, but with Glitterworld fragments, a pair of talented hands should be able to reproduce the item.</description>
+      \nAn advanced device originally designed and manufactured by glitterworld mega corporations. It modifies the reward system back to its default state, providing the user with a feeling of a 'fresh start'. The technological basis and process alone is beyond anyone’s grasp, but with glitterworld fragments, a pair of talented hands should be able to reproduce the item.</description>
     <graphicData>
       <texPath>Things/Item/AddictionRemover</texPath>
       <graphicClass>Graphic_Single</graphicClass>
