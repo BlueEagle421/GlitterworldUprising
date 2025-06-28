@@ -54,6 +54,7 @@ public class Building_GlittertechTargeterGun : Building_TurretRocket
     }
 }
 
+[StaticConstructorOnStartup]
 public class Command_SetTargetType : Command
 {
     private readonly CompGlittertechTargeter _targeter;
