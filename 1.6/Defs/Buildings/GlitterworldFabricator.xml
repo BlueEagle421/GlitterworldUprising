@@ -55,6 +55,9 @@
 
             <li>USH_FormMedicineUltratech_Bulk</li>
             <li>USH_FormPhilosophersStone_Bulk</li>
+            <li>USH_FormAddictionRemover</li>
+            <li>USH_FormShimmertalk</li>
+            <li>USH_FormGammaSerum</li>
 
             <li>USH_FormPlasteel</li>
             <li>USH_FormPlasteelBulk</li>
@@ -62,9 +65,6 @@
             <li>USH_TurnSteelToGoldBulk</li>
             <li>USH_TurnGoldToJade</li>
             <li>USH_TurnGoldToJadeBulk</li>
-
-            <li>USH_FormShimmertalk</li>
-            <li>USH_FormAddictionRemover</li>
 
             <li>USH_Make_Neurotrainer_Shooting</li>
             <li>USH_Make_Neurotrainer_Melee</li>

@@ -4,7 +4,7 @@
     <RecipeDef Name="USH_BaseGlittertechForming" Abstract="True">
         <jobString>Forming glittertech.</jobString>
         <soundWorking>MoisturePump_Ambience</soundWorking>
-        <workAmount>1800</workAmount>
+        <workAmount>600</workAmount>
         <gestationCycles>5</gestationCycles>
         <formingTicks>18000</formingTicks>
         <workSkill>Intellectual</workSkill>
@@ -283,8 +283,6 @@
         <description>Turn 64 steel into 16 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-
-        <workAmount>180</workAmount>
         <gestationCycles>4</gestationCycles>
         <formingTicks>30000</formingTicks>
 
@@ -327,7 +325,7 @@
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
-        <workAmount>180</workAmount>
+
         <gestationCycles>16</gestationCycles>
         <formingTicks>30000</formingTicks>
 
@@ -372,7 +370,7 @@
         <jobString>Turning gold into jade.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
-        <workAmount>180</workAmount>
+
         <gestationCycles>4</gestationCycles>
         <formingTicks>30000</formingTicks>
 
@@ -415,7 +413,7 @@
         <jobString>Turning gold into jade.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
 
-        <workAmount>180</workAmount>
+
         <gestationCycles>16</gestationCycles>
         <formingTicks>30000</formingTicks>
 
@@ -458,7 +456,6 @@
         <label>form shimmertalk</label>
         <description>Form shimmertalk.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-        <workAmount>180</workAmount>
         <gestationCycles>2</gestationCycles>
         <formingTicks>5000</formingTicks>
         <ingredients Inherit="false">
@@ -506,7 +503,6 @@
         <label>form addiction remover</label>
         <description>Form addiction remover.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-        <workAmount>180</workAmount>
         <gestationCycles>4</gestationCycles>
         <formingTicks>5000</formingTicks>
         <ingredients Inherit="false">
@@ -556,5 +552,50 @@
         </modExtensions>
     </RecipeDef>
 
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormGammaSerum</defName>
+        <label>form gamma serum</label>
+        <description>Form gamma serum.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <gestationCycles>4</gestationCycles>
+        <formingTicks>8000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineUltratech</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>PsychoidLeaves</li>
+                    </thingDefs>
+                </filter>
+                <count>16</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_GammaSerum>1</USH_GammaSerum>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GammaSerum</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>3600</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
 
 </Defs>
