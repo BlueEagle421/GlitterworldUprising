@@ -5,7 +5,7 @@ using UnityEngine;
 using Verse;
 using Verse.Noise;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     public class MapComponent_RepairManager(Map map) : MapComponent(map)
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Verse;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     public class HediffCompProperties_RemoveDuplicates : HediffCompProperties
     {

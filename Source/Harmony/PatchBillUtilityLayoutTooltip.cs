@@ -4,7 +4,7 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     [HarmonyPatch(typeof(BillUtility))]
     [HarmonyPatch("LayoutTooltip")]

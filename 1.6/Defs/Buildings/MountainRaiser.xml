@@ -43,7 +43,7 @@
             <li>BuildingsMisc</li>
         </thingCategories>
         <comps>
-            <li Class="GlittertechExpansion.CompProperties_MountainRaiser">
+            <li Class="USH_GE.CompProperties_MountainRaiser">
                 <ticksToPlace>360</ticksToPlace>
                 <soundDef>USH_WallRaise</soundDef>
                 <fleckDef>USH_WallRaiseCloud</fleckDef>

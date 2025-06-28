@@ -52,7 +52,7 @@
             <ThingDef>USH_Glittercore</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>2800</powerNeeded>
             </li>
         </modExtensions>
@@ -101,7 +101,7 @@
         </descriptionHyperlinks>
 
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>800</powerNeeded>
             </li>
         </modExtensions>
@@ -147,7 +147,7 @@
             <ThingDef>USH_PhilosophersStone</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>1200</powerNeeded>
             </li>
         </modExtensions>
@@ -209,7 +209,7 @@
             <ThingDef>Plasteel</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>1000</powerNeeded>
             </li>
         </modExtensions>
@@ -271,7 +271,7 @@
             <ThingDef>Plasteel</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>4000</powerNeeded>
             </li>
         </modExtensions>
@@ -314,7 +314,7 @@
             <ThingDef>Gold</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>600</powerNeeded>
             </li>
         </modExtensions>
@@ -359,7 +359,7 @@
             <ThingDef>Gold</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>2400</powerNeeded>
             </li>
         </modExtensions>
@@ -402,7 +402,7 @@
             <ThingDef>Jade</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>400</powerNeeded>
             </li>
         </modExtensions>
@@ -447,7 +447,7 @@
             <ThingDef>Jade</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>1600</powerNeeded>
             </li>
         </modExtensions>
@@ -495,7 +495,7 @@
             <ThingDef>USH_Shimmertalk</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>1400</powerNeeded>
             </li>
         </modExtensions>
@@ -550,7 +550,7 @@
             <ThingDef>USH_AddictionRemover</ThingDef>
         </descriptionHyperlinks>
         <modExtensions>
-            <li Class="GlittertechExpansion.ModExtension_UseGlittertechBill">
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>2600</powerNeeded>
             </li>
         </modExtensions>

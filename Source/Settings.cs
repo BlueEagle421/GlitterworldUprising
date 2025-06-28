@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     public class SkinSaveComp : WorldComponent
     {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     public class HediffCompProperties_SkinReplacement : HediffCompProperties
     {

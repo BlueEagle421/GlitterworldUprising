@@ -5,7 +5,7 @@
         <defName>USH_GlittertechTargeter</defName>
         <label>orbital targeter</label>
         <description>.</description>
-        <thingClass>GlittertechExpansion.Building_GlittertechTargeterGun</thingClass>
+        <thingClass>USH_GE.Building_GlittertechTargeterGun</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
         <graphicData>
             <texPath>Things/Building/GlittertechTargeter</texPath>
@@ -40,7 +40,7 @@
             <li Class="CompProperties_Flickable" />
             <li Class="CompProperties_Breakdownable" />
             <li Class="CompProperties_Interactable">
-                <compClass>GlittertechExpansion.CompGlittertechTargeter</compClass>
+                <compClass>USH_GE.CompGlittertechTargeter</compClass>
                 <activeTicks>1</activeTicks>
                 <cooldownTicks>720000</cooldownTicks> <!-- 12 days -->
                 <ticksToActivate>60</ticksToActivate>

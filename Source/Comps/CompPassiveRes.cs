@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     public class CompProperties_PassiveRes : CompProperties
     {

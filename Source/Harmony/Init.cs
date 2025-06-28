@@ -3,7 +3,7 @@ using HarmonyLib;
 using UnityEngine;
 using Verse;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     [StaticConstructorOnStartup]
     public static class Start

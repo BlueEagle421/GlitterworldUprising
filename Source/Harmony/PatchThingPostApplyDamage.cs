@@ -2,7 +2,7 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     [HarmonyPatch(typeof(Thing), nameof(Thing.PostApplyDamage))]
     public static class Patch_Thing_PostApplyDamage

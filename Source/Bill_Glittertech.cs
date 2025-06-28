@@ -4,7 +4,7 @@ using Verse;
 using RimWorld;
 using Verse.AI;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     public class ModExtension_UseGlittertechBill : DefModExtension
     {

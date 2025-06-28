@@ -7,7 +7,7 @@ using RimWorld;
 using System.Text;
 using System.Linq;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     [StaticConstructorOnStartup]
     public class Building_GlittertechFabricator : Building_WorkTableAutonomous

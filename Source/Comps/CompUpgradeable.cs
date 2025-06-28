@@ -7,7 +7,7 @@
 // using Verse;
 // using Verse.Sound;
 
-// namespace GlittertechExpansion;
+// namespace USH_GE;
 
 // public class MapComponent_Upgradables(Map map) : MapComponent(map)
 // {

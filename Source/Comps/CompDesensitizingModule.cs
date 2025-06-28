@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Verse;
 using Verse.Sound;
 
-namespace GlittertechExpansion
+namespace USH_GE
 {
     public class CompProperties_NeuroclearConsole : CompProperties_Interactable
     {
