@@ -1,4 +1,6 @@
 // using System.Collections.Generic;
+// using System.Linq;
+// using System.Runtime.CompilerServices;
 // using LudeonTK;
 // using RimWorld;
 // using UnityEngine;
@@ -6,6 +8,15 @@
 // using Verse.Sound;
 
 // namespace GlitterworldUprising;
+
+// public class MapComponent_Upgradables(Map map) : MapComponent(map)
+// {
+//     private readonly List<CompUpgradable> allComps = [];
+
+//     public void Register(CompUpgradable comp) => allComps.Add(comp);
+//     public void Deregister(CompUpgradable comp) => allComps.Remove(comp);
+//     public IEnumerable<CompUpgradable> All() => allComps;
+// }
 
 // public class ITab_Upgrades : ITab
 // {
@@ -45,7 +56,7 @@
 //         DrawPasteButton(pasteRect);
 
 //         var listRect = new Rect(0f, 0f, WinSize.x, WinSize.y).ContractedBy(10f);
-//         mouseoverBill = SelComp.UpgradesWorkTable.BillStack.DoListing(listRect, CreateRecipeOptions, ref scrollPosition, ref viewHeight);
+//         mouseoverBill = SelComp.BillStack.DoListing(listRect, CreateRecipeOptions, ref scrollPosition, ref viewHeight);
 //     }
 
 //     private void DrawPasteButton(Rect rect)
@@ -54,10 +65,11 @@
 //         if (clip is null)
 //             return;
 
-//         bool canPaste = SelComp.parent.def.AllRecipes.Contains(clip.recipe)
+//         bool canPaste = SelComp.AllRecipes.Contains(clip.recipe)
 //                         && clip.recipe.AvailableNow
 //                         && clip.recipe.AvailableOnNow(SelComp.parent);
-//         bool limitReached = SelComp.UpgradesWorkTable.BillStack.Count >= MAX_BILLS;
+
+//         bool limitReached = SelComp.BillStack.Count >= MAX_BILLS;
 
 //         if (!canPaste || limitReached)
 //         {
@@ -87,7 +99,7 @@
 //     {
 //         var newBill = BillUtility.Clipboard.Clone();
 //         newBill.InitializeAfterClone();
-//         SelComp.UpgradesWorkTable.BillStack.AddBill(newBill);
+//         SelComp.BillStack.AddBill(newBill);
 //         SoundDefOf.Tick_Low.PlayOneShotOnCamera();
 //     }
 
@@ -97,19 +109,10 @@
 
 //         foreach (var recipe in SelComp.AllRecipes)
 //         {
-//             if (!recipe.AvailableNow || !recipe.AvailableOnNow(SelComp.UpgradesWorkTable))
+//             if (!recipe.AvailableNow || !recipe.AvailableOnNow(SelComp.parent))
 //                 continue;
 
 //             AddOption(options, recipe);
-
-//             foreach (var ideo in Faction.OfPlayer.ideos.AllIdeos)
-//             {
-//                 foreach (var style in ideo.cachedPossibleBuildings)
-//                 {
-//                     if (style.ThingDef == recipe.ProducedThingDef)
-//                         AddOption(options, recipe);
-//                 }
-//             }
 //         }
 
 //         if (!options.Any())
@@ -142,7 +145,7 @@
 //             return;
 
 //         var bill = recipe.MakeNewBill();
-//         SelComp.UpgradesWorkTable.billStack.AddBill(bill);
+//         SelComp.BillStack.AddBill(bill);
 
 //         if (recipe.conceptLearned != null)
 //             PlayerKnowledgeDatabase.KnowledgeDemonstrated(recipe.conceptLearned, KnowledgeAmount.Total);
@@ -179,45 +182,56 @@
 //     public CompProperties_Upgradable() => compClass = typeof(CompUpgradable);
 // }
 
-// public class CompUpgradable : ThingComp
+// [StaticConstructorOnStartup]
+// public class CompUpgradable : ThingComp, IBillGiver, IBillGiverWithTickAction
 // {
-//     private Building_UpgradesWorkTable _upgradesWorkTable;
-//     public Building_UpgradesWorkTable UpgradesWorkTable => _upgradesWorkTable;
 //     public List<RecipeDef> AllRecipes => Props.recipes;
 //     public CompProperties_Upgradable Props => (CompProperties_Upgradable)props;
 
+//     public Map Map => parent.Map;
+
+//     private BillStack _billStack;
+//     public BillStack BillStack => _billStack;
+//     public IntVec3 BillInteractionCell => GenAdj.CellsAdjacent8Way(parent).Where(x => x.Standable(Map)).FirstOrDefault();
+//     public IEnumerable<IntVec3> IngredientStackCells => GenAdj.CellsOccupiedBy(parent);
+//     public string LabelShort => parent.def.label;
+
+//     public CompUpgradable()
+//     {
+//         _billStack = new BillStack(this);
+//     }
+
+//     public virtual bool CurrentlyUsableForBills() => true;
+//     public virtual bool UsableForBillsAfterFueling() => true;
+//     public virtual void Notify_BillDeleted(Bill bill) { }
+//     public virtual void UsedThisTick() { }
 //     public override void PostExposeData()
 //     {
 //         base.PostExposeData();
 
-//         Scribe_References.Look(ref _upgradesWorkTable, "_upgradesWorkTable");
+//         Scribe_Deep.Look(ref _billStack, nameof(_billStack), this);
 //     }
 
 //     public override void PostSpawnSetup(bool respawningAfterLoad)
 //     {
 //         base.PostSpawnSetup(respawningAfterLoad);
 
-//         if (_upgradesWorkTable == null)
-//         {
-//             _upgradesWorkTable = ThingMaker.MakeThing(USHDefOf.USH_UpgradesWorkTable) as Building_UpgradesWorkTable;
-//             _upgradesWorkTable.HitPoints = _upgradesWorkTable.def.BaseMaxHitPoints;
-//             _upgradesWorkTable.GraphicOverride = parent.Graphic;
-//             _upgradesWorkTable.SetFaction(parent.Faction);
-//             GenSpawn.Spawn(_upgradesWorkTable, parent.Position, parent.Map, Rot4.North, WipeMode.FullRefund);
-//         }
-//         _upgradesWorkTable.Position = parent.Position;
+//         foreach (Bill item in _billStack)
+//             item.ValidateSettings();
+
+//         if (!USHDefOf.USH_DoBillsUpgrade.fixedBillGiverDefs.Contains(parent.def))
+//             USHDefOf.USH_DoBillsUpgrade.fixedBillGiverDefs.Add(parent.def);
+
+//         Log.Message(string.Join(", ", USHDefOf.USH_DoBillsUpgrade.fixedBillGiverDefs));
+
+//         Map.GetComponent<MapComponent_Upgradables>().Register(this);
 //     }
+
+//     public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
+//     {
+//         base.PostDeSpawn(map, mode);
+//         Map.GetComponent<MapComponent_Upgradables>().Deregister(this);
+//     }
+
 // }
 
-// public class Building_UpgradesWorkTable : Building_WorkTable
-// {
-//     public Graphic GraphicOverride { get; set; }
-//     public override Graphic Graphic
-//     {
-//         get
-//         {
-//             GraphicOverride.color = Color.clear;
-//             return GraphicOverride;
-//         }
-//     }
-// }
