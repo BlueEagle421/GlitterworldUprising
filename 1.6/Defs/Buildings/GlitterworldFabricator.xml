@@ -239,7 +239,6 @@
             <li Class="CompProperties_Facility">
                 <statOffsets>
                     <USH_GlittertechDuration>-0.02</USH_GlittertechDuration>
-                    <USH_GlittertechPowerStored>-0.05</USH_GlittertechPowerStored>
                     <WorkTableWorkSpeedFactor>0.1</WorkTableWorkSpeedFactor>
                 </statOffsets>
                 <maxSimultaneous>4</maxSimultaneous>
@@ -259,7 +258,7 @@
 
     <StatDef>
         <defName>USH_GlittertechPowerStored</defName>
-        <label>power need multiplier</label>
+        <label>stored power need multiplier</label>
         <description>This value represents the multiplier of stored power needed to start forming recipes.</description>
         <category>Building</category>
         <defaultBaseValue>1</defaultBaseValue>

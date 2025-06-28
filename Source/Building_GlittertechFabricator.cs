@@ -122,13 +122,15 @@ namespace USH_GE
         {
             var sb = new StringBuilder();
 
+            sb.AppendLine(USHDefOf.USH_GlittertechPowerStored.LabelCap + ": " + this.GetStatValue(USHDefOf.USH_GlittertechPowerStored).ToStringPercent());
+
             if (billStack.FirstShouldDoNow is Bill_Glittertech firstBill and not null
                 && firstBill.GlittertechExt is { powerNeeded: var powerNeeded }
                 && firstBill.recipe.products.FirstOrDefault()?.thingDef.label is string productLabel
                 && firstBill.State == FormingState.Gathering)
             {
                 bool hasStoredPower = HasStoredPower(powerNeeded);
-                string powerMultiplied = $"{powerNeeded * this.GetStatValue(USHDefOf.USH_GlittertechPowerStored)} W ({powerNeeded} W)";
+                float powerMultiplied = powerNeeded * this.GetStatValue(USHDefOf.USH_GlittertechPowerStored);
 
                 string key = hasStoredPower
                     ? "USH_GE_WillDraw"
