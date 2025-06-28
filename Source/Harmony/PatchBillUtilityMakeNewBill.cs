@@ -5,7 +5,7 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace GlitterworldUprising
+namespace GlittertechExpansion
 {
     [HarmonyPatch(typeof(BillUtility), nameof(BillUtility.MakeNewBill), [typeof(RecipeDef), typeof(Precept_ThingStyle)])]
     public static class BillUtility_MakeNewBill_Patch

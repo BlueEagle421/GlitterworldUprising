@@ -1,7 +1,7 @@
 using RimWorld;
 using Verse;
 
-namespace GlitterworldUprising
+namespace GlittertechExpansion
 {
     [DefOf]
     public static class USHDefOf

@@ -2,7 +2,7 @@ using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace GlitterworldUprising
+namespace GlittertechExpansion
 {
     [HarmonyPatch(typeof(Thing), nameof(Thing.PostApplyDamage))]
     public static class Patch_Thing_PostApplyDamage

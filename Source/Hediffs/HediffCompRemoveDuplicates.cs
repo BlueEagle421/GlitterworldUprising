@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Verse;
 
-namespace GlitterworldUprising
+namespace GlittertechExpansion
 {
     public class HediffCompProperties_RemoveDuplicates : HediffCompProperties
     {

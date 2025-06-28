@@ -7,7 +7,7 @@
 // using Verse;
 // using Verse.Sound;
 
-// namespace GlitterworldUprising;
+// namespace GlittertechExpansion;
 
 // public class MapComponent_Upgradables(Map map) : MapComponent(map)
 // {

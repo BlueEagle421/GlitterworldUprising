@@ -3,7 +3,7 @@ using RimWorld;
 using UnityEngine;
 using Verse;
 
-namespace GlitterworldUprising;
+namespace GlittertechExpansion;
 
 public class CompGlittertechTargeter : CompInteractableRocketswarmLauncher
 {

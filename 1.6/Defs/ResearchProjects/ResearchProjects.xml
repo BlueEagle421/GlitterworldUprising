@@ -2,8 +2,8 @@
 <Defs>
 
     <ResearchTabDef>
-        <defName>USH_GlitterworldUprising</defName>
-        <label>Glitterworld Uprising</label>
+        <defName>USH_GlittertechExpansion</defName>
+        <label>Glittertech Expansion</label>
         <generalTitle>Glitterworld research projects</generalTitle>
         <generalDescription>Study Glitterworld science and recreate the most advanced technologies known to humankind.</generalDescription>
     </ResearchTabDef>
@@ -13,7 +13,7 @@
         <requiredResearchFacilities>
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
-        <tab>USH_GlitterworldUprising</tab>
+        <tab>USH_GlittertechExpansion</tab>
         <techLevel>Ultra</techLevel>
     </ResearchProjectDef>
 

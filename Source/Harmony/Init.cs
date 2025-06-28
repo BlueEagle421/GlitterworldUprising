@@ -3,14 +3,14 @@ using HarmonyLib;
 using UnityEngine;
 using Verse;
 
-namespace GlitterworldUprising
+namespace GlittertechExpansion
 {
     [StaticConstructorOnStartup]
     public static class Start
     {
         static Start()
         {
-            Harmony harmony = new("GlitterworldUprising");
+            Harmony harmony = new("GlittertechExpansion");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
             Log.Message("The almighty power of Harmony has been initialized by the humble mod creator BlueEagle421".Colorize(Color.cyan));

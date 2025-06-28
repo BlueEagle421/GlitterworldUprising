@@ -66,7 +66,7 @@
                 <shortCircuitInRain>false</shortCircuitInRain>
                 <basePowerConsumption>30</basePowerConsumption>
             </li>
-            <li Class="GlitterworldUprising.CompProperties_NeuroclearConsole">
+            <li Class="GlittertechExpansion.CompProperties_NeuroclearConsole">
                 <fuelConsumption>2</fuelConsumption>
                 <hediffDefToRemove>Anesthetic</hediffDefToRemove>
                 <fleckDef>USH_DesensitizingCloud</fleckDef>

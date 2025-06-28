@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Verse;
 using Verse.Sound;
 
-namespace GlitterworldUprising
+namespace GlittertechExpansion
 {
     public class CompProperties_MountainRaiser : CompProperties
     {

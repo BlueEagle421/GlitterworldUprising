@@ -53,7 +53,7 @@
                 <basePowerConsumption>180</basePowerConsumption>
                 <shortCircuitInRain>false</shortCircuitInRain>
             </li>
-            <li Class="GlitterworldUprising.CompProperties_PassiveRes">
+            <li Class="GlittertechExpansion.CompProperties_PassiveRes">
                 <ticksPerResearch>250</ticksPerResearch>
                 <researchAmount>0.25</researchAmount>
             </li>

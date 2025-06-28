@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
-namespace GlitterworldUprising
+namespace GlittertechExpansion
 {
     public class SkinSaveComp : WorldComponent
     {
@@ -63,6 +63,6 @@ namespace GlitterworldUprising
             base.DoSettingsWindowContents(inRect);
         }
 
-        public override string SettingsCategory() => "Glitterworld Uprising";
+        public override string SettingsCategory() => "Glittertech Expansion";
     }
 }

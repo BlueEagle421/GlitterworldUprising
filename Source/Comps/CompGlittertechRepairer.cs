@@ -5,7 +5,7 @@ using UnityEngine;
 using Verse;
 using Verse.Noise;
 
-namespace GlitterworldUprising
+namespace GlittertechExpansion
 {
     public class MapComponent_RepairManager(Map map) : MapComponent(map)
     {
