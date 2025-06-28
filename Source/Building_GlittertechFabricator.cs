@@ -128,14 +128,15 @@ namespace USH_GE
                 && firstBill.State == FormingState.Gathering)
             {
                 bool hasStoredPower = HasStoredPower(powerNeeded);
+                string powerMultiplied = $"{powerNeeded * this.GetStatValue(USHDefOf.USH_GlittertechPowerStored)} W ({powerNeeded} W)";
 
                 string key = hasStoredPower
                     ? "USH_GE_WillDraw"
                     : "USH_GE_NoPowerStored";
 
                 var args = hasStoredPower
-                    ? new object[] { powerNeeded, productLabel }
-                    : [productLabel, powerNeeded];
+                    ? new object[] { powerMultiplied, productLabel }
+                    : [productLabel, powerMultiplied];
 
                 var color = hasStoredPower
                     ? Color.cyan
