@@ -18,7 +18,7 @@
                 <volume>(1.7,0.6,1.7)</volume>
             </shadowData>
         </graphicData>
-        <altitudeLayer>Building</altitudeLayer>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <stealable>false</stealable>
         <rotatable>false</rotatable>
         <size>(2,2)</size>
