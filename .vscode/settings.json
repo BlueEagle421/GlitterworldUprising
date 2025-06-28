@@ -5,6 +5,7 @@
         "datacore",
         "Flickable",
         "Gestator",
+        "Glitterbeam",
         "glittercore",
         "glittercores",
         "Glitterpanel",
@@ -32,6 +33,7 @@
         "Skilltrainer",
         "skilltrainers",
         "Smithing",
+        "targeter",
         "Ultratech"
     ]
 }

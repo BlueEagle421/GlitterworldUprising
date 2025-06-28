@@ -23,4 +23,8 @@
   <USH_GU_FormTimeTotal>Total forming time left: {0}</USH_GU_FormTimeTotal>
   <USH_GU_WaitingForFormer>Waiting for manual maintenance</USH_GU_WaitingForFormer>
 
+  <USH_CommandSetForBombardmentLabel>Use bombardment attack</USH_CommandSetForBombardmentLabel>
+  <USH_CommandSetForPowerBeamLabel>Use power beam attack</USH_CommandSetForPowerBeamLabel>
+  <USH_CommandSetForTargeterTypeDesc>Whether the targeter should use bombardment or power beam attack.</USH_CommandSetForTargeterTypeDesc>
+
 </LanguageData>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_GlittertechTargeter</defName>
+        <label>orbital targeter</label>
+        <description>.</description>
+        <thingClass>GlitterworldUprising.Building_GlittertechTargeterGun</thingClass>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <texPath>Things/Building/GlittertechTargeter</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4, 4)</drawSize>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+            <shadowData>
+                <volume>(1.7,0.6,1.7)</volume>
+            </shadowData>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <size>(2,2)</size>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+            <WorkToBuild>28000</WorkToBuild>
+            <Mass>8</Mass>
+            <Beauty>-20</Beauty>
+            <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Forbiddable" />
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>50</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Breakdownable" />
+            <li Class="CompProperties_Interactable">
+                <compClass>GlitterworldUprising.CompGlittertechTargeter</compClass>
+                <activeTicks>1</activeTicks>
+                <cooldownTicks>7500</cooldownTicks>
+                <ticksToActivate>60</ticksToActivate>
+                <jobString>activate</jobString>
+                <onCooldownString>cooling off</onCooldownString>
+                <cooldownFleck>FlashRed</cooldownFleck>
+                <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+                <cooldownFleckScale>0.7</cooldownFleckScale>
+                <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+                <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+                <targetingParameters>
+                    <canTargetBuildings>false</canTargetBuildings>
+                    <canTargetAnimals>false</canTargetAnimals>
+                    <canTargetMechs>false</canTargetMechs>
+                    <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+                </targetingParameters>
+            </li>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>Stun</li>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+        </comps>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.4</fillPercent>
+        <hasTooltip>true</hasTooltip>
+        <costList>
+            <Plasteel>120</Plasteel>
+            <Steel>250</Steel>
+            <ComponentSpacer>8</ComponentSpacer>
+            <USH_Glittercore>12</USH_Glittercore>
+        </costList>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <designationCategory>Security</designationCategory>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <building>
+            <combatPower>10</combatPower>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretGunDef>USH_Gun_RocketswarmLauncher</turretGunDef>
+            <turretTopDrawSize>2.2</turretTopDrawSize>
+            <turretBurstCooldownTime>0.1</turretBurstCooldownTime>
+            <playTargetAcquiredSound>false</playTargetAcquiredSound>
+            <turretBurstWarmupTime>0</turretBurstWarmupTime>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_NotUnderRoof</li>
+        </placeWorkers>
+        <designationHotKey>Misc2</designationHotKey>
+        <researchPrerequisites>
+            <li>RocketswarmLauncher</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>USH_Gun_RocketswarmLauncher</defName>
+        <label>rocketswarm tube</label>
+        <description>A rocketswarm tube of the type usually mounted on a rocketswarm launcher turret.</description>
+        <graphicData>
+            <texPath>Things/Building/GlittertechTargeter</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(0,0)</drawSize>
+        </graphicData>
+        <statBases>
+            <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>40</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Bombardment</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <useableInPocketMaps>false</useableInPocketMaps>
+                <warmupTime>3</warmupTime>
+                <ai_AvoidFriendlyFireRadius>23</ai_AvoidFriendlyFireRadius>
+                <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                <isMortar>true</isMortar>
+                <requireLineOfSight>false</requireLineOfSight>
+                <minRange>19.9</minRange>
+                <range>500</range>
+                <burstShotCount>1</burstShotCount>
+                <soundAiming>OrbitalTargeter_Aiming</soundAiming>
+                <soundCast>OrbitalTargeter_Fire</soundCast>
+                <onlyManualCast>true</onlyManualCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+            <li>
+                <verbClass>Verb_PowerBeam</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <useableInPocketMaps>false</useableInPocketMaps>
+                <warmupTime>3</warmupTime>
+                <ai_AvoidFriendlyFireRadius>15</ai_AvoidFriendlyFireRadius>
+                <isMortar>true</isMortar>
+                <requireLineOfSight>false</requireLineOfSight>
+                <minRange>19.9</minRange>
+                <range>500</range>
+                <burstShotCount>1</burstShotCount>
+                <soundAiming>OrbitalTargeter_Aiming</soundAiming>
+                <soundCast>OrbitalTargeter_Fire</soundCast>
+                <onlyManualCast>true</onlyManualCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+</Defs>
