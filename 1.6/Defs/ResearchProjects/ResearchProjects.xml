@@ -30,6 +30,18 @@
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
+        <defName>USH_OrbitalTargeterRes</defName>
+        <label>Orbital targeter</label>
+        <description>Build a powerful offensive weapon taking advantage of ancient satellites.</description>
+        <baseCost>6000</baseCost>
+        <prerequisites>
+            <li>USH_GlittertechFabrication</li>
+        </prerequisites>
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>0.7</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="GUProjectBase">
         <defName>USH_LightGlitterpanelsRes</defName>
         <label>Light glitterpanels</label>
         <description>Build light glitterpanels and link them to the glittertech fabricator.</description>
@@ -38,7 +50,19 @@
             <li>USH_GlittertechFabrication</li>
         </prerequisites>
         <researchViewX>1.00</researchViewX>
-        <researchViewY>1.35</researchViewY>
+        <researchViewY>1.4</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="GUProjectBase">
+        <defName>USH_GlittertechUtilitiesRes</defName>
+        <label>Glittertech utilities</label>
+        <description>Build advanced and useful glittertech utilities.</description>
+        <baseCost>2000</baseCost>
+        <prerequisites>
+            <li>USH_GlittertechFabrication</li>
+        </prerequisites>
+        <researchViewX>1</researchViewX>
+        <researchViewY>2.10</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
@@ -53,17 +77,6 @@
         <researchViewY>2.80</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_GlittertechUtilitiesRes</defName>
-        <label>Glittertech utilities</label>
-        <description>Build advanced and useful glittertech utilities.</description>
-        <baseCost>2000</baseCost>
-        <prerequisites>
-            <li>USH_GlittertechFabrication</li>
-        </prerequisites>
-        <researchViewX>1</researchViewX>
-        <researchViewY>2.10</researchViewY>
-    </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
         <defName>USH_GlittertechAlchemyRes</defName>

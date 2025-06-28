@@ -92,7 +92,7 @@
         </placeWorkers>
         <designationHotKey>Misc2</designationHotKey>
         <researchPrerequisites>
-            <li>RocketswarmLauncher</li>
+            <li>USH_OrbitalTargeterRes</li>
         </researchPrerequisites>
     </ThingDef>
 
