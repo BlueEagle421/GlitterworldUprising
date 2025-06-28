@@ -2,7 +2,6 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using RimWorld;
-using System.Collections.Generic;
 using Verse.AI;
 
 namespace GlitterworldUprising
@@ -12,43 +11,6 @@ namespace GlitterworldUprising
         public int powerNeeded;
         public int fuelNeeded;
         public float analyzerOffsetY = 0.7f;
-    }
-
-    public class Dialog_GlittertechBillConfig : Dialog_BillConfig
-    {
-        private static float formingInfoHeight;
-
-        public Dialog_GlittertechBillConfig(Bill_Glittertech bill, IntVec3 billGiverPos)
-            : base(bill, billGiverPos)
-        {
-
-        }
-
-        protected override void DoIngredientConfigPane(float x, ref float y, float width, float height)
-        {
-            float y2 = y;
-
-            base.DoIngredientConfigPane(x, ref y2, width, height - formingInfoHeight);
-
-            if (!(bill.billStack.billGiver is Building_GlittertechFabricator analyzer) || analyzer.ActiveBill != bill)
-                return;
-
-            Rect rect = new(x, y2, width, 9999f);
-
-            Listing_Standard listing_Standard = new();
-            listing_Standard.Begin(rect);
-
-            StringBuilder stringBuilder = new();
-            listing_Standard.Label("FormerIngredients".Translate() + ":");
-            analyzer.ActiveBill.AppendCurrentIngredientCount(stringBuilder);
-            listing_Standard.Label(stringBuilder.ToString());
-
-            Bill_Mech bill_Mech = (Bill_Mech)bill;
-            listing_Standard.Label(string.Concat("GestationCyclesCompleted".Translate() + ": ", bill_Mech.GestationCyclesCompleted.ToString(), " / ", bill_Mech.recipe.gestationCycles.ToString()));
-            listing_Standard.Gap();
-            listing_Standard.End();
-            formingInfoHeight = listing_Standard.CurHeight;
-        }
     }
 
     public class Bill_Glittertech : Bill_Autonomous
@@ -81,18 +43,13 @@ namespace GlitterworldUprising
                         break;
 
                     case FormingState.Preparing:
-                        if (BoundPawn != null)
-                            return "Worker".Translate() + ": " + BoundPawn.LabelShortCap;
-                        break;
+                        return "USH_GU_WaitingForMaintenance".Translate();
 
                     case FormingState.Forming:
-                        return "Gestating".Translate();
+                        return "USH_GU_Forming".Translate();
 
                     case FormingState.Formed:
-                        if (BoundPawn != null)
-                            return "WaitingFor".Translate() + ": " + BoundPawn.LabelShortCap;
-
-                        break;
+                        return "USH_GU_WaitingForCompletion".Translate();
                 }
                 return null;
             }
@@ -103,11 +60,6 @@ namespace GlitterworldUprising
         public Bill_Glittertech(RecipeDef recipe, Precept_ThingStyle precept = null) : base(recipe, precept)
         {
             GlittertechExt = recipe.GetModExtension<ModExtension_UseGlittertechBill>();
-        }
-
-        protected override Window GetBillDialog()
-        {
-            return new Dialog_GlittertechBillConfig(this, ((Thing)billStack.billGiver).Position);
         }
 
         public override void Notify_DoBillStarted(Pawn billDoer)
@@ -180,7 +132,7 @@ namespace GlitterworldUprising
                 sb.AppendLine("USH_GU_CurrentFormingCycle".Translate() + ": " + ((int)(formingTicks / FormingSpeedMultiplier())).ToStringTicksToPeriod(true, false, true, true, false));
 
             if (State is FormingState.Preparing)
-                sb.AppendLine("USH_GU_WaitingForFormer".Translate());
+                sb.AppendLine("USH_GU_WaitingForMaintenance".Translate());
 
             sb.AppendLine("USH_GU_RemainingFormingCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
         }

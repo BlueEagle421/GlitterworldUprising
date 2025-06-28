@@ -21,7 +21,10 @@
   <USH_GU_NoPowerStoredShort>Missing {0} W stored power</USH_GU_NoPowerStoredShort>
   <USH_GU_NoPowerStored>Can't start forming {0}: Needs {1} W stored power</USH_GU_NoPowerStored>
   <USH_GU_FormTimeTotal>Total forming time left: {0}</USH_GU_FormTimeTotal>
-  <USH_GU_WaitingForFormer>Waiting for manual maintenance</USH_GU_WaitingForFormer>
+
+  <USH_GU_WaitingForMaintenance>Waiting for manual maintenance</USH_GU_WaitingForMaintenance>
+  <USH_GU_WaitingForCompletion>Waiting for manual completion</USH_GU_WaitingForCompletion>
+  <USH_GU_Forming>Forming</USH_GU_Forming>
 
   <USH_CommandSetForBombardmentLabel>Use bombardment attack</USH_CommandSetForBombardmentLabel>
   <USH_CommandSetForPowerBeamLabel>Use power beam attack</USH_CommandSetForPowerBeamLabel>
