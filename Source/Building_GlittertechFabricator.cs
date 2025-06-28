@@ -54,7 +54,6 @@ namespace USH_GE
         }
 
         private EffecterHandler _electricEffecterHandler;
-
         private const float Y_OFFSET = .018292684f;
         private const float FORMING_ALPHA_MULTIPLIER = .5f;
         private const float FADE_DURATION_TICKS = 300f;
@@ -130,7 +129,7 @@ namespace USH_GE
                 && firstBill.State == FormingState.Gathering)
             {
                 bool hasStoredPower = HasStoredPower(powerNeeded);
-                float powerMultiplied = powerNeeded * this.GetStatValue(USHDefOf.USH_GlittertechPowerStored);
+                float powerMultiplied = PowerNeededWithStat(powerNeeded);
 
                 string key = hasStoredPower
                     ? "USH_GE_WillDraw"
@@ -240,7 +239,7 @@ namespace USH_GE
                 return true;
 
             if (considerStats)
-                powerNeeded *= this.GetStatValue(USHDefOf.USH_GlittertechPowerStored);
+                powerNeeded = PowerNeededWithStat(powerNeeded);
 
             return PowerTrader.PowerNet.CurrentStoredEnergy() >= powerNeeded;
         }
@@ -260,6 +259,16 @@ namespace USH_GE
                     break;
                 }
             }
+        }
+
+        public float PowerNeededWithStat(Bill_Glittertech bill)
+        {
+            return PowerNeededWithStat(bill.GlittertechExt.powerNeeded);
+        }
+
+        public float PowerNeededWithStat(float initialPowerNeeded)
+        {
+            return initialPowerNeeded * this.GetStatValue(USHDefOf.USH_GlittertechPowerStored);
         }
     }
 }

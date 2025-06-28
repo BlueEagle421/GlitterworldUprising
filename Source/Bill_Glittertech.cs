@@ -116,7 +116,7 @@ namespace USH_GE
         {
             if (State == FormingState.Gathering && !Fabricator.HasStoredPower(GlittertechExt.powerNeeded))
             {
-                JobFailReason.Is("USH_GE_NoPowerStoredShort".Translate(GlittertechExt.powerNeeded), null);
+                JobFailReason.Is("USH_GE_NoPowerStoredShort".Translate(Fabricator.PowerNeededWithStat(this)), null);
                 return false;
             }
 
