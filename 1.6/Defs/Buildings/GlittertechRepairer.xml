@@ -69,6 +69,12 @@
                 <glowRadius>4</glowRadius>
                 <glowColor>(255, 255, 255, 0)</glowColor>
             </li>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>Stun</li>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
         </comps>
         <designationHotKey>Misc3</designationHotKey>
         <uiIconScale>0.45</uiIconScale>

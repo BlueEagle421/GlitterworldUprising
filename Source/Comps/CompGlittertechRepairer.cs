@@ -66,7 +66,7 @@ namespace GlitterworldUprising
         public CompProperties_GlittertechRepairer Props => (CompProperties_GlittertechRepairer)props;
         private MapComponent_RepairManager _manager => parent.Map.GetComponent<MapComponent_RepairManager>();
 
-        private bool IsRepairing => _currentlyRepairing != null && PowerTrader.PowerOn;
+        private bool IsRepairing => _currentlyRepairing != null && CanRepair();
         private Thing _currentlyRepairing;
         private Effecter _repairEffecter;
         private int _repairTickCounter;
@@ -91,6 +91,17 @@ namespace GlitterworldUprising
                 _powerTrader ??= parent.TryGetComp<CompPowerTrader>();
 
                 return _powerTrader;
+            }
+        }
+
+        private CompStunnable _stunnable;
+        public CompStunnable Stunnable
+        {
+            get
+            {
+                _stunnable ??= parent.TryGetComp<CompStunnable>();
+
+                return _stunnable;
             }
         }
 
@@ -205,7 +216,7 @@ namespace GlitterworldUprising
 
         private void RepairTick()
         {
-            if (!PowerTrader.PowerOn)
+            if (!CanRepair())
             {
                 RepairStopped();
                 return;
@@ -246,7 +257,7 @@ namespace GlitterworldUprising
 
         private bool TryToStartRepairing()
         {
-            if (!PowerTrader.PowerOn)
+            if (!CanRepair())
                 return false;
 
             if (_toRepair.Count == 0)
@@ -316,6 +327,17 @@ namespace GlitterworldUprising
             _colorTransitionTicks = durationTicks;
             _colorTicksElapsed = 0;
             _isFading = true;
+        }
+
+        private AcceptanceReport CanRepair()
+        {
+            if (!PowerTrader.PowerOn)
+                return false;
+
+            if (Stunnable.StunHandler.Stunned)
+                return false;
+
+            return true;
         }
 
 
