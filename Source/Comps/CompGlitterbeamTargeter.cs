@@ -56,14 +56,14 @@ public class Building_GlittertechTargeterGun : Building_TurretRocket
 
 public class Command_SetTargetType : Command
 {
-    private CompGlittertechTargeter targeter;
+    private readonly CompGlittertechTargeter _targeter;
 
     private static readonly Texture2D BombardmentTex = ContentFinder<Texture2D>.Get("Things/Item/Equipment/WeaponSpecial/OrbitalTargeterBombardment/OrbitalTargeterBombardment");
     private static readonly Texture2D PowerBeamTex = ContentFinder<Texture2D>.Get("Things/Item/Equipment/WeaponSpecial/OrbitalTargeterPowerBeam/OrbitalTargeterPowerBeam");
 
     public Command_SetTargetType(CompGlittertechTargeter targeter)
     {
-        this.targeter = targeter;
+        _targeter = targeter;
         switch (targeter.TargeterType)
         {
             case TargeterType.Bombardment:
@@ -88,11 +88,11 @@ public class Command_SetTargetType : Command
         [
             new FloatMenuOption("USH_CommandSetForBombardmentLabel".Translate(), delegate
             {
-                targeter.SetTargeterType(TargeterType.Bombardment);
+                _targeter.SetTargeterType(TargeterType.Bombardment);
             }, BombardmentTex, Color.white),
             new FloatMenuOption("USH_CommandSetForPowerBeamLabel".Translate(), delegate
             {
-                targeter.SetTargeterType(TargeterType.PowerBeam);
+                _targeter.SetTargeterType(TargeterType.PowerBeam);
             }, PowerBeamTex, Color.white),
         ];
 
