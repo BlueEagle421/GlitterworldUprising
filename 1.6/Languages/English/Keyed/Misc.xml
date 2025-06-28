@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-  <USH_GU_SkinSettingExplanation>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.
-    Note that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GU_SkinSettingExplanation>
+  <USH_GE_SkinSettingExplanation>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.
+    Note that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GE_SkinSettingExplanation>
 
-  <USH_GU_SkinSettingTooltip>If enabled the skin color will not get changed after operation.</USH_GU_SkinSettingTooltip>
-  <USH_GU_SkinSettingLabel>Disable skin replacements changing actual pawn's skin color</USH_GU_SkinSettingLabel>
+  <USH_GE_SkinSettingTooltip>If enabled the skin color will not get changed after operation.</USH_GE_SkinSettingTooltip>
+  <USH_GE_SkinSettingLabel>Disable skin replacements changing actual pawn's skin color</USH_GE_SkinSettingLabel>
 
-  <USH_GU_Reconstructing>Reconstructing ends in: {0} s</USH_GU_Reconstructing>
+  <USH_GE_Reconstructing>Reconstructing ends in: {0} s</USH_GE_Reconstructing>
 
-  <USH_GU_ResPerformed>Research performed: {0}</USH_GU_ResPerformed>
+  <USH_GE_ResPerformed>Research performed: {0}</USH_GE_ResPerformed>
 
-  <USH_GU_DesensitizeCost>Medicine needed per use: {0}</USH_GU_DesensitizeCost>
+  <USH_GE_DesensitizeCost>Medicine needed per use: {0}</USH_GE_DesensitizeCost>
 
-  <USH_GU_CurrentFormingCycle>Current forming cycle</USH_GU_CurrentFormingCycle>
-  <USH_GU_RemainingFormingCycles>Forming cycles remaining</USH_GU_RemainingFormingCycles>
-  <USH_GU_FormingCycles>Forming cycles</USH_GU_FormingCycles>
+  <USH_GE_CurrentFormingCycle>Current forming cycle</USH_GE_CurrentFormingCycle>
+  <USH_GE_RemainingFormingCycles>Forming cycles remaining</USH_GE_RemainingFormingCycles>
+  <USH_GE_FormingCycles>Forming cycles</USH_GE_FormingCycles>
 
-  <USH_GU_WillDraw>Will draw {0} W stored power to start forming {1}</USH_GU_WillDraw>
-  <USH_GU_NoPowerStoredShort>Missing {0} W stored power</USH_GU_NoPowerStoredShort>
-  <USH_GU_NoPowerStored>Can't start forming {0}: Needs {1} W stored power</USH_GU_NoPowerStored>
-  <USH_GU_FormTimeTotal>Total forming time left: {0}</USH_GU_FormTimeTotal>
+  <USH_GE_WillDraw>Will draw {0} W stored power to start forming {1}</USH_GE_WillDraw>
+  <USH_GE_NoPowerStoredShort>Missing {0} W stored power</USH_GE_NoPowerStoredShort>
+  <USH_GE_NoPowerStored>Can't start forming {0}: Needs {1} W stored power</USH_GE_NoPowerStored>
+  <USH_GE_FormTimeTotal>Total forming time left: {0}</USH_GE_FormTimeTotal>
 
-  <USH_GU_WaitingForMaintenance>Waiting for manual maintenance</USH_GU_WaitingForMaintenance>
-  <USH_GU_WaitingForCompletion>Waiting for manual completion</USH_GU_WaitingForCompletion>
-  <USH_GU_Forming>Forming</USH_GU_Forming>
+  <USH_GE_WaitingForMaintenance>Waiting for manual maintenance</USH_GE_WaitingForMaintenance>
+  <USH_GE_WaitingForCompletion>Waiting for manual completion</USH_GE_WaitingForCompletion>
+  <USH_GE_Forming>Forming</USH_GE_Forming>
 
-  <USH_CommandSetForBombardmentLabel>Use bombardment attack</USH_CommandSetForBombardmentLabel>
-  <USH_CommandSetForPowerBeamLabel>Use power beam attack</USH_CommandSetForPowerBeamLabel>
-  <USH_CommandSetForTargeterTypeDesc>Whether the targeter should use bombardment or power beam attack.</USH_CommandSetForTargeterTypeDesc>
+  <USH_GE_CommandSetForBombardmentLabel>Use bombardment attack</USH_GE_CommandSetForBombardmentLabel>
+  <USH_GE_CommandSetForPowerBeamLabel>Use power beam attack</USH_GE_CommandSetForPowerBeamLabel>
+  <USH_GE_CommandSetForTargeterTypeDesc>Whether the targeter should use bombardment or power beam attack.</USH_GE_CommandSetForTargeterTypeDesc>
 
 </LanguageData>

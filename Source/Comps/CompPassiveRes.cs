@@ -101,6 +101,6 @@ namespace USH_GE
             return true;
         }
 
-        public override string CompInspectStringExtra() => "USH_GU_ResPerformed".Translate(_researchPerformed.ToString());
+        public override string CompInspectStringExtra() => "USH_GE_ResPerformed".Translate(_researchPerformed.ToString());
     }
 }

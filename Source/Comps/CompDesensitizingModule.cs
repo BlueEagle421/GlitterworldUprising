@@ -95,6 +95,6 @@ namespace USH_GE
             return base.CanInteract(activateBy);
         }
 
-        public override string CompInspectStringExtra() => "USH_GU_DesensitizeCost".Translate(ModuleProps.fuelConsumption);
+        public override string CompInspectStringExtra() => "USH_GE_DesensitizeCost".Translate(ModuleProps.fuelConsumption);
     }
 }

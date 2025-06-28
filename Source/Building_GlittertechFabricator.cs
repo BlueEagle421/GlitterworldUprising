@@ -130,8 +130,8 @@ namespace USH_GE
                 bool hasStoredPower = HasStoredPower(powerNeeded);
 
                 string key = hasStoredPower
-                    ? "USH_GU_WillDraw"
-                    : "USH_GU_NoPowerStored";
+                    ? "USH_GE_WillDraw"
+                    : "USH_GE_NoPowerStored";
 
                 var args = hasStoredPower
                     ? new object[] { powerNeeded, productLabel }
@@ -149,7 +149,7 @@ namespace USH_GE
             if (GlitterBill is not null && GlitterBill.State is not (FormingState.Gathering or FormingState.Formed))
             {
                 var totalPeriod = GetTotalTimeForActiveBill().ToStringTicksToPeriod();
-                sb.AppendLine("USH_GU_FormTimeTotal".Translate(totalPeriod));
+                sb.AppendLine("USH_GE_FormTimeTotal".Translate(totalPeriod));
             }
 
             return sb.ToString().TrimEnd();

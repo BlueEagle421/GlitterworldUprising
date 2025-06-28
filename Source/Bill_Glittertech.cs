@@ -43,13 +43,13 @@ namespace USH_GE
                         break;
 
                     case FormingState.Preparing:
-                        return "USH_GU_WaitingForMaintenance".Translate();
+                        return "USH_GE_WaitingForMaintenance".Translate();
 
                     case FormingState.Forming:
-                        return "USH_GU_Forming".Translate();
+                        return "USH_GE_Forming".Translate();
 
                     case FormingState.Formed:
-                        return "USH_GU_WaitingForCompletion".Translate();
+                        return "USH_GE_WaitingForCompletion".Translate();
                 }
                 return null;
             }
@@ -116,7 +116,7 @@ namespace USH_GE
         {
             if (State == FormingState.Gathering && !Fabricator.HasStoredPower(GlittertechExt.powerNeeded))
             {
-                JobFailReason.Is("USH_GU_NoPowerStoredShort".Translate(GlittertechExt.powerNeeded), null);
+                JobFailReason.Is("USH_GE_NoPowerStoredShort".Translate(GlittertechExt.powerNeeded), null);
                 return false;
             }
 
@@ -129,12 +129,12 @@ namespace USH_GE
                 return;
 
             if (State is FormingState.Forming)
-                sb.AppendLine("USH_GU_CurrentFormingCycle".Translate() + ": " + ((int)(formingTicks / FormingSpeedMultiplier())).ToStringTicksToPeriod(true, false, true, true, false));
+                sb.AppendLine("USH_GE_CurrentFormingCycle".Translate() + ": " + ((int)(formingTicks / FormingSpeedMultiplier())).ToStringTicksToPeriod(true, false, true, true, false));
 
             if (State is FormingState.Preparing)
-                sb.AppendLine("USH_GU_WaitingForMaintenance".Translate());
+                sb.AppendLine("USH_GE_WaitingForMaintenance".Translate());
 
-            sb.AppendLine("USH_GU_RemainingFormingCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
+            sb.AppendLine("USH_GE_RemainingFormingCycles".Translate() + ": " + (recipe.gestationCycles - GestationCyclesCompleted).ToString() + " (" + "OfLower".Translate() + " " + recipe.gestationCycles.ToString() + ")");
         }
 
         public override void ExposeData()

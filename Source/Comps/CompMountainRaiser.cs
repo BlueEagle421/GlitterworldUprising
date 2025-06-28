@@ -69,7 +69,7 @@ namespace USH_GE
 
         private void PlaySoundEffect() => Props.soundDef.PlayOneShot(new TargetInfo(parent.Position, parent.Map, false));
 
-        public override string CompInspectStringExtra() => "USH_GU_Reconstructing".Translate(SecondsLeft());
+        public override string CompInspectStringExtra() => "USH_GE_Reconstructing".Translate(SecondsLeft());
 
         private string SecondsLeft() => ((Props.ticksToPlace - _ticksPassed) / 60f).ToString("0.00");
     }

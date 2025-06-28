@@ -68,18 +68,18 @@ public class Command_SetTargetType : Command
         switch (targeter.TargeterType)
         {
             case TargeterType.Bombardment:
-                defaultLabel = "USH_CommandSetForBombardmentLabel".Translate();
+                defaultLabel = "USH_GE_CommandSetForBombardmentLabel".Translate();
                 icon = BombardmentTex;
                 break;
             case TargeterType.PowerBeam:
-                defaultLabel = "USH_CommandSetForPowerBeamLabel".Translate();
+                defaultLabel = "USH_GE_CommandSetForPowerBeamLabel".Translate();
                 icon = PowerBeamTex;
                 break;
             default:
                 Log.Error($"Unknown target type selected for {nameof(CompGlittertechTargeter)}: {targeter.TargeterType}");
                 break;
         }
-        defaultDesc = "USH_CommandSetForTargeterTypeDesc".Translate();
+        defaultDesc = "USH_GE_CommandSetForTargeterTypeDesc".Translate();
     }
 
     public override void ProcessInput(Event ev)
@@ -87,11 +87,11 @@ public class Command_SetTargetType : Command
         base.ProcessInput(ev);
         List<FloatMenuOption> list =
         [
-            new FloatMenuOption("USH_CommandSetForBombardmentLabel".Translate(), delegate
+            new FloatMenuOption("USH_GE_CommandSetForBombardmentLabel".Translate(), delegate
             {
                 _targeter.SetTargeterType(TargeterType.Bombardment);
             }, BombardmentTex, Color.white),
-            new FloatMenuOption("USH_CommandSetForPowerBeamLabel".Translate(), delegate
+            new FloatMenuOption("USH_GE_CommandSetForPowerBeamLabel".Translate(), delegate
             {
                 _targeter.SetTargeterType(TargeterType.PowerBeam);
             }, PowerBeamTex, Color.white),

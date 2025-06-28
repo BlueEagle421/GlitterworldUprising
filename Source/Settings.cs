@@ -57,8 +57,8 @@ namespace USH_GE
         {
             Listing_Standard listingStandard = new();
             listingStandard.Begin(inRect);
-            listingStandard.CheckboxLabeled("USH_GU_SkinSettingLabel".Translate(), ref _settings.ShouldChangeColor, "USH_GU_SkinSettingTooltip".Translate());
-            listingStandard.Label("USH_GU_SkinSettingExplanation".Translate());
+            listingStandard.CheckboxLabeled("USH_GE_SkinSettingLabel".Translate(), ref _settings.ShouldChangeColor, "USH_GE_SkinSettingTooltip".Translate());
+            listingStandard.Label("USH_GE_SkinSettingExplanation".Translate());
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
         }
