@@ -38,8 +38,9 @@
         <costList>
             <Steel>60</Steel>
             <Silver>80</Silver>
-            <ComponentSpacer>3</ComponentSpacer>
-            <USH_Glittercore>7</USH_Glittercore>
+            <Neutroamine>60</Neutroamine>
+            <ComponentSpacer>1</ComponentSpacer>
+            <USH_Glittercore>4</USH_Glittercore>
         </costList>
         <thingCategories>
             <li>BuildingsMisc</li>
