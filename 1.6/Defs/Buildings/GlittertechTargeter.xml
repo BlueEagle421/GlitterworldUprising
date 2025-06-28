@@ -26,7 +26,7 @@
             <MaxHitPoints>400</MaxHitPoints>
             <Flammability>0.7</Flammability>
             <WorkToBuild>28000</WorkToBuild>
-            <Mass>8</Mass>
+            <Mass>50</Mass>
             <Beauty>-20</Beauty>
             <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
         </statBases>
@@ -42,7 +42,7 @@
             <li Class="CompProperties_Interactable">
                 <compClass>GlitterworldUprising.CompGlittertechTargeter</compClass>
                 <activeTicks>1</activeTicks>
-                <cooldownTicks>7500</cooldownTicks>
+                <cooldownTicks>720000</cooldownTicks> <!-- 12 days -->
                 <ticksToActivate>60</ticksToActivate>
                 <jobString>activate</jobString>
                 <onCooldownString>cooling off</onCooldownString>
@@ -81,8 +81,8 @@
         <building>
             <combatPower>10</combatPower>
             <ai_combatDangerous>true</ai_combatDangerous>
-            <turretGunDef>USH_Gun_RocketswarmLauncher</turretGunDef>
-            <turretTopDrawSize>2.2</turretTopDrawSize>
+            <turretGunDef>USH_TargeterDish</turretGunDef>
+            <turretTopDrawSize>0</turretTopDrawSize>
             <turretBurstCooldownTime>0.1</turretBurstCooldownTime>
             <playTargetAcquiredSound>false</playTargetAcquiredSound>
             <turretBurstWarmupTime>0</turretBurstWarmupTime>
@@ -98,8 +98,8 @@
 
 
     <ThingDef ParentName="BaseWeaponTurret">
-        <defName>USH_Gun_RocketswarmLauncher</defName>
-        <label>rocketswarm tube</label>
+        <defName>USH_TargeterDish</defName>
+        <label>orbital targeter dish</label>
         <description>A rocketswarm tube of the type usually mounted on a rocketswarm launcher turret.</description>
         <graphicData>
             <texPath>Things/Building/GlittertechTargeter</texPath>
@@ -122,7 +122,6 @@
                 <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
                 <isMortar>true</isMortar>
                 <requireLineOfSight>false</requireLineOfSight>
-                <minRange>19.9</minRange>
                 <range>500</range>
                 <burstShotCount>1</burstShotCount>
                 <soundAiming>OrbitalTargeter_Aiming</soundAiming>
@@ -140,7 +139,6 @@
                 <ai_AvoidFriendlyFireRadius>15</ai_AvoidFriendlyFireRadius>
                 <isMortar>true</isMortar>
                 <requireLineOfSight>false</requireLineOfSight>
-                <minRange>19.9</minRange>
                 <range>500</range>
                 <burstShotCount>1</burstShotCount>
                 <soundAiming>OrbitalTargeter_Aiming</soundAiming>
