@@ -1,31 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <ThingDef ParentName="UnfinishedBase">
-    <defName>USH_UnfinishedSkilltrainer</defName>
-    <label>unfinished skilltrainer</label>
-    <description>An unfinished skilltrainer.</description>
-    <statBases>
-      <Flammability>0.5</Flammability>
-    </statBases>
-    <graphicData>
-      <texPath>Things/Item/UnfinishedSkilltrainer</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-    </graphicData>
-    <stuffCategories Inherit="false" />
-  </ThingDef>
+  <ThingDef Name="USH_SkilltrainerRecipeBase" ParentName="USH_BaseGlittertechForming" Abstract="True">
+    <gestationCycles>4</gestationCycles>
+    <formingTicks>30000</formingTicks>
+    <gestationCycles>3</gestationCycles>
+    <modExtensions>
+      <li Class="USH_GE.ModExtension_UseGlittertechBill">
+        <powerNeeded>12000</powerNeeded>
+      </li>
+    </modExtensions>
 
-  <ThingDef Name="USH_SkilltrainerRecipeBase" Abstract="True">
-    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-    <effectWorking>Cook</effectWorking>
-    <soundWorking>Recipe_Machining</soundWorking>
-    <workAmount>42000</workAmount>
-    <skillRequirements>
-      <Intellectual>12</Intellectual>
-      <Crafting>5</Crafting>
-    </skillRequirements>
-    <workSkill>Crafting</workSkill>
-    <unfinishedThingDef>USH_UnfinishedSkilltrainer</unfinishedThingDef>
     <ingredients>
       <li>
         <filter>
@@ -33,7 +18,7 @@
             <li>Silver</li>
           </thingDefs>
         </filter>
-        <count>8</count>
+        <count>60</count>
       </li>
       <li>
         <filter>
@@ -57,17 +42,9 @@
             <li>USH_Glittercore</li>
           </thingDefs>
         </filter>
-        <count>8</count>
+        <count>5</count>
       </li>
     </ingredients>
-    <fixedIngredientFilter>
-      <thingDefs>
-        <li>Silver</li>
-        <li>ComponentSpacer</li>
-        <li>MedicineUltratech</li>
-        <li>USH_Glittercore</li>
-      </thingDefs>
-    </fixedIngredientFilter>
   </ThingDef>
 
 

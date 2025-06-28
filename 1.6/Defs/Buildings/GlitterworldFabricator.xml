@@ -65,6 +65,19 @@
 
             <li>USH_FormShimmertalk</li>
             <li>USH_FormAddictionRemover</li>
+
+            <li>USH_Make_Neurotrainer_Shooting</li>
+            <li>USH_Make_Neurotrainer_Melee</li>
+            <li>USH_Make_Neurotrainer_Construction</li>
+            <li>USH_Make_Neurotrainer_Mining</li>
+            <li>USH_Make_Neurotrainer_Cooking</li>
+            <li>USH_Make_Neurotrainer_Plants</li>
+            <li>USH_Make_Neurotrainer_Animals</li>
+            <li>USH_Make_Neurotrainer_Crafting</li>
+            <li>USH_Make_Neurotrainer_Artistic</li>
+            <li>USH_Make_Neurotrainer_Medicine</li>
+            <li>USH_Make_Neurotrainer_Social</li>
+            <li>USH_Make_Neurotrainer_Intellectual</li>
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>
