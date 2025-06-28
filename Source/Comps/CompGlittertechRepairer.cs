@@ -146,7 +146,8 @@ namespace USH_GE
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
             base.PostDestroy(mode, previousMap);
-            _manager.Unregister(this);
+
+            previousMap.GetComponent<MapComponent_RepairManager>().Unregister(this);
         }
 
         private void RebuildAll()
@@ -229,6 +230,13 @@ namespace USH_GE
 
             if (_currentlyRepairing == null)
                 return;
+
+            if (_currentlyRepairing.Destroyed)
+            {
+                _toRepair.Remove(_currentlyRepairing);
+                TryToStartRepairing();
+                return;
+            }
 
             _repairTickCounter = 0;
 

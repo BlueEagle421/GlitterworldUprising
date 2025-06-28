@@ -9,8 +9,19 @@ namespace USH_GE
     {
         public static void Postfix(Thing __instance)
         {
-            if (__instance != null && __instance is Building b && b.Faction == Faction.OfPlayer)
-                b.Map.GetComponent<MapComponent_RepairManager>().NotifyDamaged(b);
+            if (__instance == null)
+                return;
+
+            if (__instance is not Building b)
+                return;
+
+            if (b.Faction == null)
+                return;
+
+            if (b.Faction != Faction.OfPlayer)
+                return;
+
+            b.Map?.GetComponent<MapComponent_RepairManager>().NotifyDamaged(b);
         }
     }
 }
