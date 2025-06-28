@@ -3,8 +3,8 @@
 
   <ThingDef Name="USH_SkilltrainerRecipeBase" ParentName="USH_BaseGlittertechForming" Abstract="True">
     <gestationCycles>4</gestationCycles>
-    <formingTicks>30000</formingTicks>
-    <gestationCycles>3</gestationCycles>
+    <formingTicks>20000</formingTicks>
+    <gestationCycles>6</gestationCycles>
     <modExtensions>
       <li Class="USH_GE.ModExtension_UseGlittertechBill">
         <powerNeeded>12000</powerNeeded>
@@ -18,7 +18,7 @@
             <li>Silver</li>
           </thingDefs>
         </filter>
-        <count>60</count>
+        <count>6</count>
       </li>
       <li>
         <filter>
