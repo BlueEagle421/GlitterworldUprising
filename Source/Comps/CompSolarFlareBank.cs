@@ -1,21 +1,23 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using UnityEngine;
 using Verse;
-using Verse.Sound;
 
 namespace USH_GE
 {
     public class MapComponent_SolarFlareBank(Map map) : MapComponent(map)
     {
         private readonly HashSet<CompSolarFlareBank> _solarBanks = [];
-        public HashSet<CompSolarFlareBank> AllSolarBanks => _solarBanks;
+        public List<CompSolarFlareBank> AllAvailableSolarBanks => [.. _solarBanks.Where(x => x.CanInterceptReport())];
         public void Register(CompSolarFlareBank comp) => _solarBanks.Add(comp);
         public void Unregister(CompSolarFlareBank comp) => _solarBanks.Remove(comp);
     }
 
     public class CompProperties_SolarFlareBank : CompProperties_Power
     {
+        public int fuelConsumption = 1;
         public int dischargeTicks = 60000 * 15; // 1 day * 10
         public CompProperties_SolarFlareBank() => compClass = typeof(CompSolarFlareBank);
     }
@@ -29,6 +31,7 @@ namespace USH_GE
         private static readonly Material PowerPlantSolarBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new(0.5f, 0.475f, 0.1f));
         private static readonly Material PowerPlantSolarBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new(0.15f, 0.15f, 0.15f));
 
+        private CompRefuelable _refuelableComp;
         private bool _isDischarging;
         private int _dischargeTicksLeft = 0;
         private const int DISCHARGE_INTERVAL = 2000;
@@ -53,6 +56,9 @@ namespace USH_GE
 
         private void StartProduction()
         {
+            if (!CanInterceptReport())
+                return;
+
             _isDischarging = true;
             _dischargeTicksLeft = BankProps.dischargeTicks;
         }
@@ -77,8 +83,9 @@ namespace USH_GE
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-
             parent.Map.GetComponent<MapComponent_SolarFlareBank>().Register(this);
+
+            _refuelableComp = parent.GetComp<CompRefuelable>();
         }
 
         public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
@@ -124,10 +131,25 @@ namespace USH_GE
 
         public override string CompInspectStringExtra()
         {
-            if (_isDischarging)
-                return base.CompInspectStringExtra() + "\n" + "USH_GE_DischargeTimeLeft".Translate(_dischargeTicksLeft.ToStringTicksToPeriod());
+            StringBuilder sb = new();
 
-            return base.CompInspectStringExtra();
+            sb.AppendLine(base.CompInspectStringExtra());
+
+            if (_isDischarging)
+                sb.AppendLine("USH_GE_DischargeTimeLeft".Translate(_dischargeTicksLeft.ToStringTicksToPeriod()));
+
+            if (!CanInterceptReport())
+                sb.AppendLine("USH_GE_CantIntercept".Translate(CanInterceptReport().Reason).Colorize(Color.red));
+
+            return sb.ToString().TrimEnd();
+        }
+
+        public AcceptanceReport CanInterceptReport()
+        {
+            if (_refuelableComp?.Fuel < BankProps.fuelConsumption)
+                return "NoFuel".Translate();
+
+            return true;
         }
     }
 

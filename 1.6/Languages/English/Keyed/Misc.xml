@@ -30,9 +30,10 @@
   <USH_GE_CommandSetForPowerBeamLabel>Use power beam attack</USH_GE_CommandSetForPowerBeamLabel>
   <USH_GE_CommandSetForTargeterTypeDesc>Whether the targeter should use bombardment or power beam attack.</USH_GE_CommandSetForTargeterTypeDesc>
 
+  <USH_GE_CantIntercept>Won't intercept: {0}</USH_GE_CantIntercept>
   <USH_GE_DischargeTimeLeft>Discharge time left: {0}</USH_GE_DischargeTimeLeft>
   <USH_GE_SolarFlareInterceptedLabel>Solar flare intercepted</USH_GE_SolarFlareInterceptedLabel>
-  <USH_GE_SolarFlareInterceptedText>Installed banks have intercepted the solar flare and will slowly discharge the accumulated power into the grid</USH_GE_SolarFlareInterceptedText>
+  <USH_GE_SolarFlareInterceptedText>Installed banks (x{0}) have intercepted the solar flare and will slowly discharge the accumulated power into the grid</USH_GE_SolarFlareInterceptedText>
 
 
 </LanguageData>

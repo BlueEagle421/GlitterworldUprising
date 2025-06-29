@@ -18,7 +18,7 @@ namespace USH_GE
             {
                 var component = __instance.ownerMap.GetComponent<MapComponent_SolarFlareBank>();
 
-                if (!component.AllSolarBanks.NullOrEmpty())
+                if (!component.AllAvailableSolarBanks.NullOrEmpty())
                 {
                     InterceptSolarFlare(component);
                     return false;
@@ -30,11 +30,10 @@ namespace USH_GE
 
         private static void InterceptSolarFlare(MapComponent_SolarFlareBank component)
         {
-            foreach (var bank in component.AllSolarBanks)
-                bank.Notify_SolarFlareIntercepted();
+            component.AllAvailableSolarBanks?.ForEach(x => x.Notify_SolarFlareIntercepted());
 
             string label = "USH_GE_SolarFlareInterceptedLabel".Translate();
-            string text = "USH_GE_SolarFlareInterceptedText".Translate();
+            string text = "USH_GE_SolarFlareInterceptedText".Translate(component.AllAvailableSolarBanks.Count);
             Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, null, INTERCEPT_LETTER_DELAY);
         }
     }
