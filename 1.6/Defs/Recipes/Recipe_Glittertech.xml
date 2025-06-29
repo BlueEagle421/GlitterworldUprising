@@ -63,7 +63,8 @@
         <label>form glitterworld medicine x4</label>
         <description>Form glitterworld medicine.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-        <formingTicks>27000</formingTicks>
+        <formingTicks>22000</formingTicks>
+        <gestationCycles>3</gestationCycles>
 
         <ingredients Inherit="false">
             <li>
