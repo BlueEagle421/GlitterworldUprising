@@ -90,7 +90,7 @@ public static class Patch_BillUtility_LayoutTooltip
     {
         return AccessTools.Method(
             typeof(Patch_BillUtility_LayoutTooltip),
-            nameof(AfterReset));
+            nameof(AfterSkillReq));
     }
 
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -119,7 +119,7 @@ public static class Patch_BillUtility_LayoutTooltip
         return codes;
     }
 
-    private static void AfterReset(RecipeDef recipe, BodyPartRecord part, Pawn pawn, bool draw)
+    private static void AfterSkillReq(RecipeDef recipe, BodyPartRecord part, Pawn pawn, bool draw)
     {
         if (!TryGetRecipeExt(recipe, out var ext))
             return;
