@@ -281,9 +281,6 @@ namespace USH_GE
             if (!CanStartRepairing())
                 return false;
 
-            if (_toRepair.Count == 0)
-                return false;
-
             if (_currentlyRepairing != null)
                 return false;
 
@@ -296,7 +293,9 @@ namespace USH_GE
         {
             SetGlowerColorSmooth(Color.white);
 
-            _currentlyRepairing = _toRepair.RandomElement();
+            _currentlyRepairing = _toRepair
+                .OrderByDescending(b => b.MaxHitPoints - b.HitPoints)
+                .FirstOrDefault();
 
             _repairEffecter = USHDefOf.USH_GlittertechRepair.Spawn();
 
@@ -366,6 +365,9 @@ namespace USH_GE
                 return false;
 
             if (Stunnable.StunHandler.Stunned)
+                return false;
+
+            if (_toRepair.Count == 0)
                 return false;
 
             return true;
