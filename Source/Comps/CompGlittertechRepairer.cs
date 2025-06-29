@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RimWorld;
 using UnityEngine;
@@ -66,12 +67,12 @@ namespace USH_GE
         public CompProperties_GlittertechRepairer Props => (CompProperties_GlittertechRepairer)props;
         private MapComponent_RepairManager _manager => parent.Map.GetComponent<MapComponent_RepairManager>();
 
-        private bool IsRepairing => _currentlyRepairing != null && CanRepair();
+        private bool _isRepairing;
         private Thing _currentlyRepairing;
         private Effecter _repairEffecter;
         private int _repairTickCounter;
 
-        private const float Y_OFFSET = .018292684f;
+        private const float Z_OFFSET = .018292684f;
 
         private Color _startColor;
         private Color _targetColor;
@@ -133,6 +134,7 @@ namespace USH_GE
 
             Scribe_References.Look(ref _currentlyRepairing, "_currentlyRepairing");
 
+            Scribe_Values.Look(ref _isRepairing, "_isRepairing");
             Scribe_Values.Look(ref _repairTickCounter, "_repairTickCounter");
             Scribe_Values.Look(ref _startColor, "_startColor");
             Scribe_Values.Look(ref _targetColor, "_targetColor");
@@ -168,9 +170,10 @@ namespace USH_GE
 
         public void HandleFreshlyDamaged(IEnumerable<Building> damaged)
         {
-            var radius = Props.repairRadius;
+            _toRepair.AddRange(damaged.Where(x => CanRepairThing(x)));
+
             foreach (var b in damaged)
-                if (b.Position.InHorDistOf(parent.Position, radius))
+                if (CanRepairThing(b))
                     _toRepair.Add(b);
 
             TryToStartRepairing();
@@ -198,18 +201,18 @@ namespace USH_GE
 
             var props = PowerTrader.Props;
 
-            float toSet = IsRepairing ? props.PowerConsumption : props.idlePowerDraw;
+            float toSet = _isRepairing ? props.PowerConsumption : props.idlePowerDraw;
 
             PowerTrader.PowerOutput = -toSet;
         }
 
         private void OverlayFadeTick()
         {
-            if (IsRepairing != _lastIsRepairing)
+            if (_isRepairing != _lastIsRepairing)
                 _fadeTicks = 0f;
 
             _fadeTicks = Mathf.Min(_fadeTicks + 1f, FADE_DURATION_TICKS);
-            _lastIsRepairing = IsRepairing;
+            _lastIsRepairing = _isRepairing;
         }
 
         private void ColorTransitionTick()
@@ -228,7 +231,7 @@ namespace USH_GE
 
         private void RepairTick()
         {
-            if (!CanRepair())
+            if (!CanContinueRepairing())
             {
                 RepairStopped();
                 return;
@@ -239,12 +242,10 @@ namespace USH_GE
             if (_repairTickCounter < Props.repairInterval)
                 return;
 
-            if (_currentlyRepairing == null)
-                return;
-
-            if (_currentlyRepairing.Destroyed)
+            if (!CanRepairThing(_currentlyRepairing))
             {
                 _toRepair.Remove(_currentlyRepairing);
+                RepairStopped();
                 TryToStartRepairing();
                 return;
             }
@@ -262,6 +263,7 @@ namespace USH_GE
             SetGlowerColorSmooth(Color.clear);
             _repairEffecter?.Cleanup();
             _repairEffecter = null;
+            _isRepairing = false;
         }
 
         private void RepairFinished()
@@ -276,7 +278,7 @@ namespace USH_GE
 
         private bool TryToStartRepairing()
         {
-            if (!CanRepair())
+            if (!CanStartRepairing())
                 return false;
 
             if (_toRepair.Count == 0)
@@ -299,6 +301,8 @@ namespace USH_GE
             _repairEffecter = USHDefOf.USH_GlittertechRepair.Spawn();
 
             _repairEffecter.Trigger(new TargetInfo(_currentlyRepairing), new TargetInfo(parent), -1);
+
+            _isRepairing = true;
         }
 
         public override string CompInspectStringExtra()
@@ -322,7 +326,7 @@ namespace USH_GE
         {
             Vector3 loc = drawLoc;
             loc += parent.def.graphicData.drawOffset;
-            loc.y += Y_OFFSET;
+            loc.y += Z_OFFSET;
 
             float t = _fadeTicks / FADE_DURATION_TICKS;
 
@@ -348,12 +352,31 @@ namespace USH_GE
             _isFading = true;
         }
 
-        private AcceptanceReport CanRepair()
+        private bool CanContinueRepairing()
+        {
+            if (_currentlyRepairing == null)
+                return false;
+
+            return CanStartRepairing();
+        }
+
+        private bool CanStartRepairing()
         {
             if (!PowerTrader.PowerOn)
                 return false;
 
             if (Stunnable.StunHandler.Stunned)
+                return false;
+
+            return true;
+        }
+
+        private AcceptanceReport CanRepairThing(Thing t)
+        {
+            if (t.Destroyed)
+                return false;
+
+            if (!t.Position.InHorDistOf(parent.Position, Props.repairRadius))
                 return false;
 
             return true;
