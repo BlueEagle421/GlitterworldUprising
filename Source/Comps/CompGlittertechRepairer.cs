@@ -334,8 +334,8 @@ namespace USH_GE
                 ? Mathf.Lerp(0f, 1f, t)
                 : Mathf.Lerp(1f, 0f, t);
 
-
-            OverlayMaterial.color = new Color(1f, 1f, 1f, alphaMultiplier * Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.02f, 1f)));
+            float alpha = alphaMultiplier * Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.02f, 1f));
+            OverlayMaterial.color = new Color(1f, 1f, 1f, alpha);
 
             Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
             Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
