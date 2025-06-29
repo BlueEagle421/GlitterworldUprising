@@ -47,8 +47,10 @@ namespace USH_GE
         {
             base.CompTick();
 
-            if (parent.IsHashIntervalTick(DISCHARGE_INTERVAL))
-                _dischargeTicksLeft -= DISCHARGE_INTERVAL;
+            if (!parent.IsHashIntervalTick(DISCHARGE_INTERVAL))
+                return;
+
+            _dischargeTicksLeft -= DISCHARGE_INTERVAL;
 
             if (_dischargeTicksLeft <= 0)
                 StopGenerating();
