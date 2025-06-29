@@ -44,6 +44,7 @@
             <li Class="USH_GE.CompProperties_SolarFlareBank">
                 <basePowerConsumption>-12000</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
+                <activeOverlayPath>Things/Building/SolarFlareBankActive</activeOverlayPath>
             </li>
             <li Class="CompProperties_Breakdownable" />
             <li Class="CompProperties_Stunnable">

@@ -116,6 +116,17 @@ namespace USH_GE
             }
         }
 
+        private Material _cachedOverlayMat;
+        private Material OverlayMaterial
+        {
+            get
+            {
+                _cachedOverlayMat ??= MaterialPool.MatFrom(Props.activeOverlayPath, ShaderDatabase.Transparent);
+
+                return _cachedOverlayMat;
+            }
+        }
+
         public override void PostExposeData()
         {
             base.PostExposeData();
@@ -319,13 +330,13 @@ namespace USH_GE
                 ? Mathf.Lerp(0f, 1f, t)
                 : Mathf.Lerp(1f, 0f, t);
 
-            Material transparentMat = MaterialPool.MatFrom(Props.activeOverlayPath, ShaderDatabase.Transparent);
-            transparentMat.color = new Color(1f, 1f, 1f, alphaMultiplier * Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.02f, 1f)));
+
+            OverlayMaterial.color = new Color(1f, 1f, 1f, alphaMultiplier * Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.02f, 1f)));
 
             Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
             Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
 
-            Graphics.DrawMesh(mesh, loc, quat, transparentMat, 0);
+            Graphics.DrawMesh(mesh, loc, quat, OverlayMaterial, 0);
         }
 
         public void StartColorFade(Color from, Color to, int durationTicks)

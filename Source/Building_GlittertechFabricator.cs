@@ -17,6 +17,12 @@ namespace USH_GE
 
         private static readonly Material FormingCycleBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0.98f, 0.46f, 0f), false);
         private static readonly Material FormingCycleUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new Color(0f, 0f, 0f, 0f), false);
+        private EffecterHandler _electricEffecterHandler;
+        private const float Y_OFFSET = .018292684f;
+        private const float FORMING_ALPHA_MULTIPLIER = .5f;
+        private const float FADE_DURATION_TICKS = 300f;
+        private float _fadeTicks = FADE_DURATION_TICKS;
+        private bool _lastPoweredOn = true;
         public bool PoweredOn => PowerTrader.PowerOn;
         private CompPowerTrader _powerTrader;
         public CompPowerTrader PowerTrader
@@ -52,13 +58,6 @@ namespace USH_GE
                 return _cachedGraphic;
             }
         }
-
-        private EffecterHandler _electricEffecterHandler;
-        private const float Y_OFFSET = .018292684f;
-        private const float FORMING_ALPHA_MULTIPLIER = .5f;
-        private const float FADE_DURATION_TICKS = 300f;
-        private float _fadeTicks = FADE_DURATION_TICKS;
-        private bool _lastPoweredOn = true;
 
         public override void PostMake()
         {
