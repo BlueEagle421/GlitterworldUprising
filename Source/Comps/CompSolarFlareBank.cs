@@ -32,7 +32,6 @@ namespace USH_GE
         private static readonly Material PowerPlantSolarBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new(0.15f, 0.15f, 0.15f));
         private static readonly Material OverlayMat = MaterialPool.MatFrom("Things/Building/SolarFlareBankActive", ShaderDatabase.Transparent);
 
-        private CompRefuelable _refuelableComp;
         private bool _isDischarging;
         private int _dischargeTicksLeft = 0;
         private const int DISCHARGE_INTERVAL = 2000;
@@ -60,9 +59,10 @@ namespace USH_GE
             if (!CanInterceptReport())
                 return;
 
-            _refuelableComp.ConsumeFuel(BankProps.fuelConsumption);
+            refuelableComp.ConsumeFuel(BankProps.fuelConsumption);
             _isDischarging = true;
             _dischargeTicksLeft = BankProps.dischargeTicks;
+            UpdateDesiredPowerOutput();
         }
 
         private void StopGenerating()
@@ -82,12 +82,14 @@ namespace USH_GE
             }
         }
 
+        public override void UpdateDesiredPowerOutput() => PowerOutput = _isDischarging ? DesiredPowerOutput : 0;
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
             parent.Map.GetComponent<MapComponent_SolarFlareBank>().Register(this);
 
-            _refuelableComp = parent.GetComp<CompRefuelable>();
+            refuelableComp = parent.GetComp<CompRefuelable>();
         }
 
         public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
@@ -167,7 +169,7 @@ namespace USH_GE
 
         public AcceptanceReport CanInterceptReport()
         {
-            if (_refuelableComp?.Fuel < BankProps.fuelConsumption)
+            if (refuelableComp?.Fuel < BankProps.fuelConsumption)
                 return "NoFuel".Translate();
 
             return true;
