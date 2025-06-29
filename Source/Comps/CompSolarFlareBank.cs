@@ -19,7 +19,6 @@ namespace USH_GE
     {
         public int fuelConsumption = 1;
         public int dischargeTicks = 60000 * 15; // 1 day * 10
-        public string activeOverlayPath;
         public CompProperties_SolarFlareBank() => compClass = typeof(CompSolarFlareBank);
     }
 
@@ -31,6 +30,7 @@ namespace USH_GE
         private static readonly Vector2 BarSize = new(1.2f, 0.14f);
         private static readonly Material PowerPlantSolarBarFilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new(0.5f, 0.475f, 0.1f));
         private static readonly Material PowerPlantSolarBarUnfilledMat = SolidColorMaterials.SimpleSolidColorMaterial(new(0.15f, 0.15f, 0.15f));
+        private static readonly Material OverlayMat = MaterialPool.MatFrom("Things/Building/SolarFlareBankActive", ShaderDatabase.Transparent);
 
         private CompRefuelable _refuelableComp;
         private bool _isDischarging;
@@ -133,13 +133,12 @@ namespace USH_GE
             loc += parent.def.graphicData.drawOffset;
             loc.y += Z_OFFSET;
 
-            Material transparentMat = MaterialPool.MatFrom(BankProps.activeOverlayPath, ShaderDatabase.Transparent);
-            transparentMat.color = new Color(1f, 1f, 1f, Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.004f, 1f)));
+            OverlayMat.color = new Color(1f, 1f, 1f, Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.004f, 1f)));
 
             Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
             Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
 
-            Graphics.DrawMesh(mesh, loc, quat, transparentMat, 0);
+            Graphics.DrawMesh(mesh, loc, quat, OverlayMat, 0);
         }
 
         public override void PostExposeData()

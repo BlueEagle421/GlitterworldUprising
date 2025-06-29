@@ -42,7 +42,6 @@
                 <initialFuelPercent>0.5</initialFuelPercent>
             </li>
             <li Class="USH_GE.CompProperties_SolarFlareBank">
-                <activeOverlayPath>Things/Building/SolarFlareBankActive</activeOverlayPath>
                 <basePowerConsumption>-8000</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
             </li>
