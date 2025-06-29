@@ -57,7 +57,7 @@
         <defName>USH_GlittertechUtilitiesRes</defName>
         <label>Glittertech utilities</label>
         <description>Build advanced and useful glittertech utilities.</description>
-        <baseCost>2000</baseCost>
+        <baseCost>4000</baseCost>
         <prerequisites>
             <li>USH_GlittertechFabrication</li>
         </prerequisites>
