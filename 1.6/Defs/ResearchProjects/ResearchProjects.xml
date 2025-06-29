@@ -30,10 +30,10 @@
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_OrbitalTargeterRes</defName>
-        <label>Orbital targeter</label>
-        <description>Build a powerful offensive weapon taking advantage of ancient satellites.</description>
-        <baseCost>6000</baseCost>
+        <defName>USH_HeavyGlittertech</defName>
+        <label>Heavy glittertech</label>
+        <description>Build a powerful offensive weapon taking advantage of ancient satellites and an advanced power generator.</description>
+        <baseCost>8000</baseCost>
         <prerequisites>
             <li>USH_GlittertechFabrication</li>
         </prerequisites>

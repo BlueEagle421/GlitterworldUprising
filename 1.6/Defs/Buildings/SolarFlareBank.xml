@@ -71,7 +71,7 @@
         </placeWorkers>
         <designationHotKey>Misc2</designationHotKey>
         <researchPrerequisites>
-            <li>USH_OrbitalTargeterRes</li>
+            <li>USH_HeavyGlittertech</li>
         </researchPrerequisites>
     </ThingDef>
 
