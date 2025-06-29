@@ -41,7 +41,7 @@ namespace USH_GE
 
         public virtual void Notify_SolarFlareIntercepted()
         {
-            StartProduction();
+            StartGenerating();
         }
 
         public override void CompTick()
@@ -55,11 +55,12 @@ namespace USH_GE
                 StopGenerating();
         }
 
-        private void StartProduction()
+        private void StartGenerating()
         {
             if (!CanInterceptReport())
                 return;
 
+            _refuelableComp.ConsumeFuel(BankProps.fuelConsumption);
             _isDischarging = true;
             _dischargeTicksLeft = BankProps.dischargeTicks;
         }
