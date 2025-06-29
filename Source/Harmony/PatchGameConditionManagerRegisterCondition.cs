@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -20,7 +21,7 @@ namespace USH_GE
 
                 if (!component.AllAvailableSolarBanks.NullOrEmpty())
                 {
-                    InterceptSolarFlare(component);
+                    InterceptSolarFlare(component.AllAvailableSolarBanks, component);
                     return false;
                 }
             }
@@ -28,12 +29,12 @@ namespace USH_GE
             return true;
         }
 
-        private static void InterceptSolarFlare(MapComponent_SolarFlareBank component)
+        private static void InterceptSolarFlare(List<CompSolarFlareBank> allBankComps, MapComponent_SolarFlareBank component)
         {
-            component.AllAvailableSolarBanks?.ForEach(x => x.Notify_SolarFlareIntercepted());
+            allBankComps.ForEach(x => x.Notify_SolarFlareIntercepted());
 
             string label = "USH_GE_SolarFlareInterceptedLabel".Translate();
-            string text = "USH_GE_SolarFlareInterceptedText".Translate(component.AllAvailableSolarBanks.Count);
+            string text = "USH_GE_SolarFlareInterceptedText".Translate(allBankComps.Count);
             Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, null, INTERCEPT_LETTER_DELAY);
         }
     }
