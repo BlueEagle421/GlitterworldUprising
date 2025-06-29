@@ -373,7 +373,7 @@ namespace USH_GE
             return true;
         }
 
-        private AcceptanceReport CanRepairThing(Thing t)
+        private bool CanRepairThing(Thing t)
         {
             if (t.Destroyed)
                 return false;
