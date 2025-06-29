@@ -15,15 +15,15 @@ namespace USH_GE
             GameConditionManager __instance,
             GameCondition cond)
         {
-            if (cond.def == IncidentDefOf.SolarFlare.gameCondition)
-            {
-                var component = __instance.ownerMap.GetComponent<MapComponent_SolarFlareBank>();
+            if (cond.def != IncidentDefOf.SolarFlare.gameCondition)
+                return true;
 
-                if (!component.AllAvailableSolarBanks.NullOrEmpty())
-                {
-                    InterceptSolarFlare(component.AllAvailableSolarBanks, component);
-                    return false;
-                }
+            var component = __instance.ownerMap.GetComponent<MapComponent_SolarFlareBank>();
+
+            if (!component.AllAvailableSolarBanks.NullOrEmpty())
+            {
+                InterceptSolarFlare(component.AllAvailableSolarBanks, component);
+                return false;
             }
 
             return true;
