@@ -19,6 +19,7 @@ namespace USH_GE
     {
         public int fuelConsumption = 1;
         public int dischargeTicks = 60000 * 15; // 1 day * 10
+        public string activeOverlayPath;
         public CompProperties_SolarFlareBank() => compClass = typeof(CompSolarFlareBank);
     }
 
@@ -98,6 +99,8 @@ namespace USH_GE
         {
             base.PostDraw();
 
+            DrawActiveOverlay(parent.DrawPos);
+
             DrawBar();
         }
 
@@ -119,6 +122,24 @@ namespace USH_GE
             rotation.Rotate(RotationDirection.Clockwise);
             r.rotation = rotation;
             GenDraw.DrawFillableBar(r);
+        }
+
+        private void DrawActiveOverlay(Vector3 drawLoc)
+        {
+            if (!_isDischarging)
+                return;
+
+            Vector3 loc = drawLoc;
+            loc += parent.def.graphicData.drawOffset;
+            loc.y += Z_OFFSET;
+
+            Material transparentMat = MaterialPool.MatFrom(BankProps.activeOverlayPath, ShaderDatabase.Transparent);
+            transparentMat.color = new Color(1f, 1f, 1f, Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.004f, 1f)));
+
+            Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
+            Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
+
+            Graphics.DrawMesh(mesh, loc, quat, transparentMat, 0);
         }
 
         public override void PostExposeData()
