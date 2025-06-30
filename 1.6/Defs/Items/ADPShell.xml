@@ -4,7 +4,7 @@
     <ThingDef ParentName="MakeableShellBase">
         <defName>USH_Shell_ADP</defName>
         <label>ADP shell</label>
-        <description>Area Danial Pulse (ADP) is a much newer and more effective version of the common EMP charge. It uses much more aggressive electrical targeting bypassing even the most advanced adaptation systems. It renders mechanoids immobile across a wider radius, without any risk of losing power.</description>
+        <description>Area Danial Pulse (ADP) is a newer and more effective version of the common EMP charge. It uses far more aggressive electrical targeting, bypassing even the most advanced adaptation systems.\n\nIt renders mechanoids immobile over a wider radius, without any risk being of countered.</description>
         <possessionCount>1</possessionCount>
         <graphicData>
             <texPath>Things/Item/ADPShell</texPath>
