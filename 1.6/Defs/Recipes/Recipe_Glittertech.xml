@@ -599,4 +599,50 @@
         </modExtensions>
     </RecipeDef>
 
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormADPShell</defName>
+        <label>form ADP shell</label>
+        <description>Form ADP shell.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <gestationCycles>4</gestationCycles>
+        <formingTicks>14000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Shell_EMP</li>
+                    </thingDefs>
+                </filter>
+                <count>3</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_Shell_ADP>1</USH_Shell_ADP>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_Shell_ADP</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>7200</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
 </Defs>
