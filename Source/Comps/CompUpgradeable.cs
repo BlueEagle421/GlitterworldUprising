@@ -233,7 +233,6 @@ public class CompUpgradable : ThingComp, IBillGiver, IBillGiverWithTickAction, I
         base.PostDeSpawn(map, mode);
         Map.GetComponent<MapComponent_Upgradables>().Deregister(this);
     }
-
 }
 
 public interface IBillGiverUpgrade : IBillGiver

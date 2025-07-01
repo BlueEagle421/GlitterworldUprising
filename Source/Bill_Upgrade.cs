@@ -9,8 +9,15 @@ public class ModExtension_RecipeUpgrade : DefModExtension
 
 }
 
-public class Bill_Upgrade(RecipeDef recipe, Precept_ThingStyle precept = null) : Bill_Production(recipe, precept)
+public class Bill_Upgrade : Bill_Production
 {
+    public ModExtension_RecipeUpgrade UpgradeExt;
+
+    public Bill_Upgrade() { }
+    public Bill_Upgrade(RecipeDef recipe, Precept_ThingStyle precept = null) : base(recipe, precept)
+    {
+        UpgradeExt = recipe.GetModExtension<ModExtension_RecipeUpgrade>();
+    }
     public override void Notify_IterationCompleted(Pawn billDoer, List<Thing> ingredients)
     {
         if (repeatMode == BillRepeatModeDefOf.RepeatCount)
@@ -23,5 +30,13 @@ public class Bill_Upgrade(RecipeDef recipe, Precept_ThingStyle precept = null) :
 
         }
         recipe.Worker.Notify_IterationCompleted(billDoer, ingredients);
+    }
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+
+        if (Scribe.mode == LoadSaveMode.PostLoadInit)
+            UpgradeExt = recipe.GetModExtension<ModExtension_RecipeUpgrade>();
     }
 }
