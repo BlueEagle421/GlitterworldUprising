@@ -80,10 +80,9 @@ public class WorkGiver_DoBillUpgrade : WorkGiver_Scanner
         public void GenerateFrom(List<Thing> things)
         {
             Clear();
+
             for (int i = 0; i < things.Count; i++)
-            {
                 this[things[i].def] += things[i].stackCount;
-            }
         }
     }
 
@@ -93,7 +92,7 @@ public class WorkGiver_DoBillUpgrade : WorkGiver_Scanner
 
     private static readonly List<Thing> tmpMissingUniqueIngredients = [];
 
-    private static readonly IntRange ReCheckFailedBillTicksRange = new IntRange(500, 600);
+    private static readonly IntRange ReCheckFailedBillTicksRange = new(500, 600);
 
     private static readonly List<Thing> relevantThings = [];
 
@@ -101,7 +100,7 @@ public class WorkGiver_DoBillUpgrade : WorkGiver_Scanner
 
     private static readonly List<Thing> newRelevantThings = [];
 
-    private static readonly DefCountList availableCounts = new DefCountList();
+    private static readonly DefCountList availableCounts = new();
 
     public override PathEndMode PathEndMode => PathEndMode.Touch;
 
