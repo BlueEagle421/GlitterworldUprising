@@ -22,7 +22,6 @@ namespace USH_GE
             if (recipe.HasModExtension<ModExtension_RecipeUpgrade>())
             {
                 __result = new Bill_Upgrade(recipe, precept);
-                Log.Message("Upgrade!");
                 return false;
             }
 
