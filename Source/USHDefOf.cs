@@ -18,6 +18,7 @@ namespace USH_GE
         public static StatDef USH_GlittertechDuration;
         public static ThingDef USH_PowerStored;
         public static DamageDef USH_ADP;
+        public static WorkGiverDef USH_DoBillsUpgrades;
     }
 
 }

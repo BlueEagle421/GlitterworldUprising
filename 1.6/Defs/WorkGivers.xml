@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <WorkGiverDef>
+        <defName>USH_DoBillsUpgrades</defName>
+        <label>upgrade things</label>
+        <giverClass>USH_GE.WorkGiver_DoBillUpgrade</giverClass>
+        <workType>Crafting</workType>
+        <priorityInType>75</priorityInType>
+        <fixedBillGiverDefs></fixedBillGiverDefs>
+        <verb>upgrade</verb>
+        <gerund>upgrading</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+</Defs>

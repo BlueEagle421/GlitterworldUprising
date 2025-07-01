@@ -53,6 +53,9 @@
             <ai_chillDestination>false</ai_chillDestination>
             <destroySound>BuildingDestroyed_Metal_Big</destroySound>
         </building>
+        <inspectorTabs>
+            <li>USH_GE.ITab_Upgrades</li>
+        </inspectorTabs>
         <comps>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
@@ -68,6 +71,11 @@
             <li Class="CompProperties_Glower">
                 <glowRadius>4</glowRadius>
                 <glowColor>(255, 255, 255, 0)</glowColor>
+            </li>
+            <li Class="USH_GE.CompProperties_Upgradable">
+                <recipes>
+                    <li>ButcherCorpseMechanoid</li>
+                </recipes>
             </li>
             <li Class="CompProperties_Stunnable">
                 <affectedDamageDefs>
