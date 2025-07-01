@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="TrapIEDBase">
+        <defName>USH_TrapIED_ADP</defName>
+        <label>IED ADP trap</label>
+        <description>A pair of ADP shells connected to a trigger which detonates on touch or bullet impact. The explosion can paralyze mechanoids for a few seconds. Since it is hidden in the surrounding terrain, it cannot be placed adjacent to other traps. Animals can sense these when calm.</description>
+        <graphicData>
+            <texPath>Things/Building/IEDADP</texPath>
+        </graphicData>
+        <uiOrder>42</uiOrder>
+        <costList>
+            <USH_Shell_ADP>2</USH_Shell_ADP>
+        </costList>
+        <designationHotKey>Misc9</designationHotKey>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>17.9</explosiveRadius>
+                <explosiveDamageType>USH_ADP</explosiveDamageType>
+                <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                <wickTicks>15</wickTicks>
+                <startWickOnDamageTaken>
+                    <li>Bullet</li>
+                    <li>Arrow</li>
+                    <li>ArrowHighVelocity</li>
+                </startWickOnDamageTaken>
+            </li>
+        </comps>
+        <specialDisplayRadius>20.9</specialDisplayRadius>
+    </ThingDef>
+
+</Defs>
