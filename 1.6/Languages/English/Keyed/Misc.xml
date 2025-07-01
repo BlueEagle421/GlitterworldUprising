@@ -37,5 +37,6 @@
   <USH_GE_SolarFlareInterceptedText>Installed banks (x{0}) have intercepted the solar flare and will slowly discharge the accumulated power into the grid</USH_GE_SolarFlareInterceptedText>
 
   <USH_Upgrades>Upgrades</USH_Upgrades>
+  <USH_MaxUpgrades>Max upgrades</USH_MaxUpgrades>
 
 </LanguageData>

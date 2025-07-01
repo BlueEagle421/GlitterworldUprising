@@ -56,7 +56,7 @@ public class ITab_Upgrades : ITab
         DrawPasteButton(pasteRect);
 
         var listRect = new Rect(0f, 0f, WinSize.x, WinSize.y).ContractedBy(10f);
-        mouseoverBill = SelComp.BillStack.DoListing(listRect, CreateRecipeOptions, ref scrollPosition, ref viewHeight);
+        mouseoverBill = SelComp.BillStack.DoListingUpgrade(listRect, CreateRecipeOptions, ref scrollPosition, ref viewHeight);
     }
 
     private void DrawPasteButton(Rect rect)
