@@ -19,6 +19,13 @@ namespace USH_GE
                 return false;
             }
 
+            if (recipe.HasModExtension<ModExtension_RecipeUpgrade>())
+            {
+                __result = new Bill_Upgrade(recipe, precept);
+                Log.Message("Upgrade!");
+                return false;
+            }
+
             return true;
         }
     }
