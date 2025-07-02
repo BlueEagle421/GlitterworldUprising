@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BenchBase">
+        <defName>USH_MolecularDisassembler</defName>
+        <label>molecular disassembler</label>
+        <description>A workstation for dismantling dead mechanoids with atomic precision. Mechanoid remains processed using this technology yield triple the usual products. Mechanoid slag will also yield plasteel.</description>
+        <thingClass>Building_WorkTable</thingClass>
+        <graphicData>
+            <texPath>Things/Building/MolecularDisassembler/MolecularDisassembler</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2.5,1.5)</drawSize>
+            <damageData>
+                <cornerTL>Damage/Corner</cornerTL>
+                <cornerTR>Damage/Corner</cornerTR>
+                <cornerBL>Damage/Corner</cornerBL>
+                <cornerBR>Damage/Corner</cornerBR>
+            </damageData>
+        </graphicData>
+        <castEdgeShadows>true</castEdgeShadows>
+        <staticSunShadowHeight>0.20</staticSunShadowHeight>
+        <costList>
+            <Steel>100</Steel>
+            <ComponentSpacer>4</ComponentSpacer>
+            <USH_Glittercore>6</USH_Glittercore>
+        </costList>
+        <altitudeLayer>Building</altitudeLayer>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <statBases>
+            <WorkTableWorkSpeedFactor>1.5</WorkTableWorkSpeedFactor>
+            <WorkToBuild>3000</WorkToBuild>
+            <MaxHitPoints>130</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+            <Cleanliness>-2</Cleanliness>
+        </statBases>
+        <size>(2,1)</size>
+        <designationCategory>Production</designationCategory>
+        <uiOrder>2520</uiOrder>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <hasInteractionCell>True</hasInteractionCell>
+        <interactionCellOffset>(1,0,-1)</interactionCellOffset>
+        <surfaceType>Item</surfaceType>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+        <recipes>
+            <li>USH_DisassembleCorpseMechanoid</li>
+            <li>USH_DisassembleMechSlag</li>
+        </recipes>
+        <inspectorTabs>
+            <li>ITab_Bills</li>
+        </inspectorTabs>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>true</shortCircuitInRain>
+                <basePowerConsumption>350</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Glower">
+                <glowRadius>5</glowRadius>
+                <glowColor>(73,123,138,0)</glowColor>
+            </li>
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                    <li>ToolCabinet</li>
+                </linkableFacilities>
+            </li>
+            <li Class="CompProperties_Breakdownable" />
+        </comps>
+        <building>
+            <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+        </building>
+        <constructEffect>ConstructMetal</constructEffect>
+        <researchPrerequisites>
+            <li>USH_GlittertechUtilitiesRes</li>
+        </researchPrerequisites>
+        <designationHotKey>Misc7</designationHotKey>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
+    </ThingDef>
+
+    <WorkGiverDef>
+        <defName>USH_DoBillsMolecularDisassembler</defName>
+        <label>make things at molecular disassembler</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>Smithing</workType>
+        <priorityInType>70</priorityInType>
+        <fixedBillGiverDefs>
+            <li>USH_MolecularDisassembler</li>
+        </fixedBillGiverDefs>
+        <verb>work</verb>
+        <gerund>working at</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+
+    <RecipeDef ParentName="ButcherCorpseMechanoidBase">
+        <defName>USH_DisassembleCorpseMechanoid</defName>
+        <label>disassemble mechanoid</label>
+        <description>Disassemble a dead mechanoid to extract multiple valuable resources.</description>
+        <jobString>Disassembling mechanoid.</jobString>
+        <workAmount>300</workAmount>
+        <soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
+        <specialProducts>
+            <li>Butchery</li>
+            <li>Butchery</li>
+            <li>Butchery</li>
+        </specialProducts>
+    </RecipeDef>
+
+    <RecipeDef>
+        <defName>USH_DisassembleMechSlag</defName>
+        <label>disassemble mechanoid chunk</label>
+        <description>Use powerful glittertech to extract steel and plasteel from mechanoid slag chunks.</description>
+        <jobString>Disassembling mechanoid slag.</jobString>
+        <workAmount>400</workAmount>
+        <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
+        <workSkill>Crafting</workSkill>
+        <efficiencyStat>ButcheryMechanoidEfficiency</efficiencyStat>
+        <effectWorking>ButcherMechanoid</effectWorking>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ChunkMechanoidSlag</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <Steel>15</Steel>
+            <Plasteel>3</Plasteel>
+        </products>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>ChunkMechanoidSlag</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+    </RecipeDef>
+
+</Defs>
