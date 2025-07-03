@@ -5,7 +5,6 @@
         <defName>USH_GlittertechRepairer</defName>
         <label>glittertech repairer</label>
         <description>.</description>
-        <thingClass>USH_GE.Building_GlittertechFabricator</thingClass>
         <graphicData>
             <texPath>Things/Building/GlittertechRepairer/GlittertechRepairer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
@@ -36,7 +35,7 @@
         <statBases>
             <MaxHitPoints>310</MaxHitPoints>
             <WorkToBuild>30000</WorkToBuild>
-            <Mass>80</Mass>
+            <Mass>50</Mass>
             <Beauty>0</Beauty>
         </statBases>
         <size>(1,1)</size>
@@ -53,9 +52,6 @@
             <ai_chillDestination>false</ai_chillDestination>
             <destroySound>BuildingDestroyed_Metal_Big</destroySound>
         </building>
-        <inspectorTabs>
-            <li>USH_GE.ITab_Upgrades</li>
-        </inspectorTabs>
         <comps>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
@@ -70,12 +66,7 @@
             </li>
             <li Class="CompProperties_Glower">
                 <glowRadius>4</glowRadius>
-                <glowColor>(255, 255, 255, 0)</glowColor>
-            </li>
-            <li Class="USH_GE.CompProperties_Upgradable">
-                <recipes>
-                    <li>USH_TestUpgrade</li>
-                </recipes>
+                <glowColor>(0, 0, 0, 0)</glowColor>
             </li>
             <li Class="CompProperties_Stunnable">
                 <affectedDamageDefs>
@@ -92,54 +83,5 @@
             <li>USH_GlittertechUtilitiesRes</li>
         </researchPrerequisites>
     </ThingDef>
-
-    <RecipeDef>
-        <defName>USH_TestUpgrade</defName>
-        <label>shred mechanoid</label>
-        <description>Shred a dead mechanoid to try to salvage usable material.</description>
-        <jobString>Shredding mechanoid.</jobString>
-        <workSpeedStat>ButcheryMechanoidSpeed</workSpeedStat>
-        <workSkill>Crafting</workSkill>
-        <efficiencyStat>ButcheryMechanoidEfficiency</efficiencyStat>
-        <effectWorking>ButcherMechanoid</effectWorking>
-        <uiIconThing>Steel</uiIconThing>
-        <ingredients>
-            <li>
-                <filter>
-                    <categories>
-                        <li>Corpses</li>
-                    </categories>
-                </filter>
-                <count>1</count>
-            </li>
-        </ingredients>
-        <specialProducts>
-            <li>Butchery</li>
-        </specialProducts>
-        <fixedIngredientFilter>
-            <categories>
-                <li>CorpsesMechanoid</li>
-            </categories>
-        </fixedIngredientFilter>
-        <defaultIngredientFilter>
-            <categories>
-                <li>CorpsesMechanoid</li>
-            </categories>
-            <specialFiltersToDisallow>
-                <li MayRequire="Ludeon.RimWorld.Biotech">AllowCorpsesMechFriendly</li>
-            </specialFiltersToDisallow>
-            <specialFiltersToAllow>
-                <li MayRequire="Ludeon.RimWorld.Biotech">AllowCorpsesMechEnemy</li>
-            </specialFiltersToAllow>
-        </defaultIngredientFilter>
-        <displayPriority>0</displayPriority>
-        <workAmount>300</workAmount>
-        <soundWorking>Recipe_ButcherCorpseMechanoid</soundWorking>
-        <modExtensions>
-            <li Class="USH_GE.ModExtension_RecipeUpgrade">
-
-            </li>
-        </modExtensions>
-    </RecipeDef>
 
 </Defs>
