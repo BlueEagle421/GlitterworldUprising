@@ -43,8 +43,6 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
 
 
     protected ThingOwner innerContainer;
-    public string openedSignal;
-    public virtual int OpenTicks => 300;
     public bool HasAnyContents => innerContainer.Count > 0;
     public Thing ContainedThing
     {
@@ -58,7 +56,6 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         }
     }
 
-    public virtual bool CanOpen => HasAnyContents;
 
     public ThingOwner SearchableContents => innerContainer;
 
@@ -105,7 +102,6 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
     {
         base.ExposeData();
         Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
-        Scribe_Values.Look(ref openedSignal, "openedSignal");
     }
 
     public virtual bool Accepts(Thing thing) => innerContainer.CanAcceptAnyOf(thing);
