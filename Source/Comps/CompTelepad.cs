@@ -58,13 +58,19 @@ namespace USH_GE
             if (t is not Pawn p)
                 return false;
 
+            if (p.RaceProps.IsFlesh && !p.health.hediffSet.HasHediff(USHDefOf.USH_InstalledTelepadIntegrator))
+                return "USH_GE_MissingIntegrator".Translate();
+
+            if (t.Position.InHorDistOf(parent.Position, parent.def.specialDisplayRadius))
+                return "USH_GE_TooClose".Translate();
+
+            if (t.Faction != parent.Faction)
+                return false;
+
             var interactionReport = CanInteract(p);
 
             if (!interactionReport)
                 return interactionReport.Reason;
-
-            if (p.RaceProps.IsFlesh && !p.health.hediffSet.HasHediff(USHDefOf.USH_InstalledTelepadIntegrator))
-                return "USH_GE_MissingIntegrator".Translate();
 
             return true;
         }

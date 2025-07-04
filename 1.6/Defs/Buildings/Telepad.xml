@@ -75,6 +75,9 @@
                 <activateLabelString>Teleport target</activateLabelString>
                 <activateTexPath>UI/Gizmos/Desensitize</activateTexPath>
                 <requiresPower>true</requiresPower>
+                <cooldownFleck>FlashRed</cooldownFleck>
+                <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+                <cooldownFleckScale>0.7</cooldownFleckScale>
                 <targetingParameters>
                     <canTargetBuildings>false</canTargetBuildings>
                     <canTargetAnimals>false</canTargetAnimals>
@@ -86,7 +89,7 @@
         <designationHotKey>Misc3</designationHotKey>
         <uiIconScale>0.45</uiIconScale>
         <uiIconOffset>(0, 0.2)</uiIconOffset>
-        <specialDisplayRadius>8.9</specialDisplayRadius>
+        <specialDisplayRadius>16.9</specialDisplayRadius>
         <researchPrerequisites>
             <li>USH_GlittertechUtilitiesRes</li>
         </researchPrerequisites>

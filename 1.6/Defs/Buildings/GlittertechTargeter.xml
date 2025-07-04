@@ -49,7 +49,7 @@
                 <cooldownFleck>FlashRed</cooldownFleck>
                 <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
                 <cooldownFleckScale>0.7</cooldownFleckScale>
-                <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
+                <cooldownPreventsRefuel>false</cooldownPreventsRefuel>
                 <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
                 <requiresPower>true</requiresPower>
                 <targetingParameters>
