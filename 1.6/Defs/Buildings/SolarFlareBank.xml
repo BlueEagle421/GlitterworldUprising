@@ -62,8 +62,9 @@
         <costList>
             <Plasteel>180</Plasteel>
             <Steel>300</Steel>
-            <ComponentSpacer>6</ComponentSpacer>
-            <USH_Glittercore>10</USH_Glittercore>
+            <BroadshieldCore MayRequire="Ludeon.RimWorld.Royalty">1</BroadshieldCore>
+            <ComponentSpacer>4</ComponentSpacer>
+            <USH_Glittercore>6</USH_Glittercore>
         </costList>
         <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
         <designationCategory>Power</designationCategory>

@@ -79,8 +79,9 @@
         <costList>
             <Plasteel>120</Plasteel>
             <Steel>250</Steel>
-            <ComponentSpacer>8</ComponentSpacer>
-            <USH_Glittercore>12</USH_Glittercore>
+            <ReinforcedBarrel>4</ReinforcedBarrel>
+            <ComponentSpacer>6</ComponentSpacer>
+            <USH_Glittercore>8</USH_Glittercore>
         </costList>
         <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
         <designationCategory>Security</designationCategory>

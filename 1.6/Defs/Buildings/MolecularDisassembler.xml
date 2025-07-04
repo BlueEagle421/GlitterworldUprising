@@ -22,7 +22,7 @@
         <staticSunShadowHeight>0.20</staticSunShadowHeight>
         <costList>
             <Steel>100</Steel>
-            <ComponentSpacer>4</ComponentSpacer>
+            <ComponentSpacer>2</ComponentSpacer>
             <USH_Glittercore>6</USH_Glittercore>
         </costList>
         <altitudeLayer>Building</altitudeLayer>
