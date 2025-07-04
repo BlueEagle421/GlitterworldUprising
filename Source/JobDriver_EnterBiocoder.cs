@@ -25,24 +25,11 @@ public class JobDriver_EnterBiocoder : JobDriver
         enter.initAction = delegate ()
         {
             Pawn actor = enter.actor;
-            Building_Biocoder pod = (Building_Biocoder)actor.CurJob.targetA.Thing;
-            void action()
-            {
-                if (pod.TryAcceptThing(actor, true) && actor.DeSpawnOrDeselect(DestroyMode.Vanish))
-                    Find.Selector.Select(actor, false, false);
-            }
+            Building_Biocoder biocoder = (Building_Biocoder)actor.CurJob.targetA.Thing;
 
-            if (pod.def.building.isPlayerEjectable)
-            {
-                action();
-                return;
-            }
-            if (Map.mapPawns.FreeColonistsSpawnedOrInPlayerEjectablePodsCount <= 1)
-            {
-                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("CasketWarning".Translate(actor.Named("PAWN")).AdjustedFor(actor, "PAWN", true), action, false, null, WindowLayer.Dialog));
-                return;
-            }
-            action();
+            bool flag = actor.DeSpawnOrDeselect(DestroyMode.Vanish);
+            if (biocoder.TryAcceptThing(actor, true) && flag)
+                Find.Selector.Select(actor, false, false);
         };
         enter.defaultCompleteMode = ToilCompleteMode.Instant;
 
@@ -53,13 +40,13 @@ public class JobDriver_EnterBiocoder : JobDriver
 public class JobDriver_CarryToBiocoder : JobDriver
 {
     protected Pawn Takee => (Pawn)job.GetTarget(TargetIndex.A).Thing;
-    protected Building_Biocoder DropPod => (Building_Biocoder)job.GetTarget(TargetIndex.B).Thing;
+    protected Building_Biocoder Biocoder => (Building_Biocoder)job.GetTarget(TargetIndex.B).Thing;
 
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
         if (pawn.Reserve(Takee, job, 1, -1, null, errorOnFailed))
         {
-            return pawn.Reserve(DropPod, job, 1, -1, null, errorOnFailed);
+            return pawn.Reserve(Biocoder, job, 1, -1, null, errorOnFailed);
         }
         return false;
     }
@@ -70,10 +57,10 @@ public class JobDriver_CarryToBiocoder : JobDriver
         this.FailOnDestroyedOrNull(TargetIndex.B);
         this.FailOnAggroMentalState(TargetIndex.A);
 
-        this.FailOn(() => !DropPod.Accepts(Takee));
+        this.FailOn(() => !Biocoder.Accepts(Takee));
 
         Toil goToTakee = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnDespawnedNullOrForbidden(TargetIndex.B)
-            .FailOn(() => DropPod.GetDirectlyHeldThings().Count > 0)
+            .FailOn(() => Biocoder.GetDirectlyHeldThings().Count > 0)
             .FailOn(() => !pawn.CanReach(Takee, PathEndMode.OnCell, Danger.Deadly))
             .FailOnSomeonePhysicallyInteracting(TargetIndex.A);
 
@@ -98,7 +85,7 @@ public class JobDriver_CarryToBiocoder : JobDriver
         Toil toil2 = ToilMaker.MakeToil("MakeNewToils");
         toil2.initAction = delegate
         {
-            DropPod.TryAcceptThing(Takee);
+            Biocoder.TryAcceptThing(Takee);
         };
         toil2.defaultCompleteMode = ToilCompleteMode.Instant;
 

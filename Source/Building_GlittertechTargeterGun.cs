@@ -35,7 +35,7 @@ public class ITab_ContentsBiocoder : ITab_ContentsBase
 }
 
 [StaticConstructorOnStartup]
-public class Building_Biocoder : Building_TurretRocket, IThingHolder, IOpenable, ISearchableContents
+public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchableContents
 {
     public int VerbIndex { get; set; }
     public override Verb AttackVerb => GunCompEq.AllVerbs[VerbIndex];
@@ -83,18 +83,6 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, IOpenable,
         ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
     }
 
-    public virtual void Open()
-    {
-        if (HasAnyContents)
-        {
-            EjectContents();
-            if (!openedSignal.NullOrEmpty())
-                Find.SignalManager.SendSignal(new Signal(openedSignal, this.Named("SUBJECT")));
-
-            DirtyMapMesh(Map);
-        }
-    }
-
     public override IEnumerable<Gizmo> GetGizmos()
     {
         foreach (Gizmo gizmo in base.GetGizmos())
@@ -134,26 +122,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, IOpenable,
         if (!Accepts(thing))
             return false;
 
-        bool flag;
-        if (thing.holdingOwner != null)
-        {
-            thing.holdingOwner.TryTransferToContainer(thing, innerContainer, thing.stackCount);
-
-            if (allowSpecialEffects)
-                SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(base.Position, base.Map));
-            flag = true;
-        }
-        else
-        {
-            flag = innerContainer.TryAdd(thing);
-        }
-        if (flag)
-        {
-            if (allowSpecialEffects)
-                SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(base.Position, base.Map));
-            return true;
-        }
-        return false;
+        return innerContainer.TryAdd(thing);
     }
 
     public override void Destroy(DestroyMode mode = DestroyMode.Vanish)

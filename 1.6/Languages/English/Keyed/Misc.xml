@@ -30,6 +30,7 @@
   <USH_GE_CommandSetForBombardmentLabel>Use bombardment attack</USH_GE_CommandSetForBombardmentLabel>
   <USH_GE_CommandSetForPowerBeamLabel>Use power beam attack</USH_GE_CommandSetForPowerBeamLabel>
   <USH_GE_CommandSetForTargeterTypeDesc>Whether the targeter should use bombardment or power beam attack.</USH_GE_CommandSetForTargeterTypeDesc>
+  <USH_GE_EmptyBiocoder>Missing living bioprint source</USH_GE_EmptyBiocoder>
 
   <USH_GE_CantIntercept>Won't intercept: {0}</USH_GE_CantIntercept>
   <USH_GE_DischargeTimeLeft>Discharge time left: {0}</USH_GE_DischargeTimeLeft>
@@ -41,8 +42,8 @@
 
   <USH_GE_EnterBiocoder>Enter biocoder</USH_GE_EnterBiocoder>
   <USH_GE_OpenBiocoder>Open biocoder</USH_GE_OpenBiocoder>
-
-  <USH_GE_CarryToBiocoder>Carry {1_labelShort} to biocoder</USH_GE_CarryToBiocoder>
+  <USH_GE_CarryToBiocoder>Carry {0} to biocoder</USH_GE_CarryToBiocoder>
   <USH_GE_CannotCarryToBiocoder>Cannot carry to biocoder</USH_GE_CannotCarryToBiocoder>
+  <USH_GE_NoBiocoder>No available biocoders.</USH_GE_NoBiocoder>
 
 </LanguageData>
