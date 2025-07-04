@@ -4,7 +4,8 @@
   <ThingDef ParentName="DrugBase">
     <defName>USH_GammaSerum</defName>
     <label>gamma serum</label>
-    <description>.</description>
+    <description>A glittertech neuromodifier capable of tuning brain waves, making the target more susceptible to manipulation. With enough time, it can crack even the most stubborn minds. It will make unwilling prisoners loyal, recruitable, and ready to accept any beliefs.\n\nPerfect for extracting Zion Mainframe codes.
+    </description>
     <graphicData>
       <texPath>Things/Item/GammaSerum</texPath>
       <graphicClass>Graphic_Single</graphicClass>

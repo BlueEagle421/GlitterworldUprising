@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_GlittertechRepairer</defName>
         <label>glittertech repairer</label>
-        <description>.</description>
+        <description>A sturdy station designed to repair and maintain nearby buildings with nanotech precision. It will automatically detect damage within its range and respond accordingly. The powerful glittercore can withstand significant integrity loss itself.</description>
         <graphicData>
             <texPath>Things/Building/GlittertechRepairer/GlittertechRepairer</texPath>
             <graphicClass>Graphic_Multi</graphicClass>
@@ -33,7 +33,7 @@
         <useHitPoints>True</useHitPoints>
         <tickerType>Normal</tickerType>
         <statBases>
-            <MaxHitPoints>310</MaxHitPoints>
+            <MaxHitPoints>650</MaxHitPoints>
             <WorkToBuild>30000</WorkToBuild>
             <Mass>50</Mass>
             <Beauty>0</Beauty>

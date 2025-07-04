@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_GlittertechTargeter</defName>
         <label>orbital targeter</label>
-        <description>.</description>
+        <description>A heavy targeting system. It can transmit coordinates designated for destruction to the nearest orbiting satellites and hack them using a biocode. The ancient satellites can detect unauthorized access and block the bioprint, so it must be changed for each use with the help of a living host encased in the machine. The overheating process will kill the host during operation.</description>
         <thingClass>USH_GE.Building_GlittertechTargeterGun</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
         <graphicData>
