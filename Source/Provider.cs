@@ -13,6 +13,9 @@ public sealed class CarryToBiocoderOptionProvider : FloatMenuOptionProvider
 
     protected override FloatMenuOption GetSingleOptionFor(Pawn targetPawn, FloatMenuContext context)
     {
+        if (targetPawn.IsPlayerControlled && !targetPawn.Downed)
+            return null;
+
         if (!CanReserveAndReachTarget(context.FirstSelectedPawn, targetPawn))
             return null;
 
@@ -52,6 +55,13 @@ public sealed class CarryToBiocoderOptionProvider : FloatMenuOptionProvider
         out FloatMenuOption option)
     {
         option = null;
+
+        if (target.IsPrisoner && !target.Downed)
+        {
+            string message = "USH_GE_PrisonerNotDowned".Translate();
+            option = CreateDisabledOption(baseLabel, message, target, carrier);
+            return true;
+        }
 
         if (target.IsQuestLodger())
         {

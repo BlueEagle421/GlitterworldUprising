@@ -45,5 +45,6 @@
   <USH_GE_CarryToBiocoder>Carry {0} to biocoder</USH_GE_CarryToBiocoder>
   <USH_GE_CannotCarryToBiocoder>Cannot carry to biocoder</USH_GE_CannotCarryToBiocoder>
   <USH_GE_NoBiocoder>No available biocoders.</USH_GE_NoBiocoder>
+  <USH_GE_PrisonerNotDowned>Prisoner not downed</USH_GE_PrisonerNotDowned>
 
 </LanguageData>
