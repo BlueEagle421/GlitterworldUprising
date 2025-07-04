@@ -16,6 +16,7 @@
                 <volume>(0.6, 0.8, 0.6)</volume>
             </shadowData>
         </graphicData>
+        <tradeability>Sellable</tradeability>
         <castEdgeShadows>true</castEdgeShadows>
         <rotatable>false</rotatable>
         <costList>

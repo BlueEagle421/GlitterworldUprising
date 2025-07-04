@@ -15,6 +15,7 @@
             <drawRotated>false</drawRotated>
             <allowFlip>false</allowFlip>
         </graphicData>
+        <tradeability>Sellable</tradeability>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
         <passability>PassThroughOnly</passability>
         <minifiedDef>MinifiedThing</minifiedDef>

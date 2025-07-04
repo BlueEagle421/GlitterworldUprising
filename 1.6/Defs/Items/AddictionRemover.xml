@@ -10,6 +10,7 @@
       <texPath>Things/Item/AddictionRemover</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
+    <tradeability>Sellable</tradeability>
     <rotatable>false</rotatable>
     <statBases>
       <WorkToMake>4200</WorkToMake>

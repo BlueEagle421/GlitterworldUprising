@@ -14,6 +14,7 @@
       <graphicClass>Graphic_Single</graphicClass>
       <drawSize>0.80</drawSize>
     </graphicData>
+    <tradeability>Sellable</tradeability>
     <statBases>
       <DeteriorationRate>0</DeteriorationRate>
     </statBases>

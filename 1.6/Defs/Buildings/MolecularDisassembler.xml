@@ -17,6 +17,7 @@
                 <cornerBR>Damage/Corner</cornerBR>
             </damageData>
         </graphicData>
+        <tradeability>Sellable</tradeability>
         <castEdgeShadows>true</castEdgeShadows>
         <staticSunShadowHeight>0.20</staticSunShadowHeight>
         <costList>

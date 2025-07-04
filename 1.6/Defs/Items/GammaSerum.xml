@@ -9,6 +9,7 @@
       <texPath>Things/Item/GammaSerum</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
+    <tradeability>Sellable</tradeability>
     <rotatable>false</rotatable>
     <statBases>
       <WorkToMake>4200</WorkToMake>

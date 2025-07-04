@@ -16,6 +16,7 @@
                 <volume>(0.8, 1, 0.8)</volume>
             </shadowData>
         </graphicData>
+        <tradeability>Sellable</tradeability>
         <altitudeLayer>Building</altitudeLayer>
         <minifiedDef>MinifiedThing</minifiedDef>
         <rotatable>false</rotatable>

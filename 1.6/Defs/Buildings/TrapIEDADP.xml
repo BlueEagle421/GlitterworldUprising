@@ -8,6 +8,7 @@
         <graphicData>
             <texPath>Things/Building/IEDADP</texPath>
         </graphicData>
+        <tradeability>Sellable</tradeability>
         <uiOrder>42</uiOrder>
         <costList>
             <USH_Shell_ADP>2</USH_Shell_ADP>

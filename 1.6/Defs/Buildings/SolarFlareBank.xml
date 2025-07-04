@@ -17,6 +17,7 @@
                 <volume>(1.7,0.6,1.7)</volume>
             </shadowData>
         </graphicData>
+        <tradeability>Sellable</tradeability>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
         <rotatable>false</rotatable>
         <size>(3,2)</size>

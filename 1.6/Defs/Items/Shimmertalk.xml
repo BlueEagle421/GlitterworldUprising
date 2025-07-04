@@ -12,6 +12,7 @@
       <graphicClass>Graphic_StackCount</graphicClass>
       <drawSize>0.85</drawSize>
     </graphicData>
+    <tradeability>Sellable</tradeability>
     <rotatable>false</rotatable>
     <statBases>
       <WorkToMake>1600</WorkToMake>

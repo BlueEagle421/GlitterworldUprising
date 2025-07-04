@@ -10,6 +10,7 @@
             <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(2.5,2.5)</drawSize>
         </graphicData>
+        <tradeability>Sellable</tradeability>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
         <passability>PassThroughOnly</passability>
         <pathCost>60</pathCost>

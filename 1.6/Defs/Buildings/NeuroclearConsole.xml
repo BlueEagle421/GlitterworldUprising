@@ -22,6 +22,7 @@
             <allowFlip>false</allowFlip>
             <drawSize>(2,2)</drawSize>
         </graphicData>
+        <tradeability>Sellable</tradeability>
         <tickerType>Normal</tickerType>
         <altitudeLayer>Building</altitudeLayer>
         <passability>PassThroughOnly</passability>
