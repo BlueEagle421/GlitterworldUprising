@@ -2,7 +2,6 @@
 <Defs>
 
   <ThingDef Name="USH_SkilltrainerRecipeBase" ParentName="USH_BaseGlittertechForming" Abstract="True">
-    <gestationCycles>4</gestationCycles>
     <formingTicks>40000</formingTicks>
     <gestationCycles>6</gestationCycles>
     <modExtensions>
@@ -10,7 +9,6 @@
         <powerNeeded>12000</powerNeeded>
       </li>
     </modExtensions>
-
     <ingredients>
       <li>
         <filter>
@@ -46,7 +44,6 @@
       </li>
     </ingredients>
   </ThingDef>
-
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Shooting</defName>
