@@ -39,19 +39,13 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
 {
     public int VerbIndex { get; set; }
     public override Verb AttackVerb => GunCompEq.AllVerbs[VerbIndex];
-
     public override Material TurretTopMaterial => def.building.turretTopMat;
 
-    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
-    {
-
-    }
 
     protected ThingOwner innerContainer;
     public string openedSignal;
     public virtual int OpenTicks => 300;
     public bool HasAnyContents => innerContainer.Count > 0;
-
     public Thing ContainedThing
     {
         get
@@ -89,16 +83,18 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         {
             yield return gizmo;
         }
-        if (base.Faction == Faction.OfPlayer && innerContainer.Count > 0 && def.building.isPlayerEjectable)
+        if (Faction == Faction.OfPlayer && innerContainer.Count > 0 && def.building.isPlayerEjectable)
         {
-            Command_Action command_Action = new Command_Action();
-            command_Action.action = EjectContents;
-            command_Action.defaultLabel = "CommandPodEject".Translate();
-            command_Action.defaultDesc = "CommandPodEjectDesc".Translate();
-            if (innerContainer.Count == 0)
+            Command_Action command_Action = new()
             {
+                action = EjectContents,
+                defaultLabel = "CommandPodEject".Translate(),
+                defaultDesc = "CommandPodEjectDesc".Translate()
+            };
+
+            if (innerContainer.Count == 0)
                 command_Action.Disable("CommandPodEjectFailEmpty".Translate());
-            }
+
             command_Action.hotKey = KeyBindingDefOf.Misc8;
             command_Action.icon = ContentFinder<Texture2D>.Get("UI/Commands/PodEject");
             yield return command_Action;
@@ -112,10 +108,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         Scribe_Values.Look(ref openedSignal, "openedSignal");
     }
 
-    public virtual bool Accepts(Thing thing)
-    {
-        return innerContainer.CanAcceptAnyOf(thing);
-    }
+    public virtual bool Accepts(Thing thing) => innerContainer.CanAcceptAnyOf(thing);
 
     public virtual bool TryAcceptThing(Thing thing, bool allowSpecialEffects = true)
     {
@@ -152,19 +145,19 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
 
     public override string GetInspectString()
     {
-        string text = base.GetInspectString();
+        string baseStr = base.GetInspectString();
         string str = innerContainer.ContentsString;
 
-        if (!text.NullOrEmpty())
-            text += "\n";
+        if (!baseStr.NullOrEmpty())
+            baseStr += "\n";
 
-        return text + ("Contains".Translate() + ": " + str.CapitalizeFirst());
+        return baseStr + ("Contains".Translate() + ": " + str.CapitalizeFirst());
     }
 
     public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn myPawn)
     {
         if (myPawn.IsQuestLodger())
-            yield return new FloatMenuOption("CannotUseReason".Translate("BiocoderCasketGuestsNotAllowed".Translate()), null);
+            yield return new FloatMenuOption("CannotUseReason".Translate("CryptosleepCasketGuestsNotAllowed".Translate()), null);
 
         foreach (FloatMenuOption floatMenuOption in base.GetFloatMenuOptions(myPawn))
             yield return floatMenuOption;
@@ -176,7 +169,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
             yield return new FloatMenuOption("CannotUseNoPath".Translate(), null);
 
         JobDef jobDef = USHDefOf.USH_EnterBiocoder;
-        string label = "EnterBiocoderCasket".Translate();
+        string label = "USH_GE_EnterBiocoder".Translate();
 
         void action()
         {
@@ -202,8 +195,6 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(label, action), myPawn, this);
     }
 
-
-
     public static Building_Biocoder FindBiocoderFor(Pawn p, Pawn traveler, bool ignoreOtherReservations = false)
     {
 
@@ -223,5 +214,11 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         }
 
         return null;
+    }
+
+    //disable rendering of the turret
+    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+    {
+
     }
 }
