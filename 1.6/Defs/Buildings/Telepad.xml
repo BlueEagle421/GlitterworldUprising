@@ -39,9 +39,9 @@
             <Beauty>0</Beauty>
         </statBases>
         <size>(1,1)</size>
-        <designationCategory>Security</designationCategory>
+        <designationCategory>Misc</designationCategory>
         <thingCategories>
-            <li>BuildingsSecurity</li>
+            <li>BuildingsMisc</li>
         </thingCategories>
         <uiOrder>2100</uiOrder>
         <passability>Standable</passability>
@@ -87,9 +87,8 @@
             </li>
         </comps>
         <designationHotKey>Misc3</designationHotKey>
-        <uiIconScale>0.45</uiIconScale>
-        <uiIconOffset>(0, 0.2)</uiIconOffset>
         <specialDisplayRadius>16.9</specialDisplayRadius>
+        <uiIconScale>0.8</uiIconScale>
         <researchPrerequisites>
             <li>USH_GlittertechUtilitiesRes</li>
         </researchPrerequisites>
