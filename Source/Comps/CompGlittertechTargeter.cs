@@ -28,6 +28,19 @@ public class CompGlittertechTargeter : CompInteractableRocketswarmLauncher
         ParentGun.VerbIndex = (int)targeterType;
     }
 
+    public override AcceptanceReport CanInteract(Pawn activateBy = null, bool checkOptionalItems = true)
+    {
+        AcceptanceReport baseReport = base.CanInteract(activateBy, checkOptionalItems);
+
+        if (!baseReport)
+            return baseReport;
+
+        if (!ParentGun.HasAnyContents)
+            return "USH_GE_EmptyBiocoder".Translate();
+
+        return true;
+    }
+
     public override IEnumerable<Gizmo> CompGetGizmosExtra()
     {
         foreach (var gizmo in base.CompGetGizmosExtra())

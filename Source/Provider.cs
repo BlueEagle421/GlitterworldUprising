@@ -19,7 +19,7 @@ public sealed class CarryToBiocoderOptionProvider : FloatMenuOptionProvider
         if (!TryGetBiocoder(targetPawn, context.FirstSelectedPawn, out var biocoder))
             return null;
 
-        string label = CreateLabel(targetPawn);
+        string label = "USH_GE_CarryToBiocoder".Translate(targetPawn.LabelShort);
         if (TryGetRestrictedOption(targetPawn, context.FirstSelectedPawn, label, out var restrictedOption))
             return restrictedOption;
 
@@ -43,13 +43,6 @@ public sealed class CarryToBiocoderOptionProvider : FloatMenuOptionProvider
                    ?? Building_Biocoder.FindBiocoderFor(target, carrier);
 
         return biocoder != null;
-    }
-
-    private static string CreateLabel(Pawn target)
-    {
-        return string.Format("{0}: {1}",
-            "USH_GE_CarryToBiocoder".Translate(target.LabelCap, target),
-            target.LabelShort);
     }
 
     private static bool TryGetRestrictedOption(

@@ -138,9 +138,29 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         innerContainer.ClearAndDestroyContents();
     }
 
+    public void BurnContainedPawn()
+    {
+        if (!HasAnyContents)
+            return;
+
+        foreach (Thing t in innerContainer)
+            if (t is Pawn p)
+                HealthUtility.DamageUntilDead(p, DamageDefOf.Burn);
+
+        innerContainer.TryDropAll(Position, Map, ThingPlaceMode.Near);
+        innerContainer.ClearAndDestroyContents();
+    }
+
     public virtual void EjectContents()
     {
         innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
+    }
+
+    protected override void BeginBurst()
+    {
+        base.BeginBurst();
+
+        BurnContainedPawn();
     }
 
     public override string GetInspectString()
