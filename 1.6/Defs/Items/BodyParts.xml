@@ -485,7 +485,11 @@
   <ThingDef ParentName="USH_GlitterworldBodyPart">
     <defName>USH_TelepadIntegrator</defName>
     <label>telepad integrator</label>
-    <description>.</description>
+    <description>A simple implant designed to tune the user’s brain waves to accept sudden and artificial translocations. It prevents teleportation sickness and establishes a link to the telepad.</description>
+    <descriptionHyperlinks>
+      <ThingDef>USH_Telepad</ThingDef>
+      <ThingDef>USH_InstalledTelepadIntegrator</ThingDef>
+    </descriptionHyperlinks>
     <statBases>
       <Mass>0.1</Mass>
     </statBases>
