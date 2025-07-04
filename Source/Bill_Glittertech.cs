@@ -87,7 +87,7 @@ namespace USH_GE
 
         public float FormingSpeedMultiplier()
         {
-            return 1f / Fabricator.GetStatValue(USHDefOf.USH_GlittertechDuration);
+            return 1f / Fabricator.GetStatValue(USH_DefOf.USH_GlittertechDuration);
         }
 
 

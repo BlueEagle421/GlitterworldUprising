@@ -42,7 +42,7 @@ public static class Patch_BillUtility_LayoutTooltip
     {
         get
         {
-            _cachedPowerTexArg ??= Gen.YieldSingle(USHDefOf.USH_PowerStored.ToTextureAndColor());
+            _cachedPowerTexArg ??= Gen.YieldSingle(USH_DefOf.USH_PowerStored.ToTextureAndColor());
 
             return _cachedPowerTexArg;
         }

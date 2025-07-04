@@ -297,7 +297,7 @@ namespace USH_GE
                 .OrderByDescending(b => b.MaxHitPoints - b.HitPoints)
                 .FirstOrDefault();
 
-            _repairEffecter = USHDefOf.USH_GlittertechRepair.Spawn();
+            _repairEffecter = USH_DefOf.USH_GlittertechRepair.Spawn();
 
             _repairEffecter.Trigger(new TargetInfo(_currentlyRepairing), new TargetInfo(parent), -1);
 

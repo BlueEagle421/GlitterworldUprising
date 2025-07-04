@@ -62,13 +62,13 @@ namespace USH_GE
         public override void PostMake()
         {
             base.PostMake();
-            _electricEffecterHandler = new EffecterHandler(this, USHDefOf.USH_ElectricForming);
+            _electricEffecterHandler = new EffecterHandler(this, USH_DefOf.USH_ElectricForming);
         }
 
         public override void PostMapInit()
         {
             base.PostMapInit();
-            _electricEffecterHandler = new EffecterHandler(this, USHDefOf.USH_ElectricForming);
+            _electricEffecterHandler = new EffecterHandler(this, USH_DefOf.USH_ElectricForming);
         }
 
         public override void Notify_StartForming(Pawn billDoer)
@@ -120,7 +120,7 @@ namespace USH_GE
         {
             var sb = new StringBuilder();
 
-            sb.AppendLine(USHDefOf.USH_GlittertechPowerStored.LabelCap + ": " + this.GetStatValue(USHDefOf.USH_GlittertechPowerStored).ToStringPercent());
+            sb.AppendLine(USH_DefOf.USH_GlittertechPowerStored.LabelCap + ": " + this.GetStatValue(USH_DefOf.USH_GlittertechPowerStored).ToStringPercent());
 
             if (billStack.FirstShouldDoNow is Bill_Glittertech firstBill and not null
                 && firstBill.GlittertechExt is { powerNeeded: var powerNeeded }
@@ -267,7 +267,7 @@ namespace USH_GE
 
         public float PowerNeededWithStat(float initialPowerNeeded)
         {
-            return initialPowerNeeded * this.GetStatValue(USHDefOf.USH_GlittertechPowerStored);
+            return initialPowerNeeded * this.GetStatValue(USH_DefOf.USH_GlittertechPowerStored);
         }
     }
 }

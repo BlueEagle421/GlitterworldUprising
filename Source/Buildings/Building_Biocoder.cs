@@ -203,7 +203,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         if (!myPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly))
             yield return new FloatMenuOption("CannotUseNoPath".Translate(), null);
 
-        JobDef jobDef = USHDefOf.USH_EnterBiocoder;
+        JobDef jobDef = USH_DefOf.USH_EnterBiocoder;
         string label = "USH_GE_EnterBiocoder".Translate();
 
         void action()
@@ -234,7 +234,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
     {
 
         bool queuing = KeyBindingDefOf.QueueOrder.IsDownEvent;
-        Building_Biocoder biocoder = (Building_Biocoder)GenClosest.ClosestThingReachable(p.PositionHeld, p.MapHeld, ThingRequest.ForDef(USHDefOf.USH_GlittertechTargeter), PathEndMode.InteractionCell, TraverseParms.For(traveler), 9999f, Validator);
+        Building_Biocoder biocoder = (Building_Biocoder)GenClosest.ClosestThingReachable(p.PositionHeld, p.MapHeld, ThingRequest.ForDef(USH_DefOf.USH_GlittertechTargeter), PathEndMode.InteractionCell, TraverseParms.For(traveler), 9999f, Validator);
 
         if (biocoder != null)
             return biocoder;

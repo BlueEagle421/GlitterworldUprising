@@ -4,11 +4,11 @@ using Verse;
 namespace USH_GE
 {
     [DefOf]
-    public static class USHDefOf
+    public static class USH_DefOf
     {
-        static USHDefOf()
+        static USH_DefOf()
         {
-            DefOfHelper.EnsureInitializedInCtor(typeof(USHDefOf));
+            DefOfHelper.EnsureInitializedInCtor(typeof(USH_DefOf));
         }
 
         public static EffecterDef USH_ElectricForming;

@@ -58,7 +58,7 @@ namespace USH_GE
             if (t is not Pawn p)
                 return false;
 
-            if (p.RaceProps.IsFlesh && !p.health.hediffSet.HasHediff(USHDefOf.USH_InstalledTelepadIntegrator))
+            if (p.RaceProps.IsFlesh && !p.health.hediffSet.HasHediff(USH_DefOf.USH_InstalledTelepadIntegrator))
                 return "USH_GE_MissingIntegrator".Translate();
 
             if (t.Position.InHorDistOf(parent.Position, parent.def.specialDisplayRadius))
