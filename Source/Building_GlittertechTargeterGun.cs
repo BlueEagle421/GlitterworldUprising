@@ -111,7 +111,27 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         if (!Accepts(thing))
             return false;
 
-        return innerContainer.TryAdd(thing);
+        bool success;
+        if (thing.holdingOwner != null)
+        {
+            success = innerContainer.TryAddOrTransfer(thing);
+
+            if (allowSpecialEffects && success)
+                PlayEnteredSound();
+        }
+        else
+        {
+            success = innerContainer.TryAdd(thing);
+            if (allowSpecialEffects && success)
+                PlayEnteredSound();
+        }
+
+        return success;
+    }
+
+    private void PlayEnteredSound()
+    {
+        SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(Position, Map));
     }
 
     public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
@@ -129,7 +149,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
                     if (t is Pawn p)
                         HealthUtility.DamageUntilDowned(p);
 
-            innerContainer.TryDropAll(Position, Map, ThingPlaceMode.Near);
+            innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
         }
         innerContainer.ClearAndDestroyContents();
     }
@@ -143,7 +163,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
             if (t is Pawn p)
                 HealthUtility.DamageUntilDead(p, DamageDefOf.Burn);
 
-        innerContainer.TryDropAll(Position, Map, ThingPlaceMode.Near);
+        innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
         innerContainer.ClearAndDestroyContents();
     }
 
