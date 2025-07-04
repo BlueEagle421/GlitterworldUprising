@@ -5,6 +5,7 @@
         "Breakdownable",
         "cooldown",
         "datacore",
+        "dissasembling",
         "Flickable",
         "Gestator",
         "Glitterbeam",
@@ -23,6 +24,7 @@
         "Mechanoid",
         "mechanoids",
         "Mechs",
+        "Nanotech",
         "Neuroclear",
         "Neuromodifiers",
         "Neurotrainer",
@@ -45,6 +47,8 @@
         "Stunnable",
         "targeter",
         "Telepad",
+        "telepads",
+        "translocating",
         "Ultratech",
         "Upgradables"
     ]

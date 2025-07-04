@@ -73,7 +73,7 @@
         </building>
         <constructEffect>ConstructMetal</constructEffect>
         <researchPrerequisites>
-            <li>USH_GlittertechUtilitiesRes</li>
+            <li>USH_MolecularDisassemblerRes</li>
         </researchPrerequisites>
         <designationHotKey>Misc7</designationHotKey>
         <placeWorkers>

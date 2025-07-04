@@ -90,7 +90,7 @@
         <specialDisplayRadius>16.9</specialDisplayRadius>
         <uiIconScale>0.8</uiIconScale>
         <researchPrerequisites>
-            <li>USH_GlittertechUtilitiesRes</li>
+            <li>USH_TelepadRes</li>
         </researchPrerequisites>
     </ThingDef>
 

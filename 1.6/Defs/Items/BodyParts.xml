@@ -492,9 +492,9 @@
       <Steel>15</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
-    <!-- <recipeMaker>
-      <researchPrerequisite>USH_TeethRes</researchPrerequisite>
-    </recipeMaker> -->
+    <recipeMaker>
+      <researchPrerequisite>USH_TelepadRes</researchPrerequisite>
+    </recipeMaker>
   </ThingDef>
 
   <RecipeDef ParentName="SurgeryInstallImplantBase">

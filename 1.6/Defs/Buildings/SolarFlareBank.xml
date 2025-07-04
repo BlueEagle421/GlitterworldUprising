@@ -72,7 +72,7 @@
         </placeWorkers>
         <designationHotKey>Misc2</designationHotKey>
         <researchPrerequisites>
-            <li>USH_HeavyGlittertech</li>
+            <li>USH_HeavyGlittertechRes</li>
         </researchPrerequisites>
     </ThingDef>
 
