@@ -64,7 +64,7 @@
             <Steel>300</Steel>
             <BroadshieldCore MayRequire="Ludeon.RimWorld.Royalty">1</BroadshieldCore>
             <ComponentSpacer>4</ComponentSpacer>
-            <USH_Glittercore>6</USH_Glittercore>
+            <USH_Glittercore>8</USH_Glittercore>
         </costList>
         <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
         <designationCategory>Power</designationCategory>
