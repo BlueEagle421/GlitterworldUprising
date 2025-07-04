@@ -468,4 +468,66 @@
     </incompatibleWithHediffTags>
   </RecipeDef>
 
+  <HediffDef ParentName="USH_AddedPartGlittery">
+    <defName>USH_InstalledTelepadIntegrator</defName>
+    <label>telepad integrator</label>
+    <description>An installed telepad integrator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>USH_TelepadIntegrator</ThingDef>
+    </descriptionHyperlinks>
+    <spawnThingOnRemoved>USH_TelepadIntegrator</spawnThingOnRemoved>
+    <tags>
+      <li>USH_TelepadIntegratorTag</li>
+    </tags>
+  </HediffDef>
+
+  <ThingDef ParentName="USH_GlitterworldBodyPart">
+    <defName>USH_TelepadIntegrator</defName>
+    <label>telepad integrator</label>
+    <description>.</description>
+    <statBases>
+      <Mass>0.1</Mass>
+    </statBases>
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <!-- <recipeMaker>
+      <researchPrerequisite>USH_TeethRes</researchPrerequisite>
+    </recipeMaker> -->
+  </ThingDef>
+
+  <RecipeDef ParentName="SurgeryInstallImplantBase">
+    <defName>USH_InstallTelepadIntegrator</defName>
+    <label>install telepad integrator</label>
+    <description>Install a telepad integrator.</description>
+    <descriptionHyperlinks>
+      <ThingDef>USH_TelepadIntegrator</ThingDef>
+      <HediffDef>USH_InstalledTelepadIntegrator</HediffDef>
+    </descriptionHyperlinks>
+    <jobString>Installing telepad integrator.</jobString>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>USH_TelepadIntegrator</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>USH_TelepadIntegrator</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <appliedOnFixedBodyParts>
+      <li>Brain</li>
+    </appliedOnFixedBodyParts>
+    <addsHediff>USH_InstalledTelepadIntegrator</addsHediff>
+    <incompatibleWithHediffTags>
+      <li>USH_TelepadIntegratorTag</li>
+    </incompatibleWithHediffTags>
+  </RecipeDef>
+
 </Defs> 

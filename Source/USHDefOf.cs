@@ -19,7 +19,7 @@ namespace USH_GE
         public static ThingDef USH_PowerStored;
         public static DamageDef USH_ADP;
         public static WorkGiverDef USH_DoBillsUpgrades;
-        public static HediffDef USH_TelepadIntegrator;
+        public static HediffDef USH_InstalledTelepadIntegrator;
     }
 
 }

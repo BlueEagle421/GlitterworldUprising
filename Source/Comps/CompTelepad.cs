@@ -63,8 +63,8 @@ namespace USH_GE
             if (!interactionReport)
                 return interactionReport.Reason;
 
-            // if (p.RaceProps.IsFlesh && !p.health.hediffSet.HasHediff(USHDefOf.USH_TelepadIntegrator))
-            //     return false;
+            if (p.RaceProps.IsFlesh && !p.health.hediffSet.HasHediff(USHDefOf.USH_InstalledTelepadIntegrator))
+                return "USH_GE_MissingIntegrator".Translate();
 
             return true;
         }

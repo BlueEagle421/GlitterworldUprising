@@ -36,7 +36,6 @@
   <USH_GE_SolarFlareInterceptedLabel>Solar flare intercepted</USH_GE_SolarFlareInterceptedLabel>
   <USH_GE_SolarFlareInterceptedText>Installed banks (x{0}) have intercepted the solar flare and will slowly discharge the accumulated power into the grid</USH_GE_SolarFlareInterceptedText>
 
-  <USH_Upgrades>Upgrades</USH_Upgrades>
-  <USH_MaxUpgrades>Max upgrades</USH_MaxUpgrades>
+  <USH_GE_MissingIntegrator>Missing telepad integrator implant</USH_GE_MissingIntegrator>
 
 </LanguageData>
