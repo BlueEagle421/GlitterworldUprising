@@ -125,6 +125,9 @@ public static class Patch_BillUtility_LayoutTooltip
             return;
 
         Tooltip.Newline();
+        Tooltip.Label(("USH_GE_FormingDuration".Translate() + ": ").AsTipTitle() + (recipe.gestationCycles * recipe.formingTicks).ToStringTicksToPeriod(), draw);
+
+        Tooltip.Newline();
         Tooltip.Label("USH_GE_PowerNeed".Translate().AsTipTitle(), draw);
         Tooltip.Newline();
 
