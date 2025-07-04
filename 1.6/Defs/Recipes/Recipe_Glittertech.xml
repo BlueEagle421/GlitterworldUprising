@@ -18,7 +18,8 @@
         <label>form glittercore</label>
         <description>Form a glittercore.</description>
         <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
-
+        <formingTicks>10000</formingTicks>
+        <gestationCycles>4</gestationCycles>
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -63,9 +64,8 @@
         <label>form glitterworld medicine x4</label>
         <description>Form glitterworld medicine.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-        <formingTicks>22000</formingTicks>
-        <gestationCycles>3</gestationCycles>
-
+        <formingTicks>10000</formingTicks>
+        <gestationCycles>1</gestationCycles>
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -92,15 +92,12 @@
                 <count>1</count>
             </li>
         </ingredients>
-
         <products>
             <MedicineUltratech>4</MedicineUltratech>
         </products>
-
         <descriptionHyperlinks>
             <ThingDef>MedicineUltratech</ThingDef>
         </descriptionHyperlinks>
-
         <modExtensions>
             <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>800</powerNeeded>
@@ -112,8 +109,9 @@
         <defName>USH_FormPhilosophersStone_Bulk</defName>
         <label>form philosopher's stones x6</label>
         <description>Form philosopher's stones x6.</description>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>2500</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -140,7 +138,6 @@
                 <count>1</count>
             </li>
         </ingredients>
-
         <products>
             <USH_PhilosophersStone>6</USH_PhilosophersStone>
         </products>
@@ -158,8 +155,9 @@
         <defName>USH_FormPlasteel</defName>
         <label>form plasteel x12</label>
         <description>Form plasteel x12.</description>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>12000</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -202,7 +200,6 @@
                 <count>2</count>
             </li>
         </ingredients>
-
         <products>
             <Plasteel>12</Plasteel>
         </products>
@@ -220,8 +217,9 @@
         <defName>USH_FormPlasteelBulk</defName>
         <label>form plasteel x48</label>
         <description>Form plasteel x48.</description>
+        <gestationCycles>20</gestationCycles>
+        <formingTicks>12000</formingTicks>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -264,7 +262,6 @@
                 <count>8</count>
             </li>
         </ingredients>
-
         <products>
             <Plasteel>48</Plasteel>
         </products>
@@ -284,9 +281,8 @@
         <description>Turn 64 steel into 16 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-        <gestationCycles>4</gestationCycles>
-        <formingTicks>30000</formingTicks>
-
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>3000</formingTicks>
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -305,7 +301,6 @@
                 <count>1</count>
             </li>
         </ingredients>
-
         <products>
             <Gold>16</Gold>
         </products>
@@ -325,11 +320,8 @@
         <description>Turn 256 steel into 64 gold using philosopher's stone.</description>
         <jobString>Turning steel into gold.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-
-
-        <gestationCycles>16</gestationCycles>
-        <formingTicks>30000</formingTicks>
-
+        <gestationCycles>20</gestationCycles>
+        <formingTicks>3000</formingTicks>
         <ingredients Inherit="false">
 
             <li>
@@ -370,11 +362,8 @@
         <description>Turn 8 gold into 16 jade using philosopher's stone.</description>
         <jobString>Turning gold into jade.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-
-
-        <gestationCycles>4</gestationCycles>
-        <formingTicks>30000</formingTicks>
-
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>3000</formingTicks>
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -413,13 +402,9 @@
         <description>Turn 32 gold into 64 jade using philosopher's stone.</description>
         <jobString>Turning gold into jade.</jobString>
         <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
-
-
-        <gestationCycles>16</gestationCycles>
-        <formingTicks>30000</formingTicks>
-
+        <gestationCycles>20</gestationCycles>
+        <formingTicks>3000</formingTicks>
         <ingredients Inherit="false">
-
             <li>
                 <filter>
                     <thingDefs>
@@ -438,7 +423,6 @@
             </li>
 
         </ingredients>
-
         <products>
             <Jade>64</Jade>
         </products>
@@ -457,10 +441,9 @@
         <label>form shimmertalk</label>
         <description>Form shimmertalk.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-        <gestationCycles>2</gestationCycles>
+        <gestationCycles>5</gestationCycles>
         <formingTicks>5000</formingTicks>
         <ingredients Inherit="false">
-
             <li>
                 <filter>
                     <thingDefs>
@@ -504,7 +487,7 @@
         <label>form addiction remover</label>
         <description>Form addiction remover.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-        <gestationCycles>4</gestationCycles>
+        <gestationCycles>5</gestationCycles>
         <formingTicks>5000</formingTicks>
         <ingredients Inherit="false">
             <li>
@@ -558,8 +541,8 @@
         <label>form gamma serum</label>
         <description>Form gamma serum.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-        <gestationCycles>4</gestationCycles>
-        <formingTicks>8000</formingTicks>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>5000</formingTicks>
         <ingredients Inherit="false">
             <li>
                 <filter>
@@ -604,8 +587,8 @@
         <label>form ADP shell</label>
         <description>Form ADP shell.</description>
         <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-        <gestationCycles>4</gestationCycles>
-        <formingTicks>14000</formingTicks>
+        <gestationCycles>7</gestationCycles>
+        <formingTicks>5000</formingTicks>
         <ingredients Inherit="false">
             <li>
                 <filter>
