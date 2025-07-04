@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-  <USH_GE_SkinSettingExplanation>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.
-    Note that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GE_SkinSettingExplanation>
+  <USH_GE_SkinSettingExplanation>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.\nNote that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GE_SkinSettingExplanation>
 
   <USH_GE_SkinSettingTooltip>If enabled the skin color will not get changed after operation.</USH_GE_SkinSettingTooltip>
   <USH_GE_SkinSettingLabel>Disable skin replacements changing actual pawn's skin color</USH_GE_SkinSettingLabel>
