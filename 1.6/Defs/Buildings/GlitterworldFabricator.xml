@@ -21,10 +21,9 @@
         <costList>
             <Steel>260</Steel>
             <Silver>80</Silver>
-            <Plasteel>30</Plasteel>
+            <Plasteel>50</Plasteel>
             <MedicineUltratech>18</MedicineUltratech>
-            <ComponentIndustrial>4</ComponentIndustrial>
-            <ComponentSpacer>9</ComponentSpacer>
+            <ComponentSpacer>8</ComponentSpacer>
         </costList>
         <drawerType>MapMeshAndRealTime</drawerType>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
