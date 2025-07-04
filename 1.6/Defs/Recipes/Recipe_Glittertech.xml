@@ -504,7 +504,7 @@
                         <li>MedicineUltratech</li>
                     </thingDefs>
                 </filter>
-                <count>1</count>
+                <count>2</count>
             </li>
             <li>
                 <filter>
@@ -512,7 +512,7 @@
                         <li>Silver</li>
                     </thingDefs>
                 </filter>
-                <count>60</count>
+                <count>4</count>
             </li>
             <li>
                 <filter>
