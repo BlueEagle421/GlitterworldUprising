@@ -5,7 +5,7 @@
         <defName>USH_GlittertechTargeter</defName>
         <label>orbital targeter</label>
         <description>A heavy targeting system. It transmits coordinates to the nearest satellites and hacks them using a biocode. The ancient satellites can detect unauthorized access and block the bioprint, so it must be changed for each use with the help of a living host encased in the machine. The overheating process will kill the host during operation.\n\nThe machine has multiple attack modes.</description>
-        <thingClass>USH_GE.Building_GlittertechTargeterGun</thingClass>
+        <thingClass>USH_GE.Building_Biocoder</thingClass>
         <drawerType>MapMeshAndRealTime</drawerType>
         <graphicData>
             <texPath>Things/Building/GlittertechTargeter</texPath>
@@ -31,6 +31,11 @@
             <ShootingAccuracyTurret>0.96</ShootingAccuracyTurret>
         </statBases>
         <tickerType>Normal</tickerType>
+        <inspectorTabs>
+            <li>USH_GE.ITab_ContentsBiocoder</li>
+        </inspectorTabs>
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(1,0,-1)</interactionCellOffset>
         <comps>
             <li Class="CompProperties_Forbiddable" />
             <li Class="CompProperties_Power">
@@ -87,6 +92,7 @@
             <turretBurstCooldownTime>0.1</turretBurstCooldownTime>
             <playTargetAcquiredSound>false</playTargetAcquiredSound>
             <turretBurstWarmupTime>0</turretBurstWarmupTime>
+            <isPlayerEjectable>true</isPlayerEjectable>
         </building>
         <placeWorkers>
             <li>PlaceWorker_NotUnderRoof</li>
@@ -151,5 +157,19 @@
             </li>
         </verbs>
     </ThingDef>
+
+    <JobDef>
+        <defName>USH_EnterBiocoder</defName>
+        <driverClass>USH_GE.JobDriver_EnterBiocoder</driverClass>
+        <reportString>entering biocoder.</reportString>
+        <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+    </JobDef>
+
+    <JobDef>
+        <defName>USH_CarryToBiocoder</defName>
+        <driverClass>USH_GE.JobDriver_CarryToBiocoder</driverClass>
+        <reportString>carrying TargetA to biocoder.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+    </JobDef>
 
 </Defs>

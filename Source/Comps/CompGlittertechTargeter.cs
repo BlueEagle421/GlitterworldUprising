@@ -1,13 +1,16 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using UnityEngine;
 using Verse;
+using Verse.AI;
+using Verse.Sound;
 
 namespace USH_GE;
 
 public class CompGlittertechTargeter : CompInteractableRocketswarmLauncher
 {
-    private Building_GlittertechTargeterGun ParentGun => (Building_GlittertechTargeterGun)parent;
+    private Building_Biocoder ParentGun => (Building_Biocoder)parent;
 
     public TargeterType TargeterType;
 
@@ -41,18 +44,6 @@ public class CompGlittertechTargeter : CompInteractableRocketswarmLauncher
     }
 }
 
-public class Building_GlittertechTargeterGun : Building_TurretRocket
-{
-    public int VerbIndex { get; set; }
-    public override Verb AttackVerb => GunCompEq.AllVerbs[VerbIndex];
-
-    public override Material TurretTopMaterial => def.building.turretTopMat;
-
-    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
-    {
-
-    }
-}
 
 [StaticConstructorOnStartup]
 public class Command_SetTargetType : Command

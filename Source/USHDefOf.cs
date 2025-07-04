@@ -20,6 +20,9 @@ namespace USH_GE
         public static DamageDef USH_ADP;
         public static WorkGiverDef USH_DoBillsUpgrades;
         public static HediffDef USH_InstalledTelepadIntegrator;
+        public static JobDef USH_EnterBiocoder;
+        public static JobDef USH_CarryToBiocoder;
+        public static ThingDef USH_GlittertechTargeter;
     }
 
 }

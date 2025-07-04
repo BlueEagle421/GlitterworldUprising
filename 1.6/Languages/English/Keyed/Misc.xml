@@ -39,4 +39,10 @@
   <USH_GE_MissingIntegrator>Missing telepad integrator implant</USH_GE_MissingIntegrator>
   <USH_GE_TooClose>Too close to the telepad</USH_GE_TooClose>
 
+  <USH_GE_EnterBiocoder>Enter biocoder</USH_GE_EnterBiocoder>
+  <USH_GE_OpenBiocoder>Open biocoder</USH_GE_OpenBiocoder>
+
+  <USH_GE_CarryToBiocoder>Carry {1_labelShort} to biocoder</USH_GE_CarryToBiocoder>
+  <USH_GE_CannotCarryToBiocoder>Cannot carry to biocoder</USH_GE_CannotCarryToBiocoder>
+
 </LanguageData>

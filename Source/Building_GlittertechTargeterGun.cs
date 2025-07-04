@@ -1,0 +1,258 @@
+
+using System.Collections.Generic;
+using System.Linq;
+using RimWorld;
+using UnityEngine;
+using Verse;
+using Verse.AI;
+using Verse.Sound;
+
+namespace USH_GE;
+
+[StaticConstructorOnStartup]
+public class ITab_ContentsBiocoder : ITab_ContentsBase
+{
+    private readonly List<Thing> listInt = [];
+    public override IList<Thing> container
+    {
+        get
+        {
+            listInt.Clear();
+
+            if (SelThing is Building_Biocoder targeter && targeter.ContainedThing != null)
+                listInt.Add(targeter.ContainedThing);
+
+            return listInt;
+        }
+    }
+
+    public ITab_ContentsBiocoder()
+    {
+        labelKey = "TabCasketContents";
+        containedItemsKey = "ContainedItems";
+        canRemoveThings = false;
+    }
+}
+
+[StaticConstructorOnStartup]
+public class Building_Biocoder : Building_TurretRocket, IThingHolder, IOpenable, ISearchableContents
+{
+    public int VerbIndex { get; set; }
+    public override Verb AttackVerb => GunCompEq.AllVerbs[VerbIndex];
+
+    public override Material TurretTopMaterial => def.building.turretTopMat;
+
+    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+    {
+
+    }
+
+    protected ThingOwner innerContainer;
+    public string openedSignal;
+    public virtual int OpenTicks => 300;
+    public bool HasAnyContents => innerContainer.Count > 0;
+
+    public Thing ContainedThing
+    {
+        get
+        {
+            if (innerContainer.Count != 0)
+            {
+                return innerContainer[0];
+            }
+            return null;
+        }
+    }
+
+    public virtual bool CanOpen => HasAnyContents;
+
+    public ThingOwner SearchableContents => innerContainer;
+
+    public Building_Biocoder()
+    {
+        innerContainer = new ThingOwner<Thing>(this, oneStackOnly: false);
+    }
+
+    public ThingOwner GetDirectlyHeldThings()
+    {
+        return innerContainer;
+    }
+
+    public void GetChildHolders(List<IThingHolder> outChildren)
+    {
+        ThingOwnerUtility.AppendThingHoldersFromThings(outChildren, GetDirectlyHeldThings());
+    }
+
+    public virtual void Open()
+    {
+        if (HasAnyContents)
+        {
+            EjectContents();
+            if (!openedSignal.NullOrEmpty())
+                Find.SignalManager.SendSignal(new Signal(openedSignal, this.Named("SUBJECT")));
+
+            DirtyMapMesh(Map);
+        }
+    }
+
+    public override IEnumerable<Gizmo> GetGizmos()
+    {
+        foreach (Gizmo gizmo in base.GetGizmos())
+        {
+            yield return gizmo;
+        }
+        if (base.Faction == Faction.OfPlayer && innerContainer.Count > 0 && def.building.isPlayerEjectable)
+        {
+            Command_Action command_Action = new Command_Action();
+            command_Action.action = EjectContents;
+            command_Action.defaultLabel = "CommandPodEject".Translate();
+            command_Action.defaultDesc = "CommandPodEjectDesc".Translate();
+            if (innerContainer.Count == 0)
+            {
+                command_Action.Disable("CommandPodEjectFailEmpty".Translate());
+            }
+            command_Action.hotKey = KeyBindingDefOf.Misc8;
+            command_Action.icon = ContentFinder<Texture2D>.Get("UI/Commands/PodEject");
+            yield return command_Action;
+        }
+    }
+
+    public override void ExposeData()
+    {
+        base.ExposeData();
+        Scribe_Deep.Look(ref innerContainer, "innerContainer", this);
+        Scribe_Values.Look(ref openedSignal, "openedSignal");
+    }
+
+    public virtual bool Accepts(Thing thing)
+    {
+        return innerContainer.CanAcceptAnyOf(thing);
+    }
+
+    public virtual bool TryAcceptThing(Thing thing, bool allowSpecialEffects = true)
+    {
+        if (!Accepts(thing))
+            return false;
+
+        bool flag;
+        if (thing.holdingOwner != null)
+        {
+            thing.holdingOwner.TryTransferToContainer(thing, innerContainer, thing.stackCount);
+
+            if (allowSpecialEffects)
+                SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(base.Position, base.Map));
+            flag = true;
+        }
+        else
+        {
+            flag = innerContainer.TryAdd(thing);
+        }
+        if (flag)
+        {
+            if (allowSpecialEffects)
+                SoundDefOf.CryptosleepCasket_Accept.PlayOneShot(new TargetInfo(base.Position, base.Map));
+            return true;
+        }
+        return false;
+    }
+
+    public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+    {
+        base.Destroy(mode);
+        KillAndDropContent(mode);
+    }
+
+    public void KillAndDropContent(DestroyMode mode = DestroyMode.Vanish)
+    {
+        if (innerContainer.Count > 0 && (mode == DestroyMode.Deconstruct || mode == DestroyMode.KillFinalize))
+        {
+            if (mode != DestroyMode.Deconstruct)
+                foreach (Thing t in innerContainer)
+                    if (t is Pawn p)
+                        HealthUtility.DamageUntilDowned(p);
+
+            innerContainer.TryDropAll(Position, Map, ThingPlaceMode.Near);
+        }
+        innerContainer.ClearAndDestroyContents();
+    }
+
+    public virtual void EjectContents()
+    {
+        innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
+    }
+
+    public override string GetInspectString()
+    {
+        string text = base.GetInspectString();
+        string str = innerContainer.ContentsString;
+
+        if (!text.NullOrEmpty())
+            text += "\n";
+
+        return text + ("Contains".Translate() + ": " + str.CapitalizeFirst());
+    }
+
+    public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn myPawn)
+    {
+        if (myPawn.IsQuestLodger())
+            yield return new FloatMenuOption("CannotUseReason".Translate("BiocoderCasketGuestsNotAllowed".Translate()), null);
+
+        foreach (FloatMenuOption floatMenuOption in base.GetFloatMenuOptions(myPawn))
+            yield return floatMenuOption;
+
+        if (innerContainer.Count != 0)
+            yield break;
+
+        if (!myPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Deadly))
+            yield return new FloatMenuOption("CannotUseNoPath".Translate(), null);
+
+        JobDef jobDef = USHDefOf.USH_EnterBiocoder;
+        string label = "EnterBiocoderCasket".Translate();
+
+        void action()
+        {
+            if (ModsConfig.BiotechActive)
+            {
+                if (myPawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicBond) is not Hediff_PsychicBond hediff_PsychicBond || !ThoughtWorker_PsychicBondProximity.NearPsychicBondedPerson(myPawn, hediff_PsychicBond))
+                {
+                    myPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(jobDef, this), JobTag.Misc);
+                }
+                else
+                {
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("PsychicBondDistanceWillBeActive_Cryptosleep".Translate(myPawn.Named("PAWN"), ((Pawn)hediff_PsychicBond.target).Named("BOND")), delegate
+                    {
+                        myPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(jobDef, this), JobTag.Misc);
+                    }, destructive: true));
+                }
+            }
+            else
+            {
+                myPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(jobDef, this), JobTag.Misc);
+            }
+        }
+        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(label, action), myPawn, this);
+    }
+
+
+
+    public static Building_Biocoder FindBiocoderFor(Pawn p, Pawn traveler, bool ignoreOtherReservations = false)
+    {
+
+        bool queuing = KeyBindingDefOf.QueueOrder.IsDownEvent;
+        Building_Biocoder biocoder = (Building_Biocoder)GenClosest.ClosestThingReachable(p.PositionHeld, p.MapHeld, ThingRequest.ForDef(USHDefOf.USH_GlittertechTargeter), PathEndMode.InteractionCell, TraverseParms.For(traveler), 9999f, Validator);
+
+        if (biocoder != null)
+            return biocoder;
+
+        bool Validator(Thing x)
+        {
+            if (!((Building_Biocoder)x).HasAnyContents && (!queuing || !traveler.HasReserved(x)))
+            {
+                return traveler.CanReserve(x, 1, -1, null, ignoreOtherReservations);
+            }
+            return false;
+        }
+
+        return null;
+    }
+}
