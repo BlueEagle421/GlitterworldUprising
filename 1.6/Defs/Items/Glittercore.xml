@@ -15,7 +15,6 @@
         <healthAffectsPrice>false</healthAffectsPrice>
         <statBases>
             <MaxHitPoints>60</MaxHitPoints>
-            <MarketValue>280</MarketValue>
             <Mass>0.8</Mass>
             <Flammability>0.6</Flammability>
             <DeteriorationRate>2.0</DeteriorationRate>

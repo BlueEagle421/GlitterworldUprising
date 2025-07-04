@@ -16,7 +16,6 @@
     <rotatable>false</rotatable>
     <statBases>
       <WorkToMake>1600</WorkToMake>
-      <MarketValue>12</MarketValue>
       <Mass>0.05</Mass>
       <DeteriorationRate>6</DeteriorationRate>
       <Flammability>1.0</Flammability>

@@ -113,7 +113,6 @@
       <USH_Glittercore>7</USH_Glittercore>
     </costList>
     <statBases>
-      <MarketValue>3100</MarketValue>
       <Mass>0.1</Mass>
     </statBases>
     <recipeMaker>
@@ -234,7 +233,6 @@
       <USH_Glittercore>10</USH_Glittercore>
     </costList>
     <statBases>
-      <MarketValue>3500</MarketValue>
       <Mass>0.1</Mass>
     </statBases>
     <recipeMaker>
@@ -327,7 +325,6 @@
     <label>golden teeth replacement</label>
     <description>A set of golden teeth appreciated by royals. Glitterworld technology makes the jaw painless and comfortable to use.</description>
     <statBases>
-      <MarketValue>600</MarketValue>
       <Mass>0.1</Mass>
     </statBases>
     <costList>
@@ -424,7 +421,6 @@
     <label>plasteel teeth replacement</label>
     <description>A set of plasteel teeth appreciated by royals. Glitterworld technology makes them painless and comfortable to use.</description>
     <statBases>
-      <MarketValue>900</MarketValue>
       <Mass>0.1</Mass>
     </statBases>
     <costList>
@@ -491,7 +487,8 @@
       <HediffDef>USH_InstalledTelepadIntegrator</HediffDef>
     </descriptionHyperlinks>
     <statBases>
-      <Mass>0.1</Mass>~` </statBases>
+      <Mass>0.1</Mass>
+    </statBases>
     <costList>
       <Steel>15</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
