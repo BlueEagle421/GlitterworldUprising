@@ -80,7 +80,7 @@
             <li>USH_GlittertechUtilitiesRes</li>
         </prerequisites>
         <researchViewX>2.00</researchViewX>
-        <researchViewY>1.00</researchViewY>
+        <researchViewY>1.70</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -92,7 +92,7 @@
             <li>USH_GlittertechUtilitiesRes</li>
         </prerequisites>
         <researchViewX>2.00</researchViewX>
-        <researchViewY>0.30</researchViewY>
+        <researchViewY>1.00</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -105,7 +105,7 @@
             <li>USH_MolecularDisassemblerRes</li>
         </prerequisites>
         <researchViewX>3.00</researchViewX>
-        <researchViewY>0.70</researchViewY>
+        <researchViewY>1.40</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -117,7 +117,7 @@
             <li>USH_GlittertechUtilitiesRes</li>
         </prerequisites>
         <researchViewX>2.00</researchViewX>
-        <researchViewY>1.70</researchViewY>
+        <researchViewY>2.40</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -129,7 +129,7 @@
             <li>USH_GlittertechUtilitiesRes</li>
         </prerequisites>
         <researchViewX>2.00</researchViewX>
-        <researchViewY>2.40</researchViewY>
+        <researchViewY>3.10</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -142,7 +142,7 @@
             <li>USH_NeuromodifiersBasicsRes</li>
         </prerequisites>
         <researchViewX>3.00</researchViewX>
-        <researchViewY>2.00</researchViewY>
+        <researchViewY>2.70</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -153,8 +153,8 @@
         <prerequisites>
             <li>USH_NeuromodifiersBasicsRes</li>
         </prerequisites>
-        <researchViewX>3</researchViewX>
-        <researchViewY>3.45</researchViewY>
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>4.10</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -166,7 +166,7 @@
             <li>USH_TeethRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>3.45</researchViewY>
+        <researchViewY>4.10</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -178,7 +178,7 @@
             <li>USH_SkilltrainerCreationRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>2.20</researchViewY>
+        <researchViewY>2.90</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -190,7 +190,7 @@
             <li>USH_SkilltrainerCreationRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>1.50</researchViewY>
+        <researchViewY>2.20</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -202,7 +202,7 @@
             <li>USH_SkilltrainerCreationRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>0.80</researchViewY>
+        <researchViewY>1.50</researchViewY>
     </ResearchProjectDef>
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
@@ -214,7 +214,7 @@
             <li>USH_SkilltrainerCreationRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>2.75</researchViewY>
+        <researchViewY>3.50</researchViewY>
     </ResearchProjectDef>
 
 </Defs>
