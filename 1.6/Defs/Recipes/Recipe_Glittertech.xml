@@ -27,7 +27,7 @@
                         <li>ComponentIndustrial</li>
                     </thingDefs>
                 </filter>
-                <count>3</count>
+                <count>2</count>
             </li>
             <li>
                 <filter>
@@ -35,7 +35,15 @@
                         <li>Plasteel</li>
                     </thingDefs>
                 </filter>
-                <count>5</count>
+                <count>15</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
             </li>
             <li>
                 <filter>
@@ -43,7 +51,7 @@
                         <li>Gold</li>
                     </thingDefs>
                 </filter>
-                <count>0.1</count>
+                <count>0.2</count>
             </li>
         </ingredients>
         <products>
