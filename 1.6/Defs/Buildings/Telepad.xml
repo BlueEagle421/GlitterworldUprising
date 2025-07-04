@@ -4,7 +4,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_Telepad</defName>
         <label>telepad</label>
-        <description>An emergency escape system utilizing translocation technology. It can teleport living beings to itself from any point within the visible area. A successful translocation requires the target to have an integrator implant installed, which prepares its brain for the sudden shock. This does not apply to mechanical beings.</description>
+        <description>An emergency escape system utilizing translocation technology. It can teleport living beings to itself from any point within the visible area. A successful translocation requires the target to have an integrator implant installed, which prepares its brain for the sudden shock. This does not apply to mechanical beings.\n\nIt has a minimum teleportation range around itself.</description>
         <descriptionHyperlinks>
             <ThingDef>USH_TelepadIntegrator</ThingDef>
         </descriptionHyperlinks>

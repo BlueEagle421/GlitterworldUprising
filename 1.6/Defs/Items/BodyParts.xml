@@ -488,11 +488,10 @@
     <description>A simple implant designed to tune the user’s brain waves to accept sudden and artificial translocations. It prevents teleportation sickness and establishes a link to the telepad.</description>
     <descriptionHyperlinks>
       <ThingDef>USH_Telepad</ThingDef>
-      <ThingDef>USH_InstalledTelepadIntegrator</ThingDef>
+      <HediffDef>USH_InstalledTelepadIntegrator</HediffDef>
     </descriptionHyperlinks>
     <statBases>
-      <Mass>0.1</Mass>
-    </statBases>
+      <Mass>0.1</Mass>~` </statBases>
     <costList>
       <Steel>15</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
