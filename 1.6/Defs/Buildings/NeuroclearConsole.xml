@@ -77,6 +77,7 @@
                 <jobString>activate</jobString>
                 <onCooldownString>cooling off</onCooldownString>
                 <activateTexPath>UI/Gizmos/Desensitize</activateTexPath>
+                <requiresPower>true</requiresPower>
                 <targetingParameters>
                     <canTargetBuildings>false</canTargetBuildings>
                     <canTargetAnimals>false</canTargetAnimals>

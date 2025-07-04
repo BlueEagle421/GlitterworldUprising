@@ -51,6 +51,7 @@
                 <cooldownFleckScale>0.7</cooldownFleckScale>
                 <cooldownPreventsRefuel>true</cooldownPreventsRefuel>
                 <activateTexPath>UI/Commands/ActivateTurret</activateTexPath>
+                <requiresPower>true</requiresPower>
                 <targetingParameters>
                     <canTargetBuildings>false</canTargetBuildings>
                     <canTargetAnimals>false</canTargetAnimals>
