@@ -111,7 +111,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_GlittertechAlchemyRes</defName>
         <label>Glitterworld alchemy</label>
-        <description>Learn how to change atomic structure of objecs.</description>
+        <description>Learn how to change atomic structure of objects.</description>
         <baseCost>2500</baseCost>
         <prerequisites>
             <li>USH_GlittertechUtilitiesRes</li>
@@ -123,7 +123,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_NeuromodifiersBasicsRes</defName>
         <label>Neuromodifiers basics</label>
-        <description>Understand the basics of medical-mechanites behaviour and construct desensitizing module.</description>
+        <description>Grasp the basics of utilizing medicine based mechanites.</description>
         <baseCost>3000</baseCost>
         <prerequisites>
             <li>USH_GlittertechUtilitiesRes</li>

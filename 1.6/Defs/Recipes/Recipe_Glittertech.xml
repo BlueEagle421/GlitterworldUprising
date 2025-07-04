@@ -586,7 +586,10 @@
         <defName>USH_FormADPShell</defName>
         <label>form ADP shell</label>
         <description>Form ADP shell.</description>
-        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <researchPrerequisites>
+            <li>Mortars</li>
+            <li>USH_NeuromodifiersBasicsRes</li>
+        </researchPrerequisites>
         <gestationCycles>7</gestationCycles>
         <formingTicks>5000</formingTicks>
         <ingredients Inherit="false">

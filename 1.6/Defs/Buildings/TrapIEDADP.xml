@@ -26,6 +26,9 @@
                 </startWickOnDamageTaken>
             </li>
         </comps>
+        <researchPrerequisites>
+            <li>USH_NeuromodifiersBasicsRes</li>
+        </researchPrerequisites>
         <specialDisplayRadius>20.9</specialDisplayRadius>
     </ThingDef>
 
