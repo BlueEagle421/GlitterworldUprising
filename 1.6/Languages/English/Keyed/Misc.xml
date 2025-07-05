@@ -40,11 +40,10 @@
   <USH_GE_MissingIntegrator>Missing telepad integrator implant</USH_GE_MissingIntegrator>
   <USH_GE_TooClose>Too close to the telepad</USH_GE_TooClose>
 
-  <USH_GE_EnterBiocoder>Enter biocoder</USH_GE_EnterBiocoder>
-  <USH_GE_OpenBiocoder>Open biocoder</USH_GE_OpenBiocoder>
-  <USH_GE_CarryToBiocoder>Carry {0} to biocoder</USH_GE_CarryToBiocoder>
-  <USH_GE_CannotCarryToBiocoder>Cannot carry to biocoder</USH_GE_CannotCarryToBiocoder>
-  <USH_GE_NoBiocoder>No available biocoders.</USH_GE_NoBiocoder>
+  <USH_GE_EnterBiocoder>Enter biocoder chamber</USH_GE_EnterBiocoder>
+  <USH_GE_CarryToBiocoder>Carry {0} to biocoder chamber</USH_GE_CarryToBiocoder>
+  <USH_GE_CannotCarryToBiocoder>Cannot carry to biocoder chamber</USH_GE_CannotCarryToBiocoder>
+  <USH_GE_NoBiocoder>No available biocoder chambers.</USH_GE_NoBiocoder>
   <USH_GE_PrisonerNotDowned>Prisoner not downed</USH_GE_PrisonerNotDowned>
 
 </LanguageData>
