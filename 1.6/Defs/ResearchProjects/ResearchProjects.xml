@@ -62,7 +62,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProjectBase">
         <defName>USH_DarkGlitterpanelsRes</defName>
         <label>Dark glitterpanels</label>
-        <description>Build dark glitterpanels and link them to the glittertech fabricator</description>
+        <description>Build dark glitterpanels and link them to the glittertech fabricator.</description>
         <baseCost>3600</baseCost>
         <prerequisites>
             <li>USH_GlittertechFabrication</li>
