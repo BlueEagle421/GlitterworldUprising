@@ -4,53 +4,15 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>*/ThingDef[defName = "HiTechResearchBench"]/comps/li[@Class = "CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
 		<value>
-			<li>USH_LocalComputor</li>
+			<li>USH_ResearchProbe</li>
 		</value>
 	</Operation>
-	
+
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/ThingDef[defName = "HospitalBed"]/comps/li[@Class = "CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
 		<value>
-			<li>USH_DesensitizingModule</li>
+			<li>USH_NeuroclearConsole</li>
 		</value>
 	</Operation>
-	
-	<Operation Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="FabricationBench"]/recipes</xpath>
-        <value>
-			<li>USH_Make_AddictionRemover</li>
-			<!--<li>USH_Make_CrystalMechanites</li>-->
-			<li>USH_Make_PhilosophersStone_Bulk</li>
-			<li>USH_Make_PhilosophersStone_MoreBulk</li>
-			<li>USH_GlitterAlchemy</li>
-			<li>USH_GlitterAlchemy_Bulk</li>
-        </value>
-    </Operation>
-	
-	<Operation Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="CraftingSpot"]/recipes</xpath>
-        <value>
-			<li>USH_GlitterAlchemy</li>
-			<li>USH_GlitterAlchemy_Bulk</li>
-        </value>
-    </Operation>
-	
-	<Operation Class="PatchOperationConditional">
-		<xpath>*/ThingDef[defName = "DrugLab"]/recipes</xpath>
-		<nomatch Class="PatchOperationAdd">
-			<xpath>*/ThingDef[defName = "DrugLab"]</xpath>
-			<value>
-				<recipes>
-					<li>USH_Make_MedicineUltratech_Bulk</li>
-				</recipes>
-			</value>
-		</nomatch>
-		<match Class="PatchOperationAdd">
-			<xpath>*/ThingDef[defName = "DrugLab"]/recipes</xpath>
-			<value>
-				<li>USH_Make_MedicineUltratech_Bulk</li>
-			</value>
-		</match>
-	</Operation>
-	
+
 </Patch>

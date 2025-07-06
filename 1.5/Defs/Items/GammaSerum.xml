@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="DrugBase">
+    <defName>USH_GammaSerum</defName>
+    <label>gamma serum</label>
+    <description>A glittertech neuromodifier capable of tuning brain waves, making the target more susceptible to manipulation. With enough time, it can crack even the most stubborn minds. It will make unwilling prisoners loyal, recruitable, and ready to accept any beliefs.\n\nPerfect for extracting Zion Mainframe codes.</description>
+    <graphicData>
+      <texPath>Things/Item/GammaSerum</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <tradeability>Sellable</tradeability>
+    <rotatable>false</rotatable>
+    <statBases>
+      <WorkToMake>4200</WorkToMake>
+      <Mass>0.08</Mass>
+      <DeteriorationRate>2</DeteriorationRate>
+      <Flammability>1.0</Flammability>
+      <Beauty>-4</Beauty>
+    </statBases>
+    <techLevel>Ultra</techLevel>
+    <ingestible>
+      <foodType>Processed</foodType>
+      <baseIngestTicks>800</baseIngestTicks>
+      <chairSearchRadius>0</chairSearchRadius>
+      <nurseable>true</nurseable>
+      <drugCategory>Medical</drugCategory>
+      <ingestSound>Ingest_Inject</ingestSound>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <ingestCommandString>Use {0}</ingestCommandString>
+      <ingestReportString>Using {0}.</ingestReportString>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>USH_GammaSerumHediff</hediffDef>
+          <severity>1</severity>
+          <doToGeneratedPawnIfAddicted>true</doToGeneratedPawnIfAddicted>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <listOrder>105</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>USH_GammaSerumHediff</defName>
+    <label>gamma serum</label>
+    <labelNoun>a gamma serum</labelNoun>
+    <description>Gamma serum chemicals in the bloodstream. Renders the brain susceptible to manipulation.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(0.572, 0.678, 0.686)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <initialSeverity>0.1</initialSeverity>
+    <maxSeverity>1</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.8</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+      <li Class="USH_GE.HediffCompProperties_GammaSerum">
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <restFallFactor>1.6</restFallFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.45</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>USH_GammaSerumThought</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>USH_GammaSerumHediff</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>Under gamma serum</label>
+        <description>I'm aching, sweating and hardly thinking. I think they broke me...</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

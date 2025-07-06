@@ -2,107 +2,150 @@
 <Defs>
 
     <ResearchTabDef>
-        <defName>USH_GlitterworldUprising</defName>
-        <label>Glitterworld Uprising</label>
-        <generalTitle>Glitterworld research projects</generalTitle>
-        <generalDescription>Study Glitterworld science and recreate the most advanced technologies known to humankind.</generalDescription>
+        <defName>USH_GlittertechExpansion</defName>
+        <label>Glittertech Expansion</label>
+        <generalTitle>Glittertech research projects</generalTitle>
+        <generalDescription>Study glitterworld science and recreate the most advanced technologies known to humankind.</generalDescription>
     </ResearchTabDef>
 
-    <ResearchProjectDef Name="GUProjectBase" Abstract="True">
+    <ResearchProjectDef Name="USE_GE_ProjectBase" Abstract="True">
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
         <requiredResearchFacilities>
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
-        <tab>USH_GlitterworldUprising</tab>
+        <tab>USH_GlittertechExpansion</tab>
         <techLevel>Ultra</techLevel>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_GlitterworldAnalyzerRes</defName>
-        <label>Glitterworld-analyzer</label>
-        <description>Build glitterworld-analyzer and produce glitterworld fragments.</description>
-        <baseCost>3000</baseCost>
+    <ResearchProjectDef Name="USE_GE_ProbeProjectBase" ParentName="USE_GE_ProjectBase" Abstract="True">
+        <requiredResearchFacilities>
+            <li>USH_ResearchProbe</li>
+        </requiredResearchFacilities>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="USE_GE_ProjectBase">
+        <defName>USH_GlittertechFabrication</defName>
+        <label>Glittertech fabrication</label>
+        <description>Build glittertech fabricator and unlock forming glittercores.</description>
+        <baseCost>4000</baseCost>
         <prerequisites>
-            <li>MultiAnalyzer</li>
+            <li>AdvancedFabrication</li>
         </prerequisites>
         <researchViewX>0.00</researchViewX>
         <researchViewY>2.10</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_LightSupporterRes</defName>
-        <label>Light supporters</label>
-        <description>Build light supporters and link them to glitterworld-analyzer.</description>
-        <baseCost>1800</baseCost>
+    <ResearchProjectDef ParentName="USE_GE_ProjectBase">
+        <defName>USH_LightGlitterpanelsRes</defName>
+        <label>Light glitterpanels</label>
+        <description>Build light glitterpanels and link them to the glittertech fabricator.</description>
+        <baseCost>2800</baseCost>
         <prerequisites>
-            <li>USH_GlitterworldAnalyzerRes</li>
+            <li>USH_GlittertechFabrication</li>
         </prerequisites>
         <researchViewX>1.00</researchViewX>
-        <researchViewY>1.35</researchViewY>
+        <researchViewY>1.4</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_DarkSupporterRes</defName>
-        <label>Dark supporters</label>
-        <description>Build dark supporters and link them to glitterworld-analyzer.</description>
-        <baseCost>2600</baseCost>
+    <ResearchProjectDef ParentName="USE_GE_ProjectBase">
+        <defName>USH_GlittertechUtilitiesRes</defName>
+        <label>Glittertech utilities</label>
+        <description>Build advanced and useful glittertech utilities.</description>
+        <baseCost>4000</baseCost>
         <prerequisites>
-            <li>USH_GlitterworldAnalyzerRes</li>
-        </prerequisites>
-        <researchViewX>1</researchViewX>
-        <researchViewY>2.80</researchViewY>
-    </ResearchProjectDef>
-
-    <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_BaseEssentialsRes</defName>
-        <label>Glitterworld essentials</label>
-        <description>Build mobile comforter and local computor.</description>
-        <baseCost>2000</baseCost>
-        <prerequisites>
-            <li>USH_GlitterworldAnalyzerRes</li>
+            <li>USH_GlittertechFabrication</li>
         </prerequisites>
         <researchViewX>1</researchViewX>
         <researchViewY>2.10</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_GlitterworldAlchemyRes</defName>
-        <label>Glitterworld alchemy</label>
-        <description>Learn how to change atomic structure of objecs.</description>
-        <baseCost>2500</baseCost>
+    <ResearchProjectDef ParentName="USE_GE_ProjectBase">
+        <defName>USH_DarkGlitterpanelsRes</defName>
+        <label>Dark glitterpanels</label>
+        <description>Build dark glitterpanels and link them to the glittertech fabricator.</description>
+        <baseCost>3600</baseCost>
         <prerequisites>
-            <li>USH_BaseEssentialsRes</li>
+            <li>USH_GlittertechFabrication</li>
+        </prerequisites>
+        <researchViewX>1</researchViewX>
+        <researchViewY>2.80</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
+        <defName>USH_TelepadRes</defName>
+        <label>Ways of translocation</label>
+        <description>Learn about translocating matter using telepads.</description>
+        <baseCost>3000</baseCost>
+        <prerequisites>
+            <li>USH_GlittertechUtilitiesRes</li>
         </prerequisites>
         <researchViewX>2.00</researchViewX>
         <researchViewY>1.70</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
-        <defName>USH_NeuromodifiersBasicsRes</defName>
-        <label>Neuromodifiers basics</label>
-        <description>Understand the basics of medical-mechanites behaviour and construct desensitizing module.</description>
-        <baseCost>3000</baseCost>
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
+        <defName>USH_MolecularDisassemblerRes</defName>
+        <label>Nanotech precision</label>
+        <description>Learn about dissasembling mechanoid technology with perfect accuracy.</description>
+        <baseCost>4000</baseCost>
         <prerequisites>
-            <li>USH_BaseEssentialsRes</li>
+            <li>USH_GlittertechUtilitiesRes</li>
+        </prerequisites>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>1.00</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
+        <defName>USH_HeavyGlittertechRes</defName>
+        <label>Heavy glittertech</label>
+        <description>Build powerful and heavy glittertech machines.</description>
+        <baseCost>8000</baseCost>
+        <prerequisites>
+            <li>USH_TelepadRes</li>
+            <li>USH_MolecularDisassemblerRes</li>
+        </prerequisites>
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>1.40</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
+        <defName>USH_GlittertechAlchemyRes</defName>
+        <label>Glitterworld alchemy</label>
+        <description>Learn how to change atomic structure of objects.</description>
+        <baseCost>2500</baseCost>
+        <prerequisites>
+            <li>USH_GlittertechUtilitiesRes</li>
         </prerequisites>
         <researchViewX>2.00</researchViewX>
         <researchViewY>2.40</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
+        <defName>USH_NeuromodifiersBasicsRes</defName>
+        <label>Neuromodifiers basics</label>
+        <description>Grasp the basics of utilizing medicine based mechanites.</description>
+        <baseCost>3000</baseCost>
+        <prerequisites>
+            <li>USH_GlittertechUtilitiesRes</li>
+        </prerequisites>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>3.10</researchViewY>
+    </ResearchProjectDef>
+
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_SkilltrainerCreationRes</defName>
         <label>Skilltrainer creation orgin</label>
-        <description>Build skilltrainer assembly terminal.</description>
+        <description>Understand the mechanisms behind complex neuromodifiers. Base research for all skilltrainers.</description>
         <baseCost>6000</baseCost>
         <prerequisites>
-            <li>USH_GlitterworldAlchemyRes</li>
+            <li>USH_GlittertechAlchemyRes</li>
             <li>USH_NeuromodifiersBasicsRes</li>
         </prerequisites>
         <researchViewX>3.00</researchViewX>
-        <researchViewY>2.00</researchViewY>
+        <researchViewY>2.70</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_TeethRes</defName>
         <label>Teeth replacements</label>
         <description>Make comfortable teeth replacements.</description>
@@ -110,11 +153,11 @@
         <prerequisites>
             <li>USH_NeuromodifiersBasicsRes</li>
         </prerequisites>
-        <researchViewX>3</researchViewX>
-        <researchViewY>3.45</researchViewY>
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>4.10</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_SkinRes</defName>
         <label>Body perfecting</label>
         <description>Make advanced skin replacements.</description>
@@ -123,10 +166,10 @@
             <li>USH_TeethRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>3.45</researchViewY>
+        <researchViewY>4.10</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_CombatSkilltrainersRes</defName>
         <label>Combat skilltrainers</label>
         <description>Make combat related skilltrainers.</description>
@@ -135,10 +178,10 @@
             <li>USH_SkilltrainerCreationRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>2.20</researchViewY>
+        <researchViewY>2.90</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_EngineeringSkilltrainersRes</defName>
         <label>Engineering skilltrainers</label>
         <description>Make engineering related skilltrainers.</description>
@@ -147,10 +190,10 @@
             <li>USH_SkilltrainerCreationRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>1.50</researchViewY>
+        <researchViewY>2.20</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_IntellectualSkilltrainersRes</defName>
         <label>Intellectual skilltrainers</label>
         <description>Make intellectual related skilltrainers.</description>
@@ -159,10 +202,10 @@
             <li>USH_SkilltrainerCreationRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>0.80</researchViewY>
+        <researchViewY>1.50</researchViewY>
     </ResearchProjectDef>
 
-    <ResearchProjectDef ParentName="GUProjectBase">
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_SurvivalSkilltrainersRes</defName>
         <label>Survival skilltrainers</label>
         <description>Make survival related skilltrainers.</description>
@@ -171,7 +214,7 @@
             <li>USH_SkilltrainerCreationRes</li>
         </prerequisites>
         <researchViewX>4.00</researchViewX>
-        <researchViewY>2.75</researchViewY>
+        <researchViewY>3.50</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

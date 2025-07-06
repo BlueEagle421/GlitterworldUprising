@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_ResearchProbe</defName>
+        <label>research probe</label>
+        <description>A machine meant to calculate and conduct complex simulations often used by glitterworld research facilities.\n\nIt conducts passive research on its own.\n\nNote that it must be connected to a research bench in order to work.</description>
+        <graphicData>
+            <texPath>Things/Building/ResearchProbe</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+            <shadowData>
+                <volume>(0.4, 0.5, 0.4)</volume>
+            </shadowData>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+        </graphicData>
+        <tradeability>Sellable</tradeability>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <rotatable>false</rotatable>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <fillPercent>0.3</fillPercent>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>180</MaxHitPoints>
+            <WorkToBuild>3400</WorkToBuild>
+            <Mass>15</Mass>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+            <USH_PassiveResPerDay>180</USH_PassiveResPerDay>
+        </statBases>
+        <size>(1,1)</size>
+        <costList>
+            <Steel>100</Steel>
+            <Silver>80</Silver>
+            <Plasteel>30</Plasteel>
+            <ComponentSpacer>1</ComponentSpacer>
+            <USH_Glittercore>2</USH_Glittercore>
+        </costList>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <comps>
+            <li Class="CompProperties_Facility">
+                <statOffsets>
+                    <ResearchSpeedFactor>0.04</ResearchSpeedFactor>
+                </statOffsets>
+                <maxSimultaneous>6</maxSimultaneous>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>250</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
+            <li Class="USH_GE.CompProperties_PassiveRes">
+                <ticksPerResearch>250</ticksPerResearch>
+                <researchAmount>0.75</researchAmount>
+            </li>
+        </comps>
+        <designationCategory>Misc</designationCategory>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
+        <researchPrerequisites>
+            <li>USH_GlittertechUtilitiesRes</li>
+        </researchPrerequisites>
+        <uiIconScale>0.8</uiIconScale>
+    </ThingDef>
+
+    <StatDef>
+        <defName>USH_PassiveResPerDay</defName>
+        <label>passive research points per day</label>
+        <description>This value represents the amount of research conducted by the machine every day.</description>
+        <category>Building</category>
+        <defaultBaseValue>60</defaultBaseValue>
+        <minValue>1</minValue>
+        <toStringStyle>FloatOne</toStringStyle>
+        <showIfUndefined>false</showIfUndefined>
+        <displayPriorityInCategory>3000</displayPriorityInCategory>
+    </StatDef>
+
+</Defs>

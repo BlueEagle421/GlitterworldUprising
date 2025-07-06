@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_Telepad</defName>
+        <label>telepad</label>
+        <description>An emergency escape system utilizing translocation technology. It can teleport living beings to itself from any point within the visible area. A successful translocation requires the target to have an integrator implant installed, which prepares its brain for the sudden shock. This does not apply to mechanical beings.\n\nIt has a minimum teleportation range around itself.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_TelepadIntegrator</ThingDef>
+        </descriptionHyperlinks>
+        <graphicData>
+            <texPath>Things/Building/Telepad</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(2,2)</drawSize>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+            <shadowData>
+                <volume>(1, 0.2, 1)</volume>
+            </shadowData>
+        </graphicData>
+        <tradeability>Sellable</tradeability>
+        <castEdgeShadows>true</castEdgeShadows>
+        <rotatable>false</rotatable>
+        <costList>
+            <Steel>80</Steel>
+            <Silver>50</Silver>
+            <Plasteel>40</Plasteel>
+            <ComponentSpacer>3</ComponentSpacer>
+            <USH_Glittercore>3</USH_Glittercore>
+        </costList>
+        <canOverlapZones>false</canOverlapZones>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <altitudeLayer>Building</altitudeLayer>
+        <fillPercent>0.1</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>100</MaxHitPoints>
+            <WorkToBuild>10000</WorkToBuild>
+            <Mass>5</Mass>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <designationCategory>Misc</designationCategory>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <uiOrder>2100</uiOrder>
+        <passability>Standable</passability>
+        <pathCost>50</pathCost>
+        <surfaceType>Item</surfaceType>
+        <building>
+            <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+            <ai_chillDestination>false</ai_chillDestination>
+            <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+        </building>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>true</shortCircuitInRain>
+                <basePowerConsumption>80</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Breakdownable" />
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>Stun</li>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+            <li Class="USH_GE.CompProperties_Telepad">
+                <activeTicks>1</activeTicks>
+                <cooldownTicks>120000</cooldownTicks>
+                <ticksToActivate>60</ticksToActivate>
+                <jobString>teleport here</jobString>
+                <onCooldownString>cooling off</onCooldownString>
+                <activateLabelString>Teleport target</activateLabelString>
+                <activateTexPath>UI/Gizmos/Teleport</activateTexPath>
+                <requiresPower>true</requiresPower>
+                <cooldownFleck>FlashRed</cooldownFleck>
+                <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>
+                <cooldownFleckScale>0.7</cooldownFleckScale>
+                <targetingParameters>
+                    <canTargetBuildings>false</canTargetBuildings>
+                    <canTargetAnimals>false</canTargetAnimals>
+                    <canTargetMechs>false</canTargetMechs>
+                    <onlyTargetControlledPawns>true</onlyTargetControlledPawns>
+                </targetingParameters>
+            </li>
+        </comps>
+        <designationHotKey>Misc3</designationHotKey>
+        <specialDisplayRadius>16.9</specialDisplayRadius>
+        <uiIconScale>0.8</uiIconScale>
+        <researchPrerequisites>
+            <li>USH_TelepadRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>

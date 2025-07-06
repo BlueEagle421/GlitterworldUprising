@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <RecipeDef Name="USH_BaseGlittertechForming" Abstract="True">
+        <jobString>Forming glittertech.</jobString>
+        <soundWorking>MoisturePump_Ambience</soundWorking>
+        <workAmount>600</workAmount>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>18000</formingTicks>
+        <workSkill>Intellectual</workSkill>
+        <skillRequirements>
+            <Intellectual>6</Intellectual>
+        </skillRequirements>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormGlittercore</defName>
+        <label>form glittercore</label>
+        <description>Form a glittercore.</description>
+        <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
+        <formingTicks>10000</formingTicks>
+        <gestationCycles>4</gestationCycles>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>0.2</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_Glittercore>1</USH_Glittercore>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_Glittercore</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>2800</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormMedicineUltratech_Bulk</defName>
+        <label>form glitterworld medicine x4</label>
+        <description>Form glitterworld medicine.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <formingTicks>10000</formingTicks>
+        <gestationCycles>1</gestationCycles>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>4</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <MedicineUltratech>4</MedicineUltratech>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>MedicineUltratech</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>800</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormPhilosophersStone_Bulk</defName>
+        <label>form philosopher's stones x6</label>
+        <description>Form philosopher's stones x6.</description>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>2500</formingTicks>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Silver</li>
+                    </thingDefs>
+                </filter>
+                <count>3</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_PhilosophersStone>6</USH_PhilosophersStone>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_PhilosophersStone</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>1200</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormPlasteel</defName>
+        <label>form plasteel x12</label>
+        <description>Form plasteel x12.</description>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>12000</formingTicks>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>36</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chemfuel</li>
+                    </thingDefs>
+                </filter>
+                <count>12</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <Plasteel>12</Plasteel>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Plasteel</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>1000</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormPlasteelBulk</defName>
+        <label>form plasteel x48</label>
+        <description>Form plasteel x48.</description>
+        <gestationCycles>20</gestationCycles>
+        <formingTicks>12000</formingTicks>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>144</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chemfuel</li>
+                    </thingDefs>
+                </filter>
+                <count>48</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>32</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+        </ingredients>
+        <products>
+            <Plasteel>48</Plasteel>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Plasteel</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>4000</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_TurnSteelToGold</defName>
+        <label>turn steel into gold x16</label>
+        <description>Turn 64 steel into 16 gold using philosopher's stone.</description>
+        <jobString>Turning steel into gold.</jobString>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>3000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>64</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <Gold>16</Gold>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Gold</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>600</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_TurnSteelToGoldBulk</defName>
+        <label>turn steel into gold x64</label>
+        <description>Turn 256 steel into 64 gold using philosopher's stone.</description>
+        <jobString>Turning steel into gold.</jobString>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
+        <gestationCycles>20</gestationCycles>
+        <formingTicks>3000</formingTicks>
+        <ingredients Inherit="false">
+
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Steel</li>
+                    </thingDefs>
+                </filter>
+                <count>256</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>4</count>
+            </li>
+
+        </ingredients>
+
+        <products>
+            <Gold>64</Gold>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Gold</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>2400</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_TurnGoldToJade</defName>
+        <label>turn gold into jade x16</label>
+        <description>Turn 8 gold into 16 jade using philosopher's stone.</description>
+        <jobString>Turning gold into jade.</jobString>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>3000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>8</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+
+        <products>
+            <Jade>16</Jade>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Jade</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>400</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_TurnGoldToJadeBulk</defName>
+        <label>turn gold into jade x64</label>
+        <description>Turn 32 gold into 64 jade using philosopher's stone.</description>
+        <jobString>Turning gold into jade.</jobString>
+        <researchPrerequisite>USH_GlittertechAlchemyRes</researchPrerequisite>
+        <gestationCycles>20</gestationCycles>
+        <formingTicks>3000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </filter>
+                <count>32</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PhilosophersStone</li>
+                    </thingDefs>
+                </filter>
+                <count>4</count>
+            </li>
+
+        </ingredients>
+        <products>
+            <Jade>64</Jade>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Jade</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>1600</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormShimmertalk</defName>
+        <label>form shimmertalk</label>
+        <description>Form shimmertalk.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>5000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineUltratech</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>12</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_Shimmertalk>1</USH_Shimmertalk>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_Shimmertalk</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>1400</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormAddictionRemover</defName>
+        <label>form addiction remover</label>
+        <description>Form addiction remover.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>5000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineUltratech</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Silver</li>
+                    </thingDefs>
+                </filter>
+                <count>4</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_AddictionRemover>1</USH_AddictionRemover>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_AddictionRemover</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>2600</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormGammaSerum</defName>
+        <label>form gamma serum</label>
+        <description>Form gamma serum.</description>
+        <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
+        <gestationCycles>5</gestationCycles>
+        <formingTicks>5000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineUltratech</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>PsychoidLeaves</li>
+                    </thingDefs>
+                </filter>
+                <count>16</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_GammaSerum>1</USH_GammaSerum>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GammaSerum</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>3600</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormADPShell</defName>
+        <label>form ADP shell</label>
+        <description>Form ADP shell.</description>
+        <researchPrerequisites>
+            <li>Mortars</li>
+            <li>USH_NeuromodifiersBasicsRes</li>
+        </researchPrerequisites>
+        <gestationCycles>7</gestationCycles>
+        <formingTicks>5000</formingTicks>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Shell_EMP</li>
+                    </thingDefs>
+                </filter>
+                <count>3</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>15</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_Shell_ADP>1</USH_Shell_ADP>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_Shell_ADP</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>7200</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+</Defs>

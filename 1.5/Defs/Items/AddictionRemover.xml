@@ -4,16 +4,15 @@
   <ThingDef ParentName="DrugBase">
     <defName>USH_AddictionRemover</defName>
     <label>addiction remover</label>
-    <description>Have you been partying too hard lately? Are your hands shaking in need of another dose of your favorite drug? Reset your natural limit right now with handy addiction remover!
-      \nAn advanced device originally designed and manufactured by Glitterworld mega corporations. It modifies the reward system back to its default state, providing the user with a feeling of a 'fresh start'. The technological basis and process alone is beyond anyone’s grasp, but with Glitterworld fragments, a pair of talented hands should be able to reproduce the item.</description>
+    <description>A spacer device designed for use on intoxicated patients. Using a high dose of chemicals and targeted neurotransmitters, it is capable of restoring an addicted mind to a peaceful state. It’s a trusted companion of glitterworld aristocracy and hard drug enthusiasts alike.</description>
     <graphicData>
-      <texPath>Things/Item/Misc/AddictionRemover</texPath>
+      <texPath>Things/Item/AddictionRemover</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
+    <tradeability>Sellable</tradeability>
     <rotatable>false</rotatable>
     <statBases>
       <WorkToMake>4200</WorkToMake>
-      <MarketValue>312</MarketValue>
       <Mass>0.08</Mass>
       <DeteriorationRate>2</DeteriorationRate>
       <Flammability>1.0</Flammability>
@@ -61,7 +60,7 @@
         <severityPerDay>-1.5</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
-      <li Class="GlitterworldUprising.HediffCompProperties_AddictionRemoval">
+      <li Class="USH_GE.HediffCompProperties_AddictionRemoval">
         <hediffDefBlackList>
           <!--AddictionDefNames-->
           <li>LuciferiumAddiction</li>

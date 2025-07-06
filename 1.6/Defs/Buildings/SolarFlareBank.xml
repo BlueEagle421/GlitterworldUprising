@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_SolarFlareBank</defName>
+        <label>solar flare bank</label>
+        <description>A powerful array of magnets and accumulators designed to intercept sudden energy outbursts in the atmosphere. The intensive energy harvest will neutralize the negative effects of solar flares, discharging large amounts of power to the grid over time.\n\nIt requires one advanced component per interception.</description>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <graphicData>
+            <texPath>Things/Building/SolarFlareBank</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(4, 4)</drawSize>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+            <shadowData>
+                <volume>(1.7,0.6,1.7)</volume>
+            </shadowData>
+        </graphicData>
+        <tradeability>Sellable</tradeability>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <rotatable>false</rotatable>
+        <size>(3,2)</size>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+            <WorkToBuild>28000</WorkToBuild>
+            <Mass>50</Mass>
+            <Beauty>0</Beauty>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <comps>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>1</fuelConsumptionRate>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <fuelCapacity>2</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>ComponentSpacer</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+                <initialFuelPercent>0.5</initialFuelPercent>
+            </li>
+            <li Class="USH_GE.CompProperties_SolarFlareBank">
+                <basePowerConsumption>-12000</basePowerConsumption>
+                <transmitsPower>true</transmitsPower>
+                <activeOverlayPath>Things/Building/SolarFlareBankActive</activeOverlayPath>
+            </li>
+            <li Class="CompProperties_Breakdownable" />
+            <li Class="CompProperties_Stunnable">
+                <useLargeEMPEffecter>true</useLargeEMPEffecter>
+                <empChancePerTick>0.03</empChancePerTick>
+                <affectedDamageDefs>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+        </comps>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <fillPercent>0.5</fillPercent>
+        <costList>
+            <Plasteel>180</Plasteel>
+            <Steel>300</Steel>
+            <BroadshieldCore MayRequire="Ludeon.RimWorld.Royalty">1</BroadshieldCore>
+            <ComponentSpacer>4</ComponentSpacer>
+            <USH_Glittercore>8</USH_Glittercore>
+        </costList>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <designationCategory>Power</designationCategory>
+        <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+        <placeWorkers>
+            <li>PlaceWorker_NotUnderRoof</li>
+        </placeWorkers>
+        <designationHotKey>Misc2</designationHotKey>
+        <researchPrerequisites>
+            <li>USH_HeavyGlittertechRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>

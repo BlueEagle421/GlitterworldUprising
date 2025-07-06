@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef>
+        <defName>USH_PowerStored</defName>
+        <label>power stored</label>
+        <description>Represents the power stored in batteries.</description>
+        <thingClass>Thing</thingClass>
+        <graphicData>
+            <texPath>Things/Item/StoredPower</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <drawerType>None</drawerType>
+        <altitudeLayer>Item</altitudeLayer>
+        <alwaysHaulable>false</alwaysHaulable>
+        <drawGUIOverlay>false</drawGUIOverlay>
+        <allowedArchonexusCount>-1</allowedArchonexusCount>
+    </ThingDef>
+
+</Defs>

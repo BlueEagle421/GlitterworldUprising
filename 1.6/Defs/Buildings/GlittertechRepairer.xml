@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_GlittertechRepairer</defName>
+        <label>glittertech repairer</label>
+        <description>A sturdy station designed to repair and maintain nearby buildings with nanotech precision. It will automatically detect damage within its range and respond accordingly. The powerful glittercore can withstand significant integrity loss itself.</description>
+        <graphicData>
+            <texPath>Things/Building/GlittertechRepairer/GlittertechRepairer</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,3)</drawSize>
+            <drawOffset>(0, 0, 0.1)</drawOffset>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+            <shadowData>
+                <volume>(0.7, 0.8, 0.7)</volume>
+            </shadowData>
+        </graphicData>
+        <tradeability>Sellable</tradeability>
+        <castEdgeShadows>true</castEdgeShadows>
+        <rotatable>false</rotatable>
+        <costList>
+            <Steel>260</Steel>
+            <Silver>120</Silver>
+            <Plasteel>80</Plasteel>
+            <USH_Glittercore>5</USH_Glittercore>
+        </costList>
+        <canOverlapZones>false</canOverlapZones>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>True</useHitPoints>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <MaxHitPoints>650</MaxHitPoints>
+            <WorkToBuild>30000</WorkToBuild>
+            <Mass>50</Mass>
+            <Beauty>0</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <designationCategory>Security</designationCategory>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <uiOrder>2100</uiOrder>
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        <surfaceType>Item</surfaceType>
+        <building>
+            <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+            <ai_chillDestination>false</ai_chillDestination>
+            <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+        </building>
+        <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>true</shortCircuitInRain>
+                <basePowerConsumption>550</basePowerConsumption>
+                <idlePowerDraw>30</idlePowerDraw>
+            </li>
+            <li Class="CompProperties_Flickable" />
+            <li Class="USH_GE.CompProperties_GlittertechRepairer">
+                <repairRadius>8.9</repairRadius>
+                <activeOverlayPath>Things/Building/GlittertechRepairer/GlittertechRepairerActive</activeOverlayPath>
+            </li>
+            <li Class="CompProperties_Glower">
+                <glowRadius>4</glowRadius>
+                <glowColor>(0, 0, 0, 0)</glowColor>
+            </li>
+            <li Class="CompProperties_Stunnable">
+                <affectedDamageDefs>
+                    <li>Stun</li>
+                    <li>EMP</li>
+                </affectedDamageDefs>
+            </li>
+        </comps>
+        <designationHotKey>Misc3</designationHotKey>
+        <uiIconScale>0.45</uiIconScale>
+        <uiIconOffset>(0, 0.2)</uiIconOffset>
+        <specialDisplayRadius>8.9</specialDisplayRadius>
+        <researchPrerequisites>
+            <li>USH_GlittertechUtilitiesRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>
