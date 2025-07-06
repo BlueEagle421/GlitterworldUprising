@@ -181,7 +181,7 @@
                         <li>Chemfuel</li>
                     </thingDefs>
                 </filter>
-                <count>24</count>
+                <count>12</count>
             </li>
             <li>
                 <filter>
@@ -243,7 +243,7 @@
                         <li>Chemfuel</li>
                     </thingDefs>
                 </filter>
-                <count>96</count>
+                <count>48</count>
             </li>
             <li>
                 <filter>
