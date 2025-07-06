@@ -135,7 +135,7 @@
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_SkilltrainerCreationRes</defName>
         <label>Skilltrainer creation orgin</label>
-        <description>Build skilltrainer assembly terminal.</description>
+        <description>Understand the mechanisms behind complex neuromodifiers. Base research for all skilltrainers.</description>
         <baseCost>6000</baseCost>
         <prerequisites>
             <li>USH_GlittertechAlchemyRes</li>
