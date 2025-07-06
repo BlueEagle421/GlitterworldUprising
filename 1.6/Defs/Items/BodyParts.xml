@@ -69,7 +69,7 @@
         <capMods>
           <li>
             <capacity>Moving</capacity>
-            <postFactor>0.85</postFactor>
+            <postFactor>0.9</postFactor>
           </li>
         </capMods>
         <statOffsets>
