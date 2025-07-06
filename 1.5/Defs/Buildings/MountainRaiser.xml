@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_MountainRaiser</defName>
+        <label>mountain raiser</label>
+        <description>A housing for a matter assembler that takes crushed hunks of rock and turns them into a solid wall. The user must simply fill the device with the chosen stone type and watch the magic happen. It was widely used in mass glitterworld architecture, since it makes laying foundations and creating artificial landscapes both cheap and efficient.</description>
+        <graphicData>
+            <texPath>Things/Building/MountainRaiser/MountainRaiser</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>CutoutComplex</shaderType>
+            <drawSize>(1,1)</drawSize>
+            <drawRotated>false</drawRotated>
+            <allowFlip>false</allowFlip>
+            <shadowData>
+                <volume>(0.8, 1, 0.8)</volume>
+            </shadowData>
+        </graphicData>
+        <tradeability>Sellable</tradeability>
+        <altitudeLayer>Building</altitudeLayer>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <rotatable>false</rotatable>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <tickerType>Normal</tickerType>
+        <fillPercent>0.3</fillPercent>
+        <castEdgeShadows>false</castEdgeShadows>
+        <statBases>
+            <MaxHitPoints>40</MaxHitPoints>
+            <WorkToBuild>60</WorkToBuild>
+            <Mass>5</Mass>
+            <Beauty>0</Beauty>
+            <Flammability>0</Flammability>
+        </statBases>
+        <stuffCategories>
+            <li>Stony</li>
+        </stuffCategories>
+        <costStuffCount>4</costStuffCount>
+        <size>(1,1)</size>
+        <costList>
+            <Steel>5</Steel>
+            <USH_PhilosophersStone>1</USH_PhilosophersStone>
+        </costList>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <comps>
+            <li Class="USH_GE.CompProperties_MountainRaiser">
+                <ticksToPlace>360</ticksToPlace>
+                <soundDef>USH_WallRaise</soundDef>
+                <fleckDef>USH_WallRaiseCloud</fleckDef>
+                <recipes>
+                    <li>
+                        <ingredient>BlocksGranite</ingredient>
+                        <product>Granite</product>
+                    </li>
+                    <li>
+                        <ingredient>BlocksSandstone</ingredient>
+                        <product>Sandstone</product>
+                    </li>
+                    <li>
+                        <ingredient>BlocksMarble</ingredient>
+                        <product>Marble</product>
+                    </li>
+                    <li>
+                        <ingredient>BlocksSlate</ingredient>
+                        <product>Slate</product>
+                    </li>
+                    <li>
+                        <ingredient>BlocksLimestone</ingredient>
+                        <product>Limestone</product>
+                    </li>
+                    <li>
+                        <ingredient>Jade</ingredient>
+                        <product>MineableJade</product>
+                    </li>
+                </recipes>
+            </li>
+        </comps>
+        <designationCategory>Structure</designationCategory>
+        <uiIconScale>1</uiIconScale>
+        <researchPrerequisites>
+            <li>USH_GlittertechAlchemyRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <FleckDef ParentName="FleckBase">
+        <defName>USH_WallRaiseCloud</defName>
+        <graphicData>
+            <texPath>Things/Mote/Smoke</texPath>
+            <color>(0.75, 0.75, 0.75)</color>
+            <drawSize>(2.5,2.5)</drawSize>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <fadeInTime>0.50</fadeInTime>
+        <solidTime>3</solidTime>
+        <fadeOutTime>3</fadeOutTime>
+        <growthRate>0.025</growthRate>
+    </FleckDef>
+
+</Defs>

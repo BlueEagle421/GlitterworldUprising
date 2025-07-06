@@ -1,26 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-  <USH_GU_SkinSettingExplanation>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.
-Note that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GU_SkinSettingExplanation>
+  <USH_GE_SkinSettingExplanation>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.\nNote that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GE_SkinSettingExplanation>
 
-  <USH_GU_SkinSettingTooltip>If enabled the skin color will not get changed after operation.</USH_GU_SkinSettingTooltip>
-  <USH_GU_SkinSettingLabel>Disable skin replacments changing actual pawn's skin color</USH_GU_SkinSettingLabel>
-  
-  <USH_GU_PowerPerProduction>Stored power needed to produce: {0}</USH_GU_PowerPerProduction>
-  <USH_GU_AnalyzerTimeLeft>Analyzing {0} ends in: {1} days</USH_GU_AnalyzerTimeLeft>
-  <USH_GU_NoPower>Can't analyze: No power</USH_GU_NoPower>
-  <USH_GU_NoPowerStored>Not enough power stored</USH_GU_NoPowerStored>
-  <USH_GU_CantProduce>Can't produce: {0}</USH_GU_CantProduce>
-  <USH_GU_Analyzing>Analyzing</USH_GU_Analyzing>
-  
-  <USH_GU_Ready>Ready for usage</USH_GU_Ready>
-  <USH_GU_WarmingUp>Warming up</USH_GU_WarmingUp>
-  
-  <USH_GU_Reconstructing>Reconstructing ends in: {0} s</USH_GU_Reconstructing>
-  
-  <USH_GU_ResPerformed>Research performed: {0}</USH_GU_ResPerformed>
-  
-  <USH_GU_DesensitizeCost>Medicine needed for desensitization: {0}</USH_GU_DesensitizeCost>
+  <USH_GE_SkinSettingTooltip>If enabled the skin color will not get changed after operation.</USH_GE_SkinSettingTooltip>
+  <USH_GE_SkinSettingLabel>Disable skin replacements changing actual pawn's skin color</USH_GE_SkinSettingLabel>
+
+  <USH_GE_Reconstructing>Reconstructing ends in: {0} s</USH_GE_Reconstructing>
+
+  <USH_GE_ResPerformed>Research performed: {0}</USH_GE_ResPerformed>
+
+  <USH_GE_DesensitizeCost>Medicine needed per use: {0}</USH_GE_DesensitizeCost>
+
+  <USH_GE_CurrentFormingCycle>Current forming cycle</USH_GE_CurrentFormingCycle>
+  <USH_GE_RemainingFormingCycles>Forming cycles remaining</USH_GE_RemainingFormingCycles>
+  <USH_GE_FormingCycles>Forming cycles</USH_GE_FormingCycles>
+
+  <USH_GE_WillDraw>Will draw {0} W stored power to start forming {1}</USH_GE_WillDraw>
+  <USH_GE_NoPowerStoredShort>Missing {0} W stored power</USH_GE_NoPowerStoredShort>
+  <USH_GE_NoPowerStored>Can't start forming {0}: Needs {1} W stored power</USH_GE_NoPowerStored>
+  <USH_GE_FormTimeTotal>Total forming time left: {0}</USH_GE_FormTimeTotal>
+  <USH_GE_PowerNeed>Needs power stored: </USH_GE_PowerNeed>
+  <USH_GE_FormingDuration>Total forming duration</USH_GE_FormingDuration>
+
+  <USH_GE_WaitingForMaintenance>Waiting for manual maintenance</USH_GE_WaitingForMaintenance>
+  <USH_GE_WaitingForCompletion>Waiting for manual completion</USH_GE_WaitingForCompletion>
+  <USH_GE_Forming>Forming</USH_GE_Forming>
+
+  <USH_GE_CommandSetForBombardmentLabel>Use bombardment attack</USH_GE_CommandSetForBombardmentLabel>
+  <USH_GE_CommandSetForPowerBeamLabel>Use power beam attack</USH_GE_CommandSetForPowerBeamLabel>
+  <USH_GE_CommandSetForTargeterTypeDesc>Whether the targeter should use bombardment or power beam attack.</USH_GE_CommandSetForTargeterTypeDesc>
+  <USH_GE_EmptyBiocoder>Missing living bioprint source</USH_GE_EmptyBiocoder>
+
+  <USH_GE_CantIntercept>Won't intercept: {0}</USH_GE_CantIntercept>
+  <USH_GE_DischargeTimeLeft>Discharge time left: {0}</USH_GE_DischargeTimeLeft>
+  <USH_GE_SolarFlareInterceptedLabel>Solar flare intercepted</USH_GE_SolarFlareInterceptedLabel>
+  <USH_GE_SolarFlareInterceptedText>Installed banks (x{0}) have intercepted the solar flare and will slowly discharge the accumulated power into the grid</USH_GE_SolarFlareInterceptedText>
+
+  <USH_GE_MissingIntegrator>Missing telepad integrator implant</USH_GE_MissingIntegrator>
+  <USH_GE_TooClose>Too close to the telepad</USH_GE_TooClose>
+
+  <USH_GE_EnterBiocoder>Enter biocoder chamber</USH_GE_EnterBiocoder>
+  <USH_GE_CarryToBiocoder>Carry {0} to biocoder chamber</USH_GE_CarryToBiocoder>
+  <USH_GE_CannotCarryToBiocoder>Cannot carry to biocoder chamber</USH_GE_CannotCarryToBiocoder>
+  <USH_GE_NoBiocoder>No available biocoder chambers.</USH_GE_NoBiocoder>
+  <USH_GE_PrisonerNotDowned>Prisoner not downed</USH_GE_PrisonerNotDowned>
+
+  <USH_GE_CommandBiocoderEject>Eject chamber content</USH_GE_CommandBiocoderEject>
+  <USH_GE_CommandBiocoderEjectDesc>Wake up the contained bioprint host and eject them.</USH_GE_CommandBiocoderEjectDesc>
+  <USH_GE_CommandBiocoderEjectFailEmpty>Contains nobody.</USH_GE_CommandBiocoderEjectFailEmpty>
 
 </LanguageData>

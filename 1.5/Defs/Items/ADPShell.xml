@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="ShellBase">
+        <defName>USH_Shell_ADP</defName>
+        <label>ADP shell</label>
+        <description>Area Danial Pulse (ADP) is a newer and more effective version of the common EMP charge. It uses far more aggressive electrical targeting, bypassing even the most advanced adaptation systems.\n\nIt renders mechanoids immobile over a wider radius, without any risk being of countered.</description>
+        <graphicData>
+            <texPath>Things/Item/ADPShell</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <tradeability>Sellable</tradeability>
+        <comps>
+            <li Class="CompProperties_Explosive">
+                <explosiveRadius>23.9</explosiveRadius>
+                <explosiveDamageType>USH_ADP</explosiveDamageType>
+                <explosiveExpandPerStackcount>0.4</explosiveExpandPerStackcount>
+                <startWickHitPointsPercent>0.7</startWickHitPointsPercent>
+                <wickTicks>30~60</wickTicks>
+            </li>
+        </comps>
+        <projectileWhenLoaded>USH_Bullet_Shell_ADP</projectileWhenLoaded>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>USH_Bullet_Shell_ADP</defName>
+        <label>ADP shell</label>
+        <graphicData>
+            <texPath>Things/Projectile/ShellEMP</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+            <damageDef>USH_ADP</damageDef>
+            <speed>41</speed>
+            <explosionRadius>17.9</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <soundExplode>Explosion_EMP</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
+        </projectile>
+    </ThingDef>
+
+</Defs>

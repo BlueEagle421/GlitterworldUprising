@@ -2,11 +2,11 @@
 <Defs>
 
   <ThingDef ParentName="DrugBase">
-    <defName>USH_AddictionRemover</defName>
-    <label>addiction remover</label>
-    <description>A spacer device designed for use on intoxicated patients. Using a high dose of chemicals and targeted neurotransmitters, it is capable of restoring an addicted mind to a peaceful state. It’s a trusted companion of glitterworld aristocracy and hard drug enthusiasts alike.</description>
+    <defName>USH_GammaSerum</defName>
+    <label>gamma serum</label>
+    <description>A glittertech neuromodifier capable of tuning brain waves, making the target more susceptible to manipulation. With enough time, it can crack even the most stubborn minds. It will make unwilling prisoners loyal, recruitable, and ready to accept any beliefs.\n\nPerfect for extracting Zion Mainframe codes.</description>
     <graphicData>
-      <texPath>Things/Item/AddictionRemover</texPath>
+      <texPath>Things/Item/GammaSerum</texPath>
       <graphicClass>Graphic_Single</graphicClass>
     </graphicData>
     <tradeability>Sellable</tradeability>
@@ -31,8 +31,8 @@
       <ingestReportString>Using {0}.</ingestReportString>
       <outcomeDoers>
         <li Class="IngestionOutcomeDoer_GiveHediff">
-          <hediffDef>USH_AddictionRemoverHediff</hediffDef>
-          <severity>0.40</severity>
+          <hediffDef>USH_GammaSerumHediff</hediffDef>
+          <severity>1</severity>
           <doToGeneratedPawnIfAddicted>true</doToGeneratedPawnIfAddicted>
         </li>
       </outcomeDoers>
@@ -45,41 +45,49 @@
   </ThingDef>
 
   <HediffDef>
-    <defName>USH_AddictionRemoverHediff</defName>
-    <label>addiction removal</label>
-    <labelNoun>an addiction removal</labelNoun>
-    <description>Side effects of using addiction remover.</description>
+    <defName>USH_GammaSerumHediff</defName>
+    <label>gamma serum</label>
+    <labelNoun>a gamma serum</labelNoun>
+    <description>Gamma serum chemicals in the bloodstream. Renders the brain susceptible to manipulation.</description>
     <hediffClass>Hediff_High</hediffClass>
     <defaultLabelColor>(0.572, 0.678, 0.686)</defaultLabelColor>
     <scenarioCanAdd>true</scenarioCanAdd>
     <initialSeverity>0.1</initialSeverity>
-    <maxSeverity>0.8</maxSeverity>
+    <maxSeverity>1</maxSeverity>
     <isBad>false</isBad>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
-        <severityPerDay>-1.5</severityPerDay>
+        <severityPerDay>-0.8</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
-      <li Class="USH_GE.HediffCompProperties_AddictionRemoval">
-        <hediffDefBlackList>
-          <!--AddictionDefNames-->
-          <li>LuciferiumAddiction</li>
-        </hediffDefBlackList>
+      <li Class="USH_GE.HediffCompProperties_GammaSerum">
       </li>
     </comps>
     <stages>
       <li>
-        <label>side effects</label>
-        <restFallFactor>2.2</restFallFactor>
-        <vomitMtbDays>0.5</vomitMtbDays>
+        <restFallFactor>1.6</restFallFactor>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
-            <offset>-0.30</offset>
+            <offset>-0.45</offset>
           </li>
         </capMods>
       </li>
     </stages>
   </HediffDef>
+
+  <ThoughtDef>
+    <defName>USH_GammaSerumThought</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>USH_GammaSerumHediff</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>Under gamma serum</label>
+        <description>I'm aching, sweating and hardly thinking. I think they broke me...</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
 
 </Defs>
