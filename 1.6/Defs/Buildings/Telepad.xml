@@ -77,7 +77,7 @@
                 <jobString>teleport here</jobString>
                 <onCooldownString>cooling off</onCooldownString>
                 <activateLabelString>Teleport target</activateLabelString>
-                <activateTexPath>UI/Gizmos/Desensitize</activateTexPath>
+                <activateTexPath>UI/Gizmos/Teleport</activateTexPath>
                 <requiresPower>true</requiresPower>
                 <cooldownFleck>FlashRed</cooldownFleck>
                 <cooldownFleckSpawnIntervalTicks>60</cooldownFleckSpawnIntervalTicks>

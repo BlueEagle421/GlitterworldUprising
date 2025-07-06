@@ -46,4 +46,8 @@
   <USH_GE_NoBiocoder>No available biocoder chambers.</USH_GE_NoBiocoder>
   <USH_GE_PrisonerNotDowned>Prisoner not downed</USH_GE_PrisonerNotDowned>
 
+  <USH_GE_CommandBiocoderEject>Eject chamber content</USH_GE_CommandBiocoderEject>
+  <USH_GE_CommandBiocoderEjectDesc>Wake up the contained bioprint host and eject them.</USH_GE_CommandBiocoderEjectDesc>
+  <USH_GE_CommandBiocoderEjectFailEmpty>Contains nobody.</USH_GE_CommandBiocoderEjectFailEmpty>
+
 </LanguageData>

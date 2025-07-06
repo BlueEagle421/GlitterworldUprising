@@ -84,15 +84,15 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
             Command_Action command_Action = new()
             {
                 action = EjectContents,
-                defaultLabel = "CommandPodEject".Translate(),
-                defaultDesc = "CommandPodEjectDesc".Translate()
+                defaultLabel = "USH_GE_CommandBiocoderEject".Translate(),
+                defaultDesc = "USH_GE_CommandBiocoderEjectDesc".Translate()
             };
 
             if (innerContainer.Count == 0)
-                command_Action.Disable("CommandPodEjectFailEmpty".Translate());
+                command_Action.Disable("USH_GE_CommandBiocoderEjectFailEmpty".Translate());
 
             command_Action.hotKey = KeyBindingDefOf.Misc8;
-            command_Action.icon = ContentFinder<Texture2D>.Get("UI/Commands/PodEject");
+            command_Action.icon = ContentFinder<Texture2D>.Get("UI/Gizmos/EjectBiocoder");
             yield return command_Action;
         }
     }
