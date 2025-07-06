@@ -18,9 +18,6 @@
     <statBases>
       <DeteriorationRate>0</DeteriorationRate>
     </statBases>
-    <thingSetMakerTags>
-      <li>RewardStandardMidFreq</li>
-    </thingSetMakerTags>
     <recipeMaker>
       <recipeUsers>
         <li>FabricationBench</li>
@@ -103,14 +100,13 @@
   <ThingDef ParentName="USH_GlitterworldBodyPart">
     <defName>USH_GoldenSkinReplacement</defName>
     <label>golden skin replacement</label>
-    <description>Is your skin full of imperfections? Is it indistinct and blends in with others? Obtain your dream body today with various skin replacements!
-      \nFull body skin replacement made out of pure gold. It is an indicator of status and object of desire, especially among royalty.</description>
+    <description>Full body skin replacement made out of pure gold. It is an indicator of status and object of desire, especially among royalty.</description>
     <descriptionHyperlinks>
       <RecipeDef>USH_InstallGoldenSkinReplacement</RecipeDef>
     </descriptionHyperlinks>
     <costList>
       <Gold>18</Gold>
-      <USH_Glittercore>7</USH_Glittercore>
+      <USH_Glittercore>4</USH_Glittercore>
     </costList>
     <statBases>
       <Mass>0.1</Mass>
@@ -171,7 +167,7 @@
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>golden thoughts</label>
+        <label>golden skin replacement</label>
         <description>My skin is shiny, my life is brighter.</description>
         <baseMoodEffect>6</baseMoodEffect>
       </li>
@@ -194,12 +190,12 @@
         <capMods>
           <li>
             <capacity>Moving</capacity>
-            <postFactor>1.1</postFactor>
+            <postFactor>1.3</postFactor>
           </li>
         </capMods>
         <statOffsets>
           <ArmorRating_Sharp>0.42</ArmorRating_Sharp>
-          <ArmorRating_Blunt>0.18</ArmorRating_Blunt>
+          <ArmorRating_Blunt>0.28</ArmorRating_Blunt>
           <ArmorRating_Heat>0.4</ArmorRating_Heat>
         </statOffsets>
       </li>
@@ -230,7 +226,7 @@
     </descriptionHyperlinks>
     <costList>
       <Plasteel>120</Plasteel>
-      <USH_Glittercore>10</USH_Glittercore>
+      <USH_Glittercore>6</USH_Glittercore>
     </costList>
     <statBases>
       <Mass>0.1</Mass>
@@ -299,11 +295,11 @@
         <capMods>
           <li>
             <capacity>Eating</capacity>
-            <offset>0.1</offset>
+            <offset>0.35</offset>
           </li>
         </capMods>
         <statOffsets>
-          <SocialImpact>0.1</SocialImpact>
+          <SocialImpact>0.15</SocialImpact>
         </statOffsets>
       </li>
     </stages>
@@ -324,6 +320,9 @@
     <defName>USH_GoldenTeethReplacement</defName>
     <label>golden teeth replacement</label>
     <description>A set of golden teeth appreciated by royals. Glitterworld technology makes the jaw painless and comfortable to use.</description>
+    <descriptionHyperlinks>
+      <RecipeDef>USH_InstallGoldenTeethReplacement</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <Mass>0.1</Mass>
     </statBases>
@@ -401,6 +400,11 @@
             <offset>0.45</offset>
           </li>
         </capMods>
+        <statOffsets>
+          <MaxNutrition>0.25</MaxNutrition>
+          <PainShockThreshold>0.1</PainShockThreshold>
+          <RestRateMultiplier>0.2</RestRateMultiplier>
+        </statOffsets>
       </li>
     </stages>
     <comps>
@@ -419,7 +423,10 @@
   <ThingDef ParentName="USH_GlitterworldBodyPart">
     <defName>USH_PlasteelTeethReplacement</defName>
     <label>plasteel teeth replacement</label>
-    <description>A set of plasteel teeth appreciated by royals. Glitterworld technology makes them painless and comfortable to use.</description>
+    <description>An advanced tooth replacement that improves everyday quality of life. Each tooth contains a microprocessor that adjusts to the wearer’s needs and comfort.</description>
+    <descriptionHyperlinks>
+      <RecipeDef>USH_InstallPlasteelTeethReplacement</RecipeDef>
+    </descriptionHyperlinks>
     <statBases>
       <Mass>0.1</Mass>
     </statBases>
@@ -465,6 +472,22 @@
     </incompatibleWithHediffTags>
   </RecipeDef>
 
+
+  <ThoughtDef>
+    <defName>USH_PlasteelTeethThought</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>USH_InstalledPlasteelTeethReplacement</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>plasteel teeth replacement</label>
+        <description>Eating and talking feels like heaven. Praise glittertech.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+
   <HediffDef ParentName="USH_AddedPartGlittery">
     <defName>USH_InstalledTelepadIntegrator</defName>
     <label>telepad integrator</label>
@@ -483,8 +506,7 @@
     <label>telepad integrator</label>
     <description>A simple implant designed to tune the user’s brain waves to accept sudden and artificial translocations. It prevents teleportation sickness and establishes a link to the telepad.</description>
     <descriptionHyperlinks>
-      <ThingDef>USH_Telepad</ThingDef>
-      <HediffDef>USH_InstalledTelepadIntegrator</HediffDef>
+      <RecipeDef>USH_InstallTelepadIntegrator</RecipeDef>
     </descriptionHyperlinks>
     <statBases>
       <Mass>0.1</Mass>
