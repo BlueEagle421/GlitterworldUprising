@@ -1,7 +1,5 @@
 ﻿using System.Text;
-using RimWorld;
 using Verse;
-using Verse.AI;
 
 namespace USH_GE;
 
@@ -23,11 +21,9 @@ public class CompMemoryCell : ThingComp
     public override string CompInspectStringExtra()
     {
         StringBuilder sb = new();
-        sb.AppendLine(base.CompInspectStringExtra());
 
-        sb.AppendLine("Cloned from: " + MemoryCellData.sourcePawnLabel);
-        sb.AppendLine($"{MemoryCellData.label} ({MemoryCellData.moodOffset})");
-        sb.AppendLine("Description: " + MemoryCellData.description);
+        sb.AppendLine(base.CompInspectStringExtra());
+        sb.AppendLine(MemoryCellData.GetInspectString());
 
         return sb.ToString().Trim();
     }
@@ -43,11 +39,26 @@ public struct MemoryCellData : IExposable
 {
     public string label;
     public string description;
-    public int moodOffset;
     public string sourcePawnLabel;
+    public int moodOffset;
     public Def thoughtDef;
 
     public MemoryCellData() { }
+
+    public readonly string GetInspectString()
+    {
+        StringBuilder sb = new();
+
+        sb.AppendLine("Cloned from: " + sourcePawnLabel);
+
+        string moodFormatted = moodOffset.ToString()
+            .Colorize(MemoryUtils.GetThoughtColor(moodOffset > 0));
+
+        sb.AppendLine($"{label} ({moodFormatted})");
+        sb.AppendLine("Description: " + description);
+
+        return sb.ToString().Trim();
+    }
 
     public void ExposeData()
     {
@@ -57,5 +68,4 @@ public struct MemoryCellData : IExposable
         Scribe_Values.Look(ref sourcePawnLabel, nameof(sourcePawnLabel));
         Scribe_Defs.Look(ref thoughtDef, nameof(thoughtDef));
     }
-
 }

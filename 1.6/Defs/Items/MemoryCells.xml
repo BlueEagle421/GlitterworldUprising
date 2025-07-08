@@ -53,6 +53,7 @@
         <severityPerDay>-0.5</severityPerDay>
         <showHoursToRecover>true</showHoursToRecover>
       </li>
+      <li Class="USH_GE.HediffCompProperties_MemoryCell"></li>
     </comps>
   </HediffDef>
 
@@ -93,9 +94,6 @@
         </capMods>
       </li>
     </stages>
-    <comps>
-      <li Class="USH_GE.HediffCompProperties_MemoryCell"></li>
-    </comps>
   </HediffDef>
 
   <ThoughtDef>
@@ -106,9 +104,9 @@
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>High on shimmertalk</label>
-        <description>I never felt so confident in my life.</description>
-        <baseMoodEffect>4</baseMoodEffect>
+        <label>Reliving positive memory</label>
+        <description>.</description> <!-- controlled by code-->
+        <baseMoodEffect>4</baseMoodEffect> <!-- controlled by code-->
       </li>
     </stages>
   </ThoughtDef>
@@ -160,9 +158,9 @@
     <validWhileDespawned>true</validWhileDespawned>
     <stages>
       <li>
-        <label>High on shimmertalk</label>
-        <description>I never felt so confident in my life.</description>
-        <baseMoodEffect>4</baseMoodEffect>
+        <label>Reliving negative memory</label>
+        <description>.</description> <!-- controlled by code-->
+        <baseMoodEffect>0</baseMoodEffect> <!-- controlled by code-->
       </li>
     </stages>
   </ThoughtDef>

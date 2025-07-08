@@ -27,14 +27,7 @@ public abstract class Thought_ClonedMemory : Thought_Situational
         return MemoryUtils.MoodOffsetForClonedMemory(pawn, MemoryCellData.Value);
     }
 
-    public override string Description
-    {
-        get
-        {
-            return $"Reliving memory \"{MemoryCellData.Value.label}\" by {MemoryCellData.Value.sourcePawnLabel}";
-        }
-    }
-
+    public override string Description => MemoryCellData.Value.GetInspectString();
     protected abstract HediffDef RelevantHediffDef { get; }
 }
 
