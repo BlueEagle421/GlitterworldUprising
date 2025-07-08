@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <JobDef>
+        <defName>USH_InsertMemoryCell</defName>
+        <driverClass>USH_GE.JobDriver_InsertMemoryCell</driverClass>
+        <reportString>inserting TargetA to TargetB.</reportString>
+    </JobDef>
+
+</Defs>

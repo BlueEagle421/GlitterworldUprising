@@ -50,4 +50,6 @@
   <USH_GE_CommandBiocoderEjectDesc>Wake up the contained bioprint host and eject them.</USH_GE_CommandBiocoderEjectDesc>
   <USH_GE_CommandBiocoderEjectFailEmpty>Contains nobody.</USH_GE_CommandBiocoderEjectFailEmpty>
 
+  <USH_GE_InsertMemoryCell>Insert {0} to cell container</USH_GE_InsertMemoryCell>
+
 </LanguageData>

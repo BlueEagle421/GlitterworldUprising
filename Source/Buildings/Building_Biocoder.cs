@@ -232,9 +232,16 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
 
     public static Building_Biocoder FindBiocoderFor(Pawn p, Pawn traveler, bool ignoreOtherReservations = false)
     {
-
         bool queuing = KeyBindingDefOf.QueueOrder.IsDownEvent;
-        Building_Biocoder biocoder = (Building_Biocoder)GenClosest.ClosestThingReachable(p.PositionHeld, p.MapHeld, ThingRequest.ForDef(USH_DefOf.USH_GlittertechTargeter), PathEndMode.InteractionCell, TraverseParms.For(traveler), 9999f, Validator);
+
+        Building_Biocoder biocoder = (Building_Biocoder)GenClosest.ClosestThingReachable(
+            p.PositionHeld,
+            p.MapHeld,
+            ThingRequest.ForDef(USH_DefOf.USH_GlittertechTargeter),
+            PathEndMode.InteractionCell,
+            TraverseParms.For(traveler),
+            9999f,
+            Validator);
 
         if (biocoder != null)
             return biocoder;
@@ -242,9 +249,8 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         bool Validator(Thing x)
         {
             if (!((Building_Biocoder)x).HasAnyContents && (!queuing || !traveler.HasReserved(x)))
-            {
                 return traveler.CanReserve(x, 1, -1, null, ignoreOtherReservations);
-            }
+
             return false;
         }
 

@@ -26,5 +26,7 @@ namespace USH_GE
         public static ThingDef USH_MemoryCellNegative;
         public static HediffDef USH_MemoryPositiveHigh;
         public static HediffDef USH_MemoryNegativeHigh;
+        public static ThingDef USH_MemoryPylon;
+        public static JobDef USH_InsertMemoryCell;
     }
 }
