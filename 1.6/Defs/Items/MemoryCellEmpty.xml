@@ -4,7 +4,7 @@
   <ThingDef ParentName="ResourceBase">
     <defName>USH_MemoryCellEmpty</defName>
     <label>memory cell (empty)</label>
-    <description>.</description>
+    <description>A glittertech device capable of deep-cloning memories directly from troubled or peaceful minds. It stores them in a state of suspension until they are absorbed - either raw or processed through specialized machinery. The device always targets the most extreme memories, and each thought can only be sampled once.\n\nA colonist must manually use on other emotional being or it can be utilized automatically in the memory reader.</description>
     <thingClass>ThingWithComps</thingClass>
     <graphicData>
       <texPath>Things/Item/MemoryCell/MemoryCellEmpty</texPath>
