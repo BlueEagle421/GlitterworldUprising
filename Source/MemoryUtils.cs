@@ -69,18 +69,15 @@ public static class MemoryUtils
         if (cellData.moodOffset > 0)
             return cellData.moodOffset * 0.5f;
 
-        return cellData.moodOffset * NegativeMemoryMoodMultiplier(p, cellData);
+        if (CanEnjoyNegativeMemory(p, cellData))
+            return -cellData.moodOffset;
+
+        return cellData.moodOffset;
     }
 
-    private static float NegativeMemoryMoodMultiplier(Pawn p, MemoryCellData cellData)
+    private static bool CanEnjoyNegativeMemory(Pawn p, MemoryCellData cellData)
     {
-        Log.Message("p: " + p);
-        Log.Message("cellData: " + cellData);
-        Log.Message("cellData.thoughtDef: " + cellData.thoughtDef);
-        if (ThoughtUtility.ThoughtNullified(p, cellData.thoughtDef))
-            return -1f;
-
-        return 1f;
+        return ThoughtUtility.ThoughtNullified(p, cellData.thoughtDef);
     }
 
     public static Color GetThoughtColor(bool positive)
