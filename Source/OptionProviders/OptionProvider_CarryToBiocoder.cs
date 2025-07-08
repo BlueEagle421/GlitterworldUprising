@@ -4,7 +4,7 @@ using Verse.AI;
 
 namespace USH_GE;
 
-public sealed class CarryToBiocoderOptionProvider : FloatMenuOptionProvider
+public sealed class FloatMenuOptionProvider_CarryToBiocoder : FloatMenuOptionProvider
 {
     protected override bool Drafted => true;
     protected override bool Undrafted => true;
