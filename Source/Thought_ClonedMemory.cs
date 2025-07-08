@@ -20,11 +20,17 @@ public abstract class Thought_ClonedMemory : Thought_Situational
         }
     }
 
-    public override float MoodOffset()
+    private float? _cachedClonedMoodOffset;
+    private float? ClonedMoodOffset
     {
-        return MemoryUtils.MoodOffsetForClonedMemory(pawn, MemoryCellData.Value);
+        get
+        {
+            _cachedClonedMoodOffset ??= MemoryUtils.MoodOffsetForClonedMemory(pawn, MemoryCellData.Value);
+            return _cachedClonedMoodOffset;
+        }
     }
 
+    public override float MoodOffset() => ClonedMoodOffset.Value;
     public override string Description => MemoryCellData.Value.GetInspectString();
     protected abstract HediffDef RelevantHediffDef { get; }
 }
