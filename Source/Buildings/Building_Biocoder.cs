@@ -206,28 +206,9 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
         JobDef jobDef = USH_DefOf.USH_EnterBiocoder;
         string label = "USH_GE_EnterBiocoder".Translate();
 
-        void action()
-        {
-            if (ModsConfig.BiotechActive)
-            {
-                if (myPawn.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.PsychicBond) is not Hediff_PsychicBond hediff_PsychicBond || !ThoughtWorker_PsychicBondProximity.NearPsychicBondedPerson(myPawn, hediff_PsychicBond))
-                {
-                    myPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(jobDef, this), JobTag.Misc);
-                }
-                else
-                {
-                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("PsychicBondDistanceWillBeActive_Cryptosleep".Translate(myPawn.Named("PAWN"), ((Pawn)hediff_PsychicBond.target).Named("BOND")), delegate
-                    {
-                        myPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(jobDef, this), JobTag.Misc);
-                    }, destructive: true));
-                }
-            }
-            else
-            {
-                myPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(jobDef, this), JobTag.Misc);
-            }
-        }
-        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(label, action), myPawn, this);
+        void CreateJobAction() => myPawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(jobDef, this), JobTag.Misc);
+
+        yield return FloatMenuUtility.DecoratePrioritizedTask(new FloatMenuOption(label, CreateJobAction), myPawn, this);
     }
 
     public static Building_Biocoder FindBiocoderFor(Pawn p, Pawn traveler, bool ignoreOtherReservations = false)
