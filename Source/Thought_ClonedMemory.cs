@@ -1,0 +1,50 @@
+
+
+using RimWorld;
+using Verse;
+
+namespace USH_GE;
+
+public abstract class Thought_ClonedMemory : Thought_Situational
+{
+    private MemoryCellData? _cachedMemoryCellData;
+    private MemoryCellData? MemoryCellData
+    {
+        get
+        {
+            if (_cachedMemoryCellData == null)
+            {
+                Hediff relevantHediff = pawn.health.hediffSet.GetFirstHediffOfDef(RelevantHediffDef);
+                _cachedMemoryCellData = relevantHediff.TryGetComp<HediffCompMemoryCell>().MemoryCellData;
+            }
+
+            return _cachedMemoryCellData;
+        }
+    }
+
+    public override float MoodOffset()
+    {
+        return MemoryUtils.MoodOffsetForClonedMemory(pawn, MemoryCellData.Value);
+    }
+
+    public override string Description
+    {
+        get
+        {
+            return $"Reliving memory \"{MemoryCellData.Value.label}\" by {MemoryCellData.Value.sourcePawnLabel}";
+        }
+    }
+
+    protected abstract HediffDef RelevantHediffDef { get; }
+}
+
+public class Thought_ClonedMemoryPositive : Thought_ClonedMemory
+{
+    protected override HediffDef RelevantHediffDef => USH_DefOf.USH_MemoryPositiveHigh;
+}
+
+public class Thought_ClonedMemoryNegative : Thought_ClonedMemory
+{
+    protected override HediffDef RelevantHediffDef => USH_DefOf.USH_MemoryNegativeHigh;
+}
+

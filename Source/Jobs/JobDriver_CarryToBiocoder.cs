@@ -5,38 +5,6 @@ using Verse.AI;
 
 namespace USH_GE;
 
-
-public class JobDriver_EnterBiocoder : JobDriver
-{
-    public override bool TryMakePreToilReservations(bool errorOnFailed) => pawn.Reserve(job.targetA, job, 1, -1, null, errorOnFailed, false);
-    protected override IEnumerable<Toil> MakeNewToils()
-    {
-        this.FailOnDespawnedOrNull(TargetIndex.A);
-
-        yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell, false);
-
-        Toil toil = Toils_General.Wait(500, TargetIndex.None);
-        toil.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
-        toil.WithProgressBarToilDelay(TargetIndex.A, false, -0.5f);
-
-        yield return toil;
-
-        Toil enter = ToilMaker.MakeToil("MakeNewToils");
-        enter.initAction = delegate ()
-        {
-            Pawn actor = enter.actor;
-            Building_Biocoder biocoder = (Building_Biocoder)actor.CurJob.targetA.Thing;
-
-            bool flag = actor.DeSpawnOrDeselect(DestroyMode.Vanish);
-            if (biocoder.TryAcceptThing(actor, true) && flag)
-                Find.Selector.Select(actor, false, false);
-        };
-        enter.defaultCompleteMode = ToilCompleteMode.Instant;
-
-        yield return enter;
-    }
-}
-
 public class JobDriver_CarryToBiocoder : JobDriver
 {
     protected Pawn Takee => (Pawn)job.GetTarget(TargetIndex.A).Thing;
@@ -45,9 +13,8 @@ public class JobDriver_CarryToBiocoder : JobDriver
     public override bool TryMakePreToilReservations(bool errorOnFailed)
     {
         if (pawn.Reserve(Takee, job, 1, -1, null, errorOnFailed))
-        {
             return pawn.Reserve(Biocoder, job, 1, -1, null, errorOnFailed);
-        }
+
         return false;
     }
 
@@ -59,7 +26,9 @@ public class JobDriver_CarryToBiocoder : JobDriver
 
         this.FailOn(() => !Biocoder.Accepts(Takee));
 
-        Toil goToTakee = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell).FailOnDestroyedNullOrForbidden(TargetIndex.A).FailOnDespawnedNullOrForbidden(TargetIndex.B)
+        Toil goToTakee = Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.OnCell)
+            .FailOnDestroyedNullOrForbidden(TargetIndex.A)
+            .FailOnDespawnedNullOrForbidden(TargetIndex.B)
             .FailOn(() => Biocoder.GetDirectlyHeldThings().Count > 0)
             .FailOn(() => !pawn.CanReach(Takee, PathEndMode.OnCell, Danger.Deadly))
             .FailOnSomeonePhysicallyInteracting(TargetIndex.A);

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef ParentName="ResourceBase">
+    <defName>USH_MemoryCellEmpty</defName>
+    <label>memory cell (empty)</label>
+    <description>.</description>
+    <thingClass>ThingWithComps</thingClass>
+    <graphicData>
+      <texPath>Things/Item/MemoryCell/MemoryCellEmpty</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <useHitPoints>true</useHitPoints>
+    <statBases>
+      <MaxHitPoints>80</MaxHitPoints>
+      <Mass>0.2</Mass>
+      <DeteriorationRate>1.0</DeteriorationRate>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <techLevel>Ultra</techLevel>
+    <stackLimit>10</stackLimit>
+    <thingCategories>
+      <li>ItemsMisc</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Usable">
+        <useJob>UseItem</useJob>
+        <useLabel>Use {0_label}</useLabel>
+        <useDuration>0</useDuration>
+        <warmupMote>Mote_ResurrectAbility</warmupMote>
+      </li>
+      <li Class="CompProperties_Targetable">
+        <compClass>CompTargetable_SinglePawn</compClass>
+      </li>
+      <li Class="USH_GE.CompProperties_TargetEffectMemoryCellEmpty">
+        <jobDef>USH_CloneMemory</jobDef>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <JobDef>
+    <defName>USH_CloneMemory</defName>
+    <driverClass>USH_GE.JobDriver_CloneMemory</driverClass>
+    <reportString>extracting memory from TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

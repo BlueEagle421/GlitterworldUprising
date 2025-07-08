@@ -22,7 +22,9 @@ namespace USH_GE
         public static JobDef USH_EnterBiocoder;
         public static JobDef USH_CarryToBiocoder;
         public static ThingDef USH_GlittertechTargeter;
+        public static ThingDef USH_MemoryCellPositive;
+        public static ThingDef USH_MemoryCellNegative;
+        public static HediffDef USH_MemoryPositiveHigh;
+        public static HediffDef USH_MemoryNegativeHigh;
     }
-
 }
-
