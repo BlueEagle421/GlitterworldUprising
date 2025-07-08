@@ -1,33 +1,32 @@
 ﻿using Verse;
 
-namespace USH_GE
+namespace USH_GE;
+
+public class HediffCompProperties_GammaSerum : HediffCompProperties
 {
-    public class HediffCompProperties_GammaSerum : HediffCompProperties
+    public HediffCompProperties_GammaSerum() => compClass = typeof(HediffCompGammaSerum);
+}
+
+public class HediffCompGammaSerum : HediffComp
+{
+    public HediffCompProperties_GammaSerum Props => (HediffCompProperties_GammaSerum)props;
+
+    public override void CompPostMake()
     {
-        public HediffCompProperties_GammaSerum() => compClass = typeof(HediffCompGammaSerum);
+        base.CompPostMake();
+        RemoveWillAndCertainty();
     }
 
-    public class HediffCompGammaSerum : HediffComp
+    private void RemoveWillAndCertainty()
     {
-        public HediffCompProperties_GammaSerum Props => (HediffCompProperties_GammaSerum)props;
+        Pawn target = parent.pawn;
 
-        public override void CompPostMake()
-        {
-            base.CompPostMake();
-            RemoveWillAndCertainty();
-        }
+        target.guest.Recruitable = true;
 
-        private void RemoveWillAndCertainty()
-        {
-            Pawn target = parent.pawn;
+        target.guest.resistance = 0f;
+        target.guest.will = 0f;
 
-            target.guest.Recruitable = true;
-
-            target.guest.resistance = 0f;
-            target.guest.will = 0f;
-
-            if (ModsConfig.IdeologyActive)
-                target.ideo.OffsetCertainty(0f - target.ideo.Certainty);
-        }
+        if (ModsConfig.IdeologyActive)
+            target.ideo.OffsetCertainty(0f - target.ideo.Certainty);
     }
 }

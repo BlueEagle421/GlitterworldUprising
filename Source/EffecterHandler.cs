@@ -1,6 +1,8 @@
 using UnityEngine;
 using Verse;
 
+namespace USH_GE;
+
 public class EffecterHandler(Thing source, EffecterDef effecterDef)
 {
     private readonly Thing _source = source;

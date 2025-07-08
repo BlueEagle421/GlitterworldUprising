@@ -1,40 +1,39 @@
 using System.Collections.Generic;
 using Verse;
 
-namespace USH_GE
-{
-    public class HediffCompProperties_RemoveDuplicates : HediffCompProperties
-    {
-        public List<HediffDef> hediffsConsideredSame = [];
+namespace USH_GE;
 
-        public HediffCompProperties_RemoveDuplicates() => compClass = typeof(HediffCompRemoveDuplicates);
+public class HediffCompProperties_RemoveDuplicates : HediffCompProperties
+{
+    public List<HediffDef> hediffsConsideredSame = [];
+
+    public HediffCompProperties_RemoveDuplicates() => compClass = typeof(HediffCompRemoveDuplicates);
+}
+
+public class HediffCompRemoveDuplicates : HediffComp
+{
+    public HediffCompProperties_RemoveDuplicates Props => (HediffCompProperties_RemoveDuplicates)props;
+
+    public override void CompPostMake()
+    {
+        base.CompPostMake();
+
+        RemoveHediffDuplicates(parent.pawn, Props.hediffsConsideredSame);
     }
 
-    public class HediffCompRemoveDuplicates : HediffComp
+    private void RemoveHediffDuplicates(Pawn pawn, List<HediffDef> duplicates)
     {
-        public HediffCompProperties_RemoveDuplicates Props => (HediffCompProperties_RemoveDuplicates)props;
-
-        public override void CompPostMake()
+        List<Hediff> allHediffs = [];
+        pawn.health.hediffSet.GetHediffs(ref allHediffs);
+        foreach (Hediff hediff in allHediffs)
         {
-            base.CompPostMake();
+            if (hediff == parent)
+                continue;
 
-            RemoveHediffDuplicates(parent.pawn, Props.hediffsConsideredSame);
-        }
-
-        private void RemoveHediffDuplicates(Pawn pawn, List<HediffDef> duplicates)
-        {
-            List<Hediff> allHediffs = [];
-            pawn.health.hediffSet.GetHediffs(ref allHediffs);
-            foreach (Hediff hediff in allHediffs)
+            if (duplicates.Contains(hediff.def))
             {
-                if (hediff == parent)
-                    continue;
-
-                if (duplicates.Contains(hediff.def))
-                {
-                    GenSpawn.Spawn(hediff.def.spawnThingOnRemoved, pawn.Position, pawn.Map);
-                    pawn.health.RemoveHediff(hediff);
-                }
+                GenSpawn.Spawn(hediff.def.spawnThingOnRemoved, pawn.Position, pawn.Map);
+                pawn.health.RemoveHediff(hediff);
             }
         }
     }

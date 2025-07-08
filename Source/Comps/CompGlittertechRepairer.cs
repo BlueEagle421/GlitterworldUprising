@@ -4,395 +4,393 @@ using System.Text;
 using RimWorld;
 using UnityEngine;
 using Verse;
-using Verse.Noise;
 
-namespace USH_GE
+namespace USH_GE;
+
+public class MapComponent_RepairManager(Map map) : MapComponent(map)
 {
-    public class MapComponent_RepairManager(Map map) : MapComponent(map)
+    private readonly List<CompGlittertechRepairer> repairers = [];
+    private readonly HashSet<Building> dirtyBuildings = [];
+    private int _tickCounter = 0;
+
+    public override void FinalizeInit()
     {
-        private readonly List<CompGlittertechRepairer> repairers = [];
-        private readonly HashSet<Building> dirtyBuildings = [];
-        private int _tickCounter = 0;
+        base.FinalizeInit();
+        foreach (var b in map.listerBuildings.allBuildingsColonist)
+            foreach (var comp in b.AllComps)
+                if (comp is CompGlittertechRepairer r)
+                    repairers.Add(r);
+    }
 
-        public override void FinalizeInit()
+    public void Register(CompGlittertechRepairer comp) => repairers.Add(comp);
+    public void Unregister(CompGlittertechRepairer comp) => repairers.Remove(comp);
+    public void NotifyDamaged(Building b) => dirtyBuildings.Add(b);
+
+    public override void MapComponentTick()
+    {
+        base.MapComponentTick();
+
+        _tickCounter++;
+        if (_tickCounter >= 250)
         {
-            base.FinalizeInit();
-            foreach (var b in map.listerBuildings.allBuildingsColonist)
-                foreach (var comp in b.AllComps)
-                    if (comp is CompGlittertechRepairer r)
-                        repairers.Add(r);
-        }
-
-        public void Register(CompGlittertechRepairer comp) => repairers.Add(comp);
-        public void Unregister(CompGlittertechRepairer comp) => repairers.Remove(comp);
-        public void NotifyDamaged(Building b) => dirtyBuildings.Add(b);
-
-        public override void MapComponentTick()
-        {
-            base.MapComponentTick();
-
-            _tickCounter++;
-            if (_tickCounter >= 250)
-            {
-                _tickCounter = 0;
-                ProcessDamagedBuildings();
-            }
-        }
-
-        private void ProcessDamagedBuildings()
-        {
-            if (dirtyBuildings.Count == 0)
-                return;
-
-            foreach (var comp in repairers)
-                comp.HandleFreshlyDamaged(dirtyBuildings);
-
-            dirtyBuildings.Clear();
+            _tickCounter = 0;
+            ProcessDamagedBuildings();
         }
     }
 
-    public class CompProperties_GlittertechRepairer : CompProperties
+    private void ProcessDamagedBuildings()
     {
-        public float repairRadius = 8.9f;
-        public float repairInterval = 10;
-        public string activeOverlayPath;
+        if (dirtyBuildings.Count == 0)
+            return;
 
-        public CompProperties_GlittertechRepairer() => compClass = typeof(CompGlittertechRepairer);
+        foreach (var comp in repairers)
+            comp.HandleFreshlyDamaged(dirtyBuildings);
+
+        dirtyBuildings.Clear();
+    }
+}
+
+public class CompProperties_GlittertechRepairer : CompProperties
+{
+    public float repairRadius = 8.9f;
+    public float repairInterval = 10;
+    public string activeOverlayPath;
+
+    public CompProperties_GlittertechRepairer() => compClass = typeof(CompGlittertechRepairer);
+}
+
+
+public class CompGlittertechRepairer : ThingComp
+{
+    private HashSet<Thing> _toRepair = [];
+    public CompProperties_GlittertechRepairer Props => (CompProperties_GlittertechRepairer)props;
+    private MapComponent_RepairManager _manager => parent.Map.GetComponent<MapComponent_RepairManager>();
+
+    private bool _isRepairing;
+    private Thing _currentlyRepairing;
+    private Effecter _repairEffecter;
+    private int _repairTickCounter;
+
+    private const float Z_OFFSET = .018292684f;
+
+    private Color _startColor;
+    private Color _targetColor;
+    private int _colorTransitionTicks;
+    private int _colorTicksElapsed;
+
+    private bool _isFading;
+    private const float FADE_DURATION_TICKS = 60f;
+    private float _fadeTicks = FADE_DURATION_TICKS;
+    private bool _lastIsRepairing = true;
+
+    private CompPowerTrader _powerTrader;
+    public CompPowerTrader PowerTrader
+    {
+        get
+        {
+            _powerTrader ??= parent.TryGetComp<CompPowerTrader>();
+
+            return _powerTrader;
+        }
     }
 
-
-    public class CompGlittertechRepairer : ThingComp
+    private CompStunnable _stunnable;
+    public CompStunnable Stunnable
     {
-        private HashSet<Thing> _toRepair = [];
-        public CompProperties_GlittertechRepairer Props => (CompProperties_GlittertechRepairer)props;
-        private MapComponent_RepairManager _manager => parent.Map.GetComponent<MapComponent_RepairManager>();
-
-        private bool _isRepairing;
-        private Thing _currentlyRepairing;
-        private Effecter _repairEffecter;
-        private int _repairTickCounter;
-
-        private const float Z_OFFSET = .018292684f;
-
-        private Color _startColor;
-        private Color _targetColor;
-        private int _colorTransitionTicks;
-        private int _colorTicksElapsed;
-
-        private bool _isFading;
-        private const float FADE_DURATION_TICKS = 60f;
-        private float _fadeTicks = FADE_DURATION_TICKS;
-        private bool _lastIsRepairing = true;
-
-        private CompPowerTrader _powerTrader;
-        public CompPowerTrader PowerTrader
+        get
         {
-            get
-            {
-                _powerTrader ??= parent.TryGetComp<CompPowerTrader>();
+            _stunnable ??= parent.TryGetComp<CompStunnable>();
 
-                return _powerTrader;
-            }
+            return _stunnable;
         }
+    }
 
-        private CompStunnable _stunnable;
-        public CompStunnable Stunnable
+    private CompGlower _glower;
+    public CompGlower Glower
+    {
+        get
         {
-            get
-            {
-                _stunnable ??= parent.TryGetComp<CompStunnable>();
+            _glower ??= parent.TryGetComp<CompGlower>();
 
-                return _stunnable;
-            }
+            return _glower;
         }
+    }
 
-        private CompGlower _glower;
-        public CompGlower Glower
+    private Material _cachedOverlayMat;
+    private Material OverlayMaterial
+    {
+        get
         {
-            get
-            {
-                _glower ??= parent.TryGetComp<CompGlower>();
+            _cachedOverlayMat ??= MaterialPool.MatFrom(Props.activeOverlayPath, ShaderDatabase.Transparent);
 
-                return _glower;
-            }
+            return _cachedOverlayMat;
         }
+    }
 
-        private Material _cachedOverlayMat;
-        private Material OverlayMaterial
+    public override void PostExposeData()
+    {
+        base.PostExposeData();
+
+        Scribe_References.Look(ref _currentlyRepairing, "_currentlyRepairing");
+
+        Scribe_Values.Look(ref _isRepairing, "_isRepairing");
+        Scribe_Values.Look(ref _repairTickCounter, "_repairTickCounter");
+        Scribe_Values.Look(ref _startColor, "_startColor");
+        Scribe_Values.Look(ref _targetColor, "_targetColor");
+        Scribe_Values.Look(ref _colorTransitionTicks, "_transitionTicks");
+        Scribe_Values.Look(ref _colorTicksElapsed, "_ticksElapsed");
+        Scribe_Values.Look(ref _isFading, "_isFading");
+        Scribe_Values.Look(ref _lastIsRepairing, "_lastIsRepairing");
+
+        Scribe_Collections.Look(ref _toRepair, "_toRepair", LookMode.Reference);
+    }
+
+    public override void PostSpawnSetup(bool respawningAfterLoad)
+    {
+        base.PostSpawnSetup(respawningAfterLoad);
+        _manager.Register(this);
+
+        RebuildAll();
+        RepairStopped();
+        TryToStartRepairing();
+    }
+
+    public override void PostDestroy(DestroyMode mode, Map previousMap)
+    {
+        base.PostDestroy(mode, previousMap);
+
+        previousMap.GetComponent<MapComponent_RepairManager>().Unregister(this);
+    }
+
+    private void RebuildAll()
+    {
+        _toRepair.AddRange(parent.Map.listerBuildingsRepairable.RepairableBuildings(parent.Faction));
+    }
+
+    public void HandleFreshlyDamaged(IEnumerable<Building> damaged)
+    {
+        _toRepair.AddRange(damaged.Where(x => CanRepairThing(x)));
+
+        foreach (var b in damaged)
+            if (CanRepairThing(b))
+                _toRepair.Add(b);
+
+        TryToStartRepairing();
+    }
+
+    public override void CompTick()
+    {
+        base.CompTick();
+
+        _repairEffecter?.EffectTick(new TargetInfo(_currentlyRepairing), new TargetInfo(parent));
+
+        PowerOutputTick();
+
+        OverlayFadeTick();
+
+        ColorTransitionTick();
+
+        RepairTick();
+    }
+
+    private void PowerOutputTick()
+    {
+        if (!parent.IsHashIntervalTick(60))
+            return;
+
+        var props = PowerTrader.Props;
+
+        float toSet = _isRepairing ? props.PowerConsumption : props.idlePowerDraw;
+
+        PowerTrader.PowerOutput = -toSet;
+    }
+
+    private void OverlayFadeTick()
+    {
+        if (_isRepairing != _lastIsRepairing)
+            _fadeTicks = 0f;
+
+        _fadeTicks = Mathf.Min(_fadeTicks + 1f, FADE_DURATION_TICKS);
+        _lastIsRepairing = _isRepairing;
+    }
+
+    private void ColorTransitionTick()
+    {
+        if (!_isFading)
+            return;
+
+        _colorTicksElapsed++;
+        float t = Mathf.Clamp01((float)_colorTicksElapsed / _colorTransitionTicks);
+        Color currentColor = Color.Lerp(_startColor, _targetColor, t);
+        SetGlowerColor(currentColor);
+
+        if (_colorTicksElapsed >= _colorTransitionTicks)
+            _isFading = false;
+    }
+
+    private void RepairTick()
+    {
+        if (!CanContinueRepairing())
         {
-            get
-            {
-                _cachedOverlayMat ??= MaterialPool.MatFrom(Props.activeOverlayPath, ShaderDatabase.Transparent);
-
-                return _cachedOverlayMat;
-            }
-        }
-
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
-
-            Scribe_References.Look(ref _currentlyRepairing, "_currentlyRepairing");
-
-            Scribe_Values.Look(ref _isRepairing, "_isRepairing");
-            Scribe_Values.Look(ref _repairTickCounter, "_repairTickCounter");
-            Scribe_Values.Look(ref _startColor, "_startColor");
-            Scribe_Values.Look(ref _targetColor, "_targetColor");
-            Scribe_Values.Look(ref _colorTransitionTicks, "_transitionTicks");
-            Scribe_Values.Look(ref _colorTicksElapsed, "_ticksElapsed");
-            Scribe_Values.Look(ref _isFading, "_isFading");
-            Scribe_Values.Look(ref _lastIsRepairing, "_lastIsRepairing");
-
-            Scribe_Collections.Look(ref _toRepair, "_toRepair", LookMode.Reference);
-        }
-
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            base.PostSpawnSetup(respawningAfterLoad);
-            _manager.Register(this);
-
-            RebuildAll();
             RepairStopped();
-            TryToStartRepairing();
+            return;
         }
 
-        public override void PostDestroy(DestroyMode mode, Map previousMap)
-        {
-            base.PostDestroy(mode, previousMap);
+        _repairTickCounter++;
 
-            previousMap.GetComponent<MapComponent_RepairManager>().Unregister(this);
-        }
+        if (_repairTickCounter < Props.repairInterval)
+            return;
 
-        private void RebuildAll()
-        {
-            _toRepair.AddRange(parent.Map.listerBuildingsRepairable.RepairableBuildings(parent.Faction));
-        }
-
-        public void HandleFreshlyDamaged(IEnumerable<Building> damaged)
-        {
-            _toRepair.AddRange(damaged.Where(x => CanRepairThing(x)));
-
-            foreach (var b in damaged)
-                if (CanRepairThing(b))
-                    _toRepair.Add(b);
-
-            TryToStartRepairing();
-        }
-
-        public override void CompTick()
-        {
-            base.CompTick();
-
-            _repairEffecter?.EffectTick(new TargetInfo(_currentlyRepairing), new TargetInfo(parent));
-
-            PowerOutputTick();
-
-            OverlayFadeTick();
-
-            ColorTransitionTick();
-
-            RepairTick();
-        }
-
-        private void PowerOutputTick()
-        {
-            if (!parent.IsHashIntervalTick(60))
-                return;
-
-            var props = PowerTrader.Props;
-
-            float toSet = _isRepairing ? props.PowerConsumption : props.idlePowerDraw;
-
-            PowerTrader.PowerOutput = -toSet;
-        }
-
-        private void OverlayFadeTick()
-        {
-            if (_isRepairing != _lastIsRepairing)
-                _fadeTicks = 0f;
-
-            _fadeTicks = Mathf.Min(_fadeTicks + 1f, FADE_DURATION_TICKS);
-            _lastIsRepairing = _isRepairing;
-        }
-
-        private void ColorTransitionTick()
-        {
-            if (!_isFading)
-                return;
-
-            _colorTicksElapsed++;
-            float t = Mathf.Clamp01((float)_colorTicksElapsed / _colorTransitionTicks);
-            Color currentColor = Color.Lerp(_startColor, _targetColor, t);
-            SetGlowerColor(currentColor);
-
-            if (_colorTicksElapsed >= _colorTransitionTicks)
-                _isFading = false;
-        }
-
-        private void RepairTick()
-        {
-            if (!CanContinueRepairing())
-            {
-                RepairStopped();
-                return;
-            }
-
-            _repairTickCounter++;
-
-            if (_repairTickCounter < Props.repairInterval)
-                return;
-
-            if (!CanRepairThing(_currentlyRepairing))
-            {
-                _toRepair.Remove(_currentlyRepairing);
-                RepairStopped();
-                TryToStartRepairing();
-                return;
-            }
-
-            _repairTickCounter = 0;
-
-            _currentlyRepairing.HitPoints = Mathf.Min(_currentlyRepairing.MaxHitPoints, _currentlyRepairing.HitPoints + 1);
-
-            if (_currentlyRepairing.HitPoints == _currentlyRepairing.MaxHitPoints)
-                RepairFinished();
-        }
-
-        private void RepairStopped()
-        {
-            SetGlowerColorSmooth(Color.clear);
-            _repairEffecter?.Cleanup();
-            _repairEffecter = null;
-            _isRepairing = false;
-        }
-
-        private void RepairFinished()
+        if (!CanRepairThing(_currentlyRepairing))
         {
             _toRepair.Remove(_currentlyRepairing);
-            _currentlyRepairing = null;
-
             RepairStopped();
-
             TryToStartRepairing();
+            return;
         }
 
-        private bool TryToStartRepairing()
-        {
-            if (!CanStartRepairing())
-                return false;
+        _repairTickCounter = 0;
 
-            if (_currentlyRepairing != null)
-                return false;
+        _currentlyRepairing.HitPoints = Mathf.Min(_currentlyRepairing.MaxHitPoints, _currentlyRepairing.HitPoints + 1);
 
-            StartRepairing();
+        if (_currentlyRepairing.HitPoints == _currentlyRepairing.MaxHitPoints)
+            RepairFinished();
+    }
 
-            return true;
-        }
+    private void RepairStopped()
+    {
+        SetGlowerColorSmooth(Color.clear);
+        _repairEffecter?.Cleanup();
+        _repairEffecter = null;
+        _isRepairing = false;
+    }
 
-        private void StartRepairing()
-        {
-            SetGlowerColorSmooth(Color.white);
+    private void RepairFinished()
+    {
+        _toRepair.Remove(_currentlyRepairing);
+        _currentlyRepairing = null;
 
-            _currentlyRepairing = _toRepair
-                .OrderByDescending(b => b.MaxHitPoints - b.HitPoints)
-                .FirstOrDefault();
+        RepairStopped();
 
-            _repairEffecter = USH_DefOf.USH_GlittertechRepair.Spawn();
+        TryToStartRepairing();
+    }
 
-            _repairEffecter.Trigger(new TargetInfo(_currentlyRepairing), new TargetInfo(parent), -1);
+    private bool TryToStartRepairing()
+    {
+        if (!CanStartRepairing())
+            return false;
 
-            _isRepairing = true;
-        }
+        if (_currentlyRepairing != null)
+            return false;
 
-        public override string CompInspectStringExtra()
-        {
-            StringBuilder sb = new();
+        StartRepairing();
 
-            if (_currentlyRepairing != null)
-                sb.AppendLine($"Repairing: {_currentlyRepairing.Label}");
+        return true;
+    }
 
-            return sb.ToString().TrimEnd();
-        }
+    private void StartRepairing()
+    {
+        SetGlowerColorSmooth(Color.white);
 
-        public override void DrawAt(Vector3 drawLoc, bool flip = false)
-        {
-            base.DrawAt(drawLoc, flip);
+        _currentlyRepairing = _toRepair
+            .OrderByDescending(b => b.MaxHitPoints - b.HitPoints)
+            .FirstOrDefault();
 
-            DrawPulse(drawLoc);
-        }
+        _repairEffecter = USH_DefOf.USH_GlittertechRepair.Spawn();
 
-        private void DrawPulse(Vector3 drawLoc)
-        {
-            Vector3 loc = drawLoc;
-            loc += parent.def.graphicData.drawOffset;
-            loc.y += Z_OFFSET;
+        _repairEffecter.Trigger(new TargetInfo(_currentlyRepairing), new TargetInfo(parent), -1);
 
-            float t = _fadeTicks / FADE_DURATION_TICKS;
+        _isRepairing = true;
+    }
 
-            float alphaMultiplier = _lastIsRepairing
-                ? Mathf.Lerp(0f, 1f, t)
-                : Mathf.Lerp(1f, 0f, t);
+    public override string CompInspectStringExtra()
+    {
+        StringBuilder sb = new();
 
-            float alpha = alphaMultiplier * Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.02f, 1f));
-            OverlayMaterial.color = new Color(1f, 1f, 1f, alpha);
+        if (_currentlyRepairing != null)
+            sb.AppendLine($"Repairing: {_currentlyRepairing.Label}");
 
-            Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
-            Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
+        return sb.ToString().TrimEnd();
+    }
 
-            Graphics.DrawMesh(mesh, loc, quat, OverlayMaterial, 0);
-        }
+    public override void DrawAt(Vector3 drawLoc, bool flip = false)
+    {
+        base.DrawAt(drawLoc, flip);
 
-        public void StartColorFade(Color from, Color to, int durationTicks)
-        {
-            _startColor = from;
-            _targetColor = to;
-            _colorTransitionTicks = durationTicks;
-            _colorTicksElapsed = 0;
-            _isFading = true;
-        }
+        DrawPulse(drawLoc);
+    }
 
-        private bool CanContinueRepairing()
-        {
-            if (_currentlyRepairing == null)
-                return false;
+    private void DrawPulse(Vector3 drawLoc)
+    {
+        Vector3 loc = drawLoc;
+        loc += parent.def.graphicData.drawOffset;
+        loc.y += Z_OFFSET;
 
-            return CanStartRepairing();
-        }
+        float t = _fadeTicks / FADE_DURATION_TICKS;
 
-        private bool CanStartRepairing()
-        {
-            if (!PowerTrader.PowerOn)
-                return false;
+        float alphaMultiplier = _lastIsRepairing
+            ? Mathf.Lerp(0f, 1f, t)
+            : Mathf.Lerp(1f, 0f, t);
 
-            if (Stunnable.StunHandler.Stunned)
-                return false;
+        float alpha = alphaMultiplier * Mathf.Abs(Mathf.PingPong(Find.TickManager.TicksGame * 0.02f, 1f));
+        OverlayMaterial.color = new Color(1f, 1f, 1f, alpha);
 
-            if (_toRepair.Count == 0)
-                return false;
+        Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
+        Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
 
-            return true;
-        }
+        Graphics.DrawMesh(mesh, loc, quat, OverlayMaterial, 0);
+    }
 
-        private bool CanRepairThing(Thing t)
-        {
-            if (t.Destroyed)
-                return false;
+    public void StartColorFade(Color from, Color to, int durationTicks)
+    {
+        _startColor = from;
+        _targetColor = to;
+        _colorTransitionTicks = durationTicks;
+        _colorTicksElapsed = 0;
+        _isFading = true;
+    }
 
-            if (!t.Position.InHorDistOf(parent.Position, Props.repairRadius))
-                return false;
+    private bool CanContinueRepairing()
+    {
+        if (_currentlyRepairing == null)
+            return false;
 
-            return true;
-        }
+        return CanStartRepairing();
+    }
+
+    private bool CanStartRepairing()
+    {
+        if (!PowerTrader.PowerOn)
+            return false;
+
+        if (Stunnable.StunHandler.Stunned)
+            return false;
+
+        if (_toRepair.Count == 0)
+            return false;
+
+        return true;
+    }
+
+    private bool CanRepairThing(Thing t)
+    {
+        if (t.Destroyed)
+            return false;
+
+        if (!t.Position.InHorDistOf(parent.Position, Props.repairRadius))
+            return false;
+
+        return true;
+    }
 
 
-        private void SetGlowerColorSmooth(Color color, int durationTicks = 30)
-        {
-            StartColorFade(Glower.GlowColor.ToColor, color, durationTicks);
-        }
+    private void SetGlowerColorSmooth(Color color, int durationTicks = 30)
+    {
+        StartColorFade(Glower.GlowColor.ToColor, color, durationTicks);
+    }
 
-        private void SetGlowerColor(Color color)
-        {
-            Glower.GlowColor = ColorInt.FromHdrColor(color);
-        }
+    private void SetGlowerColor(Color color)
+    {
+        Glower.GlowColor = ColorInt.FromHdrColor(color);
     }
 }
