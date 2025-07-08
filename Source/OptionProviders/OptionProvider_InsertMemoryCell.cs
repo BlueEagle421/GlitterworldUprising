@@ -82,10 +82,6 @@ public class FloatMenuOptionProvider_InsertMemoryCell : FloatMenuOptionProvider
         Job job = JobMaker.MakeJob(USH_DefOf.USH_InsertMemoryCell, item, targetBuilding, targetBuilding.InteractionCell);
         job.count = 1;
         p.jobs.TryTakeOrderedJob(job, new JobTag?(JobTag.Misc), false);
-
-        Log.Message($"[InsertMemoryCell] job.targets → A={job.GetTarget(TargetIndex.A).Thing}, " +
-            $"B={job.GetTarget(TargetIndex.B).Thing}, " +
-            $"C={job.GetTarget(TargetIndex.C).Cell}");
     }
 
 }
