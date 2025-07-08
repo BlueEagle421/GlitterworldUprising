@@ -36,7 +36,7 @@ public class JobDriver_InsertMemoryCell : JobDriver
         void OnDeposited()
         {
             TargetItem.def.soundDrop.PlayOneShot(pawn);
-            TargetBuilding.GetComp<CompMemoryCellContainer>().OnInserted(pawn);
+            TargetBuilding.GetComp<CompMemoryCellContainer>().Notify_CellInserted(pawn);
         }
 
         yield return Toils_Haul.DepositHauledThingInContainer(TargetIndex.B, TargetIndex.A, OnDeposited);

@@ -1,3 +1,4 @@
+using System;
 using RimWorld;
 using Verse;
 using Verse.AI;
@@ -17,6 +18,8 @@ public class CompMemoryCellContainer : CompThingContainer
     private CompMemoryCell _cellComp;
     public CompMemoryCell ContainedCellComp => _cellComp;
 
+    public Action OnInserted, OnExtracted;
+
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
         base.PostSpawnSetup(respawningAfterLoad);
@@ -29,18 +32,22 @@ public class CompMemoryCellContainer : CompThingContainer
         return "Contents".Translate() + ": " + (ContainedCellComp == null ? ((string)"Nothing".Translate()) : ContainedCellComp.parent.LabelCap);
     }
 
-    public virtual void OnInserted(Pawn pawn)
+    public virtual void Notify_CellInserted(Pawn doer)
     {
         _cellComp = ContainedThing?.TryGetComp<CompMemoryCell>();
 
         SoundDef insertedSoundDef = PropsSampleContainer.insertedSoundDef;
         insertedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
+
+        OnInserted?.Invoke();
     }
 
-    public virtual void OnExtracted(Pawn pawn)
+    public virtual void Notify_CellExtracted(Pawn doer)
     {
         SoundDef extractedSoundDef = PropsSampleContainer.extractedSoundDef;
         extractedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
+
+        OnExtracted?.Invoke();
     }
 
 

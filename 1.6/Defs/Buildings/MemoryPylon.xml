@@ -16,16 +16,24 @@
                 <offset>(0, 0, -0)</offset>
             </shadowData>
         </graphicData>
+        <uiIconScale>1.5</uiIconScale>
         <uiIconOffset>(0,0.2)</uiIconOffset>
-        <tickerType>Rare</tickerType>
+        <tickerType>Normal</tickerType>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <altitudeLayer>BuildingOnTop</altitudeLayer>
         <costList>
             <Steel>40</Steel>
+            <Plasteel>20</Plasteel>
+            <Silver>10</Silver>
+            <MedicineUltratech>6</MedicineUltratech>
+            <ComponentSpacer>2</ComponentSpacer>
+            <USH_Glittercore>4</USH_Glittercore>
         </costList>
         <statBases>
             <MaxHitPoints>200</MaxHitPoints>
             <Mass>6</Mass>
             <Flammability>1</Flammability>
-            <WorkToBuild>3500</WorkToBuild>
+            <WorkToBuild>8000</WorkToBuild>
         </statBases>
         <minifiedDef>MinifiedThing</minifiedDef>
         <size>(1,1)</size>
@@ -35,25 +43,15 @@
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
                 <shortCircuitInRain>false</shortCircuitInRain>
-                <basePowerConsumption>70</basePowerConsumption>
-                <powerUpgrades>
-                    <li>
-                        <researchProject>ColoredLights</researchProject>
-                        <factor>0.5</factor>
-                    </li>
-                </powerUpgrades>
+                <basePowerConsumption>400</basePowerConsumption>
+                <idlePowerDraw>70</idlePowerDraw>
             </li>
             <li Class="CompProperties_Glower">
-                <glowRadius>19</glowRadius>
-                <glowColor>(214,148,94,0)</glowColor>
-                <colorPickerEnabled>true</colorPickerEnabled>
-                <darklightToggle>true</darklightToggle>
+                <glowRadius>8</glowRadius>
             </li>
-            <li Class="USH_GE.CompProperties_MemoryCellContainer">
-                <!-- <glowRadius>19</glowRadius>
-                <glowColor>(214,148,94,0)</glowColor>
-                <colorPickerEnabled>true</colorPickerEnabled>
-                <darklightToggle>true</darklightToggle> -->
+            <li Class="USH_GE.CompProperties_MemoryCellContainer"></li>
+            <li Class="USH_GE.CompProperties_MemoryPylon">
+
             </li>
         </comps>
         <placeWorkers>

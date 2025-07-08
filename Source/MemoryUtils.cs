@@ -28,6 +28,7 @@ public static class MemoryUtils
     }
 
     public static bool IsPositive(this Thought thought) => thought.MoodOffset() > 0f;
+    public static bool IsPositive(this MemoryCellData cellData) => cellData.moodOffset > 0f;
 
     public static MemoryCellData ToCellData(this Thought thought)
     {
@@ -66,7 +67,7 @@ public static class MemoryUtils
 
     public static float MoodOffsetForClonedMemory(Pawn p, MemoryCellData cellData)
     {
-        if (cellData.moodOffset > 0)
+        if (cellData.IsPositive())
             return cellData.moodOffset * 0.5f;
 
         if (CanEnjoyNegativeMemory(p, cellData))
