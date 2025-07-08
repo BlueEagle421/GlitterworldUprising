@@ -1,5 +1,3 @@
-
-
 using RimWorld;
 using Verse;
 
@@ -40,4 +38,3 @@ public class Thought_ClonedMemoryNegative : Thought_ClonedMemory
 {
     protected override HediffDef RelevantHediffDef => USH_DefOf.USH_MemoryNegativeHigh;
 }
-

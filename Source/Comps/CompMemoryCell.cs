@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using RimWorld;
 using Verse;
 
 namespace USH_GE;
@@ -31,8 +32,9 @@ public class CompMemoryCell : ThingComp
     public override void PostExposeData()
     {
         base.PostExposeData();
-    }
 
+        Scribe_Deep.Look(ref MemoryCellData, nameof(MemoryCellData));
+    }
 }
 
 public struct MemoryCellData : IExposable
@@ -41,7 +43,7 @@ public struct MemoryCellData : IExposable
     public string description;
     public string sourcePawnLabel;
     public int moodOffset;
-    public Def thoughtDef;
+    public ThoughtDef thoughtDef;
 
     public MemoryCellData() { }
 

@@ -106,7 +106,7 @@
       <li>
         <label>Reliving positive memory</label>
         <description>.</description> <!-- controlled by code-->
-        <baseMoodEffect>4</baseMoodEffect> <!-- controlled by code-->
+        <baseMoodEffect>0</baseMoodEffect> <!-- controlled by code-->
       </li>
     </stages>
   </ThoughtDef>

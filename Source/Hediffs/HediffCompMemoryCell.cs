@@ -11,4 +11,11 @@ public class HediffCompMemoryCell : HediffComp
 {
     public MemoryCellData MemoryCellData;
 
+    public override void CompExposeData()
+    {
+        base.CompExposeData();
+
+        Scribe_Deep.Look(ref MemoryCellData, nameof(MemoryCellData));
+    }
+
 }

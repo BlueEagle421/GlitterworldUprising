@@ -37,6 +37,7 @@ public static class MemoryUtils
             description = thought.Description,
             moodOffset = (int)thought.MoodOffset(),
             sourcePawnLabel = thought.pawn.LabelCap,
+            thoughtDef = thought.def,
         };
 
         return result;
@@ -68,7 +69,18 @@ public static class MemoryUtils
         if (cellData.moodOffset > 0)
             return cellData.moodOffset * 0.5f;
 
-        return p.needs.mood.CurLevel > 0.5 ? cellData.moodOffset : -cellData.moodOffset;
+        return cellData.moodOffset * NegativeMemoryMoodMultiplier(p, cellData);
+    }
+
+    private static float NegativeMemoryMoodMultiplier(Pawn p, MemoryCellData cellData)
+    {
+        Log.Message("p: " + p);
+        Log.Message("cellData: " + cellData);
+        Log.Message("cellData.thoughtDef: " + cellData.thoughtDef);
+        if (ThoughtUtility.ThoughtNullified(p, cellData.thoughtDef))
+            return -1f;
+
+        return 1f;
     }
 
     public static Color GetThoughtColor(bool positive)
