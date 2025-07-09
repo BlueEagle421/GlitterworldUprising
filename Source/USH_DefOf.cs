@@ -22,6 +22,7 @@ public static class USH_DefOf
     public static JobDef USH_EnterBiocoder;
     public static JobDef USH_CarryToBiocoder;
     public static ThingDef USH_GlittertechTargeter;
+    public static ThingDef USH_MemoryCellEmpty;
     public static ThingDef USH_MemoryCellPositive;
     public static ThingDef USH_MemoryCellNegative;
     public static HediffDef USH_MemoryPositiveHigh;

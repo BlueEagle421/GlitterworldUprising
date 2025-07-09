@@ -76,25 +76,24 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
     public override IEnumerable<Gizmo> GetGizmos()
     {
         foreach (Gizmo gizmo in base.GetGizmos())
-        {
             yield return gizmo;
-        }
-        if (Faction == Faction.OfPlayer && innerContainer.Count > 0 && def.building.isPlayerEjectable)
+
+        if (Faction != Faction.OfPlayer || innerContainer.Count <= 0 || !def.building.isPlayerEjectable)
+            yield break;
+
+        Command_Action ejectAction = new()
         {
-            Command_Action command_Action = new()
-            {
-                action = EjectContents,
-                defaultLabel = "USH_GE_CommandBiocoderEject".Translate(),
-                defaultDesc = "USH_GE_CommandBiocoderEjectDesc".Translate()
-            };
+            action = EjectContents,
+            defaultLabel = "USH_GE_CommandBiocoderEject".Translate(),
+            defaultDesc = "USH_GE_CommandBiocoderEjectDesc".Translate(),
+            hotKey = KeyBindingDefOf.Misc8,
+            icon = ContentFinder<Texture2D>.Get("UI/Gizmos/EjectBiocoder")
+        };
 
-            if (innerContainer.Count == 0)
-                command_Action.Disable("USH_GE_CommandBiocoderEjectFailEmpty".Translate());
+        if (innerContainer.Count == 0)
+            ejectAction.Disable("USH_GE_CommandBiocoderEjectFailEmpty".Translate());
 
-            command_Action.hotKey = KeyBindingDefOf.Misc8;
-            command_Action.icon = ContentFinder<Texture2D>.Get("UI/Gizmos/EjectBiocoder");
-            yield return command_Action;
-        }
+        yield return ejectAction;
     }
 
     public override void ExposeData()

@@ -16,7 +16,7 @@
                 <offset>(0, 0, -0)</offset>
             </shadowData>
         </graphicData>
-        <uiIconScale>1.5</uiIconScale>
+        <uiIconScale>1.2</uiIconScale>
         <uiIconOffset>(0,0.2)</uiIconOffset>
         <tickerType>Normal</tickerType>
         <drawerType>MapMeshAndRealTime</drawerType>

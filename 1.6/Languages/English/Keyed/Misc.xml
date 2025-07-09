@@ -52,4 +52,11 @@
 
   <USH_GE_InsertMemoryCell>Insert {0} to cell container</USH_GE_InsertMemoryCell>
 
+  <USH_GE_CommandEraseMemory>Erase memory</USH_GE_CommandEraseMemory>
+  <USH_GE_CommandEraseMemoryDesc>Destroy currently stored memory and allow for extracting another one.</USH_GE_CommandEraseMemoryDesc>
+
+  <USH_GE_CommandMemoryContainerEject>Eject contained cell</USH_GE_CommandMemoryContainerEject>
+  <USH_GE_CommandMemoryContainerEjectDesc>Removes the memory cell from inner container and places it nearby.</USH_GE_CommandMemoryContainerEjectDesc>
+  <USH_GE_CommandMemoryContainerEjectFailEmpty>Contains nothing.</USH_GE_CommandMemoryContainerEjectFailEmpty>
+
 </LanguageData>
