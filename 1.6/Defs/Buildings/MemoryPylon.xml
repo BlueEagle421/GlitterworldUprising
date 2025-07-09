@@ -64,7 +64,7 @@
             <li>PlaceWorker_NotUnderRoof</li>
         </placeWorkers>
         <researchPrerequisites>
-            <li>Electricity</li>
+            <li>USH_DeepMindScanningRes</li>
         </researchPrerequisites>
         <thingCategories>
             <li>BuildingsJoy</li>
