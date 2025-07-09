@@ -35,7 +35,7 @@
             <Flammability>1</Flammability>
             <WorkToBuild>8000</WorkToBuild>
         </statBases>
-        <minifiedDef>MinifiedThing</minifiedDef>
+        <!-- <minifiedDef>MinifiedThing</minifiedDef> -->
         <size>(1,1)</size>
         <pathCost>14</pathCost>
         <uiOrder>2992</uiOrder>
@@ -57,13 +57,13 @@
         <placeWorkers>
             <li>PlaceWorker_NotUnderRoof</li>
         </placeWorkers>
-        <researchPrerequisites>
+        <!-- <researchPrerequisites>
             <li>Electricity</li>
         </researchPrerequisites>
         <thingCategories>
             <li>BuildingsJoy</li>
-        </thingCategories>
-        <designationCategory>Joy</designationCategory>
+        </thingCategories> -->
+        <!-- <designationCategory>Joy</designationCategory> -->
     </ThingDef>
 
 </Defs>
