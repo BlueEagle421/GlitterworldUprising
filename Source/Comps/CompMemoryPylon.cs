@@ -8,7 +8,8 @@ namespace USH_GE;
 
 public class CompProperties_MemoryPylon : CompProperties
 {
-    public JobDef jobDef;
+    public string activeOverlayPositivePath;
+    public string activeOverlayNegativePath;
 
     public CompProperties_MemoryPylon()
     {
@@ -18,7 +19,7 @@ public class CompProperties_MemoryPylon : CompProperties
 
 public class CompMemoryPylon : ThingComp
 {
-    public CompProperties_MemoryPylon CellProps => (CompProperties_MemoryPylon)props;
+    public CompProperties_MemoryPylon PylonProps => (CompProperties_MemoryPylon)props;
 
     private CompMemoryCellContainer _compContainer;
     private CompGlower _compGlower;
@@ -39,7 +40,30 @@ public class CompMemoryPylon : ThingComp
         }
     }
 
+    private Material _cachedOverlayPositiveMat;
+    private Material OverlayPositiveMaterial
+    {
+        get
+        {
+            _cachedOverlayPositiveMat ??= MaterialPool.MatFrom(PylonProps.activeOverlayPositivePath, ShaderDatabase.Transparent);
+
+            return _cachedOverlayPositiveMat;
+        }
+    }
+    private Material _cachedOverlayNegativeMat;
+    private Material OverlayNegativeMaterial
+    {
+        get
+        {
+            _cachedOverlayNegativeMat ??= MaterialPool.MatFrom(PylonProps.activeOverlayNegativePath, ShaderDatabase.Transparent);
+
+            return _cachedOverlayNegativeMat;
+        }
+    }
+
     private const int TICK_CHECK_INTERVAL = 60;
+    private const float Z_OFFSET = .018292684f;
+    private const float GLOW_MULTIPLIER = 0.45f;
 
     public override void PostSpawnSetup(bool respawningAfterLoad)
     {
@@ -56,9 +80,11 @@ public class CompMemoryPylon : ThingComp
 
     public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
+        _isWorkingNow = false;
+
         _compContainer.OnInserted -= StartWorking;
         _compContainer.OnExtracted -= StopWorking;
-        RemoveAllPylonMemories();
+        RemoveAllPylonMemories(map);
 
         base.PostDeSpawn(map, mode);
     }
@@ -83,8 +109,9 @@ public class CompMemoryPylon : ThingComp
         if (!CanWork())
             return;
 
+        bool isPositive = _compContainer.ContainedCellComp.MemoryCellData.IsPositive();
         _compGlower.GlowColor = ColorInt.FromHdrColor(
-            MemoryUtils.GetThoughtColor(_compContainer.ContainedCellComp.MemoryCellData.IsPositive()));
+            MemoryUtils.GetThoughtColor(isPositive) * GLOW_MULTIPLIER);
 
         _compPower.PowerOutput = -_compPower.Props.PowerConsumption;
 
@@ -102,7 +129,7 @@ public class CompMemoryPylon : ThingComp
 
         _compPower.PowerOutput = -_compPower.Props.idlePowerDraw;
 
-        RemoveAllPylonMemories();
+        RemoveAllPylonMemories(parent.Map);
 
         _isWorkingNow = false;
     }
@@ -125,6 +152,31 @@ public class CompMemoryPylon : ThingComp
             StartWorking();
 
         CreatePylonMemoriesInRadius();
+    }
+
+    public override void DrawAt(Vector3 drawLoc, bool flip = false)
+    {
+        base.DrawAt(drawLoc, flip);
+
+        DrawOverlay(drawLoc);
+    }
+
+    private void DrawOverlay(Vector3 drawLoc)
+    {
+        if (!_isWorkingNow)
+            return;
+
+        Vector3 loc = drawLoc;
+        loc += parent.def.graphicData.drawOffset;
+        loc.y += Z_OFFSET;
+
+        Mesh mesh = parent.Graphic.MeshAt(Rot4.North);
+        Quaternion quat = parent.Graphic.QuatFromRot(parent.Rotation);
+
+        bool isPositive = _compContainer.ContainedCellComp.MemoryCellData.IsPositive();
+        Material mat = isPositive ? OverlayPositiveMaterial : OverlayNegativeMaterial;
+
+        Graphics.DrawMesh(mesh, loc, quat, mat, 0);
     }
 
     private void CreatePylonMemoriesInRadius()
@@ -162,9 +214,9 @@ public class CompMemoryPylon : ThingComp
             mems.RemoveMemory(toRemove);
     }
 
-    private void RemoveAllPylonMemories()
+    private void RemoveAllPylonMemories(Map map)
     {
-        parent.Map.mapPawns.FreeColonistsSpawned.ForEach(RemovePylonMemory);
+        map.mapPawns.FreeColonistsSpawned.ForEach(RemovePylonMemory);
     }
 
     private bool IsMemoryFromHere(Thought_Memory m)

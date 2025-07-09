@@ -56,7 +56,8 @@
                 <drawStackLabel>false</drawStackLabel>
             </li>
             <li Class="USH_GE.CompProperties_MemoryPylon">
-
+                <activeOverlayPositivePath>Things/Building/MemoryPylonOverlayPositive</activeOverlayPositivePath>
+                <activeOverlayNegativePath>Things/Building/MemoryPylonOverlayNegative</activeOverlayNegativePath>
             </li>
         </comps>
         <placeWorkers>
