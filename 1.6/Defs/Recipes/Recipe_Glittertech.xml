@@ -639,4 +639,42 @@
         </modExtensions>
     </RecipeDef>
 
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormMemoryCellEmptyBulk</defName>
+        <label>form memory cell (empty) x3</label>
+        <description>Form an empty memory cell x3.</description>
+        <researchPrerequisite>USH_DeepMindScanningRes</researchPrerequisite>
+        <formingTicks>12000</formingTicks>
+        <gestationCycles>12</gestationCycles>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MedicineUltratech</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <USH_MemoryCellEmpty>3</USH_MemoryCellEmpty>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>USH_MemoryCellEmpty</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>5600</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
 </Defs>
