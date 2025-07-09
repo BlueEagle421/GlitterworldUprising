@@ -35,10 +35,11 @@
             <Flammability>1</Flammability>
             <WorkToBuild>8000</WorkToBuild>
         </statBases>
-        <!-- <minifiedDef>MinifiedThing</minifiedDef> -->
+        <minifiedDef>MinifiedThing</minifiedDef>
         <size>(1,1)</size>
         <pathCost>14</pathCost>
         <uiOrder>2992</uiOrder>
+        <specialDisplayRadius>8.9</specialDisplayRadius>
         <comps>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
@@ -47,9 +48,13 @@
                 <idlePowerDraw>70</idlePowerDraw>
             </li>
             <li Class="CompProperties_Glower">
-                <glowRadius>8</glowRadius>
+                <glowRadius>2.9</glowRadius>
+                <glowColor>(0, 0, 0, 0)</glowColor>
             </li>
-            <li Class="USH_GE.CompProperties_MemoryCellContainer"></li>
+            <li Class="USH_GE.CompProperties_MemoryCellContainer">
+                <drawContainedThing>false</drawContainedThing>
+                <drawStackLabel>false</drawStackLabel>
+            </li>
             <li Class="USH_GE.CompProperties_MemoryPylon">
 
             </li>
@@ -57,13 +62,27 @@
         <placeWorkers>
             <li>PlaceWorker_NotUnderRoof</li>
         </placeWorkers>
-        <!-- <researchPrerequisites>
+        <researchPrerequisites>
             <li>Electricity</li>
         </researchPrerequisites>
         <thingCategories>
             <li>BuildingsJoy</li>
-        </thingCategories> -->
-        <!-- <designationCategory>Joy</designationCategory> -->
+        </thingCategories>
+        <designationCategory>Joy</designationCategory>
     </ThingDef>
+
+    <ThoughtDef>
+        <defName>USH_MemoryPylonThought</defName>
+        <thoughtClass>USH_GE.Thought_MemoryPylon</thoughtClass>
+        <durationDays>0.24</durationDays>
+        <stackLimit>3</stackLimit>
+        <stages>
+            <li>
+                <label>memory pylon presence</label>
+                <description>I'm surrounded by mental images projected by pylons.</description>
+                <baseMoodEffect>0</baseMoodEffect> <!-- controlled in code-->
+            </li>
+        </stages>
+    </ThoughtDef>
 
 </Defs>
