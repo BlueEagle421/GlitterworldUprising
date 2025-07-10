@@ -2,6 +2,7 @@ using RimWorld;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
+using Verse.Sound;
 
 namespace USH_GE;
 
@@ -45,6 +46,8 @@ public class JobDriver_CloneMemory : JobDriver
             Messages.Message("USH_NoDisease".Translate(PawnToSampleFrom.Named("PAWN")), PawnToSampleFrom, MessageTypeDefOf.NeutralEvent);
             return;
         }
+
+        USH_DefOf.USH_ExtractMemory.PlayOneShot(MemoryCell);
 
         MemoryUtils.CreateNewMemoryCell(PawnToSampleFrom.Map, [.. PawnToSampleFrom.CellsAdjacent8WayAndInside()], thought);
         MemoryCell.SplitOff(1).Destroy(DestroyMode.Vanish);

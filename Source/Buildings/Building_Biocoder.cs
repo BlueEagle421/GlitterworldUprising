@@ -167,6 +167,7 @@ public class Building_Biocoder : Building_TurretRocket, IThingHolder, ISearchabl
 
     public virtual void EjectContents()
     {
+        USH_DefOf.USH_Eject.PlayOneShot(this);
         innerContainer.TryDropAll(InteractionCell, Map, ThingPlaceMode.Near);
     }
 

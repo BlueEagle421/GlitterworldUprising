@@ -52,4 +52,79 @@
     </subSounds>
   </SoundDef>
 
+  <SoundDef>
+    <defName>USH_AbsorbMemoryCell</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/AbsorbCell</clipPath>
+          </li>
+        </grains>
+        <volumeRange>28</volumeRange>
+        <pitchRange>0.8~1.2</pitchRange>
+        <distRange>0~51.86047</distRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>USH_ExtractMemory</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/ExtractMemory</clipPath>
+          </li>
+        </grains>
+        <volumeRange>18</volumeRange>
+        <pitchRange>0.8~1.2</pitchRange>
+        <distRange>0~51.86047</distRange>
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>USH_InsertMemoryCell</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/CellInserted</clipPath>
+          </li>
+        </grains>
+        <volumeRange>25</volumeRange>
+        <sustainLoop>False</sustainLoop>
+        <distRange>15~40</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>USH_Eject</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/Eject</clipPath>
+          </li>
+        </grains>
+        <volumeRange>36</volumeRange>
+        <sustainLoop>False</sustainLoop>
+        <distRange>15~40</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+
 </Defs>

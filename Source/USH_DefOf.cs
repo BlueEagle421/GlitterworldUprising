@@ -30,4 +30,6 @@ public static class USH_DefOf
     public static ThingDef USH_MemoryPylon;
     public static JobDef USH_InsertMemoryCell;
     public static ThoughtDef USH_MemoryPylonThought;
+    public static SoundDef USH_ExtractMemory;
+    public static SoundDef USH_Eject;
 }

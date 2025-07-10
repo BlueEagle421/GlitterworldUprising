@@ -10,7 +10,7 @@ namespace USH_GE;
 
 public class CompProperties_MemoryCellContainer : CompProperties_ThingContainer
 {
-    public SoundDef insertedSoundDef, extractedSoundDef;
+    public SoundDef insertedSoundDef;
     public CompProperties_MemoryCellContainer() => compClass = typeof(CompMemoryCellContainer);
 }
 
@@ -46,9 +46,6 @@ public class CompMemoryCellContainer : CompThingContainer
 
     public virtual void Notify_CellExtracted(Pawn doer)
     {
-        SoundDef extractedSoundDef = PropsSampleContainer.extractedSoundDef;
-        extractedSoundDef?.PlayOneShot(SoundInfo.InMap(parent));
-
         _cellComp = null;
 
         OnExtracted?.Invoke();
@@ -77,6 +74,7 @@ public class CompMemoryCellContainer : CompThingContainer
 
     private void EjectContent()
     {
+        USH_DefOf.USH_Eject?.PlayOneShot(SoundInfo.InMap(parent));
         innerContainer.TryDropAll(parent.Position, parent.Map, ThingPlaceMode.Near);
         Notify_CellExtracted(null);
     }

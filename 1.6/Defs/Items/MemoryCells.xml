@@ -15,8 +15,8 @@
       <joy>0.10</joy>
       <drugCategory>Medical</drugCategory>
       <foodType>Processed</foodType>
-      <baseIngestTicks>80</baseIngestTicks>
-      <ingestSound>Ingest_Inject</ingestSound>
+      <baseIngestTicks>120</baseIngestTicks>
+      <ingestSound>USH_AbsorbMemoryCell</ingestSound>
       <ingestHoldOffsetStanding>
         <northDefault>
           <offset>(0.18,0,0)</offset>
