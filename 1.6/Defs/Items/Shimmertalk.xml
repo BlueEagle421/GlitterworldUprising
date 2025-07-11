@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-  <ThingDef ParentName="MakeableDrugPillBase">
+  <ThingDef ParentName="DrugPillBase">
     <defName>USH_Shimmertalk</defName>
     <label>shimmertalk</label>
     <description>A neuromodifier that channels brain energy into social fields while suppressing all other activity. It enhances emotional intelligence, empathy, and perception, and has been proven to be both psychologically and biochemically healthy. It’s highly valued by Glitterworld diplomats.</description>
