@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
-  <USH_GE_SkinSettingExplanation>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.\nNote that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GE_SkinSettingExplanation>
-
-  <USH_GE_SkinSettingTooltip>If enabled the skin color will not get changed after operation.</USH_GE_SkinSettingTooltip>
-  <USH_GE_SkinSettingLabel>Disable skin replacements changing actual pawn's skin color</USH_GE_SkinSettingLabel>
 
   <USH_GE_Reconstructing>Reconstructing ends in: {0} s</USH_GE_Reconstructing>
 
@@ -58,5 +54,25 @@
   <USH_GE_CommandMemoryContainerEject>Eject contained cell</USH_GE_CommandMemoryContainerEject>
   <USH_GE_CommandMemoryContainerEjectDesc>Removes the memory cell from inner container and places it nearby.</USH_GE_CommandMemoryContainerEjectDesc>
   <USH_GE_CommandMemoryContainerEjectFailEmpty>Contains nothing.</USH_GE_CommandMemoryContainerEjectFailEmpty>
+
+  <!-- Settings -->
+
+  <USH_GE_FormingMultiplierSetting>Forming duration multiplier</USH_GE_FormingMultiplierSetting>
+  <USH_GE_FormingMultiplierSettingDesc>Total forming duration in glittertech fabricator will be multiplied by {0}.</USH_GE_FormingMultiplierSettingDesc>
+
+  <USH_GE_PositiveMultiplierSetting>Positive cell mood multiplier</USH_GE_PositiveMultiplierSetting>
+  <USH_GE_PositiveMultiplierSettingDesc>Base mood offset from cloned positive memory will be multiplied by {0}.</USH_GE_PositiveMultiplierSettingDesc>
+
+  <USH_GE_NegativeMultiplierSetting>Negative cell mood multiplier</USH_GE_NegativeMultiplierSetting>
+  <USH_GE_NegativeMultiplierSettingDesc>Base mood offset from cloned negative memory will be multiplied by {0}.</USH_GE_NegativeMultiplierSettingDesc>
+
+  <USH_GE_PylonMultiplierSetting>Memory pylon mood multiplier</USH_GE_PylonMultiplierSetting>
+  <USH_GE_PylonMultiplierSettingDesc>Mood offset from memory pylon thoughts will be multiplied by {0}.</USH_GE_PylonMultiplierSettingDesc>
+
+  <USH_GE_SkinSetting>Disable changing skin color</USH_GE_SkinSetting>
+  <USH_GE_SkinSettingDesc>If the setting is disabled, the skin replacements will change pawn's skin color according to the replacement resource color.\nNote that if you enable it, it won't affect already installed implants. You would need to operate on the pawn again to have the default skin color.</USH_GE_SkinSettingDesc>
+
+  <USH_GE_ResetSettings>Reset options to default</USH_GE_ResetSettings>
+
 
 </LanguageData>

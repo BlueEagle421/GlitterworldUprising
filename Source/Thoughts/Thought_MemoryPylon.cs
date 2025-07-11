@@ -24,7 +24,7 @@ public class Thought_MemoryPylon : Thought_Memory
     {
         get
         {
-            _cachedClonedMoodOffset ??= MemoryUtils.MoodOffsetForClonedMemory(pawn, MemoryCellData) * 0.5f;
+            _cachedClonedMoodOffset ??= MemoryUtils.MoodOffsetForClonedMemory(pawn, MemoryCellData) * GE_Mod.Settings.PylonMoodMultiplier.Value;
             return _cachedClonedMoodOffset;
         }
     }

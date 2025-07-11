@@ -87,9 +87,10 @@ public class Bill_Glittertech : Bill_Autonomous
 
     public float FormingSpeedMultiplier()
     {
-        return 1f / Fabricator.GetStatValue(USH_DefOf.USH_GlittertechDuration);
+        float statValue = Fabricator.GetStatValue(USH_DefOf.USH_GlittertechDuration);
+        float settingValue = GE_Mod.Settings.FormingSpeedMultiplier.Value;
+        return 1f / (statValue * settingValue);
     }
-
 
     public override void BillTick()
     {

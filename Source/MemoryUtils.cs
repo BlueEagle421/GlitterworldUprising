@@ -7,7 +7,6 @@ using Verse;
 
 public static class MemoryUtils
 {
-    private const float POSITIVE_MOOD_MULTIPLIER = 0.5f;
 
     public static Thought GetThoughtForExtraction(this Pawn p)
     {
@@ -70,10 +69,10 @@ public static class MemoryUtils
     public static float MoodOffsetForClonedMemory(Pawn p, MemoryCellData cellData)
     {
         if (cellData.IsPositive())
-            return cellData.moodOffset * POSITIVE_MOOD_MULTIPLIER;
+            return cellData.moodOffset * GE_Mod.Settings.PositiveMoodMultiplier.Value;
 
         if (CanEnjoyNegativeMemory(p, cellData))
-            return -cellData.moodOffset;
+            return -cellData.moodOffset * GE_Mod.Settings.NegativeMoodMultiplier.Value;
 
         return cellData.moodOffset;
     }
