@@ -9,13 +9,19 @@ public class IngestionOutcomeDoer_GiveHediffMemoryCell : IngestionOutcomeDoer_Gi
     protected override void DoIngestionOutcomeSpecial(Pawn pawn, Thing ingested, int ingestedCount)
     {
         Hediff hediff = HediffMaker.MakeHediff(hediffDef, pawn);
-        hediff.TryGetComp<HediffCompMemoryCell>().MemoryCellData = ingested.TryGetComp<CompMemoryCell>().MemoryCellData;
+        hediff.TryGetComp<HediffCompMemoryCell>().MemoryCellData =
+            ingested.TryGetComp<CompMemoryCell>().MemoryCellData;
 
         float effect = severity <= 0f ? hediffDef.initialSeverity : severity;
 
-        AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize(pawn, toleranceChemical, ref effect, multiplyByGeneToleranceFactors, divideByBodySize: true);
-        hediff.Severity = effect;
+        AddictionUtility.ModifyChemicalEffectForToleranceAndBodySize(
+            pawn,
+            toleranceChemical,
+            ref effect,
+            multiplyByGeneToleranceFactors,
+            divideByBodySize: true);
 
+        hediff.Severity = effect;
         pawn.health.AddHediff(hediff);
     }
 }

@@ -81,12 +81,10 @@ public class CompTelepad : CompInteractable, ITargetingSource
         if (!parent.SpawnedOrAnyParentSpawned)
             yield break;
 
-        string defaultLabel = (!string.IsNullOrEmpty(Props.activateLabelString)) ? Props.activateLabelString : ((string)("OrderActivation".Translate() + "..."));
-        string defaultDesc = ExtraNamedArg.HasValue ? ((!string.IsNullOrEmpty(Props.activateDescString)) ? ((string)Props.activateDescString.Formatted(parent.Named("THING"), ExtraNamedArg.Value)) : ((string)"OrderActivationDesc".Translate(parent.Named("THING"), ExtraNamedArg.Value))) : ((!string.IsNullOrEmpty(Props.activateDescString)) ? ((string)Props.activateDescString.Formatted(parent.Named("THING"))) : ((string)"OrderActivationDesc".Translate(parent.Named("THING"))));
         Command_Action command_Action = new()
         {
-            defaultLabel = defaultLabel,
-            defaultDesc = defaultDesc,
+            defaultLabel = "OrderActivation".Translate() + "...",
+            defaultDesc = "OrderActivationDesc".Translate(parent.Named("THING")),
             icon = UIIcon,
             groupable = false,
             action = delegate

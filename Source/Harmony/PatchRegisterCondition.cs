@@ -35,6 +35,7 @@ public static class GameConditionManager_RegisterCondition
 
         string label = "USH_GE_SolarFlareInterceptedLabel".Translate();
         string text = "USH_GE_SolarFlareInterceptedText".Translate(allBankComps.Count);
+
         Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, null, INTERCEPT_LETTER_DELAY);
     }
 }
