@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <ThingDef ParentName="BuildingBase">
+    <!-- Poor idea imo. Might come back to it sometime -->
+
+    <!-- <ThingDef ParentName="BuildingBase">
         <defName>USH_MobileComforter</defName>
         <label>mobile comforter</label>
         <description>Are you feeling down lately? What for? Brighten up your day and never wander in sadness again!\nA 'dopamine dispenser' that consists of a rounded hormone container and a top tier injector. The user must simply insert their hand under the designated spot and wait for a telltale lifting kick after a painless sting. The electrical stimulation encourages the brain to produce a balanced mixture of dopamine, serotonin and endorphins. It works as an effective recreation object that can fit into any corridor, and it is a nice companion for social gatherings.</description>
@@ -85,6 +87,6 @@
         <joyMaxParticipants>1</joyMaxParticipants>
         <joyKind>Chemical</joyKind>
         <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-    </JobDef>
+    </JobDef> -->
 
 </Defs>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <ThingDef ParentName="BuildingBase">
+    <!-- Needs rework. Might come back to it sometime -->
+
+    <!-- <ThingDef ParentName="BuildingBase">
         <defName>USH_MountainRaiser</defName>
         <label>mountain raiser</label>
         <description>A housing for a matter assembler that takes crushed hunks of rock and turns them into a solid wall. The user must simply fill the device with the chosen stone type and watch the magic happen. It was widely used in mass glitterworld architecture, since it makes laying foundations and creating artificial landscapes both cheap and efficient.</description>
@@ -95,6 +97,6 @@
         <solidTime>3</solidTime>
         <fadeOutTime>3</fadeOutTime>
         <growthRate>0.025</growthRate>
-    </FleckDef>
+    </FleckDef> -->
 
 </Defs>
