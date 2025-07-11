@@ -4,17 +4,6 @@ using Verse;
 
 namespace USH_GE;
 
-public class GUSettings : ModSettings
-{
-    public bool ShouldChangeColor;
-
-    public override void ExposeData()
-    {
-        base.ExposeData();
-        Scribe_Values.Look(ref ShouldChangeColor, "USH_ShouldChangeColor");
-    }
-}
-
 public class GE_Mod : Mod
 {
     public static GE_Settings Settings { get; private set; }
