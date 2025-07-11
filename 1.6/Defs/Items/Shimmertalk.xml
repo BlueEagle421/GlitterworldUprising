@@ -28,21 +28,6 @@
         </li>
       </outcomeDoers>
     </ingestible>
-    <recipeMaker>
-      <researchPrerequisite>USH_NeuromodifiersBasicsRes</researchPrerequisite>
-      <recipeUsers>
-        <li>DrugLab</li>
-      </recipeUsers>
-      <skillRequirements>
-        <Crafting>4</Crafting>
-        <Intellectual>6</Intellectual>
-      </skillRequirements>
-    </recipeMaker>
-    <costList>
-      <MedicineUltratech>1</MedicineUltratech>
-      <Neutroamine>4</Neutroamine>
-      <USH_Glittercore>2</USH_Glittercore>
-    </costList>
     <comps>
       <li Class="CompProperties_Drug">
         <listOrder>105</listOrder>
