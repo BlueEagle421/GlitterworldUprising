@@ -65,6 +65,7 @@
             <BroadshieldCore MayRequire="Ludeon.RimWorld.Royalty">1</BroadshieldCore>
             <ComponentSpacer>4</ComponentSpacer>
             <USH_Glittercore>8</USH_Glittercore>
+            <USH_Glitterheart>1</USH_Glitterheart>
         </costList>
         <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
         <designationCategory>Power</designationCategory>

@@ -22,9 +22,10 @@
         <costList>
             <Steel>260</Steel>
             <Silver>80</Silver>
-            <Plasteel>50</Plasteel>
-            <MedicineUltratech>18</MedicineUltratech>
-            <ComponentSpacer>8</ComponentSpacer>
+            <Plasteel>40</Plasteel>
+            <MedicineUltratech>12</MedicineUltratech>
+            <ComponentSpacer>4</ComponentSpacer>
+            <USH_Glitterheart>1</USH_Glitterheart>
         </costList>
         <drawerType>MapMeshAndRealTime</drawerType>
         <altitudeLayer>BuildingOnTop</altitudeLayer>
