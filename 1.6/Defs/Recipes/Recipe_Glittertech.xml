@@ -677,4 +677,58 @@
         </modExtensions>
     </RecipeDef>
 
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormMechSerumResurrector</defName>
+        <label>form resurrector mech serum</label>
+        <description>Form a resurrector mech serum.</description>
+        <researchPrerequisite>USH_ResurrectorRes</researchPrerequisite>
+        <formingTicks>18000</formingTicks>
+        <gestationCycles>20</gestationCycles>
+        <ingredients>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Neurotrainers</li>
+                    </categories>
+                </filter>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Silver</li>
+                    </thingDefs>
+                </filter>
+                <count>14</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <MechSerumResurrector>1</MechSerumResurrector>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>MechSerumResurrector</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>16500</powerNeeded>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
 </Defs>

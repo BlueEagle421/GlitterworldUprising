@@ -217,4 +217,19 @@
         <researchViewY>3.50</researchViewY>
     </ResearchProjectDef>
 
+    <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
+        <defName>USH_ResurrectorRes</defName>
+        <label>glitterworld rebirth protocol</label>
+        <description>Learn how to form a powerful resurrector mech serum using a blueprint glitterpanel.</description>
+        <baseCost>12500</baseCost>
+        <prerequisites>
+            <li>USH_CombatSkilltrainersRes</li>
+            <li>USH_EngineeringSkilltrainersRes</li>
+            <li>USH_IntellectualSkilltrainersRes</li>
+            <li>USH_SurvivalSkilltrainersRes</li>
+        </prerequisites>
+        <researchViewX>5.00</researchViewX>
+        <researchViewY>2.70</researchViewY>
+    </ResearchProjectDef>
+
 </Defs>

@@ -80,6 +80,7 @@
             <li>USH_Make_Neurotrainer_Medicine</li>
             <li>USH_Make_Neurotrainer_Social</li>
             <li>USH_Make_Neurotrainer_Intellectual</li>
+            <li>USH_FormMechSerumResurrector</li>
         </recipes>
         <inspectorTabs>
             <li>ITab_Bills</li>
