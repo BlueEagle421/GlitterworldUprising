@@ -74,5 +74,7 @@
 
   <USH_GE_ResetSettings>Reset options to default</USH_GE_ResetSettings>
 
+  <USH_GE_LetterLabelGlittershipChunk>Glittership crush</USH_GE_LetterLabelGlittershipChunk>
+  <USH_GE_LetterGlittershipChunk>A mysterious chunk of a glittership have impacted nearby. You can deconstruct it to yield special resources.</USH_GE_LetterGlittershipChunk>
 
 </LanguageData>

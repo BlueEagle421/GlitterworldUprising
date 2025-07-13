@@ -61,7 +61,9 @@ public class WorldComponent_GlittershipChunk : WorldComponent
 
         SpawnChunk(pos, map);
 
-        Messages.Message("MessageShipChunkDrop".Translate(), new TargetInfo(pos, map), MessageTypeDefOf.NeutralEvent);
+        string label = "USH_GE_LetterLabelGlittershipChunk".Translate();
+        string desc = "USH_GE_LetterGlittershipChunk".Translate();
+        Find.LetterStack.ReceiveLetter(LetterMaker.MakeLetter(label, desc, LetterDefOf.PositiveEvent));
 
         _didEvent = true;
     }

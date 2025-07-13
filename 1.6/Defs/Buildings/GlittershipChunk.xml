@@ -27,7 +27,7 @@
     <ThingDef ParentName="BuildingBase">
         <defName>USH_GlittershipChunk</defName>
         <label>glittership chunk</label>
-        <description>A chunk of a glittership. It seems to have been torn off either by uncontrolled re-entry forces or some kind of weapon.\n\nHaving landed not long ago, it still contains useful resources which you can acquire by deconstructing it.</description>
+        <description>A mysterious chunk of a glittership. It seems to have been torn off either by uncontrolled re-entry forces or some kind of weapon.\n\nHaving landed not long ago, it still contains valuable resources which you can acquire by deconstructing it.</description>
         <thingClass>USH_GE.Building_GlittershipChunk</thingClass>
         <category>Building</category>
         <graphicData>
