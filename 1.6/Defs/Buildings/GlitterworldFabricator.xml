@@ -107,6 +107,8 @@
                 <linkableFacilities>
                     <li>USH_LightGlitterpanel</li>
                     <li>USH_DarkGlitterpanel</li>
+                    <li>USH_FabricsGlitterpanel</li>
+                    <li>USH_NeuralGlitterpanel</li>
                 </linkableFacilities>
             </li>
         </comps>
@@ -141,13 +143,8 @@
 
     <!--Dark supporter-->
 
-    <ThingDef ParentName="BuildingBase">
-        <defName>USH_DarkGlitterpanel</defName>
-        <label>dark glitterpanel</label>
-        <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration and stored power needed to start the process.\n\nIt's more powerful then it's light counterpart.</description>
+    <ThingDef Name="USH_GlitterpanelBase" ParentName="BuildingBase" Abstract="True">
         <graphicData>
-            <texPath>Things/Building/DarkGlitterpanel</texPath>
-            <graphicClass>Graphic_Random</graphicClass>
             <drawSize>(1,1)</drawSize>
             <shadowData>
                 <volume>(0.65, 1, 0.65)</volume>
@@ -173,6 +170,18 @@
             <Flammability>0</Flammability>
         </statBases>
         <size>(1,1)</size>
+        <designationCategory>Misc</designationCategory>
+        <uiIconScale>1</uiIconScale>
+    </ThingDef>
+
+    <ThingDef ParentName="USH_GlitterpanelBase">
+        <defName>USH_DarkGlitterpanel</defName>
+        <label>dark glitterpanel</label>
+        <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration and stored power needed to start the process.\n\nIt's more powerful then it's light counterpart.</description>
+        <graphicData>
+            <texPath>Things/Building/DarkGlitterpanel</texPath>
+            <graphicClass>Graphic_Random</graphicClass>
+        </graphicData>
         <costList>
             <Steel>40</Steel>
             <Plasteel>10</Plasteel>
@@ -190,11 +199,8 @@
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
                 <basePowerConsumption>110</basePowerConsumption>
-                <shortCircuitInRain>true</shortCircuitInRain>
             </li>
         </comps>
-        <designationCategory>Misc</designationCategory>
-        <uiIconScale>1</uiIconScale>
         <researchPrerequisites>
             <li>USH_DarkGlitterpanelsRes</li>
         </researchPrerequisites>
@@ -202,38 +208,14 @@
 
     <!--Light supporter-->
 
-    <ThingDef ParentName="BuildingBase">
+    <ThingDef ParentName="USH_GlitterpanelBase">
         <defName>USH_LightGlitterpanel</defName>
         <label>light glitterpanel</label>
         <description>An advanced processor housing designed to work with glittertech fabricators. Each panel is responsible for handling different fields of mathematics and simulations.\n\nIt reduces forming duration, stored power needed to start the process and overall work speed by increasing the machine responsiveness.\n\nIt's less powerful then it's dark counterpart.</description>
         <graphicData>
             <texPath>Things/Building/LightGlitterpanel</texPath>
             <graphicClass>Graphic_Random</graphicClass>
-            <drawSize>(1,1)</drawSize>
-            <shadowData>
-                <volume>(0.65, 1, 0.65)</volume>
-            </shadowData>
-            <drawRotated>false</drawRotated>
-            <allowFlip>false</allowFlip>
         </graphicData>
-        <altitudeLayer>Building</altitudeLayer>
-        <passability>PassThroughOnly</passability>
-        <rotatable>false</rotatable>
-        <castEdgeShadows>false</castEdgeShadows>
-        <defaultPlacingRot>South</defaultPlacingRot>
-        <minifiedDef>MinifiedThing</minifiedDef>
-        <thingCategories>
-            <li>BuildingsMisc</li>
-        </thingCategories>
-        <fillPercent>0.3</fillPercent>
-        <statBases>
-            <MaxHitPoints>120</MaxHitPoints>
-            <WorkToBuild>3800</WorkToBuild>
-            <Mass>12</Mass>
-            <Beauty>0</Beauty>
-            <Flammability>0</Flammability>
-        </statBases>
-        <size>(1,1)</size>
         <costList>
             <Steel>40</Steel>
             <Plasteel>10</Plasteel>
@@ -250,13 +232,69 @@
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
                 <basePowerConsumption>80</basePowerConsumption>
-                <shortCircuitInRain>true</shortCircuitInRain>
             </li>
         </comps>
-        <designationCategory>Misc</designationCategory>
-        <uiIconScale>1</uiIconScale>
         <researchPrerequisites>
             <li>USH_LightGlitterpanelsRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="USH_GlitterpanelBase">
+        <defName>USH_FabricsGlitterpanel</defName>
+        <label>fabrics glitterpanel</label>
+        <description>A glitterpanel specialized in applying fabric-related recipes. It allows the formation of hyperweave and synthread. The process is very mysterious and requires a powerful glitterheart to function.</description>
+        <graphicData>
+            <texPath>Things/Building/FabricsGlitterpanel</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <costList>
+            <Steel>40</Steel>
+            <Synthread>20</Synthread>
+            <Plasteel>10</Plasteel>
+            <USH_Glitterheart>1</USH_Glitterheart>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Facility">
+                <maxSimultaneous>1</maxSimultaneous>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>200</basePowerConsumption>
+            </li>
+        </comps>
+        <researchPrerequisites>
+            <li>USH_GlittertechUtilitiesRes</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="USH_GlitterpanelBase">
+        <defName>USH_NeuralGlitterpanel</defName>
+        <label>neural glitterpanel</label>
+        <description>A glitterpanel specialized in applying mech serum recipes. The serum forming process is very mysterious and requires a powerful glitterheart to function.</description>
+        <graphicData>
+            <texPath>Things/Building/NeuralGlitterpanel</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <costList>
+            <Steel>40</Steel>
+            <Plasteel>20</Plasteel>
+            <USH_MemoryCellEmpty>6</USH_MemoryCellEmpty>
+            <MedicineUltratech>4</MedicineUltratech>
+            <USH_Glitterheart>1</USH_Glitterheart>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Facility">
+                <maxSimultaneous>1</maxSimultaneous>
+            </li>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>400</basePowerConsumption>
+            </li>
+        </comps>
+        <researchPrerequisites>
+            <li>USH_ResurrectorRes</li>
         </researchPrerequisites>
     </ThingDef>
 
