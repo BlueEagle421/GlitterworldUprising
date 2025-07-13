@@ -27,7 +27,7 @@
             <li>ExoticMisc</li>
         </tradeTags>
         <thingSetMakerTags>
-            <li>RewardStandardHighFreq</li>
+            <li>RewardStandardMidFreq</li>
         </thingSetMakerTags>
         <tradeability>Sellable</tradeability>
         <allowedArchonexusCount>5</allowedArchonexusCount>
