@@ -15,7 +15,7 @@ public class WorldComponent_GlittershipChunk : WorldComponent
         _ticksToFire = _tickDelayRange.RandomInRange;
     }
 
-    private IntRange _tickDelayRange = new(2500, 2500 * 6); //1 hour, 6 hours
+    private IntRange _tickDelayRange = new(2500, 2500 * 3); //1 hour, 3 hours
     private int _ticksToFire;
     private int _ticksPassed;
     private bool _didEvent;
