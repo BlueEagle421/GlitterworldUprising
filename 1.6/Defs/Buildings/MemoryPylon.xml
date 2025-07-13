@@ -28,6 +28,7 @@
             <MedicineUltratech>6</MedicineUltratech>
             <ComponentSpacer>2</ComponentSpacer>
             <USH_Glittercore>4</USH_Glittercore>
+            <USH_Glitterheart>1</USH_Glitterheart>
         </costList>
         <statBases>
             <MaxHitPoints>200</MaxHitPoints>
