@@ -15,11 +15,11 @@
         <healthAffectsPrice>false</healthAffectsPrice>
         <statBases>
             <MarketValue>600</MarketValue>
-            <MaxHitPoints>320</MaxHitPoints>
             <Mass>3</Mass>
             <Flammability>0.0</Flammability>
-            <DeteriorationRate>1.0</DeteriorationRate>
         </statBases>
+        <useHitPoints>false</useHitPoints>
+        <healthAffectsPrice>false</healthAffectsPrice>
         <intricate>true</intricate>
         <thingCategories>
             <li>Manufactured</li>
