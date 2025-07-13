@@ -727,6 +727,9 @@
         <modExtensions>
             <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>16500</powerNeeded>
+                <requiredFacilities>
+                    <li>USH_NeuralGlitterpanel</li>
+                </requiredFacilities>
             </li>
         </modExtensions>
     </RecipeDef>

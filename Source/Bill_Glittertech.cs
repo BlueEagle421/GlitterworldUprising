@@ -3,6 +3,7 @@ using UnityEngine;
 using Verse;
 using RimWorld;
 using Verse.AI;
+using System.Collections.Generic;
 
 namespace USH_GE;
 
@@ -11,6 +12,7 @@ public class ModExtension_UseGlittertechBill : DefModExtension
     public int powerNeeded;
     public int fuelNeeded;
     public float analyzerOffsetY = 0.7f;
+    public List<ThingDef> requiredFacilities;
 }
 
 public class Bill_Glittertech : Bill_Autonomous
@@ -115,13 +117,36 @@ public class Bill_Glittertech : Bill_Autonomous
 
     public override bool PawnAllowedToStartAnew(Pawn p)
     {
-        if (State == FormingState.Gathering && !Fabricator.HasStoredPower(GlittertechExt.powerNeeded))
+        if (State == FormingState.Gathering)
         {
-            JobFailReason.Is("USH_GE_NoPowerStoredShort".Translate(Fabricator.PowerNeededWithStat(this)), null);
-            return false;
+
+            if (!Fabricator.HasStoredPower(GlittertechExt.powerNeeded))
+            {
+                JobFailReason.Is("USH_GE_NoPowerStoredShort".Translate(Fabricator.PowerNeededWithStat(this)), null);
+                return false;
+            }
+
+            var facilities = GlittertechExt.requiredFacilities;
+            if (facilities != null)
+            {
+                CompAffectedByFacilities compAffected = Fabricator.TryGetComp<CompAffectedByFacilities>();
+                List<Thing> linkedFacilities = compAffected.LinkedFacilitiesListForReading;
+
+                for (int i = 0; i < facilities.Count; i++)
+                    if (linkedFacilities.Find(x => IsRequiredFacility(compAffected, x, facilities[i])) == null)
+                    {
+                        JobFailReason.Is("USH_GE_NoFacility".Translate(facilities[i].label), null);
+                        return false;
+                    }
+            }
         }
 
         return base.PawnAllowedToStartAnew(p);
+    }
+
+    private bool IsRequiredFacility(CompAffectedByFacilities compAffected, Thing thing, ThingDef requiredThingDef)
+    {
+        return thing.def == requiredThingDef && compAffected.IsFacilityActive(thing);
     }
 
     public override void AppendInspectionData(StringBuilder sb)
