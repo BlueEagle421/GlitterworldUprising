@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="SkyfallerBase">
+        <defName>USH_GlittershipChunkIncoming</defName>
+        <label>glittership chunk (incoming)</label>
+        <size>(2, 2)</size>
+        <skyfaller>
+            <shadowSize>(2.5, 2.5)</shadowSize>
+            <explosionRadius>6</explosionRadius>
+            <explosionDamage>Flame</explosionDamage>
+            <explosionDamageFactor>0.5</explosionDamageFactor>
+        </skyfaller>
+    </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+        <defName>USH_GlittershipChunk</defName>
+        <label>glittership chunk</label>
+        <description>A chunk of a glittership. It seems to have been torn off either by uncontrolled re-entry forces or some kind of weapon.\n\nHaving landed not long ago, it still contains useful resources which you can acquire by deconstructing it.</description>
+        <thingClass>USH_GE.Building_GlittershipChunk</thingClass>
+        <category>Building</category>
+        <graphicData>
+            <texPath>Things/Building/GlittershipChunk</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+            <damageData>
+                <rect>(0.1,0.1,1.8,1.8)</rect>
+            </damageData>
+            <shadowData>
+                <volume>(1.39,0.5,1.25)</volume>
+            </shadowData>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <pathCost>42</pathCost>
+        <blockWind>true</blockWind>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.50</fillPercent>
+        <size>(2,2)</size>
+        <statBases>
+            <MaxHitPoints>600</MaxHitPoints>
+            <Flammability>0</Flammability>
+            <Beauty>-20</Beauty>
+            <WorkToBuild>20000</WorkToBuild>
+        </statBases>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <killedLeavings>
+            <Plasteel>15</Plasteel>
+            <ComponentSpacer>2</ComponentSpacer>
+            <USH_Glitterheart>6</USH_Glitterheart>
+        </killedLeavings>
+        <costList>
+            <ComponentSpacer>4</ComponentSpacer>
+            <Plasteel>30</Plasteel>
+            <USH_Glitterheart>12</USH_Glitterheart>
+        </costList>
+        <building>
+            <claimable>false</claimable>
+            <alwaysDeconstructible>true</alwaysDeconstructible>
+        </building>
+        <selectable>true</selectable>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <drawerType>MapMeshOnly</drawerType>
+        <repairEffect>ConstructMetal</repairEffect>
+        <tickerType>Normal</tickerType>
+    </ThingDef>
+
+</Defs>

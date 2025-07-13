@@ -32,4 +32,5 @@ public static class USH_DefOf
     public static ThoughtDef USH_MemoryPylonThought;
     public static SoundDef USH_ExtractMemory;
     public static SoundDef USH_Eject;
+    public static EffecterDef USH_GlittershipChunkPulse;
 }
