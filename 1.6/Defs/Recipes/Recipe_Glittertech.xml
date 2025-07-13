@@ -114,6 +114,120 @@
     </RecipeDef>
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormSynthread_Bulk</defName>
+        <label>form synthread x60</label>
+        <description>Form synthread.</description>
+        <researchPrerequisite>USH_GlittertechUtilitiesRes</researchPrerequisite>
+        <formingTicks>10000</formingTicks>
+        <gestationCycles>1</gestationCycles>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Cloth</li>
+                    </thingDefs>
+                </filter>
+                <count>60</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Silver</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <categories>
+                        <li>Leathers</li>
+                    </categories>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Neutroamine</li>
+                    </thingDefs>
+                </filter>
+                <count>20</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </filter>
+                <count>10</count>
+            </li>
+        </ingredients>
+        <products>
+            <Synthread>60</Synthread>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Synthread</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>1200</powerNeeded>
+                <requiredFacilities>
+                    <li>USH_FabricsGlitterpanel</li>
+                </requiredFacilities>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormHyperweave_Bulk</defName>
+        <label>form hyperweave x60</label>
+        <description>Form hyperweave.</description>
+        <researchPrerequisite>USH_GlittertechUtilitiesRes</researchPrerequisite>
+        <formingTicks>18000</formingTicks>
+        <gestationCycles>5</gestationCycles>
+        <ingredients Inherit="false">
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Synthread</li>
+                    </thingDefs>
+                </filter>
+                <count>60</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+                <count>40</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>ComponentIndustrial</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <Hyperweave>60</Hyperweave>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>Hyperweave</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>6000</powerNeeded>
+                <requiredFacilities>
+                    <li>USH_FabricsGlitterpanel</li>
+                </requiredFacilities>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormPhilosophersStone_Bulk</defName>
         <label>form philosopher's stones x6</label>
         <description>Form philosopher's stones x6.</description>
