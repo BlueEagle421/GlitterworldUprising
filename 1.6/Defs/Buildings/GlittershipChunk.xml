@@ -10,7 +10,18 @@
             <explosionRadius>6</explosionRadius>
             <explosionDamage>Flame</explosionDamage>
             <explosionDamageFactor>0.5</explosionDamageFactor>
+            <cameraShake>1</cameraShake>
+            <metalShrapnelCountRange>
+                <min>6</min>
+                <max>10</max>
+            </metalShrapnelCountRange>
+            <rubbleShrapnelCountRange>
+                <min>300</min>
+                <max>400</max>
+            </rubbleShrapnelCountRange>
+            <shrapnelDistanceFactor>1</shrapnelDistanceFactor>
         </skyfaller>
+
     </ThingDef>
 
     <ThingDef ParentName="BuildingBase">
