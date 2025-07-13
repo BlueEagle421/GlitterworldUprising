@@ -49,21 +49,23 @@ public class WorldComponent_GlittershipChunk : WorldComponent
         if (map == null)
             return;
 
-        EventSpawnChunk();
+        if (!EventSpawnChunk(out IntVec3 spawnPos))
+            return;
 
         string label = "USH_GE_LetterLabelGlittershipChunk".Translate();
         string desc = "USH_GE_LetterGlittershipChunk".Translate();
-        Find.LetterStack.ReceiveLetter(LetterMaker.MakeLetter(label, desc, LetterDefOf.PositiveEvent));
+        Find.LetterStack.ReceiveLetter(LetterMaker.MakeLetter(label, desc, LetterDefOf.PositiveEvent, new LookTargets(spawnPos, map)));
 
         _didEvent = true;
     }
 
-    public void EventSpawnChunk()
+    public bool EventSpawnChunk(out IntVec3 spawnPos)
     {
         Map map = Find.AnyPlayerHomeMap;
+        spawnPos = IntVec3.Zero;
 
         if (map == null)
-            return;
+            return false;
 
         if (!TryFindShipChunkDropCell(map.Center, map, 999999, out var pos))
         {
@@ -78,7 +80,9 @@ public class WorldComponent_GlittershipChunk : WorldComponent
             pos = FindThingsOfDef(potentialSpawnDefs).First().Position;
         }
 
+        spawnPos = pos;
         SpawnChunk(pos, map);
+        return true;
     }
 
     private List<Thing> FindThingsOfDef(List<ThingDef> defs)
