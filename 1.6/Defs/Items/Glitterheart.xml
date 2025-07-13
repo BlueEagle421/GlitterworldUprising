@@ -4,7 +4,7 @@
     <ThingDef ParentName="ResourceBase">
         <defName>USH_Glitterheart</defName>
         <label>glitterheart</label>
-        <description>A strange fragment from a distant glitterworld. It pulses with energy beyond comprehension and must be the key to powering the most advanced glittertech.\n\nThese fragments are extremely rare and should be used wisely.</description>
+        <description>A strange fragment from a distant glitterworld. It pulses with energy beyond comprehension and must be the key to powering the most advanced glittertech.\n\nThese fragments are extremely rare and should be used wisely. They can be extracted from fallen glittership chunks, found in prestige quest awards and occasionally in ancient structures.</description>
         <graphicData>
             <texPath>Things/Item/Glitterheart</texPath>
             <graphicClass>Graphic_Single</graphicClass>
