@@ -126,5 +126,44 @@
     </subSounds>
   </SoundDef>
 
+  <SoundDef>
+    <defName>USH_GlittershipStopped</defName>
+    <context>MapOnly</context>
+    <maxSimultaneous>1</maxSimultaneous>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/GlittershipStopped</clipPath>
+          </li>
+        </grains>
+        <volumeRange>20</volumeRange>
+        <sustainLoop>False</sustainLoop>
+        <distRange>15~40</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+  <SoundDef>
+    <defName>USH_GlittershipAmbience</defName>
+    <sustain>True</sustain>
+    <context>MapOnly</context>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <maxSimultaneous>1</maxSimultaneous>
+    <maxVoices>1</maxVoices>
+    <subSounds>
+      <li>
+        <muteWhenPaused>True</muteWhenPaused>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/GlittershipAmbience</clipPath>
+          </li>
+        </grains>
+        <volumeRange>28</volumeRange>
+        <distRange>15~40</distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
 
 </Defs>

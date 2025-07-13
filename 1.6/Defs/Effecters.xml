@@ -161,4 +161,53 @@
         </randomGraphics>
     </FleckDef>
 
+    <EffecterDef>
+        <defName>USH_GlittershipChunkDestroyed</defName>
+        <children>
+            <li>
+                <subEffecterClass>SubEffecter_SprayerTriggered</subEffecterClass>
+                <fleckDef>USH_Glitterpulse</fleckDef>
+                <scale>.1</scale>
+                <burstCount>1</burstCount>
+                <spawnLocType>OnSource</spawnLocType>
+                <absoluteAngle>true</absoluteAngle>
+                <angle>0</angle>
+                <speed>0</speed>
+                <rotation>0</rotation>
+            </li>
+            <li>
+                <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
+                <soundDef>FlareImpact</soundDef>
+                <spawnLocType>OnTarget</spawnLocType>
+            </li>
+        </children>
+    </EffecterDef>
+
+    <FleckDef ParentName="FleckBase">
+        <defName>USH_Glitterpulse</defName>
+        <altitudeLayer>Terrain</altitudeLayer>
+        <graphicData>
+            <texPath>Things/Mote/LineGlowBlue</texPath>
+            <graphicClass>Graphic_FleckPulse</graphicClass>
+            <shaderType>MoteMultiplyAddCircular</shaderType>
+            <color>(0.7, 1, 1, .6)</color>
+            <shaderParameters>
+                <_DistortionTex>/Things/Mote/RadiationDistortion_A</_DistortionTex>
+                <_texAScale>0.5</_texAScale>
+                <_texBScale>2</_texBScale>
+                <_texAScrollSpeed>0</_texAScrollSpeed>
+                <_texBScrollSpeed>-.4</_texBScrollSpeed>
+                <_Intensity>1</_Intensity>
+                <_InnerFadeAmount>0</_InnerFadeAmount>
+                <_DistortionIntensity>1</_DistortionIntensity>
+                <_TexAScaleDivisorPerProgress>1.5</_TexAScaleDivisorPerProgress>
+            </shaderParameters>
+            <drawSize>(10, 10)</drawSize>
+        </graphicData>
+        <fadeInTime>0</fadeInTime>
+        <solidTime>0</solidTime>
+        <fadeOutTime>0.27</fadeOutTime>
+        <growthRate>8</growthRate>
+    </FleckDef>
+
 </Defs>
