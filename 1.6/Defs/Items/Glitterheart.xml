@@ -24,10 +24,10 @@
         <thingCategories>
             <li>Manufactured</li>
         </thingCategories>
-        <tradeTags>
-            <li>ExoticMisc</li>
-        </tradeTags>
-        <tradeability>Sellable</tradeability>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+        </thingSetMakerTags>
+        <tradeability>None</tradeability>
         <allowedArchonexusCount>5</allowedArchonexusCount>
     </ThingDef>
 
