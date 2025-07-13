@@ -33,4 +33,9 @@ public static class USH_DefOf
     public static SoundDef USH_ExtractMemory;
     public static SoundDef USH_Eject;
     public static EffecterDef USH_GlittershipChunkPulse;
+    public static ResearchProjectDef USH_GlittertechFabrication;
+    public static ThingDef USH_GlittershipChunkIncoming;
+    public static ThingDef USH_GlittershipChunk;
+    public static ThingDef USH_ResearchProbe;
+    public static ThingDef HiTechResearchBench;
 }
