@@ -159,7 +159,7 @@
             <clipPath>Misc/GlittershipAmbience</clipPath>
           </li>
         </grains>
-        <volumeRange>28</volumeRange>
+        <volumeRange>38</volumeRange>
         <distRange>15~40</distRange>
       </li>
     </subSounds>
