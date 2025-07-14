@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
+using UnityEngine;
 using Verse;
+using Verse.AI.Group;
 
 namespace USH_GE;
 
@@ -21,6 +23,7 @@ public class WorldComponent_GlittershipChunk : WorldComponent
     private bool _didEvent;
 
     private const int TICK_CHECK_INTERVAL = 250;
+    private const int THREAT_POINTS = 600;
 
     public override void WorldComponentTick()
     {
@@ -49,12 +52,8 @@ public class WorldComponent_GlittershipChunk : WorldComponent
         if (map == null)
             return;
 
-        if (!EventSpawnChunk(out IntVec3 spawnPos))
+        if (!EventSpawnChunk(out IntVec3 _))
             return;
-
-        string label = "USH_GE_LetterLabelGlittershipChunk".Translate();
-        string desc = "USH_GE_LetterGlittershipChunk".Translate();
-        Find.LetterStack.ReceiveLetter(LetterMaker.MakeLetter(label, desc, LetterDefOf.PositiveEvent, new LookTargets(spawnPos, map)));
 
         _didEvent = true;
     }
@@ -80,8 +79,29 @@ public class WorldComponent_GlittershipChunk : WorldComponent
             pos = FindThingsOfDef(potentialSpawnDefs).First().Position;
         }
 
+        Thing shipChunk = ThingMaker.MakeThing(USH_DefOf.USH_GlittershipChunk);
         spawnPos = pos;
-        SpawnChunk(pos, map);
+        SpawnChunk(pos, shipChunk, map);
+
+        float points = THREAT_POINTS;
+        List<Pawn> mechanoids = [.. PawnGroupMakerUtility.GeneratePawns(new PawnGroupMakerParms
+        {
+            groupKind = PawnGroupKindDefOf.Combat,
+            tile = map.Tile,
+            faction = Faction.OfMechanoids,
+            points = points
+        })];
+
+        mechanoids.ForEach(x => x.TryGetComp<CompCanBeDormant>()?.ToSleep());
+
+        shipChunk.SetFaction(Faction.OfMechanoids);
+        LordMaker.MakeNewLord(Faction.OfMechanoids, new LordJob_SleepThenMechanoidsDefend([shipChunk], Faction.OfMechanoids, 28f, pos, canAssaultColony: false, isMechCluster: false), map, mechanoids);
+        DropPodUtility.DropThingsNear(pos, map, mechanoids.Cast<Thing>());
+
+        string label = "USH_GE_LetterLabelGlittershipChunk".Translate();
+        string desc = "USH_GE_LetterGlittershipChunk".Translate();
+        Find.LetterStack.ReceiveLetter(LetterMaker.MakeLetter(label, desc, LetterDefOf.NegativeEvent, new LookTargets(spawnPos, map)));
+
         return true;
     }
 
@@ -95,12 +115,11 @@ public class WorldComponent_GlittershipChunk : WorldComponent
     }
 
 
-    private void SpawnChunk(IntVec3 pos, Map map)
+    private void SpawnChunk(IntVec3 pos, Thing innerThing, Map map)
     {
         ThingDef skyfaller = USH_DefOf.USH_GlittershipChunkIncoming;
-        ThingDef chunk = USH_DefOf.USH_GlittershipChunk;
 
-        SkyfallerMaker.SpawnSkyfaller(skyfaller, chunk, pos, map);
+        SkyfallerMaker.SpawnSkyfaller(skyfaller, innerThing, pos, map);
     }
 
     private static bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos)

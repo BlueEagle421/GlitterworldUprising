@@ -7,15 +7,14 @@
         <size>(2, 2)</size>
         <skyfaller>
             <shadowSize>(2.5, 2.5)</shadowSize>
-            <explosionRadius>6</explosionRadius>
+            <explosionRadius>5</explosionRadius>
             <explosionDamage>Flame</explosionDamage>
-            <explosionDamageFactor>0.5</explosionDamageFactor>
             <cameraShake>1</cameraShake>
             <rubbleShrapnelCountRange>
                 <min>300</min>
                 <max>400</max>
             </rubbleShrapnelCountRange>
-            <shrapnelDistanceFactor>1</shrapnelDistanceFactor>
+            <ticksToImpactRange>60~120</ticksToImpactRange>
         </skyfaller>
 
     </ThingDef>
@@ -66,7 +65,7 @@
         </building>
         <selectable>true</selectable>
         <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-        <drawerType>MapMeshOnly</drawerType>
+        <drawerType>MapMeshAndRealTime</drawerType>
         <repairEffect>ConstructMetal</repairEffect>
         <tickerType>Normal</tickerType>
     </ThingDef>
