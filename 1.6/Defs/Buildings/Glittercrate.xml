@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <ThingDef ParentName="CrateBase">
+    <defName>USH_Glittercrate</defName>
+    <label>glitterworld crate</label>
+    <description>A glitterworld container full of valuables.</description>
+    <graphicData>
+      <texPath>Things/Building/Glittercrate_Closed</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <size>(1, 1)</size>
+    <fillPercent>0.2</fillPercent>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+    </statBases>
+    <rotatable>false</rotatable>
+    <comps>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Glittercrate_Open</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(1,1)</drawSize>
+        </graphicData>
+      </li>
+      <li Class="CompProperties_LootSpawn">
+        <contents>USH_RewardGlittercrate</contents>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingSetMakerDef>
+    <defName>USH_RewardGlittercrate</defName>
+    <root Class="ThingSetMaker_Sum">
+      <resolveInOrder>true</resolveInOrder>
+      <options>
+        <li>
+          <thingSetMaker Class="ThingSetMaker_Count">
+            <fixedParams>
+              <filter>
+                <thingDefs>
+                  <li>USH_Glitterheart</li>
+                </thingDefs>
+              </filter>
+              <countRange>1~1</countRange>
+            </fixedParams>
+          </thingSetMaker>
+        </li>
+
+        <li>
+          <thingSetMaker Class="ThingSetMaker_RandomOption">
+            <options>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>MedicineUltratech</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>2~4</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>USH_Shimmertalk</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>1~1</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>USH_GammaSerum</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>1~1</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+
+              <li>
+                <weight>1</weight>
+                <thingSetMaker Class="ThingSetMaker_Count">
+                  <fixedParams>
+                    <filter>
+                      <thingDefs>
+                        <li>USH_MemoryCellEmpty</li>
+                      </thingDefs>
+                    </filter>
+                    <countRange>1~1</countRange>
+                  </fixedParams>
+                </thingSetMaker>
+              </li>
+            </options>
+          </thingSetMaker>
+        </li>
+      </options>
+    </root>
+  </ThingSetMakerDef>
+
+</Defs>
