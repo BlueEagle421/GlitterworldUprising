@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
 
+  <ThingDef ParentName="SkyfallerBase">
+    <defName>USH_GlittercrateIncoming</defName>
+    <label>glitterworld crate (incoming)</label>
+    <size>(1, 1)</size>
+    <skyfaller>
+      <shadowSize>(1.5, 1.5)</shadowSize>
+      <explosionRadius>2</explosionRadius>
+      <explosionDamage>Bomb</explosionDamage>
+      <cameraShake>1</cameraShake>
+      <ticksToImpactRange>140~160</ticksToImpactRange>
+    </skyfaller>
+
+  </ThingDef>
+
+
   <ThingDef ParentName="CrateBase">
     <defName>USH_Glittercrate</defName>
     <label>glitterworld crate</label>

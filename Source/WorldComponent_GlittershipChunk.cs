@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using RimWorld.Planet;
-using UnityEngine;
 using Verse;
 using Verse.AI.Group;
 
@@ -52,20 +51,38 @@ public class WorldComponent_GlittershipChunk : WorldComponent
         if (map == null)
             return;
 
-        if (!EventSpawnChunk(out IntVec3 _))
+        if (!EventSpawnChunk())
             return;
 
         _didEvent = true;
     }
 
-    public bool EventSpawnChunk(out IntVec3 spawnPos)
+    public bool EventSpawnChunk()
     {
         Map map = Find.AnyPlayerHomeMap;
-        spawnPos = IntVec3.Zero;
 
         if (map == null)
             return false;
 
+        IntVec3 spawnPos = IntVec3.Invalid;
+
+        Thing shipChunk = DropGlittershipChunk(map, ref spawnPos);
+        Thing crate = DropCrate(map, spawnPos);
+
+        shipChunk.SetFaction(Faction.OfMechanoids);
+        crate.SetFaction(Faction.OfMechanoids);
+
+        DropMechs(map, spawnPos, [shipChunk, crate]);
+
+        string label = "USH_GE_LetterLabelGlittershipChunk".Translate();
+        string desc = "USH_GE_LetterGlittershipChunk".Translate();
+        Find.LetterStack.ReceiveLetter(LetterMaker.MakeLetter(label, desc, LetterDefOf.ThreatSmall, new LookTargets(spawnPos, map)));
+
+        return true;
+    }
+
+    private Thing DropGlittershipChunk(Map map, ref IntVec3 spawnPos)
+    {
         if (!TryFindShipChunkDropCell(map.Center, map, 999999, out var pos))
         {
             List<ThingDef> potentialSpawnDefs =
@@ -79,10 +96,26 @@ public class WorldComponent_GlittershipChunk : WorldComponent
             pos = FindThingsOfDef(potentialSpawnDefs).First().Position;
         }
 
-        Thing shipChunk = ThingMaker.MakeThing(USH_DefOf.USH_GlittershipChunk);
         spawnPos = pos;
-        SpawnChunk(pos, shipChunk, map);
+        Thing shipChunk = ThingMaker.MakeThing(USH_DefOf.USH_GlittershipChunk);
+        SkyfallerMaker.SpawnSkyfaller(USH_DefOf.USH_GlittershipChunkIncoming, shipChunk, pos, map);
+        return shipChunk;
+    }
 
+    private Thing DropCrate(Map map, IntVec3 chunkPos)
+    {
+        Thing crate = ThingMaker.MakeThing(USH_DefOf.USH_Glittercrate);
+
+        if (TryFindShipChunkDropCell(chunkPos, map, 8, out var cratePos))
+            SkyfallerMaker.SpawnSkyfaller(USH_DefOf.USH_GlittercrateIncoming, crate, cratePos, map);
+        else
+            DropPodUtility.DropThingsNear(chunkPos, map, [crate]);
+
+        return crate;
+    }
+
+    private void DropMechs(Map map, IntVec3 pos, List<Thing> toDefend)
+    {
         float points = THREAT_POINTS;
         List<Pawn> mechanoids = [.. PawnGroupMakerUtility.GeneratePawns(new PawnGroupMakerParms
         {
@@ -94,15 +127,16 @@ public class WorldComponent_GlittershipChunk : WorldComponent
 
         mechanoids.ForEach(x => x.TryGetComp<CompCanBeDormant>()?.ToSleep());
 
-        shipChunk.SetFaction(Faction.OfMechanoids);
-        LordMaker.MakeNewLord(Faction.OfMechanoids, new LordJob_SleepThenMechanoidsDefend([shipChunk], Faction.OfMechanoids, 28f, pos, canAssaultColony: false, isMechCluster: false), map, mechanoids);
+        LordMaker.MakeNewLord(Faction.OfMechanoids,
+        new LordJob_SleepThenMechanoidsDefend(
+            things: toDefend,
+            Faction.OfMechanoids,
+            defendRadius: 28f,
+            pos,
+            canAssaultColony: false,
+            isMechCluster: false), map, mechanoids);
+
         DropPodUtility.DropThingsNear(pos, map, mechanoids.Cast<Thing>());
-
-        string label = "USH_GE_LetterLabelGlittershipChunk".Translate();
-        string desc = "USH_GE_LetterGlittershipChunk".Translate();
-        Find.LetterStack.ReceiveLetter(LetterMaker.MakeLetter(label, desc, LetterDefOf.NegativeEvent, new LookTargets(spawnPos, map)));
-
-        return true;
     }
 
     private List<Thing> FindThingsOfDef(List<ThingDef> defs)
@@ -112,14 +146,6 @@ public class WorldComponent_GlittershipChunk : WorldComponent
 
         defs.ForEach(x => result.AddRange(listerThings.ThingsOfDef(x)));
         return result;
-    }
-
-
-    private void SpawnChunk(IntVec3 pos, Thing innerThing, Map map)
-    {
-        ThingDef skyfaller = USH_DefOf.USH_GlittershipChunkIncoming;
-
-        SkyfallerMaker.SpawnSkyfaller(skyfaller, innerThing, pos, map);
     }
 
     private static bool TryFindShipChunkDropCell(IntVec3 nearLoc, Map map, int maxDist, out IntVec3 pos)

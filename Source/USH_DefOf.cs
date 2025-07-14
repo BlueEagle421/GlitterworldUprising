@@ -36,10 +36,11 @@ public static class USH_DefOf
     public static ResearchProjectDef USH_GlittertechFabrication;
     public static ThingDef USH_GlittershipChunkIncoming;
     public static ThingDef USH_GlittershipChunk;
+    public static ThingDef USH_GlittercrateIncoming;
+    public static ThingDef USH_Glittercrate;
     public static ThingDef USH_ResearchProbe;
     public static ThingDef HiTechResearchBench;
     public static SoundDef USH_GlittershipAmbience;
     public static SoundDef USH_GlittershipStopped;
     public static EffecterDef USH_GlittershipChunkDestroyed;
-    public static ThingDef USH_Glittercrate;
 }

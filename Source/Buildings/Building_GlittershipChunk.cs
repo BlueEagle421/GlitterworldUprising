@@ -63,7 +63,7 @@ public class Building_GlittershipChunk : Building
         SoundDefOf.Thunder_OffMap.PlayOneShotOnCamera(map);
         if (!strikeLoc.IsValid)
         {
-            strikeLoc = CellFinderLoose.RandomCellWith((IntVec3 sq) => sq.Standable(map) && !map.roofGrid.Roofed(sq), map);
+            strikeLoc = CellFinderLoose.RandomCellWith(sq => sq.Standable(map) && !map.roofGrid.Roofed(sq), map);
         }
         boltMesh = LightningBoltMeshPool.RandomBoltMesh;
         if (!strikeLoc.Fogged(map))

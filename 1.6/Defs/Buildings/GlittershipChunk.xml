@@ -3,7 +3,7 @@
 
     <ThingDef ParentName="SkyfallerBase">
         <defName>USH_GlittershipChunkIncoming</defName>
-        <label>glittership chunk (incoming)</label>
+        <label>glitterworld debris (incoming)</label>
         <size>(2, 2)</size>
         <skyfaller>
             <shadowSize>(2.5, 2.5)</shadowSize>
@@ -11,18 +11,18 @@
             <explosionDamage>Flame</explosionDamage>
             <cameraShake>1</cameraShake>
             <rubbleShrapnelCountRange>
-                <min>300</min>
-                <max>400</max>
+                <min>100</min>
+                <max>200</max>
             </rubbleShrapnelCountRange>
-            <ticksToImpactRange>60~120</ticksToImpactRange>
+            <ticksToImpactRange>60~100</ticksToImpactRange>
         </skyfaller>
 
     </ThingDef>
 
     <ThingDef ParentName="BuildingBase">
         <defName>USH_GlittershipChunk</defName>
-        <label>glittership chunk</label>
-        <description>A mysterious chunk of a glittership. It seems to have been torn off either by uncontrolled re-entry forces or some kind of weapon.\n\nHaving landed not long ago, it still contains valuable resources which you can acquire by deconstructing it.</description>
+        <label>glitterworld debris</label>
+        <description>An mysterious chunk of glitterworld debris, torn off of a craft of unknown origin. It might be thousands of years old.\n\nHaving landed not long ago, it still contains valuable resources which you can acquire by deconstructing it.</description>
         <thingClass>USH_GE.Building_GlittershipChunk</thingClass>
         <category>Building</category>
         <graphicData>
