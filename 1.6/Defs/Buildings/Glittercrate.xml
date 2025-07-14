@@ -19,7 +19,7 @@
   <ThingDef ParentName="CrateBase">
     <defName>USH_Glittercrate</defName>
     <label>glitterworld crate</label>
-    <description>A glitterworld container full of valuables.</description>
+    <description>An ancient glitterworld container full of valuables.</description>
     <graphicData>
       <texPath>Things/Building/Glittercrate_Closed</texPath>
       <graphicClass>Graphic_Single</graphicClass>
