@@ -32,6 +32,9 @@
         <size>(1,1)</size>
         <designationCategory>Misc</designationCategory>
         <uiIconScale>1</uiIconScale>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
     </ThingDef>
 
     <!-- Dark glitterpanel -->
