@@ -162,6 +162,11 @@
                 <count>10</count>
             </li>
         </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Leathers</li>
+            </categories>
+        </fixedIngredientFilter>
         <products>
             <Synthread>60</Synthread>
         </products>
