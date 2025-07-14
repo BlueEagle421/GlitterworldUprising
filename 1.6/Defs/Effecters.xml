@@ -175,11 +175,6 @@
                 <speed>0</speed>
                 <rotation>0</rotation>
             </li>
-            <li>
-                <subEffecterClass>SubEffecter_SoundTriggered</subEffecterClass>
-                <soundDef>FlareImpact</soundDef>
-                <spawnLocType>OnTarget</spawnLocType>
-            </li>
         </children>
     </EffecterDef>
 
