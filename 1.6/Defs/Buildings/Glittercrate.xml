@@ -39,10 +39,15 @@
           <drawSize>(1,1)</drawSize>
         </graphicData>
       </li>
+      <li Class="CompProperties_Glower">
+        <glowRadius>3</glowRadius>
+        <glowColor>(150,150,150,0)</glowColor>
+      </li>
       <li Class="CompProperties_LootSpawn">
         <contents>USH_RewardGlittercrate</contents>
       </li>
     </comps>
+    <tickerType>Normal</tickerType>
   </ThingDef>
 
   <ThingSetMakerDef>
