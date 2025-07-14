@@ -240,7 +240,7 @@ namespace USH_GE
             if (considerStats)
                 powerNeeded = PowerNeededWithStat(powerNeeded);
 
-            return PowerTrader.PowerNet.CurrentStoredEnergy() >= powerNeeded;
+            return PowerTrader.PowerNet?.CurrentStoredEnergy() >= powerNeeded;
         }
 
         private void DrawPowerFromNet(float powerToDraw)
