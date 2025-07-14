@@ -15,6 +15,15 @@ public static class GameConditionManager_RegisterCondition
         GameConditionManager __instance,
         GameCondition cond)
     {
+        if (cond == null)
+            return true;
+
+        if (cond.def == null)
+            return true;
+
+        if (__instance == null)
+            return true;
+
         if (cond.def != IncidentDefOf.SolarFlare.gameCondition)
             return true;
 
