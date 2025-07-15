@@ -104,6 +104,10 @@
                 <shortCircuitInRain>true</shortCircuitInRain>
                 <basePowerConsumption>460</basePowerConsumption>
             </li>
+            <li Class="CompProperties_Glower">
+                <glowRadius>3</glowRadius>
+                <glowColor>(150,150,150,0)</glowColor>
+            </li>
             <li Class="CompProperties_Flickable" />
             <li Class="CompProperties_Breakdownable" />
             <li Class="CompProperties_AffectedByFacilities">
