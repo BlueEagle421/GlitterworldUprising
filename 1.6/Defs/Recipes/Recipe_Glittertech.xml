@@ -115,8 +115,8 @@
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormSynthread_Bulk</defName>
-        <label>form synthread x60</label>
-        <description>Form synthread.</description>
+        <label>form synthread x64</label>
+        <description>Form synthread x64.</description>
         <researchPrerequisite>USH_GlittertechUtilitiesRes</researchPrerequisite>
         <formingTicks>10000</formingTicks>
         <gestationCycles>1</gestationCycles>
@@ -127,7 +127,7 @@
                         <li>Cloth</li>
                     </thingDefs>
                 </filter>
-                <count>60</count>
+                <count>64</count>
             </li>
             <li>
                 <filter>
@@ -143,7 +143,7 @@
                         <li>Leathers</li>
                     </categories>
                 </filter>
-                <count>20</count>
+                <count>18</count>
             </li>
             <li>
                 <filter>
@@ -151,7 +151,7 @@
                         <li>Neutroamine</li>
                     </thingDefs>
                 </filter>
-                <count>20</count>
+                <count>16</count>
             </li>
             <li>
                 <filter>
@@ -159,7 +159,7 @@
                         <li>Uranium</li>
                     </thingDefs>
                 </filter>
-                <count>10</count>
+                <count>8</count>
             </li>
         </ingredients>
         <fixedIngredientFilter>
@@ -168,7 +168,7 @@
             </categories>
         </fixedIngredientFilter>
         <products>
-            <Synthread>60</Synthread>
+            <Synthread>64</Synthread>
         </products>
         <descriptionHyperlinks>
             <ThingDef>Synthread</ThingDef>
@@ -185,8 +185,8 @@
 
     <RecipeDef ParentName="USH_BaseGlittertechForming">
         <defName>USH_FormHyperweave_Bulk</defName>
-        <label>form hyperweave x60</label>
-        <description>Form hyperweave.</description>
+        <label>form hyperweave x64</label>
+        <description>Form hyperweave x64.</description>
         <researchPrerequisite>USH_GlittertechUtilitiesRes</researchPrerequisite>
         <formingTicks>18000</formingTicks>
         <gestationCycles>5</gestationCycles>
@@ -197,7 +197,7 @@
                         <li>Synthread</li>
                     </thingDefs>
                 </filter>
-                <count>60</count>
+                <count>64</count>
             </li>
             <li>
                 <filter>
@@ -205,7 +205,7 @@
                         <li>Plasteel</li>
                     </thingDefs>
                 </filter>
-                <count>40</count>
+                <count>32</count>
             </li>
             <li>
                 <filter>
@@ -217,7 +217,7 @@
             </li>
         </ingredients>
         <products>
-            <Hyperweave>60</Hyperweave>
+            <Hyperweave>64</Hyperweave>
         </products>
         <descriptionHyperlinks>
             <ThingDef>Hyperweave</ThingDef>
@@ -498,7 +498,7 @@
                         <li>Gold</li>
                     </thingDefs>
                 </filter>
-                <count>8</count>
+                <count>4</count>
             </li>
             <li>
                 <filter>
@@ -538,7 +538,7 @@
                         <li>Gold</li>
                     </thingDefs>
                 </filter>
-                <count>32</count>
+                <count>16</count>
             </li>
             <li>
                 <filter>
@@ -846,6 +846,55 @@
         <modExtensions>
             <li Class="USH_GE.ModExtension_UseGlittertechBill">
                 <powerNeeded>16500</powerNeeded>
+                <requiredFacilities>
+                    <li>USH_NeuralGlitterpanel</li>
+                </requiredFacilities>
+            </li>
+        </modExtensions>
+    </RecipeDef>
+
+    <RecipeDef ParentName="USH_BaseGlittertechForming">
+        <defName>USH_FormMechSerumHealer</defName>
+        <label>form healer mech serum x3</label>
+        <description>Form healer mech serum x3.</description>
+        <researchPrerequisite>USH_ResurrectorRes</researchPrerequisite>
+        <formingTicks>18000</formingTicks>
+        <gestationCycles>20</gestationCycles>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>MechSerumResurrector</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Chemfuel</li>
+                    </thingDefs>
+                </filter>
+                <count>180</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_Glittercore</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+        </ingredients>
+        <products>
+            <MechSerumHealer>3</MechSerumHealer>
+        </products>
+        <descriptionHyperlinks>
+            <ThingDef>MechSerumHealer</ThingDef>
+        </descriptionHyperlinks>
+        <modExtensions>
+            <li Class="USH_GE.ModExtension_UseGlittertechBill">
+                <powerNeeded>14000</powerNeeded>
                 <requiredFacilities>
                     <li>USH_NeuralGlitterpanel</li>
                 </requiredFacilities>

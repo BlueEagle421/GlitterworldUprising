@@ -21,7 +21,7 @@
       <li>
         <filter>
           <thingDefs>
-            <li>ComponentSpacer</li>
+            <li>ThrumboHorn</li>
           </thingDefs>
         </filter>
         <count>1</count>
@@ -40,16 +40,16 @@
             <li>USH_Glittercore</li>
           </thingDefs>
         </filter>
-        <count>5</count>
+        <count>2</count>
       </li>
     </ingredients>
   </ThingDef>
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Shooting</defName>
-    <label>make skilltrainer (shooting)</label>
-    <description>Make a skilltrainer (shooting).</description>
-    <jobString>Making a skilltrainer (shooting).</jobString>
+    <label>form skilltrainer (shooting)</label>
+    <description>Form a skilltrainer (shooting).</description>
+    <jobString>Forming a skilltrainer (shooting).</jobString>
     <products>
       <Neurotrainer_Shooting>1</Neurotrainer_Shooting>
     </products>
@@ -58,9 +58,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Melee</defName>
-    <label>make skilltrainer (melee)</label>
-    <description>Make a skilltrainer (melee).</description>
-    <jobString>Making a skilltrainer (melee).</jobString>
+    <label>form skilltrainer (melee)</label>
+    <description>Form a skilltrainer (melee).</description>
+    <jobString>Forming a skilltrainer (melee).</jobString>
     <products>
       <Neurotrainer_Melee>1</Neurotrainer_Melee>
     </products>
@@ -69,9 +69,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Construction</defName>
-    <label>make skilltrainer (construction)</label>
-    <description>Make a skilltrainer (construction).</description>
-    <jobString>Making a skilltrainer (construction).</jobString>
+    <label>form skilltrainer (construction)</label>
+    <description>Form a skilltrainer (construction).</description>
+    <jobString>Forming a skilltrainer (construction).</jobString>
     <products>
       <Neurotrainer_Construction>1</Neurotrainer_Construction>
     </products>
@@ -80,9 +80,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Mining</defName>
-    <label>make skilltrainer (mining)</label>
-    <description>Make a skilltrainer (mining).</description>
-    <jobString>Making a skilltrainer (mining).</jobString>
+    <label>form skilltrainer (mining)</label>
+    <description>Form a skilltrainer (mining).</description>
+    <jobString>Forming a skilltrainer (mining).</jobString>
     <products>
       <Neurotrainer_Mining>1</Neurotrainer_Mining>
     </products>
@@ -91,9 +91,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Cooking</defName>
-    <label>make skilltrainer (cooking)</label>
-    <description>Make a skilltrainer (cooking).</description>
-    <jobString>Making a skilltrainer (cooking).</jobString>
+    <label>form skilltrainer (cooking)</label>
+    <description>Form a skilltrainer (cooking).</description>
+    <jobString>Forming a skilltrainer (cooking).</jobString>
     <products>
       <Neurotrainer_Cooking>1</Neurotrainer_Cooking>
     </products>
@@ -102,9 +102,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Plants</defName>
-    <label>make skilltrainer (plants)</label>
-    <description>Make a skilltrainer (plants).</description>
-    <jobString>Making a skilltrainer (plants).</jobString>
+    <label>form skilltrainer (plants)</label>
+    <description>Form a skilltrainer (plants).</description>
+    <jobString>Forming a skilltrainer (plants).</jobString>
     <products>
       <Neurotrainer_Plants>1</Neurotrainer_Plants>
     </products>
@@ -113,9 +113,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Animals</defName>
-    <label>make skilltrainer (animals)</label>
-    <description>Make a skilltrainer (animals).</description>
-    <jobString>Making a skilltrainer (animals).</jobString>
+    <label>form skilltrainer (animals)</label>
+    <description>Form a skilltrainer (animals).</description>
+    <jobString>Forming a skilltrainer (animals).</jobString>
     <products>
       <Neurotrainer_Animals>1</Neurotrainer_Animals>
     </products>
@@ -124,9 +124,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Crafting</defName>
-    <label>make skilltrainer (crafting)</label>
-    <description>Make a skilltrainer (crafting).</description>
-    <jobString>Making a skilltrainer (crafting).</jobString>
+    <label>form skilltrainer (crafting)</label>
+    <description>Form a skilltrainer (crafting).</description>
+    <jobString>Forming a skilltrainer (crafting).</jobString>
     <products>
       <Neurotrainer_Crafting>1</Neurotrainer_Crafting>
     </products>
@@ -135,9 +135,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Artistic</defName>
-    <label>make skilltrainer (artistic)</label>
-    <description>Make a skilltrainer (artistic).</description>
-    <jobString>Making a skilltrainer (artistic).</jobString>
+    <label>form skilltrainer (artistic)</label>
+    <description>Form a skilltrainer (artistic).</description>
+    <jobString>Forming a skilltrainer (artistic).</jobString>
     <products>
       <Neurotrainer_Artistic>1</Neurotrainer_Artistic>
     </products>
@@ -146,9 +146,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Medicine</defName>
-    <label>make skilltrainer (medicine)</label>
-    <description>Make a skilltrainer (medicine).</description>
-    <jobString>Making a skilltrainer (medicine).</jobString>
+    <label>form skilltrainer (medicine)</label>
+    <description>Form a skilltrainer (medicine).</description>
+    <jobString>Forming a skilltrainer (medicine).</jobString>
     <products>
       <Neurotrainer_Medicine>1</Neurotrainer_Medicine>
     </products>
@@ -157,9 +157,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Social</defName>
-    <label>make skilltrainer (social)</label>
-    <description>Make a skilltrainer (social).</description>
-    <jobString>Making a skilltrainer (social).</jobString>
+    <label>form skilltrainer (social)</label>
+    <description>Form a skilltrainer (social).</description>
+    <jobString>Forming a skilltrainer (social).</jobString>
     <products>
       <Neurotrainer_Social>1</Neurotrainer_Social>
     </products>
@@ -168,9 +168,9 @@
 
   <RecipeDef ParentName="USH_SkilltrainerRecipeBase">
     <defName>USH_Make_Neurotrainer_Intellectual</defName>
-    <label>make skilltrainer (intellectual)</label>
-    <description>Make a skilltrainer (intellectual).</description>
-    <jobString>Making a skilltrainer (intellectual).</jobString>
+    <label>form skilltrainer (intellectual)</label>
+    <description>Form a skilltrainer (intellectual).</description>
+    <jobString>Forming a skilltrainer (intellectual).</jobString>
     <products>
       <Neurotrainer_Intellectual>1</Neurotrainer_Intellectual>
     </products>
