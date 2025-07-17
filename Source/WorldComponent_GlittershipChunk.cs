@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
@@ -65,9 +66,9 @@ public class WorldComponent_GlittershipChunk : WorldComponent
         {
             DropMechs(map, spawnPos, [shipChunk, crate]);
         }
-        catch
+        catch (Exception e)
         {
-            Log.Warning("For some reason the mechanoids didn't spawn. I know. I'm also disappointed.");
+            Log.Warning("For some reason the mechanoids didn't spawn. I know. I'm also disappointed. Here's the exception if your curious: " + e);
         }
 
         string label = "USH_GE_LetterLabelGlittershipChunk".Translate();
