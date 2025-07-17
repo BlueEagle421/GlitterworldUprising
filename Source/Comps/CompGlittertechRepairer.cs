@@ -212,9 +212,10 @@ public class CompGlittertechRepairer : ThingComp
         if (t.Destroyed)
             return false;
 
-        float dist = t.Position.DistanceToSquared(parent.Position);
+        if (!t.def.useHitPoints)
+            return false;
 
-        if (dist > RepairRadiusSquared)
+        if (t.Position.DistanceToSquared(parent.Position) > RepairRadiusSquared)
             return false;
 
         return true;
