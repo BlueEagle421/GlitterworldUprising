@@ -21,7 +21,7 @@ public class WorldComponent_GlittershipChunk : WorldComponent
     private int _ticksPassed;
     private bool _didEvent;
 
-    private const int TICK_CHECK_INTERVAL = 250;
+    private const int TICK_CHECK_INTERVAL = 2000;
     private const int THREAT_POINTS = 600;
 
     public override void WorldComponentTick()
@@ -44,25 +44,14 @@ public class WorldComponent_GlittershipChunk : WorldComponent
             FireEvent();
     }
 
-    private void FireEvent()
-    {
-        Map map = Find.AnyPlayerHomeMap;
-
-        if (map == null)
-            return;
-
-        if (!EventSpawnChunk())
-            return;
-
-        _didEvent = true;
-    }
-
-    public bool EventSpawnChunk()
+    public bool FireEvent()
     {
         Map map = Find.AnyPlayerHomeMap;
 
         if (map == null)
             return false;
+
+        _didEvent = true;
 
         IntVec3 spawnPos = IntVec3.Invalid;
 
@@ -72,7 +61,14 @@ public class WorldComponent_GlittershipChunk : WorldComponent
         shipChunk.SetFaction(Faction.OfMechanoids);
         crate.SetFaction(Faction.OfMechanoids);
 
-        DropMechs(map, spawnPos, [shipChunk, crate]);
+        try
+        {
+            DropMechs(map, spawnPos, [shipChunk, crate]);
+        }
+        catch
+        {
+            Log.Warning("For some reason the mechanoids didn't spawn. I know. I'm also disappointed.");
+        }
 
         string label = "USH_GE_LetterLabelGlittershipChunk".Translate();
         string desc = "USH_GE_LetterGlittershipChunk".Translate();
