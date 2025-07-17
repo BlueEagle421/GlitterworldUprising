@@ -46,9 +46,11 @@
             <li>BuildingsMisc</li>
         </thingCategories>
         <comps>
-            <li Class="CompProperties_Facility">
-                <maxSimultaneous>3</maxSimultaneous>
-                <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <shortCircuitInRain>false</shortCircuitInRain>
+                <basePowerConsumption>30</basePowerConsumption>
             </li>
             <li Class="CompProperties_Refuelable">
                 <fuelConsumptionRate>22</fuelConsumptionRate>
@@ -61,10 +63,9 @@
                 </fuelFilter>
                 <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
             </li>
-            <li Class="CompProperties_Power">
-                <compClass>CompPowerTrader</compClass>
-                <shortCircuitInRain>false</shortCircuitInRain>
-                <basePowerConsumption>30</basePowerConsumption>
+            <li Class="CompProperties_Facility">
+                <maxSimultaneous>3</maxSimultaneous>
+                <mustBePlacedAdjacent>false</mustBePlacedAdjacent>
             </li>
             <li Class="USH_GE.CompProperties_NeuroclearConsole">
                 <fuelConsumption>2</fuelConsumption>

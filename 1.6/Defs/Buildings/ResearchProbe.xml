@@ -43,6 +43,7 @@
             <li>BuildingsMisc</li>
         </thingCategories>
         <comps>
+            <li Class="CompProperties_Flickable" />
             <li Class="CompProperties_Facility">
                 <statOffsets>
                     <ResearchSpeedFactor>0.04</ResearchSpeedFactor>

@@ -54,16 +54,17 @@
             <USH_Glittercore>2</USH_Glittercore>
         </costList>
         <comps>
+            <li Class="CompProperties_Flickable" />
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>110</basePowerConsumption>
+            </li>
             <li Class="CompProperties_Facility">
                 <statOffsets>
                     <USH_GlittertechDuration>-0.08</USH_GlittertechDuration>
                     <USH_GlittertechPowerStored>-0.1</USH_GlittertechPowerStored>
                 </statOffsets>
                 <maxSimultaneous>4</maxSimultaneous>
-            </li>
-            <li Class="CompProperties_Power">
-                <compClass>CompPowerTrader</compClass>
-                <basePowerConsumption>110</basePowerConsumption>
             </li>
         </comps>
         <researchPrerequisites>
