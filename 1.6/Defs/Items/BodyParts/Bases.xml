@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef Name="USH_GlitterworldBodyPart" ParentName="BodyPartBase" Abstract="True">
+        <techLevel>Ultra</techLevel>
+        <tradeTags>
+            <li>GlitterworldParts</li>
+        </tradeTags>
+        <thingCategories>
+            <li>BodyPartsUltra</li>
+        </thingCategories>
+        <graphicData>
+            <texPath>Things/Item/GlitterworldHealthItem</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>0.80</drawSize>
+        </graphicData>
+        <tradeability>Sellable</tradeability>
+        <statBases>
+            <DeteriorationRate>0</DeteriorationRate>
+        </statBases>
+        <recipeMaker>
+            <recipeUsers>
+                <li>FabricationBench</li>
+            </recipeUsers>
+            <skillRequirements>
+                <Crafting>4</Crafting>
+                <Intellectual>6</Intellectual>
+            </skillRequirements>
+            <workAmount>40800</workAmount>
+            <unfinishedThingDef>USH_UnfinishedHealthItemGlitter</unfinishedThingDef>
+        </recipeMaker>
+    </ThingDef>
+
+    <HediffDef Name="USH_AddedPartGlittery" ParentName="ImplantHediffBase" Abstract="True">
+        <defaultLabelColor>(244,210,131)</defaultLabelColor>
+        <addedPartProps>
+            <partEfficiency>1</partEfficiency>
+        </addedPartProps>
+    </HediffDef>
+
+    <ThingDef ParentName="UnfinishedBase">
+        <defName>USH_UnfinishedHealthItemGlitter</defName>
+        <label>unfinished glitterworld replacement</label>
+        <description>An glitterworld replacement.</description>
+        <statBases>
+            <Flammability>0.5</Flammability>
+        </statBases>
+        <graphicData>
+            <texPath>Things/Item/GlitterworldHealthItem</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <color>(170,205,213)</color>
+        </graphicData>
+        <stuffCategories Inherit="false" />
+    </ThingDef>
+
+</Defs>

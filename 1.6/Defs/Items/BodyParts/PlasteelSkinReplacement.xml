@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--Plasteel skin replacement-->
+
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>USH_InstalledPlasteelSkinReplacement</defName>
+        <label>plasteel skin replacement</label>
+        <labelNoun>a plasteel skin replacement</labelNoun>
+        <description>An installed plasteel skin replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_PlasteelSkinReplacement</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>USH_PlasteelSkinReplacement</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>1.3</postFactor>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <ArmorRating_Sharp>0.42</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.28</ArmorRating_Blunt>
+                    <ArmorRating_Heat>0.4</ArmorRating_Heat>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="USH_GE.HediffCompProperties_SkinReplacement">
+                <skinColor>(147, 188, 189)</skinColor>
+            </li>
+            <li Class="USH_GE.HediffCompProperties_RemoveDuplicates">
+                <hediffsConsideredSame>
+                    <li>USH_InstalledGoldenSkinReplacement</li>
+                    <li>USH_InstalledPlasteelSkinReplacement</li>
+                </hediffsConsideredSame>
+            </li>
+        </comps>
+        <tags>
+            <li>USH_PlasteelSkinReplacementTag</li>
+        </tags>
+    </HediffDef>
+
+    <ThingDef ParentName="USH_GlitterworldBodyPart">
+        <defName>USH_PlasteelSkinReplacement</defName>
+        <label>plasteel skin replacement</label>
+        <description>Is your skin full of imperfections? Is it indistinct and blends in with others? Obtain your dream body today with various skin replacements!
+            \nFull body skin replacement made out of plasteel. It is soft in touch, flexible, and extremely durable.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>USH_InstallPlasteelSkinReplacement</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Plasteel>160</Plasteel>
+            <USH_Glittercore>8</USH_Glittercore>
+        </costList>
+        <statBases>
+            <Mass>0.1</Mass>
+        </statBases>
+        <recipeMaker>
+            <researchPrerequisite>USH_SkinRes</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>USH_InstallPlasteelSkinReplacement</defName>
+        <label>install plasteel skin replacement</label>
+        <description>Install a plasteel skin replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_PlasteelSkinReplacement</ThingDef>
+            <HediffDef>USH_InstalledPlasteelSkinReplacement</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing plasteel skin replacement.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PlasteelSkinReplacement</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>USH_PlasteelSkinReplacement</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>USH_InstalledPlasteelSkinReplacement</addsHediff>
+        <incompatibleWithHediffTags>
+            <li>USH_PlasteelSkinReplacementTag</li>
+        </incompatibleWithHediffTags>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryRemoveImplantBase">
+        <defName>USH_RemovePlasteelSkinReplacement</defName>
+        <label>remove plasteel skin replacement</label>
+        <description>Remove plasteel skin replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_PlasteelSkinReplacement</ThingDef>
+        </descriptionHyperlinks>
+        <jobString>Removing plasteel skin replacement.</jobString>
+        <removesHediff>USH_InstalledPlasteelSkinReplacement</removesHediff>
+    </RecipeDef>
+
+</Defs>

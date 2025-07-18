@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--Golden skin replacement-->
+
+    <HediffDef ParentName="ImplantHediffBase">
+        <defName>USH_InstalledGoldenSkinReplacement</defName>
+        <label>golden skin replacement</label>
+        <labelNoun>a golden skin replacement</labelNoun>
+        <description>An installed golden skin replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GoldenSkinReplacement</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>USH_GoldenSkinReplacement</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Moving</capacity>
+                        <postFactor>0.9</postFactor>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
+                    <ArmorRating_Heat>0.4</ArmorRating_Heat>
+                    <PawnBeauty>2</PawnBeauty>
+                    <SocialImpact>0.3</SocialImpact>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="USH_GE.HediffCompProperties_SkinReplacement">
+                <skinColor>(255, 235, 122)</skinColor>
+            </li>
+            <li Class="USH_GE.HediffCompProperties_RemoveDuplicates">
+                <hediffsConsideredSame>
+                    <li>USH_InstalledGoldenSkinReplacement</li>
+                    <li>USH_InstalledPlasteelSkinReplacement</li>
+                </hediffsConsideredSame>
+            </li>
+        </comps>
+        <tags>
+            <li>USH_GoldenSkinReplacementTag</li>
+        </tags>
+    </HediffDef>
+
+    <ThingDef ParentName="USH_GlitterworldBodyPart">
+        <defName>USH_GoldenSkinReplacement</defName>
+        <label>golden skin replacement</label>
+        <description>Full body skin replacement made out of pure gold. It is an indicator of status and object of desire, especially among royalty.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>USH_InstallGoldenSkinReplacement</RecipeDef>
+        </descriptionHyperlinks>
+        <costList>
+            <Gold>12</Gold>
+            <USH_Glittercore>6</USH_Glittercore>
+        </costList>
+        <statBases>
+            <Mass>0.1</Mass>
+        </statBases>
+        <recipeMaker>
+            <researchPrerequisite>USH_SkinRes</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>USH_InstallGoldenSkinReplacement</defName>
+        <label>install golden skin replacement</label>
+        <description>Install a golden skin replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GoldenSkinReplacement</ThingDef>
+            <HediffDef>USH_InstalledGoldenSkinReplacement</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing golden skin replacement.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_GoldenSkinReplacement</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>USH_GoldenSkinReplacement</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Torso</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>USH_InstalledGoldenSkinReplacement</addsHediff>
+        <incompatibleWithHediffTags>
+            <li>USH_GoldenSkinReplacementTag</li>
+        </incompatibleWithHediffTags>
+    </RecipeDef>
+
+    <RecipeDef ParentName="SurgeryRemoveImplantBase">
+        <defName>USH_RemoveGoldenSkinReplacement</defName>
+        <label>remove golden skin replacement</label>
+        <description>Remove golden skin replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GoldenSkinReplacement</ThingDef>
+        </descriptionHyperlinks>
+        <jobString>Removing golden skin replacement.</jobString>
+        <removesHediff>USH_InstalledGoldenSkinReplacement</removesHediff>
+    </RecipeDef>
+
+    <ThoughtDef>
+        <defName>USH_GoldenSkinThought</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>USH_InstalledGoldenSkinReplacement</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>golden skin replacement</label>
+                <description>My skin is shiny, my life is brighter.</description>
+                <baseMoodEffect>6</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

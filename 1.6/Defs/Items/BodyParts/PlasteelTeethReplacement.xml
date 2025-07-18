@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+    <!--Plasteel teeth replacement-->
+
+    <HediffDef ParentName="USH_AddedPartGlittery">
+        <defName>USH_InstalledPlasteelTeethReplacement</defName>
+        <label>plasteel teeth replacement</label>
+        <description>An installed plasteel teeth replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_PlasteelTeethReplacement</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>USH_PlasteelTeethReplacement</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Eating</capacity>
+                        <offset>0.45</offset>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <MaxNutrition>0.25</MaxNutrition>
+                    <PainShockThreshold>0.1</PainShockThreshold>
+                    <RestRateMultiplier>0.08</RestRateMultiplier>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="USH_GE.HediffCompProperties_RemoveDuplicates">
+                <hediffsConsideredSame>
+                    <li>USH_InstalledGoldenTeethReplacement</li>
+                    <li>USH_InstalledPlasteelTeethReplacement</li>
+                </hediffsConsideredSame>
+            </li>
+        </comps>
+        <tags>
+            <li>USH_PlasteelTeethReplacementTag</li>
+        </tags>
+    </HediffDef>
+
+    <ThingDef ParentName="USH_GlitterworldBodyPart">
+        <defName>USH_PlasteelTeethReplacement</defName>
+        <label>plasteel teeth replacement</label>
+        <description>An advanced tooth replacement that improves everyday quality of life. Each tooth contains a microprocessor that adjusts to the wearer’s needs and comfort.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>USH_InstallPlasteelTeethReplacement</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <Mass>0.1</Mass>
+        </statBases>
+        <costList>
+            <Plasteel>50</Plasteel>
+            <USH_Glittercore>2</USH_Glittercore>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>USH_TeethRes</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>USH_InstallPlasteelTeethReplacement</defName>
+        <label>install plasteel teeth replacement</label>
+        <description>Install a plasteel teeth replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_PlasteelTeethReplacement</ThingDef>
+            <HediffDef>USH_InstalledPlasteelTeethReplacement</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing plasteel teeth replacement.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_PlasteelTeethReplacement</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>USH_PlasteelTeethReplacement</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Jaw</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>USH_InstalledPlasteelTeethReplacement</addsHediff>
+        <incompatibleWithHediffTags>
+            <li>USH_PlasteelTeethReplacementTag</li>
+        </incompatibleWithHediffTags>
+    </RecipeDef>
+
+
+    <ThoughtDef>
+        <defName>USH_PlasteelTeethThought</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>USH_InstalledPlasteelTeethReplacement</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>plasteel teeth replacement</label>
+                <description>Eating and talking feels like heaven. Praise glittertech.</description>
+                <baseMoodEffect>5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

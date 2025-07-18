@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!--Golden teeth replacement-->
+
+    <HediffDef ParentName="USH_AddedPartGlittery">
+        <defName>USH_InstalledGoldenTeethReplacement</defName>
+        <label>golden teeth replacement</label>
+        <description>An installed golden teeth replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GoldenTeethReplacement</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>USH_GoldenTeethReplacement</spawnThingOnRemoved>
+        <stages>
+            <li>
+                <capMods>
+                    <li>
+                        <capacity>Eating</capacity>
+                        <offset>0.35</offset>
+                    </li>
+                </capMods>
+                <statOffsets>
+                    <SocialImpact>0.15</SocialImpact>
+                </statOffsets>
+            </li>
+        </stages>
+        <comps>
+            <li Class="USH_GE.HediffCompProperties_RemoveDuplicates">
+                <hediffsConsideredSame>
+                    <li>USH_InstalledGoldenTeethReplacement</li>
+                    <li>USH_InstalledPlasteelTeethReplacement</li>
+                </hediffsConsideredSame>
+            </li>
+        </comps>
+        <tags>
+            <li>USH_GoldenTeethReplacementTag</li>
+        </tags>
+    </HediffDef>
+
+    <ThingDef ParentName="USH_GlitterworldBodyPart">
+        <defName>USH_GoldenTeethReplacement</defName>
+        <label>golden teeth replacement</label>
+        <description>A set of golden teeth appreciated by royals. Glitterworld technology makes the jaw painless and comfortable to use.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>USH_InstallGoldenTeethReplacement</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <Mass>0.1</Mass>
+        </statBases>
+        <costList>
+            <Gold>3</Gold>
+            <USH_Glittercore>1</USH_Glittercore>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>USH_TeethRes</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>USH_InstallGoldenTeethReplacement</defName>
+        <label>install golden teeth replacement</label>
+        <description>Install a golden teeth replacement.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_GoldenTeethReplacement</ThingDef>
+            <HediffDef>USH_InstalledGoldenTeethReplacement</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing golden teeth replacement.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_GoldenTeethReplacement</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>USH_GoldenTeethReplacement</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Jaw</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>USH_InstalledGoldenTeethReplacement</addsHediff>
+        <incompatibleWithHediffTags>
+            <li>USH_GoldenTeethReplacementTag</li>
+        </incompatibleWithHediffTags>
+    </RecipeDef>
+
+    <ThoughtDef>
+        <defName>USH_GoldenTeethThought</defName>
+        <workerClass>ThoughtWorker_Hediff</workerClass>
+        <hediff>USH_InstalledGoldenTeethReplacement</hediff>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>golden smile</label>
+                <description>when I smile I feel prestigious.</description>
+                <baseMoodEffect>2</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>
