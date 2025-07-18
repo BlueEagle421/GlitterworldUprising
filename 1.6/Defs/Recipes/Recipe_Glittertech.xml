@@ -837,6 +837,11 @@
                 <count>1</count>
             </li>
         </ingredients>
+        <fixedIngredientFilter>
+            <categories>
+                <li>Neurotrainers</li>
+            </categories>
+        </fixedIngredientFilter>
         <products>
             <MechSerumResurrector>1</MechSerumResurrector>
         </products>
