@@ -43,17 +43,17 @@
             <li>BuildingsMisc</li>
         </thingCategories>
         <comps>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>250</basePowerConsumption>
+                <shortCircuitInRain>false</shortCircuitInRain>
+            </li>
             <li Class="CompProperties_Flickable" />
             <li Class="CompProperties_Facility">
                 <statOffsets>
                     <ResearchSpeedFactor>0.04</ResearchSpeedFactor>
                 </statOffsets>
                 <maxSimultaneous>6</maxSimultaneous>
-            </li>
-            <li Class="CompProperties_Power">
-                <compClass>CompPowerTrader</compClass>
-                <basePowerConsumption>250</basePowerConsumption>
-                <shortCircuitInRain>false</shortCircuitInRain>
             </li>
             <li Class="USH_GE.CompProperties_PassiveRes">
                 <ticksPerResearch>250</ticksPerResearch>
