@@ -14,9 +14,10 @@
         <stackLimit>3</stackLimit>
         <healthAffectsPrice>false</healthAffectsPrice>
         <statBases>
-            <MarketValue>600</MarketValue>
+            <MarketValue>1200</MarketValue>
             <Mass>3</Mass>
             <Flammability>0.0</Flammability>
+            <SellPriceFactor>0.20</SellPriceFactor>
         </statBases>
         <useHitPoints>false</useHitPoints>
         <healthAffectsPrice>false</healthAffectsPrice>
@@ -27,7 +28,7 @@
         <thingSetMakerTags>
             <li>RewardStandardLowFreq</li>
         </thingSetMakerTags>
-        <tradeability>None</tradeability>
+        <tradeability>Sellable</tradeability>
         <allowedArchonexusCount>5</allowedArchonexusCount>
     </ThingDef>
 
