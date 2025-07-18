@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <!-- Telepad integrator -->
+
+    <HediffDef ParentName="USH_AddedPartGlittery">
+        <defName>USH_InstalledCryogenicNexus</defName>
+        <label>cryogenic nexus</label>
+        <description>An installed cryogenic nexus.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_CryogenicNexus</ThingDef>
+        </descriptionHyperlinks>
+        <spawnThingOnRemoved>USH_CryogenicNexus</spawnThingOnRemoved>
+        <addedPartProps>
+            <solid>true</solid>
+            <partEfficiency>1.25</partEfficiency>
+            <betterThanNatural>true</betterThanNatural>
+        </addedPartProps>
+        <stages>
+            <li>
+                <statFactors>
+                    <Flammability>0</Flammability>
+                </statFactors>
+                <statOffsets>
+                    <ComfyTemperatureMax>60</ComfyTemperatureMax>
+                </statOffsets>
+                <capMods>
+                    <li>
+                        <capacity>BloodFiltration</capacity>
+                        <postFactor>0.85</postFactor>
+                    </li>
+                </capMods>
+            </li>
+        </stages>
+        <tags>
+            <li>USH_CryogenicNexusTag</li>
+        </tags>
+    </HediffDef>
+
+    <ThingDef ParentName="USH_GlitterworldBodyPart">
+        <defName>USH_CryogenicNexus</defName>
+        <label>cryogenic nexus</label>
+        <description>A glittertech heart replacement that renders the user’s blood mutated and fire‑immune. It protects all body cells and the skin from ignition, but it also lowers antibody counts and compromises the immune system, reducing blood filtration efficiency.</description>
+        <descriptionHyperlinks>
+            <RecipeDef>USH_InstallCryogenicNexus</RecipeDef>
+        </descriptionHyperlinks>
+        <statBases>
+            <Mass>0.1</Mass>
+        </statBases>
+        <costList>
+            <Shell_Firefoam>2</Shell_Firefoam>
+            <Neutroamine>120</Neutroamine>
+            <MedicineUltratech>1</MedicineUltratech>
+            <Plasteel>40</Plasteel>
+            <USH_Glittercore>2</USH_Glittercore>
+            <USH_Glitterheart>1</USH_Glitterheart>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>USH_TelepadRes</researchPrerequisite>
+        </recipeMaker>
+    </ThingDef>
+
+    <RecipeDef ParentName="SurgeryInstallImplantBase">
+        <defName>USH_InstallCryogenicNexus</defName>
+        <label>install cryogenic nexus</label>
+        <description>Install a cryogenic nexus.</description>
+        <descriptionHyperlinks>
+            <ThingDef>USH_CryogenicNexus</ThingDef>
+            <HediffDef>USH_InstalledCryogenicNexus</HediffDef>
+        </descriptionHyperlinks>
+        <jobString>Installing cryogenic nexus.</jobString>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>USH_CryogenicNexus</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>USH_CryogenicNexus</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <appliedOnFixedBodyParts>
+            <li>Heart</li>
+        </appliedOnFixedBodyParts>
+        <addsHediff>USH_InstalledCryogenicNexus</addsHediff>
+        <incompatibleWithHediffTags>
+            <li>USH_CryogenicNexusTag</li>
+        </incompatibleWithHediffTags>
+    </RecipeDef>
+
+</Defs>
