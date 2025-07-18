@@ -37,7 +37,7 @@
         </ingredients>
         <products>
             <Steel>15</Steel>
-            <Plasteel>3</Plasteel>
+            <Plasteel>2</Plasteel>
         </products>
         <fixedIngredientFilter>
             <thingDefs>
