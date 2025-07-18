@@ -105,8 +105,8 @@
       <RecipeDef>USH_InstallGoldenSkinReplacement</RecipeDef>
     </descriptionHyperlinks>
     <costList>
-      <Gold>18</Gold>
-      <USH_Glittercore>4</USH_Glittercore>
+      <Gold>12</Gold>
+      <USH_Glittercore>6</USH_Glittercore>
     </costList>
     <statBases>
       <Mass>0.1</Mass>
@@ -225,8 +225,8 @@
       <RecipeDef>USH_InstallPlasteelSkinReplacement</RecipeDef>
     </descriptionHyperlinks>
     <costList>
-      <Plasteel>120</Plasteel>
-      <USH_Glittercore>6</USH_Glittercore>
+      <Plasteel>160</Plasteel>
+      <USH_Glittercore>8</USH_Glittercore>
     </costList>
     <statBases>
       <Mass>0.1</Mass>
@@ -376,7 +376,7 @@
     <stages>
       <li>
         <label>golden smile</label>
-        <description>when I smile the world smiles with me. I feel prestigious.</description>
+        <description>when I smile I feel prestigious.</description>
         <baseMoodEffect>2</baseMoodEffect>
       </li>
     </stages>
@@ -403,7 +403,7 @@
         <statOffsets>
           <MaxNutrition>0.25</MaxNutrition>
           <PainShockThreshold>0.1</PainShockThreshold>
-          <RestRateMultiplier>0.2</RestRateMultiplier>
+          <RestRateMultiplier>0.08</RestRateMultiplier>
         </statOffsets>
       </li>
     </stages>
@@ -431,7 +431,7 @@
       <Mass>0.1</Mass>
     </statBases>
     <costList>
-      <Plasteel>20</Plasteel>
+      <Plasteel>50</Plasteel>
       <USH_Glittercore>2</USH_Glittercore>
     </costList>
     <recipeMaker>
