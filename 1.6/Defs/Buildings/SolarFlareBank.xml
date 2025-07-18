@@ -30,18 +30,6 @@
         </statBases>
         <tickerType>Normal</tickerType>
         <comps>
-            <li Class="CompProperties_Refuelable">
-                <fuelConsumptionRate>1</fuelConsumptionRate>
-                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
-                <fuelCapacity>2</fuelCapacity>
-                <fuelFilter>
-                    <thingDefs>
-                        <li>ComponentSpacer</li>
-                    </thingDefs>
-                </fuelFilter>
-                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-                <initialFuelPercent>0.5</initialFuelPercent>
-            </li>
             <li Class="USH_GE.CompProperties_SolarFlareBank">
                 <basePowerConsumption>-12000</basePowerConsumption>
                 <transmitsPower>true</transmitsPower>
@@ -54,6 +42,19 @@
                 <affectedDamageDefs>
                     <li>EMP</li>
                 </affectedDamageDefs>
+            </li>
+            <li Class="CompProperties_Refuelable">
+                <fuelConsumptionRate>1</fuelConsumptionRate>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <fuelCapacity>2</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>ComponentSpacer</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+                <initialFuelPercent>0.5</initialFuelPercent>
+                <drawOutOfFuelOverlay>false</drawOutOfFuelOverlay>
             </li>
         </comps>
         <passability>PassThroughOnly</passability>
