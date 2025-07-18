@@ -18,8 +18,8 @@
         <label>form glittercore</label>
         <description>Form a glittercore.</description>
         <researchPrerequisite>USH_GlittertechFabrication</researchPrerequisite>
-        <formingTicks>10000</formingTicks>
-        <gestationCycles>4</gestationCycles>
+        <formingTicks>20000</formingTicks>
+        <gestationCycles>2</gestationCycles>
         <ingredients Inherit="false">
             <li>
                 <filter>
