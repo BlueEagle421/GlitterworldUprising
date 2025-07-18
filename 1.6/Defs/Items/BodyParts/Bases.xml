@@ -24,9 +24,9 @@
             </recipeUsers>
             <skillRequirements>
                 <Crafting>4</Crafting>
-                <Intellectual>6</Intellectual>
+                <Intellectual>8</Intellectual>
             </skillRequirements>
-            <workAmount>40800</workAmount>
+            <workAmount>32000</workAmount>
             <unfinishedThingDef>USH_UnfinishedHealthItemGlitter</unfinishedThingDef>
         </recipeMaker>
     </ThingDef>
