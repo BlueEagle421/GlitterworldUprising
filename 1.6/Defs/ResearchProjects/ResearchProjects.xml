@@ -39,7 +39,7 @@
         <defName>USH_LightGlitterpanelsRes</defName>
         <label>Light glitterpanels</label>
         <description>Build light glitterpanels and link them to the glittertech fabricator.</description>
-        <baseCost>2800</baseCost>
+        <baseCost>2500</baseCost>
         <prerequisites>
             <li>USH_GlittertechFabrication</li>
         </prerequisites>
@@ -63,7 +63,7 @@
         <defName>USH_DarkGlitterpanelsRes</defName>
         <label>Dark glitterpanels</label>
         <description>Build dark glitterpanels and link them to the glittertech fabricator.</description>
-        <baseCost>3600</baseCost>
+        <baseCost>3500</baseCost>
         <prerequisites>
             <li>USH_GlittertechFabrication</li>
         </prerequisites>
@@ -173,7 +173,7 @@
         <defName>USH_CombatSkilltrainersRes</defName>
         <label>Combat skilltrainers</label>
         <description>Make combat related skilltrainers.</description>
-        <baseCost>3800</baseCost>
+        <baseCost>4500</baseCost>
         <prerequisites>
             <li>USH_DeepMindScanningRes</li>
         </prerequisites>
@@ -185,7 +185,7 @@
         <defName>USH_EngineeringSkilltrainersRes</defName>
         <label>Engineering skilltrainers</label>
         <description>Make engineering related skilltrainers.</description>
-        <baseCost>3600</baseCost>
+        <baseCost>4000</baseCost>
         <prerequisites>
             <li>USH_DeepMindScanningRes</li>
         </prerequisites>
@@ -197,7 +197,7 @@
         <defName>USH_IntellectualSkilltrainersRes</defName>
         <label>Intellectual skilltrainers</label>
         <description>Make intellectual related skilltrainers.</description>
-        <baseCost>3800</baseCost>
+        <baseCost>4000</baseCost>
         <prerequisites>
             <li>USH_DeepMindScanningRes</li>
         </prerequisites>
