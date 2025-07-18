@@ -10,41 +10,39 @@ public static class GameConditionManager_RegisterCondition
 {
     private const int INTERCEPT_LETTER_DELAY = 60;
 
-    [HarmonyPrefix]
-    public static bool Prefix(
+    [HarmonyPostfix]
+    public static void Postfix(
         GameConditionManager __instance,
         GameCondition cond)
     {
         if (cond == null)
-            return true;
+            return;
 
         if (cond.def == null)
-            return true;
+            return;
 
         if (__instance == null)
-            return true;
+            return;
 
         if (cond.def != IncidentDefOf.SolarFlare.gameCondition)
-            return true;
+            return;
 
         var component = __instance.ownerMap.GetComponent<MapComponent_SolarFlareBank>();
 
-        if (!component.AllAvailableSolarBanks.NullOrEmpty())
-        {
-            InterceptSolarFlare(component.AllAvailableSolarBanks, component);
-            return false;
-        }
+        if (component.AllAvailableSolarBanks.NullOrEmpty())
+            return;
 
-        return true;
+        InterceptSolarFlare(component.AllAvailableSolarBanks, cond);
     }
 
-    private static void InterceptSolarFlare(List<CompSolarFlareBank> allBankComps, MapComponent_SolarFlareBank component)
+    private static void InterceptSolarFlare(List<CompSolarFlareBank> allBankComps, GameCondition condition)
     {
         allBankComps.ForEach(x => x.Notify_SolarFlareIntercepted());
 
         string label = "USH_GE_SolarFlareInterceptedLabel".Translate();
         string text = "USH_GE_SolarFlareInterceptedText".Translate(allBankComps.Count);
 
+        condition.End();
         Find.LetterStack.ReceiveLetter(label, text, LetterDefOf.PositiveEvent, null, INTERCEPT_LETTER_DELAY);
     }
 }
