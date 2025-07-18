@@ -149,8 +149,9 @@
         <defName>USH_TeethRes</defName>
         <label>Teeth replacements</label>
         <description>Make comfortable teeth replacements.</description>
-        <baseCost>2300</baseCost>
+        <baseCost>2500</baseCost>
         <prerequisites>
+            <li>Bionics</li>
             <li>USH_NeuromodifiersBasicsRes</li>
         </prerequisites>
         <researchViewX>3.00</researchViewX>
@@ -159,9 +160,9 @@
 
     <ResearchProjectDef ParentName="USE_GE_ProbeProjectBase">
         <defName>USH_SkinRes</defName>
-        <label>Body perfecting</label>
-        <description>Make advanced skin replacements.</description>
-        <baseCost>4000</baseCost>
+        <label>Glitterworld ascension</label>
+        <description>Learn about the great secrets of glitterworld medicine and build powerful body parts.</description>
+        <baseCost>6000</baseCost>
         <prerequisites>
             <li>USH_TeethRes</li>
         </prerequisites>
