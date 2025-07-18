@@ -48,15 +48,18 @@
             <Mass>0.1</Mass>
         </statBases>
         <costList>
-            <Shell_Firefoam>2</Shell_Firefoam>
             <Neutroamine>120</Neutroamine>
             <MedicineUltratech>1</MedicineUltratech>
+            <Uranium>40</Uranium>
             <Plasteel>40</Plasteel>
             <USH_Glittercore>2</USH_Glittercore>
             <USH_Glitterheart>1</USH_Glitterheart>
         </costList>
         <recipeMaker>
-            <researchPrerequisite>USH_TelepadRes</researchPrerequisite>
+            <researchPrerequisites>
+                <li>USH_SkinRes</li>
+                <li>Cryptosleep</li>
+            </researchPrerequisites>
         </recipeMaker>
     </ThingDef>
 
