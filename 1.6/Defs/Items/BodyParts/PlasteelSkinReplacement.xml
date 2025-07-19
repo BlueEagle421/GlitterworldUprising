@@ -15,9 +15,10 @@
         <stages>
             <li>
                 <statOffsets>
-                    <ArmorRating_Sharp>0.50</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>0.3</ArmorRating_Blunt>
-                    <ArmorRating_Heat>0.5</ArmorRating_Heat>
+                    <ArmorRating_Sharp>0.5</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.4</ArmorRating_Blunt>
+                    <ArmorRating_Heat>0.6</ArmorRating_Heat>
+                    <MentalBreakThreshold>-0.09</MentalBreakThreshold>
                 </statOffsets>
                 <capMods>
                     <li>
@@ -46,7 +47,7 @@
     <ThingDef ParentName="USH_GlitterworldBodyPart">
         <defName>USH_PlasteelSkinReplacement</defName>
         <label>plasteel skin replacement</label>
-        <description>An advanced plasteel skin prothesis with crystalline atomic structure. It's full of glittertech medical cells improving user's wellness. It is soft in touch, flexible, and extremely durable.</description>
+        <description>An advanced plasteel skin prothesis with crystalline atomic structure. It's full of glittertech medical cells making it soft in touch, flexible, and extremely durable.</description>
         <descriptionHyperlinks>
             <RecipeDef>USH_InstallPlasteelSkinReplacement</RecipeDef>
         </descriptionHyperlinks>
