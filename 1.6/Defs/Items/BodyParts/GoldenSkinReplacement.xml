@@ -14,18 +14,13 @@
         <spawnThingOnRemoved>USH_GoldenSkinReplacement</spawnThingOnRemoved>
         <stages>
             <li>
-                <capMods>
-                    <li>
-                        <capacity>Moving</capacity>
-                        <postFactor>0.9</postFactor>
-                    </li>
-                </capMods>
                 <statOffsets>
-                    <ArmorRating_Sharp>0.2</ArmorRating_Sharp>
-                    <ArmorRating_Blunt>0.05</ArmorRating_Blunt>
-                    <ArmorRating_Heat>0.4</ArmorRating_Heat>
+                    <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+                    <ArmorRating_Blunt>0.2</ArmorRating_Blunt>
+                    <ArmorRating_Heat>0.5</ArmorRating_Heat>
                     <PawnBeauty>2</PawnBeauty>
                     <SocialImpact>0.3</SocialImpact>
+                    <TradePriceImprovement>0.1</TradePriceImprovement>
                 </statOffsets>
             </li>
         </stages>
@@ -53,7 +48,7 @@
             <RecipeDef>USH_InstallGoldenSkinReplacement</RecipeDef>
         </descriptionHyperlinks>
         <costList>
-            <Gold>12</Gold>
+            <Gold>16</Gold>
             <USH_Glittercore>6</USH_Glittercore>
         </costList>
         <statBases>
