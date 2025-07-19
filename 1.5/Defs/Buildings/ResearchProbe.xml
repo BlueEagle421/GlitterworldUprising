@@ -47,7 +47,7 @@
                 <statOffsets>
                     <ResearchSpeedFactor>0.04</ResearchSpeedFactor>
                 </statOffsets>
-                <maxSimultaneous>6</maxSimultaneous>
+                <maxSimultaneous>4</maxSimultaneous>
             </li>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
